@@ -50,83 +50,84 @@ void plotMake_ncoll()
 	for(int i = 1; i <= nbins; i++){
 		totNcoll1 += (i-1)*(h1CentClass1 -> GetBinContent(i));
 	}
-	avgNcoll1 = totNcoll1/(h1CentClass1 -> Integral());
-	h1avgNcoll -> Fill(1, avgNcoll1);
-	cout << avgNcoll1 << endl;
-	
+	cout << "In class 1" << endl;
+	cout << totNcoll1 << endl;
+	cout << h1CentClass1 -> Integral() << endl;
+
 	//class2
 	for(int i = 1; i <= nbins; i++){
 		totNcoll2 += (i-1)*(h1CentClass2 -> GetBinContent(i));
 	}	
-	avgNcoll2 = totNcoll2/(h1CentClass2 -> Integral());
-	h1avgNcoll -> Fill(2, avgNcoll2);
-	cout << avgNcoll2 << endl;
+	cout << "In class 2" << endl;
+	cout << totNcoll2 << endl;
+	cout << h1CentClass2 -> Integral() << endl;
+	
 
 	//class3
 	for(int i = 1; i <= nbins; i++){
 		totNcoll3 += (i-1)*(h1CentClass3 -> GetBinContent(i));
 	}	
-	avgNcoll3 = totNcoll3/(h1CentClass3 -> Integral());
-	h1avgNcoll -> Fill(3, avgNcoll3);
-	cout << avgNcoll3 << endl;
+	cout << "In class 3" << endl;
+	cout << totNcoll3 << endl;
+	cout << h1CentClass3 -> Integral() << endl;
 	
 	//class4
 	for(int i = 1; i <= nbins; i++){
 		totNcoll4 += (i-1)*(h1CentClass4 -> GetBinContent(i));
 	}	
-	avgNcoll4 = totNcoll4/(h1CentClass4 -> Integral());
-	h1avgNcoll -> Fill(4, avgNcoll4);
-	cout << avgNcoll4 << endl;
+	cout << "In class 4" << endl;
+	cout << totNcoll4 << endl;
+	cout << h1CentClass4 -> Integral() << endl;
 	
 	//class5
 	for(int i = 1; i <= nbins; i++){
 		totNcoll5 += (i-1)*(h1CentClass5 -> GetBinContent(i));
 	}
-	avgNcoll5 = totNcoll5/(h1CentClass5 -> Integral());
-	h1avgNcoll -> Fill(5, avgNcoll5);
-	cout << avgNcoll5 << endl;
+	cout << "In class 5" << endl;
+	cout << totNcoll5 << endl;
+	cout << h1CentClass5 -> Integral() << endl;
 
-	h1avgNcoll -> Draw();
+ //	h1avgNcoll -> Draw();
 
- //	//Draw histogram
- //	gStyle -> SetOptStat(0);
- //	TCanvas *c1 = new TCanvas("", "", 800, 600);
- //	{
- //		c1 -> cd();
- //
- //		gPad -> SetTicks();
- //		gPad -> SetLeftMargin(0.15);
- //		gPad -> SetRightMargin(0.15);
- //		gPad -> SetTopMargin(0.05);
- //		gPad -> SetBottomMargin(0.12);
- //
- //		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 100);
- //
- //		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
- //		htmp -> GetXaxis() -> SetTitleSize(0.05);
- //		htmp -> GetXaxis() -> SetLabelSize(0.04);
- //		htmp -> GetXaxis() -> SetTitleOffset(1.1);
- //		htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{evt}} #frac{dN}{dp_{T}}");
- //		htmp -> GetYaxis() -> SetTitleSize(0.05);
- //		htmp -> GetYaxis() -> SetLabelSize(0.04);	
- //
- //		pTclass5 -> SetMarkerStyle(21);
- //		pTclass5 -> SetMarkerColor(38);
- //		pTclass5 -> SetLineColor(38);
- //		pTclass5 -> Draw("p same");
- //
- //		//adding legend
- //		TLegend *leg = new TLegend(0.53, 0.63, 0.83, 0.93);
- //		leg -> SetFillStyle(0);
- //		leg -> SetBorderSize(0);
- //		leg -> SetTextSize(0.04);
- //		leg -> AddEntry("", "PYTHIA8", "h");
- //		leg -> AddEntry("", "p+Au 200 GeV", "h");
- //		leg -> AddEntry("", "option = 3(No diffraction)", "h");
- //		leg -> AddEntry("", "100,000 events", "h");
- //		leg -> AddEntry("", "centrality 60~80%", "h");	
- //		leg -> Draw();
- //		
- //	}
+	//Draw histogram
+	gStyle -> SetOptStat(0);
+	TCanvas *c1 = new TCanvas("", "", 800, 600);
+	{
+		c1 -> cd();
+
+		gPad -> SetTicks();
+		gPad -> SetLeftMargin(0.15);
+		gPad -> SetRightMargin(0.15);
+		gPad -> SetTopMargin(0.05);
+		gPad -> SetBottomMargin(0.12);
+
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(1, 0, 6, 10);
+
+		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
+		htmp -> GetXaxis() -> SetTitleSize(0.05);
+		htmp -> GetXaxis() -> SetLabelSize(0.04);
+		htmp -> GetXaxis() -> SetTitleOffset(1.1);
+		htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{evt}} #frac{dN}{dp_{T}}");
+		htmp -> GetYaxis() -> SetTitleSize(0.05);
+		htmp -> GetYaxis() -> SetLabelSize(0.04);	
+
+		h1avgNcoll -> SetMarkerStyle(21);
+		h1avgNcoll -> SetMarkerColor(38);
+		h1avgNcoll -> SetLineColor(38);
+		h1avgNcoll -> Draw("p same");
+
+		//adding legend
+		TLegend *leg = new TLegend(0.53, 0.63, 0.83, 0.93);
+		leg -> SetFillStyle(0);
+		leg -> SetBorderSize(0);
+		leg -> SetTextSize(0.04);
+		leg -> AddEntry("", "PYTHIA8", "h");
+		leg -> AddEntry("", "p+Au 200 GeV", "h");
+		leg -> AddEntry("", "option = 3(No diffraction)", "h");
+		leg -> AddEntry("", "100,000 events", "h");
+		leg -> AddEntry("", "#LTNcoll#GT", "h");	
+		leg -> Draw();
+		
+	}
 }
 
