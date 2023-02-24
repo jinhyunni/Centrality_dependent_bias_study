@@ -107,16 +107,27 @@ void plotMake_pTpion()
 		pTclass5 -> Draw("p same");
 
 		//adding legend
-		TLegend *leg = new TLegend(0.53, 0.63, 0.83, 0.93);
-		leg -> SetFillStyle(0);
-		leg -> SetBorderSize(0);
-		leg -> SetTextSize(0.04);
-		leg -> AddEntry("", "PYTHIA8", "h");
-		leg -> AddEntry("", "p+Au 200 GeV", "h");
-		leg -> AddEntry("", "option = 3(No diffraction)", "h");
-		leg -> AddEntry("", "100,000 events", "h");
-		leg -> AddEntry("", "first correction", "h");
-		leg -> Draw();
+		TLegend* leg1 = new TLegend(0.53, 0.63, 0.83, 0.93);
+		leg1 -> SetFillStyle(0);
+		leg1 -> SetBorderSize(0);
+		leg1 -> SetTextSize(0.04);
+		leg1 -> AddEntry("", "PYTHIA8", "h");
+		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
+		leg1 -> AddEntry("", "option = 3(No diffraction)", "h");
+		leg1 -> AddEntry("", "100,000 events", "h");
+		leg1 -> AddEntry("", "first correction", "h");
+		leg1 -> Draw();
+
+		TLegend* leg2 = new TLegend(0.53, 0.33, 0.83, 0.63);
+		leg2 -> SetFillStyle(0);
+		leg2 -> SetBorderSize(0);
+		leg2 -> AddEntry(pTclass1, "centrality 0~10%", "p");
+		leg2 -> AddEntry(pTclass2, "centrality 10~20%", "p");
+		leg2 -> AddEntry(pTclass3, "centrality 20~40%", "p");
+		leg2 -> AddEntry(pTclass4, "centrality 40~60%", "p");
+		leg2 -> AddEntry(pTclass5, "centrality 60~80%", "p");
+		leg2 -> Draw();
+		leg2 -> Draw();
 		
 	}
 }
