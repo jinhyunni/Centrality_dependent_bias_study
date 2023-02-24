@@ -11,10 +11,17 @@
 		x: cent
 		y: pion0's pT
 
-		-> projectionX(centralirty -# of events)
-		-> projectionY(pT-# ofpion0 )
+		-> projectionY(): pion0's pT spectrum in
+						  each centrality bin
 	
-***********************************************/
+	* h2NcollCent
+		x: cent
+		y: ncoll
+
+		-> ProjectionX() : number of events in
+						   each centrality bin
+	
+*************************************************/
 
 void plotMake_pTpion()
 {
@@ -23,18 +30,35 @@ void plotMake_pTpion()
 	TH2D* h2pTcent = (TH2D*)input -> Get("pTpion0_cent");
 	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
 	
-	//pion0's pT in centrality 0~10%
-	TH1D* pTclass = (TH1D*)h2pTcent -> ProjectionY("pTclass", 1, 1);
+	//pion0's pT in centrality
+	TH1D* pTclass1 = (TH1D*)h2pTcent -> ProjectionY("pTclass1", 1, 1);
+	TH1D* pTclass2 = (TH1D*)h2pTcent -> ProjectionY("pTclass2", 2, 2);
+	TH1D* pTclass3 = (TH1D*)h2pTcent -> ProjectionY("pTclass3", 3, 4);
+	TH1D* pTclass4 = (TH1D*)h2pTcent -> ProjectionY("pTclass4", 5, 6);
+	TH1D* pTclass5 = (TH1D*)h2pTcent -> ProjectionY("pTclass5", 7, 8);
 
 	//# of event in centrality 0~10%
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent");
-	double numclass = h1cent -> GetBinContent(1);
+	double numclass1 = h1cent -> GetBinContent(1); 								   //0~10%
+	double numclass2 = h1cent -> GetBinContent(2); 							       //10~20%
+	double numclass3 = (h1cent -> GetBinContent(3))+ (h1cent -> GetBinContent(4)); //20~40%
+	double numclass4 = (h1cent -> GetBinContent(5))+ (h1cent -> GetBinContent(6)); //40~60%
+	double numclass5 = (h1cent -> GetBinContent(7))+ (h1cent -> GetBinContent(8)); //60~80%
 
-	//invariant yield, fixed bin width
-	double factor = 1./(numclass*pTclass -> GetBinWidth(1));
-	pTclass -> Scale(factor);
-	pTclass -> Sumw2();
+	//scale for invariant yield
+	double scalar1 = 1./(pTclass1 -> GetBinWidth(1)*numclass1);
+	double scalar2 = 1./(pTclass2 -> GetBinWidth(1)*numclass2);
+	double scalar3 = 1./(pTclass3 -> GetBinWidth(1)*numclass3);
+	double scalar4 = 1./(pTclass4 -> GetBinWidth(1)*numclass4);
+	double scalar5 = 1./(pTclass5 -> GetBinWidth(1)*numclass5);
 
+	//invariant yield
+	pTclass1 -> Scale(scalar1);
+	pTclass2 -> Scale(scalar2);
+	pTclass3 -> Scale(scalar3);
+	pTclass4 -> Scale(scalar4);
+	pTclass5 -> Scale(scalar5);
+		
 	//Draw histogram
 	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -57,10 +81,30 @@ void plotMake_pTpion()
 		htmp -> GetYaxis() -> SetTitleSize(0.05);
 		htmp -> GetYaxis() -> SetLabelSize(0.04);	
 
-		pTclass -> SetMarkerStyle(21);
-		pTclass -> SetMarkerColor(38);
-		pTclass -> SetLineColor(38);
-		pTclass -> Draw("p same");
+		pTclass1 -> SetMarkerStyle(20);
+		pTclass1 -> SetMarkerColor(1);
+		pTclass1 -> SetLineColor(1);
+		pTclass1 -> Draw("p same");
+
+		pTclass2 -> SetMarkerStyle(21);
+		pTclass2 -> SetMarkerColor(2);
+		pTclass2 -> SetLineColor(2);
+		pTclass2 -> Draw("p same");
+
+		pTclass3 -> SetMarkerStyle(22);
+		pTclass3 -> SetMarkerColor(3);
+		pTclass3 -> SetLineColor(3);
+		pTclass3 -> Draw("p same");
+
+		pTclass4 -> SetMarkerStyle(23);
+		pTclass4 -> SetMarkerColor(4);
+		pTclass4 -> SetLineColor(4);
+		pTclass4 -> Draw("p same");
+
+		pTclass5 -> SetMarkerStyle(34);
+		pTclass5 -> SetMarkerColor(6);
+		pTclass5 -> SetLineColor(6);
+		pTclass5 -> Draw("p same");
 
 		//adding legend
 		TLegend *leg = new TLegend(0.53, 0.63, 0.83, 0.93);
@@ -71,7 +115,7 @@ void plotMake_pTpion()
 		leg -> AddEntry("", "p+Au 200 GeV", "h");
 		leg -> AddEntry("", "option = 3(No diffraction)", "h");
 		leg -> AddEntry("", "100,000 events", "h");
-		leg -> AddEntry("", "centrality 60~80%", "h");	
+		leg -> AddEntry("", "first correction", "h");
 		leg -> Draw();
 		
 	}
