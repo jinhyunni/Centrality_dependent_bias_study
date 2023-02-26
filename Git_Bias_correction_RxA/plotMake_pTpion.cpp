@@ -130,5 +130,16 @@ void plotMake_pTpion()
 		leg2 -> Draw();
 		
 	}
+
+	//Store invariant yield
+	TFile* output = new TFile("pAu200GeV_option3_pTpion_invarY1e5.root", "recreate");
+	
+	pTclass1 -> Write();
+	pTclass2 -> Write();
+	pTclass3 -> Write();
+	pTclass4 -> Write();
+	pTclass5 -> Write();
+
+	output -> Close();
 }
 
