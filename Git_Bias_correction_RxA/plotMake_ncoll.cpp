@@ -1,18 +1,15 @@
 /*************************************************
-* pion0's invariant yield  by centrality *
+* Calculate average Ncoll in each centrality *
 	
+* centrality class
+
 	class1 0~10%
 	class2 10~20%
 	class3 20~40%
 	class4 40~60%
 	class5 60~80%
 
-	* h2pTcent: 
-		x: cent
-		y: pion0's pT
-
-		-> projectionX(centralirty -# of events)
-		-> projectionY(pT-# ofpion0 )
+? consider using arrays to store values...?
 	
 ***********************************************/
 
