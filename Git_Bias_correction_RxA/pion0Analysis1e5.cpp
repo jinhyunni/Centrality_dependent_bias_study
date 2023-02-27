@@ -71,11 +71,10 @@ void pion0Analysis1e5()
 		//centrality calculation
 		centrality = 100*((refhis -> Integral((refhis -> FindBin(pTsum)), 1e5))/(refhis -> Integral(1, 1e5)));
 
-
 		//Ncoll calculation
 		ncoll = i_nAbsTarg + i_nAbsProj - 1;
 
-		//store pion0's pT by centrality, in event with Ncoll = 1;
+		//store pion0's pT by centrality;
 		for(int j = 0; j < np; j++){
 			if(p_id[j]==111){
 				pTpion0_cent -> Fill(centrality, p_pt[j]);

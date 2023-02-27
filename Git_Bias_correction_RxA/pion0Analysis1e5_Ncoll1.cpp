@@ -58,11 +58,12 @@ void pion0Analysis1e5_Ncoll1()
 	float centrality = 0.;
 	int ncoll = 0;
 
-	TH2D* pTpion0_cent = new TH2D("pTpion0_cent", "cent_pTpion0", 11, 0, 110, 100, 0, 14);
+	TH2D* pTpion0_cent = new TH2D("pTpion0_cent", "cent_pTpion0", 11, 0, 110, 1000, 0, 14);
 
 	for(int i = 0; i < opt3 -> GetEntries(); i++){
 		opt3 -> GetEntry(i);
-
+		
+		//pT summation for centrality calculation
 		for(int j = 0; j < np; j++){
 			if(p_eta[j]>-3.9 and p_eta[j]<-3.0 and p_id[j] != 111){
 				pTsum = pTsum + p_pt[j];
@@ -71,14 +72,16 @@ void pion0Analysis1e5_Ncoll1()
 		
 		//centrality calculation
 		centrality = 100*((refhis -> Integral((refhis -> FindBin(pTsum)), 1e5))/(refhis -> Integral(1, 1e5)));
-		//Ncoll calculation
-		
-		//if(i_nAbsTarg == 1){cout << "Target event: " << i+1 << endl;}
 
 		//store pion0's pT by centrality, in event with Ncoll = 1;
+		//ncoll = i_nAbsTarg + i_nAbsProj, all events are i_nAbsProj = 1(proton)
+		//ncoll = 1 -> i_nAbsTarg = 1
 		if(i_nAbsTarg == 1){
 			for(int j = 0; j < np; j++){
-				if(p_id[j]==111){pTpion0_cent -> Fill(centrality, p_pt[j]);}
+				if(p_id[j] == 111){
+					//store pion0's pT by centrality
+					pTpion0_cent -> Fill(centrality, p_pt[j]);
+				}
 			}//j, storing
 		}//sorting ncoll = 1 event
 
