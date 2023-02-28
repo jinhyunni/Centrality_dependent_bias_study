@@ -10,6 +10,8 @@
 	class5 60~80%
 
 ? consider using arrays to store values...?
+
+* 100,000 events
 	
 ***********************************************/
 
@@ -88,8 +90,23 @@ void plotMake_ncoll()
 	avgNcoll -> Fill(3, ncollC3);
 	avgNcoll -> Fill(4, ncollC4);
 	avgNcoll -> Fill(5, ncollC5);
+
+	avgNcoll -> SetBinError(1, sqrt(1./(h1NeventCent -> GetBinContent(1))));
+	avgNcoll -> SetBinError(2, sqrt(1./(h1NeventCent -> GetBinContent(2))));
+	avgNcoll -> SetBinError(3, sqrt(1./(h1NeventCent -> GetBinContent(3) + h1NeventCent -> GetBinContent(4))));
+	avgNcoll -> SetBinError(4, sqrt(1./(h1NeventCent -> GetBinContent(5) + h1NeventCent -> GetBinContent(6))));
+	avgNcoll -> SetBinError(5, sqrt(1./(h1NeventCent -> GetBinContent(7) + h1NeventCent -> GetBinContent(8))));
 	
-	avgNcoll -> Sumw2();
+	
+ //	avgNcoll -> Sumw2();
+	
+	cout << "Bin error" << endl;
+	cout << "class1 : " << avgNcoll -> GetBinError(1) << endl;
+	cout << "class2 : " << avgNcoll -> GetBinError(2) << endl;
+	cout << "class3 : " << avgNcoll -> GetBinError(3) << endl;
+	cout << "class4 : " << avgNcoll -> GetBinError(4) << endl;
+	cout << "class5 : " << avgNcoll -> GetBinError(5) << endl;
+
 	avgNcoll -> Draw();
 
 
