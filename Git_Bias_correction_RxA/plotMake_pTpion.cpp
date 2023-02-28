@@ -107,7 +107,7 @@ void plotMake_pTpion()
 		pTclass5 -> Draw("p same");
 
 		//adding legend
-		TLegend* leg1 = new TLegend(0.53, 0.63, 0.83, 0.93);
+		TLegend* leg1 = new TLegend(0.23, 0.63, 0.53, 0.93);
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
 		leg1 -> SetTextSize(0.04);
@@ -115,10 +115,10 @@ void plotMake_pTpion()
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
 		leg1 -> AddEntry("", "option = 3(No diffraction)", "h");
 		leg1 -> AddEntry("", "100,000 events", "h");
-		leg1 -> AddEntry("", "first correction", "h");
+ //		leg1 -> AddEntry("", "first correction", "h");
 		leg1 -> Draw();
 
-		TLegend* leg2 = new TLegend(0.53, 0.33, 0.83, 0.63);
+		TLegend* leg2 = new TLegend(0.23, 0.33, 0.53, 0.63);
 		leg2 -> SetFillStyle(0);
 		leg2 -> SetBorderSize(0);
 		leg2 -> AddEntry(pTclass1, "centrality 0~10%", "p");
@@ -127,7 +127,17 @@ void plotMake_pTpion()
 		leg2 -> AddEntry(pTclass4, "centrality 40~60%", "p");
 		leg2 -> AddEntry(pTclass5, "centrality 60~80%", "p");
 		leg2 -> Draw();
-		leg2 -> Draw();
+
+		TLegend* leg3 = new TLegend(0.53, 0.33, 0.83, 0.63);
+		leg3 -> SetFillStyle(0);
+		leg3 -> SetBorderSize(0);
+		leg3 -> AddEntry("", "#LTN_{coll}#GT", "");
+		leg3 -> AddEntry(pTclass1, "8.9884", "p");
+		leg3 -> AddEntry(pTclass2, "7.6395", "p");
+		leg3 -> AddEntry(pTclass3, "6.4322", "p");
+		leg3 -> AddEntry(pTclass4, "4.8946", "p");
+		leg3 -> AddEntry(pTclass5, "4.4911", "p");
+		leg3 -> Draw();
 		
 	}
 
