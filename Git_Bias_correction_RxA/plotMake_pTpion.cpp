@@ -58,6 +58,17 @@ void plotMake_pTpion()
 	pTclass3 -> Scale(scalar3);
 	pTclass4 -> Scale(scalar4);
 	pTclass5 -> Scale(scalar5);
+
+	//Store invariant yield
+	TFile* output = new TFile("pAu200GeV_option3_pTpion_invarY1e5.root", "recreate");
+	
+	pTclass1 -> Write();
+	pTclass2 -> Write();
+	pTclass3 -> Write();
+	pTclass4 -> Write();
+	pTclass5 -> Write();
+
+	output -> Close();
 		
 	//Draw histogram
 	gStyle -> SetOptStat(0);
@@ -141,15 +152,5 @@ void plotMake_pTpion()
 		
 	}
 
-	//Store invariant yield
-	TFile* output = new TFile("pAu200GeV_option3_pTpion_invarY1e5.root", "recreate");
-	
-	pTclass1 -> Write();
-	pTclass2 -> Write();
-	pTclass3 -> Write();
-	pTclass4 -> Write();
-	pTclass5 -> Write();
-
-	output -> Close();
 }
 
