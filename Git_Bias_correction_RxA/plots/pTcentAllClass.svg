@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Fri Feb 24 17:57:16 2023</desc>
+CreationDate: Wed Mar  1 17:55:44 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -4175,31 +4175,10 @@ CreationDate: Fri Feb 24 17:57:16 2023</desc>
 <g fill="#ff00ff">
 <polygon points=" 394.532, 358.522 394.532, 356.628 396.427, 356.628 396.427, 358.522 398.321, 358.522 398.321, 360.417 396.427, 360.417 396.427, 362.311 394.532, 362.311 394.532, 360.417 392.638, 360.417 392.638, 358.522"/>
 </g>
-<text xml:space="preserve" x="304.567" y="46.1784" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
-<text xml:space="preserve" x="304.567" y="70.3333" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
-<text xml:space="preserve" x="304.567" y="95.1986" fill="black" font-size="15.4909" font-family="Helvetica">option = 3(No diffraction)</text>
-<text xml:space="preserve" x="304.567" y="119.354" fill="black" font-size="15.4909" font-family="Helvetica">100,000 events</text>
-<text xml:space="preserve" x="304.567" y="144.219" fill="black" font-size="15.4909" font-family="Helvetica">first correction</text>
-<text xml:space="preserve" x="342.931" y="168.374" fill="black" font-size="14.6691" font-family="Helvetica">centrality 0~10%</text>
-<g fill="black">
-<circle cx="322.232" cy="163.401" r="2.84175"/>
-</g>
-<text xml:space="preserve" x="342.931" y="193.239" fill="black" font-size="14.6691" font-family="Helvetica">centrality 10~20%</text>
-<g fill="#ff0000">
-<rect x="319.391" y="185.069" width="5.6835" height="5.6835"/>
-</g>
-<text xml:space="preserve" x="342.931" y="217.394" fill="black" font-size="14.6691" font-family="Helvetica">centrality 20~40%</text>
-<g fill="#00ff00">
-<polygon points=" 322.232, 209.579 325.074, 215.263 319.391, 215.263"/>
-</g>
-<text xml:space="preserve" x="342.931" y="242.259" fill="black" font-size="14.6691" font-family="Helvetica">centrality 40~60%</text>
-<g fill="#0000ff">
-<polygon points=" 319.391, 234.089 325.074, 234.089 322.232, 239.773"/>
-</g>
-<text xml:space="preserve" x="342.931" y="266.414" fill="black" font-size="14.6691" font-family="Helvetica">centrality 60~80%</text>
-<g fill="#ff00ff">
-<polygon points=" 321.285, 260.494 321.285, 258.599 323.18, 258.599 323.18, 260.494 325.074, 260.494 325.074, 262.388 323.18, 262.388 323.18, 264.283 321.285, 264.283 321.285, 262.388 319.391, 262.388 319.391, 260.494"/>
-</g>
+<text xml:space="preserve" x="304.567" y="50.4411" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
+<text xml:space="preserve" x="304.567" y="80.9899" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
+<text xml:space="preserve" x="304.567" y="111.539" fill="black" font-size="15.4909" font-family="Helvetica">option = 3(No diffraction)</text>
+<text xml:space="preserve" x="304.567" y="142.088" fill="black" font-size="15.4909" font-family="Helvetica">100,000 events</text>
 <text xml:space="preserve" x="342.931" y="168.374" fill="black" font-size="14.6691" font-family="Helvetica">centrality 0~10%</text>
 <g fill="black">
 <circle cx="322.232" cy="163.401" r="2.84175"/>
