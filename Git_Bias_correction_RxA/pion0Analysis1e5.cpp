@@ -1,7 +1,7 @@
 /***************************************
 * pion0 Analysis
 
-* Store pT of pion0 with Ncoll =1 events
+* Store pT of pion0
 * pTpion0 - centrality -> TH2D
 
 * will be used as reference histo
