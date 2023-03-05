@@ -21,12 +21,15 @@
 		-> ProjectionX() : number of events in
 						   each centrality bin
 	
+	* See particle produced in mid-rapidity
+	  -> |eta|<1
+	
 *************************************************/
 
 void plotMake_pTpion()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option3_pion0Analysis_1e5.root", "read");
+	TFile* input = new TFile("pAu200GeV_option3_pion0Analysis_etacut_1e5.root", "read");
 	TH2D* h2pTcent = (TH2D*)input -> Get("pTpion0_cent");
 	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
 	
@@ -82,7 +85,7 @@ void plotMake_pTpion()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 100);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 25);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -126,6 +129,7 @@ void plotMake_pTpion()
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
 		leg1 -> AddEntry("", "option = 3(No diffraction)", "h");
 		leg1 -> AddEntry("", "100,000 events", "h");
+		leg1 -> AddEntry("", "|#eta|<1", "h");
  //		leg1 -> AddEntry("", "first correction", "h");
 		leg1 -> Draw();
 
