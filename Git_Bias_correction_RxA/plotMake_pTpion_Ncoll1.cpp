@@ -7,14 +7,8 @@
 void plotMake_pTpion_Ncoll1()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_1e5.root", "read");
+	TFile* input = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5.root", "read");
 	TH1D* pTpion0Ncoll1 = (TH1D*)input -> Get("pTpion0");
-
-	//Store invariant yield
-	TFile* output = new TFile("pAu200GeV_option3_pTpion_Ncoll1_invarY1e5.root", "recreate");
-	pTpion0Ncoll1 -> Write();
-	output -> Close();
-
 		
 	//Draw histogram
 	gStyle -> SetOptStat(0);
@@ -28,7 +22,7 @@ void plotMake_pTpion_Ncoll1()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 10);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 6);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -53,6 +47,7 @@ void plotMake_pTpion_Ncoll1()
 		leg1 -> AddEntry("", "option = 3(No diffraction)", "h");
 		leg1 -> AddEntry("", "100,000 events", "h");
 		leg1 -> AddEntry("", "N_{coll}=1 event", "h");
+		leg1 -> AddEntry("", "|#eta|<1", "h");
 		leg1 -> Draw();
 
 	
