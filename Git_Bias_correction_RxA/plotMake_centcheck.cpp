@@ -35,9 +35,9 @@ void plotMake_centcheck()
 		htmp -> GetYaxis() -> SetTitleSize(0.05);
 		htmp -> GetYaxis() -> SetLabelSize(0.04);	
 
-		h1Cent -> SetMarkerStyle(34);
-		h1Cent -> SetMarkerColor(1);
-		h1Cent -> SetLineColor(1);
+		h1Cent -> SetMarkerStyle(33);
+		h1Cent -> SetMarkerColor(8);
+		h1Cent -> SetLineColor(8);
 		h1Cent -> Draw("p same");
 
 		//adding legend
@@ -48,9 +48,9 @@ void plotMake_centcheck()
 		leg -> AddEntry("", "PYTHIA8", "h");
 		leg -> AddEntry("", "p+Au 200 GeV", "h");
 		leg -> AddEntry("", "option = 3(No diffraction)", "h");
-		leg -> AddEntry("", "100,000 events", "h");
+		leg -> AddEntry("", "Total 100,000 events", "h");
+		leg -> AddEntry("", "inelatic# : 96,129", "h");
 		leg -> AddEntry("", "centrality categorization check", "h");
-		leg -> AddEntry("", "inelastic events", "h");
 		leg -> Draw();
 		
 	}
