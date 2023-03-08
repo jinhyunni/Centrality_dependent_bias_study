@@ -18,7 +18,7 @@
 void plotMake_avgNcoll()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
+	TFile* input = new TFile("pAu200GeV_option3_INEL_avgNcoll.root", "read");
 	TProfile* avgNcoll = (TProfile*)input -> Get("avgNcoll");
 		
 	//Draw histogram
@@ -57,6 +57,7 @@ void plotMake_avgNcoll()
 		leg -> AddEntry("", "p+Au 200 GeV", "h");
 		leg -> AddEntry("", "option = 3(No diffraction)", "h");
 		leg -> AddEntry("", "100,000 events", "h");
+		leg -> AddEntry("", "inelastic #: 96,129", "");
 		leg -> Draw();
 			
 	}
