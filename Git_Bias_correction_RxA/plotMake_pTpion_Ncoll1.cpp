@@ -45,9 +45,10 @@ void plotMake_pTpion_Ncoll1()
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
 		leg1 -> AddEntry("", "option = 3(No diffraction)", "h");
-		leg1 -> AddEntry("", "100,000 events", "h");
 		leg1 -> AddEntry("", "N_{coll}=1 event", "h");
+		leg1 -> AddEntry("", "96,129 events", "h");
 		leg1 -> AddEntry("", "|#eta|<1", "h");
+		leg1 -> AddEntry(pTpion0Ncoll1, "#pi^{0}", "p");
 		leg1 -> Draw();
 
 	

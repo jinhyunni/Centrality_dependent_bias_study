@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Mon Mar  6 13:37:32 2023</desc>
+CreationDate: Fri Mar 10 09:25:57 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -902,13 +902,18 @@ CreationDate: Mon Mar  6 13:37:32 2023</desc>
 <g fill="black">
 <circle cx="361.35" cy="359.216" r="2.84175"/>
 </g>
-<text xml:space="preserve" x="304.567" y="43.3367" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
-<text xml:space="preserve" x="304.567" y="63.2289" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
-<text xml:space="preserve" x="304.567" y="83.8316" fill="black" font-size="15.4909" font-family="Helvetica">option = 3(No diffraction)</text>
-<text xml:space="preserve" x="304.567" y="104.434" fill="black" font-size="15.4909" font-family="Helvetica">100,000 events</text>
-<text xml:space="preserve" x="328.722" y="125.037" fill="black" font-size="15.4909" font-family="Helvetica">=1 event</text>
-<text xml:space="preserve" x="314.513" y="129.3" fill="black" font-size="10.4939" font-family="Helvetica">coll</text>
-<text xml:space="preserve" x="304.567" y="125.037" fill="black" font-size="15.4909" font-family="Helvetica">N</text>
-<text xml:space="preserve" x="315.934" y="144.929" fill="black" font-size="15.4909" font-family="Helvetica">|&lt;1</text>
-<text xml:space="preserve" x="307.409" y="144.929" fill="black" font-size="15.4909" font-family="Times">&#0951;</text>
-<text xml:space="preserve" x="304.567" y="144.929" fill="black" font-size="15.4909" font-family="Helvetica">|</text></svg>
+<text xml:space="preserve" x="304.567" y="41.2054" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
+<text xml:space="preserve" x="304.567" y="58.2559" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
+<text xml:space="preserve" x="304.567" y="76.0168" fill="black" font-size="15.4909" font-family="Helvetica">option = 3(No diffraction)</text>
+<text xml:space="preserve" x="328.722" y="93.7778" fill="black" font-size="15.4909" font-family="Helvetica">=1 event</text>
+<text xml:space="preserve" x="314.513" y="98.0404" fill="black" font-size="10.4939" font-family="Helvetica">coll</text>
+<text xml:space="preserve" x="304.567" y="93.7778" fill="black" font-size="15.4909" font-family="Helvetica">N</text>
+<text xml:space="preserve" x="304.567" y="110.828" fill="black" font-size="15.4909" font-family="Helvetica">96,129 events</text>
+<text xml:space="preserve" x="315.934" y="128.589" fill="black" font-size="15.4909" font-family="Helvetica">|&lt;1</text>
+<text xml:space="preserve" x="307.409" y="128.589" fill="black" font-size="15.4909" font-family="Times">&#0951;</text>
+<text xml:space="preserve" x="304.567" y="128.589" fill="black" font-size="15.4909" font-family="Helvetica">|</text>
+<text xml:space="preserve" x="351.456" y="139.956" fill="black" font-size="10.4939" font-family="Helvetica">0</text>
+<text xml:space="preserve" x="342.931" y="145.64" fill="black" font-size="15.4909" font-family="Times">&#0960;</text>
+<g fill="black">
+<circle cx="322.232" cy="142.392" r="2.84175"/>
+</g></svg>

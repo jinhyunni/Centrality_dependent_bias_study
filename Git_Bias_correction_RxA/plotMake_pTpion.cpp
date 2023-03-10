@@ -128,9 +128,9 @@ void plotMake_pTpion()
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
 		leg1 -> AddEntry("", "option = 3(No diffraction)", "h");
-		leg1 -> AddEntry("", "100,000 events", "h");
+		leg1 -> AddEntry("", "96,129 events", "h");
 		leg1 -> AddEntry("", "|#eta|<1", "h");
- //		leg1 -> AddEntry("", "first correction", "h");
+		leg1 -> AddEntry("", "#pi^{0}", "h");
 		leg1 -> Draw();
 
 		TLegend* leg2 = new TLegend(0.53, 0.33, 0.83, 0.63);
