@@ -49,7 +49,7 @@ void plotMake_centcheck()
 		leg -> AddEntry("", "p+Au 200 GeV", "h");
 		leg -> AddEntry("", "option = 3(No diffraction)", "h");
 		leg -> AddEntry("", "Total 100,000 events", "h");
-		leg -> AddEntry("", "inelatic# : 96,129", "h");
+		leg -> AddEntry("", "inelastic# : 96,129", "h");
 		leg -> AddEntry("", "centrality categorization check", "h");
 		leg -> Draw();
 		

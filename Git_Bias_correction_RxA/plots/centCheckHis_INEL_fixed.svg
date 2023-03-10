@@ -1,11 +1,11 @@
 <?xml version="1.0" standalone="no"?>
 <svg width="567.429" height="409.002" viewBox="0 0 567.429 409.002" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
 <title>
-/Users/jinhyunpark/npl/gitHub/xloadFromServer/Git_Bias_correction_RxA/plots/centChechHis_INEL_fixed.svg
+/Users/jinhyunpark/npl/gitHub/xloadFromServer/Git_Bias_correction_RxA/plots/centCheckHis_INEL_fixed.svg
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Wed Mar  8 15:19:56 2023</desc>
+CreationDate: Fri Mar 10 09:12:28 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -281,5 +281,5 @@ CreationDate: Wed Mar  8 15:19:56 2023</desc>
 <text xml:space="preserve" x="270.466" y="63.2289" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
 <text xml:space="preserve" x="270.466" y="83.8316" fill="black" font-size="15.4909" font-family="Helvetica">option = 3(No diffraction)</text>
 <text xml:space="preserve" x="270.466" y="104.434" fill="black" font-size="15.4909" font-family="Helvetica">Total 100,000 events</text>
-<text xml:space="preserve" x="270.466" y="125.037" fill="black" font-size="15.4909" font-family="Helvetica">inelatic# : 96,129</text>
+<text xml:space="preserve" x="270.466" y="125.037" fill="black" font-size="15.4909" font-family="Helvetica">inelastic# : 96,129</text>
 <text xml:space="preserve" x="270.466" y="144.929" fill="black" font-size="15.4909" font-family="Helvetica">centrality categorization check</text></svg>
