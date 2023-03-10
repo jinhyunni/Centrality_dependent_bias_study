@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Fri Mar  3 01:12:19 2023</desc>
+CreationDate: Fri Mar 10 09:35:56 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -191,32 +191,33 @@ CreationDate: Fri Mar  3 01:12:19 2023</desc>
 <path d="M468.273,43.0288h 14.1165" fill="none" stroke="black"/>
 <path d="M468.273,43.0288h 14.1165" fill="none" stroke="black"/>
 <path d="M475.332,31.727h 7.05827" fill="none" stroke="black"/>
-<path d="M85.5394,156.304h 21.9614" fill="none" stroke="#7c99d1"/>
-<path d="M113.184,156.304h 21.9614" fill="none" stroke="#7c99d1"/>
+<path d="M85.5394,156.31h 21.9614" fill="none" stroke="#7c99d1"/>
+<path d="M113.184,156.31h 21.9614" fill="none" stroke="#7c99d1"/>
 <g fill="#7c99d1">
-<rect x="107.501" y="153.462" width="5.6835" height="5.6835"/>
+<rect x="107.501" y="153.468" width="5.6835" height="5.6835"/>
 </g>
-<path d="M135.146,187.048h 21.9614" fill="none" stroke="#7c99d1"/>
-<path d="M162.791,187.048h 21.9614" fill="none" stroke="#7c99d1"/>
+<path d="M135.146,186.801h 21.9614" fill="none" stroke="#7c99d1"/>
+<path d="M162.791,186.801h 21.9614" fill="none" stroke="#7c99d1"/>
 <g fill="#7c99d1">
-<rect x="157.107" y="184.206" width="5.6835" height="5.6835"/>
+<rect x="157.107" y="183.959" width="5.6835" height="5.6835"/>
 </g>
-<path d="M184.752,214.035h 46.7645" fill="none" stroke="#7c99d1"/>
-<path d="M237.2,214.035h 46.7645" fill="none" stroke="#7c99d1"/>
+<path d="M184.752,214.09h 46.7645" fill="none" stroke="#7c99d1"/>
+<path d="M237.2,214.09h 46.7645" fill="none" stroke="#7c99d1"/>
 <g fill="#7c99d1">
-<rect x="231.517" y="211.193" width="5.6835" height="5.6835"/>
+<rect x="231.517" y="211.248" width="5.6835" height="5.6835"/>
 </g>
-<path d="M283.965,248.967h 46.7645" fill="none" stroke="#7c99d1"/>
-<path d="M336.413,248.967h 46.7645" fill="none" stroke="#7c99d1"/>
+<path d="M283.965,248.844h 46.7645" fill="none" stroke="#7c99d1"/>
+<path d="M336.413,248.844h 46.7645" fill="none" stroke="#7c99d1"/>
 <g fill="#7c99d1">
-<rect x="330.729" y="246.125" width="5.6835" height="5.6835"/>
+<rect x="330.729" y="246.003" width="5.6835" height="5.6835"/>
 </g>
-<path d="M383.177,286.726h 46.7645" fill="none" stroke="#7c99d1"/>
-<path d="M435.625,286.726h 46.7645" fill="none" stroke="#7c99d1"/>
+<path d="M383.177,286.592h 46.7645" fill="none" stroke="#7c99d1"/>
+<path d="M435.625,286.592h 46.7645" fill="none" stroke="#7c99d1"/>
 <g fill="#7c99d1">
-<rect x="429.942" y="283.884" width="5.6835" height="5.6835"/>
+<rect x="429.942" y="283.75" width="5.6835" height="5.6835"/>
 </g>
-<text xml:space="preserve" x="304.567" y="50.4411" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
-<text xml:space="preserve" x="304.567" y="80.9899" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
-<text xml:space="preserve" x="304.567" y="111.539" fill="black" font-size="15.4909" font-family="Helvetica">option = 3(No diffraction)</text>
-<text xml:space="preserve" x="304.567" y="142.088" fill="black" font-size="15.4909" font-family="Helvetica">100,000 events</text></svg>
+<text xml:space="preserve" x="304.567" y="46.1784" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
+<text xml:space="preserve" x="304.567" y="70.3333" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
+<text xml:space="preserve" x="304.567" y="95.1986" fill="black" font-size="15.4909" font-family="Helvetica">option = 3(No diffraction)</text>
+<text xml:space="preserve" x="304.567" y="119.354" fill="black" font-size="15.4909" font-family="Helvetica">100,000 events</text>
+<text xml:space="preserve" x="304.567" y="144.219" fill="black" font-size="15.4909" font-family="Helvetica">inelastic #: 96,129</text></svg>

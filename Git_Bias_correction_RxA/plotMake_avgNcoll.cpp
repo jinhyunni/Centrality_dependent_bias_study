@@ -57,7 +57,7 @@ void plotMake_avgNcoll()
 		leg -> AddEntry("", "p+Au 200 GeV", "h");
 		leg -> AddEntry("", "option = 3(No diffraction)", "h");
 		leg -> AddEntry("", "100,000 events", "h");
-		leg -> AddEntry("", "inelastic #: 96,129", "");
+		leg -> AddEntry("", "inelastic #: 96,129", "h");
 		leg -> Draw();
 			
 	}
