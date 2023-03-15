@@ -1,38 +1,36 @@
 void R_pAu()
 {
-	//read in files
-
-	//avgNcoll
-	TFile* avgNcollFile = new TFile("pAu200GeV_option3_INEL_avgNcoll.root", "read");
-	//Get TProfile value
-	TProfile* avgNcoll = (TProfile*)avgNcollFile -> Get("avgNcoll");
-
-	//pAu yield
-	TFile* pAuYield = new TFile("pAu200GeV_option3_pTpion_invarY1e5.root", "read");
-
-	//reference yield
-	TFile* refYield = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5.root", "read");
-	TH1D* reference = (TH1D*)refYield -> Get("pTpion0");
-
+	//Read in files
+	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis_etacut_INEL_1e5_rebined.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5_rebined.root", "read");
+	TFile* input3 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
 	
-	////Get p+Au Invariant yield
-	TH1D* pAuClass1 = (TH1D*)pAuYield -> Get("pTclass1");
+	//historams
+	TH2D* h2pTcent = (TH2D*)input1 -> Get("pTpion0_cent");
+	TH2D* h2ncollcent = (TH2D*)input1 -> Get("ncoll_cent");
+
+	TH1D* pp = (TH1D*)input2 -> Get("pTpion0");
+
+	TProfile* avgNcoll = (TProfile*)input3 -> Get("avgNcoll");
+
+	//pAu yield in 70~80%
+	TH1D* pAu1 = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);
+	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
+
+	double num1 = h1cent -> GetBinContent(7) + h1cent -> GetBinContent(8);
+	double scalar1 = 1./(pAu1 -> GetBinWidth(1) * num1);
 	
-	//Rebin -> binwidth 0.5
-	TH1D* pA = new TH1D("pA", "", 28, 0, 14);
-	TH1D* pp = new TH1D("pp", "", 28, 0, 14);
+	pAu1 -> Scale(scalar1);
 
-	//21 bins
-	double rebinEdge[]={0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10};
+	//R_pAu 0~10%
+	TH1D* R_pAu1 = new TH1D();
 
+	*R_pAu1 = (*pAu1)/(*pp);
 
-	for(int i = 0; i < pAuClass1 -> GetNbinsX(); i++){
-		pAuClass1 -> Rebin(20, "pA", rebinEdge);
-		reference -> Rebin(20, "pp", rebinEdge);
-	}
+	double scalar2 = 1./(avgNcoll -> GetBinContent(5));
 
-	pA -> Draw();
+	R_pAu1 -> Scale(scalar2);
 	
-	
+	R_pAu1 -> Draw();
 
 }
