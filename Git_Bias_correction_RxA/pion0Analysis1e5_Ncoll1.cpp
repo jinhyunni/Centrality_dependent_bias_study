@@ -39,6 +39,8 @@ void pion0Analysis1e5_Ncoll1()
 	int i_nDiffProj;
 	int i_nAbsTarg;
 	int i_nDiffTarg;
+	int i_nElProj;
+	int i_nElTarg;
 
 	//link branch address
 	opt3 -> SetBranchAddress("np", &np);
@@ -49,49 +51,37 @@ void pion0Analysis1e5_Ncoll1()
 	opt3 -> SetBranchAddress("i_nDiffProj", &i_nDiffProj);
 	opt3 -> SetBranchAddress("i_nAbsTarg", &i_nAbsTarg);
 	opt3 -> SetBranchAddress("i_nDiffTarg", &i_nDiffTarg);
+	opt3 -> SetBranchAddress("i_nElProj", &i_nElProj);
+	opt3 -> SetBranchAddress("i_nElTarg", &i_nElTarg);
 	
-	cout << opt3 -> GetEntries() << endl;
-
 	//Analysis
-
-	float pTsum = 0.;
-	float centrality = 0.;
-	int ncoll = 0;
-
-	TH2D* pTpion0_cent = new TH2D("pTpion0_cent", "cent_pTpion0", 11, 0, 110, 1000, 0, 14);
-
+	int ncoll1 = 0;
+	TH1D* pTpion0 = new TH1D("pTpion0", "", 28, 0, 14);
+	
 	for(int i = 0; i < opt3 -> GetEntries(); i++){
 		opt3 -> GetEntry(i);
-		
-		//pT summation for centrality calculation
-		for(int j = 0; j < np; j++){
-			if(p_eta[j]>-3.9 and p_eta[j]<-3.0 and p_id[j] != 111){
-				pTsum = pTsum + p_pt[j];
+
+		//store inelastic events only, Ncoll = 1 evnets only, at mid-rapidity
+		if(i_nAbsProj == 1 and i_nAbsTarg == 1){
+			
+				ncoll1 += 1;
+
+			for(int j = 0; j < np; j++){
+				if(p_id[j] == 111 and p_eta[j]>-1 and p_eta[j]<1){
+					pTpion0 -> Fill(p_pt[j]);
+				}
 			}
 		}//j, particle
-		
-		//centrality calculation
-		centrality = 100*((refhis -> Integral((refhis -> FindBin(pTsum)), 1e5))/(refhis -> Integral(1, 1e5)));
-
-		//store pion0's pT by centrality, in event with Ncoll = 1;
-		//ncoll = i_nAbsTarg + i_nAbsProj, all events are i_nAbsProj = 1(proton)
-		//ncoll = 1 -> i_nAbsTarg = 1
-		if(i_nAbsTarg == 1){
-			for(int j = 0; j < np; j++){
-				if(p_id[j] == 111){
-					//store pion0's pT by centrality
-					pTpion0_cent -> Fill(centrality, p_pt[j]);
-				}
-			}//j, storing
-		}//sorting ncoll = 1 event
-
-
-		pTsum = 0.;
 	}//i, event
-	
+
+	cout << ncoll1 << endl;
+
+	double scalar = 1./(pTpion0 -> GetBinWidth(1)*ncoll1);
+	pTpion0 -> Scale(scalar);
+
 	//save histogram as root file
-	TFile *file = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_1e5.root", "recreate");
-	pTpion0_cent -> Write();
+	TFile *file = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5_rebined.root", "recreate");
+	pTpion0 -> Write();
 	file -> Close();
 
 }
