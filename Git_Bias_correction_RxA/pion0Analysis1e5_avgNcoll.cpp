@@ -99,7 +99,7 @@ void pion0Analysis1e5_avgNcoll()
  //	avgNcoll -> Draw();
 	
 	//save histogram as root file
-	TFile *file = new TFile("pAu200GeV_option3__INEL_avgNcoll.root", "recreate");
+	TFile *file = new TFile("pAu200GeV_option3_INEL_avgNcoll.root", "recreate");
 	
 	avgNcoll -> Write();
 
