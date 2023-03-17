@@ -39,7 +39,6 @@ void plotMake_RpAu()
 	pAu4 -> Scale(scalar14);
 	pAu5 -> Scale(scalar15);
 
-
 	//R_pAu
 	//// YpA/Ypp
 	TH1D* R_pAu1 = new TH1D();
@@ -60,7 +59,6 @@ void plotMake_RpAu()
 	double scalar23 = 1./(avgNcoll -> GetBinContent(3));
 	double scalar24 = 1./(avgNcoll -> GetBinContent(4));
 	double scalar25 = 1./(avgNcoll -> GetBinContent(5));
-
 
 	R_pAu1 -> Scale(scalar21);
 	R_pAu2 -> Scale(scalar22);
