@@ -1,3 +1,9 @@
+#include <iostream>
+#include "TFile.h"
+#include "TH1.h"
+
+using namespace std;
+
 void R_pAu()
 {
 	//Read in files
