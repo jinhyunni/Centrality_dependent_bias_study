@@ -19,11 +19,25 @@ void R_pAu()
 	
 	//pAu and pp yield rebined
 	double xbins[] = {0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0};
-
-	pAu1 -> Rebin(20, "pAu1R", xbins);
-	pp -> Rebin(20, "ppRebined", xbins);
 	
-	pAu1R -> Draw();
+	TH1D* pAuR1 = (TH1D*)pAu1 -> Rebin(20, "pAuRebined", xbins);
+	TH1D* ppR1 = (TH1D*)pp -> Rebin(20, "ppRebined", xbins);
+	
+	pAuR1 -> Draw();
+
+	TCanvas* c1 = new TCanvas();
+	c1 -> Divide(2, 1);
+
+	c1 -> cd(1);
+	pAu1 -> Draw();
+
+	c1 -> cd(2);
+	pAuR1 -> Draw();
+
+
+
+
+ //	pAu1R -> Draw();
 
  //	//scailing
  //	double num1 = h1cent -> GetBinContent(1);
