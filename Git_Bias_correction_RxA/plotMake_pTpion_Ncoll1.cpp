@@ -7,8 +7,12 @@
 void plotMake_pTpion_Ncoll1()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1_etacut_1e5.root", "read");
+	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1_etacut_binw_1e5.root", "read");
 	TH1D* pTpion0Ncoll1 = (TH1D*)input -> Get("pTpion0");
+
+	double scalar1 = 1./(pTpion0Ncoll1 -> GetBinWidth(1));
+
+	pTpion0Ncoll1 -> Scale(scalar1);
 		
 	//Draw histogram
 	gStyle -> SetOptStat(0);

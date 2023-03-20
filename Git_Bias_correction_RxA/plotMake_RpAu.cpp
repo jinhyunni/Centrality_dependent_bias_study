@@ -2,7 +2,7 @@ void plotMake_RpAu()
 {
 	//Read in files
 	TFile* input1 = new TFile("pAu200GeV_option1_pion0Analysis_etacut_INEL_1e5.root", "read");
-	TFile* input2 = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1_etacut_1e5.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1_etacut_binw_1e5.root", "read");
 	TFile* input3 = new TFile("pAu200GeV_option1_INEL_avgNcoll.root", "read");
 	
 	//historams
@@ -31,6 +31,8 @@ void plotMake_RpAu()
 	
 	//Rebin pp yield
 	TH1D* ppR = (TH1D*)pp -> Rebin(16, "ppR", xbins);
+	double scalar = 1./(ppR -> GetBinWidth(1));
+	ppR -> Scale(scalar);
 	
 	//Event # in each centrality class
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
@@ -95,7 +97,7 @@ void plotMake_RpAu()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 8, 0.08);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 8, 2.0);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
