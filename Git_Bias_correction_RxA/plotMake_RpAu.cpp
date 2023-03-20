@@ -1,9 +1,9 @@
 void plotMake_RpAu()
 {
 	//Read in files
-	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis_etacut_INEL_1e5_rebined.root", "read");
-	TFile* input2 = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5_rebined.root", "read");
-	TFile* input3 = new TFile("pAu200GeV_option3_INEL_avgNcoll.root", "read");
+	TFile* input1 = new TFile("pAu200GeV_option1_pion0Analysis_etacut_INEL_1e5.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1_etacut_1e5.root", "read");
+	TFile* input3 = new TFile("pAu200GeV_option1_INEL_avgNcoll.root", "read");
 	
 	//historams
 	TH2D* h2pTcent = (TH2D*)input1 -> Get("pTpion0_cent");
@@ -19,6 +19,20 @@ void plotMake_RpAu()
 	TH1D* pAu3 = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);
 	TH1D* pAu4 = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);
 	TH1D* pAu5 = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);
+
+	double xbins[]={0, 0.5, 1, 1.5, 2, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8};
+	
+	//Rebin pAu yield
+	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(16, "pAuR1", xbins);
+	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(16, "pAuR1", xbins);
+	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(16, "pAuR1", xbins);
+	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(16, "pAuR1", xbins);
+	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(16, "pAuR1", xbins);
+	
+	//Rebin pp yield
+	TH1D* ppR = (TH1D*)pp -> Rebin(16, "ppR", xbins);
+	
+	//Event # in each centrality class
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
 
 	double num1 = h1cent -> GetBinContent(1);
@@ -27,17 +41,18 @@ void plotMake_RpAu()
 	double num4 = h1cent -> GetBinContent(5) + h1cent -> GetBinContent(6);
 	double num5 = h1cent -> GetBinContent(7) + h1cent -> GetBinContent(8);
 
-	double scalar11 = 1./(pAu1 -> GetBinWidth(1) * num1);
-	double scalar12 = 1./(pAu2 -> GetBinWidth(1) * num2);
-	double scalar13 = 1./(pAu3 -> GetBinWidth(1) * num3);
-	double scalar14 = 1./(pAu4 -> GetBinWidth(1) * num4);
-	double scalar15 = 1./(pAu5 -> GetBinWidth(1) * num5);
+	double scalar11 = 1./(pAu1R -> GetBinWidth(1) * num1);
+	double scalar12 = 1./(pAu2R -> GetBinWidth(1) * num2);
+	double scalar13 = 1./(pAu3R -> GetBinWidth(1) * num3);
+	double scalar14 = 1./(pAu4R -> GetBinWidth(1) * num4);
+	double scalar15 = 1./(pAu5R -> GetBinWidth(1) * num5);
 	
-	pAu1 -> Scale(scalar11);
-	pAu2 -> Scale(scalar12);
-	pAu3 -> Scale(scalar13);
-	pAu4 -> Scale(scalar14);
-	pAu5 -> Scale(scalar15);
+	pAu1R -> Scale(scalar11);
+	pAu2R -> Scale(scalar12);
+	pAu3R -> Scale(scalar13);
+	pAu4R -> Scale(scalar14);
+	pAu5R -> Scale(scalar15);
+
 
 	//R_pAu
 	//// YpA/Ypp
@@ -47,11 +62,11 @@ void plotMake_RpAu()
 	TH1D* R_pAu4 = new TH1D();
 	TH1D* R_pAu5 = new TH1D();
 
-	*R_pAu1 = (*pAu1)/(*pp);
-	*R_pAu2 = (*pAu2)/(*pp);
-	*R_pAu3 = (*pAu3)/(*pp);
-	*R_pAu4 = (*pAu4)/(*pp);
-	*R_pAu5 = (*pAu5)/(*pp);
+	*R_pAu1 = (*pAu1R)/(*ppR);
+	*R_pAu2 = (*pAu2R)/(*ppR);
+	*R_pAu3 = (*pAu3R)/(*ppR);
+	*R_pAu4 = (*pAu4R)/(*ppR);
+	*R_pAu5 = (*pAu5R)/(*ppR);
 	
 	////<Ncoll> scailing
 	double scalar21 = 1./(avgNcoll -> GetBinContent(1));
@@ -59,6 +74,7 @@ void plotMake_RpAu()
 	double scalar23 = 1./(avgNcoll -> GetBinContent(3));
 	double scalar24 = 1./(avgNcoll -> GetBinContent(4));
 	double scalar25 = 1./(avgNcoll -> GetBinContent(5));
+
 
 	R_pAu1 -> Scale(scalar21);
 	R_pAu2 -> Scale(scalar22);
@@ -79,7 +95,7 @@ void plotMake_RpAu()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 5, 2.0);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 5, 0.1);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -122,7 +138,7 @@ void plotMake_RpAu()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option3(no diffraction)", "h");
+		leg1 -> AddEntry("", "option1(default)", "h");
 		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
 		//leg1 -> AddEntry("", "", "");
 		leg1 -> AddEntry(R_pAu1, "0~10%", "p");
