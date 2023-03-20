@@ -95,7 +95,7 @@ void plotMake_RpAu()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 5, 0.1);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 8, 0.08);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
