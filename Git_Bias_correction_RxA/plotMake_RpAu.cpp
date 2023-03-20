@@ -140,7 +140,7 @@ void plotMake_RpAu()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option1(default)", "h");
+		leg1 -> AddEntry("", "option3(No diffraction)", "h");
 		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
 		//leg1 -> AddEntry("", "", "");
 		leg1 -> AddEntry(R_pAu1, "0~10%", "p");
