@@ -7,7 +7,7 @@
 void plotMake_pTpion_Ncoll1()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5.root", "read");
+	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1_etacut_1e5.root", "read");
 	TH1D* pTpion0Ncoll1 = (TH1D*)input -> Get("pTpion0");
 		
 	//Draw histogram
@@ -22,7 +22,7 @@ void plotMake_pTpion_Ncoll1()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 6);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 8);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -44,9 +44,8 @@ void plotMake_pTpion_Ncoll1()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option = 3(No diffraction)", "h");
+		leg1 -> AddEntry("", "option = 1(default)", "h");
 		leg1 -> AddEntry("", "N_{coll}=1 event", "h");
-		leg1 -> AddEntry("", "96,129 events", "h");
 		leg1 -> AddEntry("", "|#eta|<1", "h");
 		leg1 -> AddEntry(pTpion0Ncoll1, "#pi^{0}", "p");
 		leg1 -> Draw();

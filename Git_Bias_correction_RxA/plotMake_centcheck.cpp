@@ -5,7 +5,7 @@
 void plotMake_centcheck()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option3_pion0Analysis_etacut_INEL_1e5.root", "read");
+	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis_etacut_INEL_1e5.root", "read");
 	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
 
 	//# of event
@@ -25,7 +25,7 @@ void plotMake_centcheck()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 100, 2e4);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 100, 1e4);
 
 		htmp -> GetXaxis() -> SetTitle("centrality");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -47,9 +47,10 @@ void plotMake_centcheck()
 		leg -> SetTextSize(0.04);
 		leg -> AddEntry("", "PYTHIA8", "h");
 		leg -> AddEntry("", "p+Au 200 GeV", "h");
-		leg -> AddEntry("", "option = 3(No diffraction)", "h");
+		leg -> AddEntry("", "option = 1", "h");
+		leg -> AddEntry("", "Non-fixed raddi and cross-section", "h");
 		leg -> AddEntry("", "Total 100,000 events", "h");
-		leg -> AddEntry("", "inelastic# : 96,129", "h");
+		leg -> AddEntry("", "inelastic# : 37,398", "h");
 		leg -> AddEntry("", "centrality categorization check", "h");
 		leg -> Draw();
 		
