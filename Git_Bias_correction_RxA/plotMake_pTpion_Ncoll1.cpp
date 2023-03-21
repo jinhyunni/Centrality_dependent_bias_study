@@ -1,18 +1,31 @@
 /*************************************************
-* pion0's invariant yield  by centrality *
+* pion0's invariant yield *
 
-* Ncoll = 1 events
+** Reference yield: no categorization
+				    by centrality
+
+* Ncoll = 1 events are used as pp yield for RpAu
+
+	* Event number not scaled
+	* binwidth not scaled
+
 *************************************************/
 
 void plotMake_pTpion_Ncoll1()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1_etacut_binw_1e5.root", "read");
-	TH1D* pTpion0Ncoll1 = (TH1D*)input -> Get("pTpion0");
-
-	double scalar1 = 1./(pTpion0Ncoll1 -> GetBinWidth(1));
-
-	pTpion0Ncoll1 -> Scale(scalar1);
+	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1.root", "read");
+	TH2D* h2pTcent = (TH2D*)input -> Get("pTpion0_cent");
+	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
+	
+	//pp(Ncoll = 1) yield(not scaled)
+	TH1D* pp = (TH1D*)h2pTcent -> ProjectionY("ppYield");
+	
+	//scale factor: eventN, binwidth
+	double scalar1 = 1./(pp -> GetBinWidth(1) * h2ncollcent -> Integral() );
+	
+	//Invariat yield
+	pp -> Scale(scalar1);
 		
 	//Draw histogram
 	gStyle -> SetOptStat(0);
@@ -36,10 +49,10 @@ void plotMake_pTpion_Ncoll1()
 		htmp -> GetYaxis() -> SetTitleSize(0.05);
 		htmp -> GetYaxis() -> SetLabelSize(0.04);	
 
-		pTpion0Ncoll1 -> SetMarkerStyle(20);
-		pTpion0Ncoll1 -> SetMarkerColor(1);
-		pTpion0Ncoll1 -> SetLineColor(1);
-		pTpion0Ncoll1 -> Draw("p same");
+		pp -> SetMarkerStyle(20);
+		pp -> SetMarkerColor(1);
+		pp -> SetLineColor(1);
+		pp -> Draw("p same");
 
 		//adding legend
 		TLegend* leg1 = new TLegend(0.53, 0.63, 0.83, 0.93);
@@ -51,7 +64,7 @@ void plotMake_pTpion_Ncoll1()
 		leg1 -> AddEntry("", "option = 1(default)", "h");
 		leg1 -> AddEntry("", "N_{coll}=1 event", "h");
 		leg1 -> AddEntry("", "|#eta|<1", "h");
-		leg1 -> AddEntry(pTpion0Ncoll1, "#pi^{0}", "p");
+		leg1 -> AddEntry(pp, "#pi^{0}", "p");
 		leg1 -> Draw();
 
 	

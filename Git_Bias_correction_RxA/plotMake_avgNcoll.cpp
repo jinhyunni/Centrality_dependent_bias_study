@@ -8,17 +8,13 @@
 	class3 20~40%
 	class4 40~60%
 	class5 60~80%
-
-? consider using arrays to store values...?
-
-* 100,000 events
 	
 ***********************************************/
 
 void plotMake_avgNcoll()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option1_INEL_avgNcoll.root", "read");
+	TFile* input = new TFile("pAu200GeV_option1_avgNcoll.root", "read");
 	TProfile* avgNcoll = (TProfile*)input -> Get("avgNcoll");
 		
 	//Draw histogram

@@ -29,7 +29,7 @@
 void plotMake_pTpion()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis_etacut_INEL_1e5.root", "read");
+	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis.root", "read");
 	TH2D* h2pTcent = (TH2D*)input -> Get("pTpion0_cent");
 	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
 	

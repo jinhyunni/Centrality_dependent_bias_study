@@ -1,5 +1,9 @@
 /**************************************************
 * Histogram for centrality categorization checking*
+
+* Used N_ch for centrality calculation
+-> substituted with pTsum of N_ch
+   in BBCS acceptance
 **************************************************/
 
 void plotMake_centNch()
