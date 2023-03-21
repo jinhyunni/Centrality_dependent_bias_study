@@ -1,9 +1,9 @@
 void plotMake_RpAu()
 {
 	//Read in files
-	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis_etacut_INEL_1e5.root", "read");
-	TFile* input2 = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_ver1.root", "read");
-	TFile* input3 = new TFile("pAu200GeV_option3_INEL_avgNcoll.root", "read");
+	TFile* input1 = new TFile("pAu200GeV_option1_pion0Analysis_etacut_INEL_1e5.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1_ver1.root", "read");
+	TFile* input3 = new TFile("pAu200GeV_option1_INEL_avgNcoll.root", "read");
 	
 	//historams
 
@@ -112,7 +112,7 @@ void plotMake_RpAu()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 5, 2.0);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 10, 2.5);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -155,7 +155,7 @@ void plotMake_RpAu()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option3(No diffraction)", "h");
+		leg1 -> AddEntry("", "option1(Default)", "h");
 		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
 		//leg1 -> AddEntry("", "", "");
 		leg1 -> AddEntry(R_pAu1, "0~10%", "p");
