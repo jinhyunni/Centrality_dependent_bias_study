@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Wed Mar 22 20:17:29 2023</desc>
+CreationDate: Thu Mar 23 00:08:39 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -4652,7 +4652,7 @@ CreationDate: Wed Mar 22 20:17:29 2023</desc>
 <text xml:space="preserve" x="304.567" y="43.3367" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
 <text xml:space="preserve" x="304.567" y="63.2289" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
 <text xml:space="preserve" x="304.567" y="83.8316" fill="black" font-size="15.4909" font-family="Helvetica">option = 0(MCG)</text>
-<text xml:space="preserve" x="304.567" y="104.434" fill="black" font-size="15.4909" font-family="Helvetica">96,129 events</text>
+<text xml:space="preserve" x="304.567" y="104.434" fill="black" font-size="15.4909" font-family="Helvetica">INEL: 23,000</text>
 <text xml:space="preserve" x="315.934" y="125.037" fill="black" font-size="15.4909" font-family="Helvetica">|&lt;1</text>
 <text xml:space="preserve" x="307.409" y="125.037" fill="black" font-size="15.4909" font-family="Times">&#0951;</text>
 <text xml:space="preserve" x="304.567" y="125.037" fill="black" font-size="15.4909" font-family="Helvetica">|</text>

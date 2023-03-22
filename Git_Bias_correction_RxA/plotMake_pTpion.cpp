@@ -29,7 +29,7 @@
 void plotMake_pTpion()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option0_pion0Analysis.root", "read");
+	TFile* input = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
 	TH2D* h2pTcent = (TH2D*)input -> Get("pTpion0_cent");
 	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
 	
@@ -62,17 +62,6 @@ void plotMake_pTpion()
 	pTclass4 -> Scale(scalar4);
 	pTclass5 -> Scale(scalar5);
 
- //	//Store invariant yield
- //	TFile* output = new TFile("pAu200GeV_option3_pTpion_invarY1e5.root", "recreate");
- //	
- //	pTclass1 -> Write();
- //	pTclass2 -> Write();
- //	pTclass3 -> Write();
- //	pTclass4 -> Write();
- //	pTclass5 -> Write();
- //
- //	output -> Close();
-		
 	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
 	{
@@ -84,7 +73,7 @@ void plotMake_pTpion()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 20);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 8, 25);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -126,8 +115,8 @@ void plotMake_pTpion()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option = 0(MCG)", "h");
-		leg1 -> AddEntry("", "96,129 events", "h");
+		leg1 -> AddEntry("", "option = 3(No Diffraction)", "h");
+		leg1 -> AddEntry("", "INEL: 96,129", "h");
 		leg1 -> AddEntry("", "|#eta|<1", "h");
 		leg1 -> AddEntry("", "#pi^{0}", "h");
 		leg1 -> Draw();

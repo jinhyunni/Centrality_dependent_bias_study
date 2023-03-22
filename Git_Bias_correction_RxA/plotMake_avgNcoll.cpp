@@ -14,7 +14,7 @@
 void plotMake_avgNcoll()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option1_avgNcoll.root", "read");
+	TFile* input = new TFile("pAu200GeV_option0_avgNcoll.root", "read");
 	TProfile* avgNcoll = (TProfile*)input -> Get("avgNcoll");
 		
 	//Draw histogram
@@ -51,7 +51,7 @@ void plotMake_avgNcoll()
 		leg -> SetTextSize(0.04);
 		leg -> AddEntry("", "PYTHIA8", "h");
 		leg -> AddEntry("", "p+Au 200 GeV", "h");
-		leg -> AddEntry("", "option = 1(default)", "h");
+		leg -> AddEntry("", "option = 0(MCG)", "h");
 		leg -> Draw();
 			
 	}

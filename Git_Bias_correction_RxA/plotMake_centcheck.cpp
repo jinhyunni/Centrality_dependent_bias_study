@@ -25,7 +25,7 @@ void plotMake_centcheck()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 100, 1e4);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 100, 0.6e4);
 
 		htmp -> GetXaxis() -> SetTitle("centrality");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
