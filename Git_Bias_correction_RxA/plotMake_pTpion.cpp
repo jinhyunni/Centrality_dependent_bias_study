@@ -29,7 +29,7 @@
 void plotMake_pTpion()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis.root", "read");
+	TFile* input = new TFile("pAu200GeV_option0_pion0Analysis.root", "read");
 	TH2D* h2pTcent = (TH2D*)input -> Get("pTpion0_cent");
 	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
 	
@@ -84,7 +84,7 @@ void plotMake_pTpion()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 25);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 7, 20);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -126,7 +126,7 @@ void plotMake_pTpion()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option = 1(default)", "h");
+		leg1 -> AddEntry("", "option = 0(MCG)", "h");
 		leg1 -> AddEntry("", "96,129 events", "h");
 		leg1 -> AddEntry("", "|#eta|<1", "h");
 		leg1 -> AddEntry("", "#pi^{0}", "h");

@@ -5,7 +5,7 @@
 void plotMake_centcheck()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis.root", "read");
+	TFile* input = new TFile("pAu200GeV_option0_pion0Analysis.root", "read");
 	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
 
 	//# of event
@@ -47,10 +47,10 @@ void plotMake_centcheck()
 		leg -> SetTextSize(0.04);
 		leg -> AddEntry("", "PYTHIA8", "h");
 		leg -> AddEntry("", "p+Au 200 GeV", "h");
-		leg -> AddEntry("", "option = 1", "h");
-		leg -> AddEntry("", "Non-fixed raddi and cross-section", "h");
+		leg -> AddEntry("", "option = 0(MC Glauber)", "h");
+ //		leg -> AddEntry("", "Non-fixed raddi and cross-section", "h");
 		leg -> AddEntry("", "Total 100,000 events", "h");
-		leg -> AddEntry("", "inelastic# : 37,398", "h");
+ //		leg -> AddEntry("", "inelastic# : 37,398", "h");
 		leg -> AddEntry("", "centrality categorization check", "h");
 		leg -> Draw();
 		

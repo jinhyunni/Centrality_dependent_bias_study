@@ -14,7 +14,7 @@
 void plotMake_pTpion_Ncoll1()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1.root", "read");
+	TFile* input = new TFile("pAu200GeV_option0_pion0Analysis_Ncoll1.root", "read");
 	TH2D* h2pTcent = (TH2D*)input -> Get("pTpion0_cent");
 	TH2D* h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
 	
@@ -61,7 +61,7 @@ void plotMake_pTpion_Ncoll1()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option = 1(default)", "h");
+		leg1 -> AddEntry("", "option = 0(MCG)", "h");
 		leg1 -> AddEntry("", "N_{coll}=1 event", "h");
 		leg1 -> AddEntry("", "|#eta|<1", "h");
 		leg1 -> AddEntry(pp, "#pi^{0}", "p");
