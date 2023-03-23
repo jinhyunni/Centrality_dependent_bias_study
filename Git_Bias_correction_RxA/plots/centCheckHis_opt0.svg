@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Thu Mar 23 00:28:26 2023</desc>
+CreationDate: Thu Mar 23 16:30:24 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -253,8 +253,9 @@ CreationDate: Thu Mar 23 00:28:26 2023</desc>
 <g fill="#59d354">
 <polygon points=" 462.547, 221.356 464.442, 224.198 462.547, 227.04 460.653, 224.198"/>
 </g>
-<text xml:space="preserve" x="270.466" y="46.1784" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
-<text xml:space="preserve" x="270.466" y="70.3333" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
-<text xml:space="preserve" x="270.466" y="95.1986" fill="black" font-size="15.4909" font-family="Helvetica">option = 0(MC Glauber)</text>
-<text xml:space="preserve" x="270.466" y="119.354" fill="black" font-size="15.4909" font-family="Helvetica">Total 100,000 events</text>
-<text xml:space="preserve" x="270.466" y="144.219" fill="black" font-size="15.4909" font-family="Helvetica">centrality categorization check</text></svg>
+<text xml:space="preserve" x="270.466" y="43.3367" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
+<text xml:space="preserve" x="270.466" y="63.2289" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
+<text xml:space="preserve" x="270.466" y="83.8316" fill="black" font-size="15.4909" font-family="Helvetica">option = 0(MC Glauber)</text>
+<text xml:space="preserve" x="270.466" y="104.434" fill="black" font-size="15.4909" font-family="Helvetica">Total 100,000 events</text>
+<text xml:space="preserve" x="270.466" y="125.037" fill="black" font-size="15.4909" font-family="Helvetica">inelastic# : 23,000</text>
+<text xml:space="preserve" x="270.466" y="144.929" fill="black" font-size="15.4909" font-family="Helvetica">centrality categorization check</text></svg>

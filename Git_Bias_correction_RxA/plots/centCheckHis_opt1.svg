@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Mon Mar 20 16:58:17 2023</desc>
+CreationDate: Thu Mar 23 16:32:38 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -297,10 +297,9 @@ CreationDate: Mon Mar 20 16:58:17 2023</desc>
 <g fill="#59d354">
 <polygon points=" 462.547, 229.663 464.442, 232.505 462.547, 235.347 460.653, 232.505"/>
 </g>
-<text xml:space="preserve" x="270.466" y="41.2054" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
-<text xml:space="preserve" x="270.466" y="58.2559" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
-<text xml:space="preserve" x="270.466" y="76.0168" fill="black" font-size="15.4909" font-family="Helvetica">option = 1</text>
-<text xml:space="preserve" x="270.466" y="93.7778" fill="black" font-size="15.4909" font-family="Helvetica">Non-fixed raddi and cross-section</text>
-<text xml:space="preserve" x="270.466" y="110.828" fill="black" font-size="15.4909" font-family="Helvetica">Total 100,000 events</text>
-<text xml:space="preserve" x="270.466" y="128.589" fill="black" font-size="15.4909" font-family="Helvetica">inelastic# : 37,398</text>
-<text xml:space="preserve" x="270.466" y="145.64" fill="black" font-size="15.4909" font-family="Helvetica">centrality categorization check</text></svg>
+<text xml:space="preserve" x="270.466" y="43.3367" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
+<text xml:space="preserve" x="270.466" y="63.2289" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
+<text xml:space="preserve" x="270.466" y="83.8316" fill="black" font-size="15.4909" font-family="Helvetica">option = 1(fluctuation O)</text>
+<text xml:space="preserve" x="270.466" y="104.434" fill="black" font-size="15.4909" font-family="Helvetica">Total 100,000 events</text>
+<text xml:space="preserve" x="270.466" y="125.037" fill="black" font-size="15.4909" font-family="Helvetica">inelastic# : 37,398</text>
+<text xml:space="preserve" x="270.466" y="144.929" fill="black" font-size="15.4909" font-family="Helvetica">centrality categorization check</text></svg>
