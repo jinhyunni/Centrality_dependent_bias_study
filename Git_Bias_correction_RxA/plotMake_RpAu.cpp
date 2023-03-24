@@ -1,3 +1,10 @@
+#include <iostream>
+#include <string>
+#include "TFile.h"
+#include "TH1.h"
+#include "TH2.h"
+#include "TProfile.h"
+
 void plotMake_RpAu()
 {
 	//Read in files
