@@ -32,10 +32,8 @@ void plotMake_RpAu()
 
 	//pp(Ncoll=1) yield
 	TH1D* pp = (TH1D*)h2pTcentPP -> ProjectionY("pp");
-
 	//Rebin pp(Ncoll = 1) yield
 	TH1D* ppR = (TH1D*)pp -> Rebin(16, "ppR", xbins);
-
 	//scaling pp yield
 	double scalar1 = 1./(ppR -> GetBinWidth(1) * h2ncollcentPP -> Integral());
 	ppR -> Scale(scalar1);
@@ -54,7 +52,6 @@ void plotMake_RpAu()
 	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(16, "pAuR1", xbins);
 	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(16, "pAuR1", xbins);
 	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(16, "pAuR1", xbins);
-	
 	//scaling pAu yield
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
 
