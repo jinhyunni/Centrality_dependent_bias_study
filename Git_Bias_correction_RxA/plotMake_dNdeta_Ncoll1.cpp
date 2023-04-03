@@ -28,12 +28,12 @@ void plotMake_dNdeta_Ncoll1()
 	TH2D* eventN3 = (TH2D*)input32 -> Get("ncoll_cent");
 
 	//Rebin binedges
-	double xbins[]={-6.0, -5.5, -5.0, -4.5, -4.0, -3.5, -3.0, -2.5, -2.0, -1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0};	
+	double xbins[]={-1.0, -0.8, -0.6, -0.4, -0.4, -0.2, 0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2};	
 
 	//Rebin
-	TH1D* ppR0 = (TH1D*)dNdeta0 -> Rebin((int)((6.0+6.0)/0.5), "ppR", xbins);
-	TH1D* ppR1 = (TH1D*)dNdeta1 -> Rebin((int)((6.0+6.0)/(0.5)), "ppR", xbins);
-	TH1D* ppR3 = (TH1D*)dNdeta3 -> Rebin((int)((6.0+6.0)/(0.5)), "ppR", xbins);
+	TH1D* ppR0 = (TH1D*)dNdeta0 -> Rebin((int)((1.0+1.2)/0.2), "ppR", xbins);
+	TH1D* ppR1 = (TH1D*)dNdeta1 -> Rebin((int)((1.0+1.2)/(0.2)), "ppR", xbins);
+	TH1D* ppR3 = (TH1D*)dNdeta3 -> Rebin((int)((1.0+1.2)/(0.2)), "ppR", xbins);
 
 	//scalar
 	double scalar0 = 1./(eventN0 -> Integral() * ppR0 -> GetBinWidth(1));
@@ -57,7 +57,7 @@ void plotMake_dNdeta_Ncoll1()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(-6, 0, 6, 7.0);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(-1, 0, 1, 7.0);
 
 		htmp -> GetXaxis() -> SetTitle("#eta");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -84,14 +84,14 @@ void plotMake_dNdeta_Ncoll1()
 
 	
 		//addig legend
-		TLegend* leg1 = new TLegend(0.5, 0.57, 0.8, 0.93);
+		TLegend* leg1 = new TLegend(0.48, 0.57, 0.78, 0.93);
 
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option1(Fluctuation O)", "h");
+		leg1 -> AddEntry("", "Integrated p_{T}", "h");
 		leg1 -> AddEntry("", "#pi^{#pm}, K^{#pm}, p", "h");
 		leg1 -> AddEntry(ppR1, "option1(Fluctuation O)", "p");
 		leg1 -> AddEntry(ppR0, "option0(MCG)", "p");
