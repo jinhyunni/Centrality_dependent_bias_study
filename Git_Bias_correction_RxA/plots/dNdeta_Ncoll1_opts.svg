@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Mon Apr  3 18:49:33 2023</desc>
+CreationDate: Mon Apr  3 20:58:19 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -464,23 +464,24 @@ CreationDate: Mon Apr  3 18:49:33 2023</desc>
 <g fill="#0000ff">
 <circle cx="441.051" cy="311.96" r="2.84175"/>
 </g>
-<text xml:space="preserve" x="287.517" y="43.3367" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
-<text xml:space="preserve" x="287.517" y="64.6498" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
-<text xml:space="preserve" x="287.517" y="85.2525" fill="black" font-size="15.4909" font-family="Helvetica">option1(Fluctuation O)</text>
-<text xml:space="preserve" x="325.88" y="106.566" fill="black" font-size="15.4909" font-family="Helvetica">, p</text>
-<text xml:space="preserve" x="320.197" y="99.4613" fill="black" font-size="10.4939" font-family="Times">&#0177;</text>
-<text xml:space="preserve" x="301.725" y="106.566" fill="black" font-size="15.4909" font-family="Helvetica">, K</text>
-<text xml:space="preserve" x="296.042" y="101.593" fill="black" font-size="10.4939" font-family="Times">&#0177;</text>
-<text xml:space="preserve" x="287.517" y="106.566" fill="black" font-size="15.4909" font-family="Times">&#0960;</text>
-<text xml:space="preserve" x="325.88" y="127.168" fill="black" font-size="15.4909" font-family="Helvetica">option1(Fluctuation O)</text>
+<text xml:space="preserve" x="276.86" y="43.3367" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
+<text xml:space="preserve" x="276.86" y="64.6498" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
+<text xml:space="preserve" x="356.429" y="93.0673" fill="black" font-size="10.4939" font-family="Helvetica">T</text>
+<text xml:space="preserve" x="276.86" y="85.2525" fill="black" font-size="15.4909" font-family="Helvetica">Integrated p</text>
+<text xml:space="preserve" x="315.224" y="106.566" fill="black" font-size="15.4909" font-family="Helvetica">, p</text>
+<text xml:space="preserve" x="309.54" y="99.4613" fill="black" font-size="10.4939" font-family="Times">&#0177;</text>
+<text xml:space="preserve" x="291.069" y="106.566" fill="black" font-size="15.4909" font-family="Helvetica">, K</text>
+<text xml:space="preserve" x="285.385" y="101.593" fill="black" font-size="10.4939" font-family="Times">&#0177;</text>
+<text xml:space="preserve" x="276.86" y="106.566" fill="black" font-size="15.4909" font-family="Times">&#0960;</text>
+<text xml:space="preserve" x="314.513" y="127.168" fill="black" font-size="15.4909" font-family="Helvetica">option1(Fluctuation O)</text>
 <g fill="#ff0000">
-<circle cx="305.224" cy="123.134" r="2.84175"/>
+<circle cx="293.886" cy="123.134" r="2.84175"/>
 </g>
-<text xml:space="preserve" x="325.88" y="148.481" fill="black" font-size="15.4909" font-family="Helvetica">option0(MCG)</text>
+<text xml:space="preserve" x="314.513" y="148.481" fill="black" font-size="15.4909" font-family="Helvetica">option0(MCG)</text>
 <g fill="black">
-<circle cx="305.224" cy="144.143" r="2.84175"/>
+<circle cx="293.886" cy="144.143" r="2.84175"/>
 </g>
-<text xml:space="preserve" x="325.88" y="169.795" fill="black" font-size="15.4909" font-family="Helvetica">option3(No diffraction)</text>
+<text xml:space="preserve" x="314.513" y="169.795" fill="black" font-size="15.4909" font-family="Helvetica">option3(No diffraction)</text>
 <g fill="#0000ff">
-<circle cx="305.224" cy="165.151" r="2.84175"/>
+<circle cx="293.886" cy="165.151" r="2.84175"/>
 </g></svg>
