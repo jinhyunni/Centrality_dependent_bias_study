@@ -31,9 +31,9 @@ void plotMake_dNdeta_Ncoll1()
 	double xbins[]={-6.0, -5.5, -5.0, -4.5, -4.0, -3.5, -3.0, -2.5, -2.0, -1.5, -1.0, -0.5, 0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0};	
 
 	//Rebin
-	TH1D* ppR0 = (TH1D*)dNdeta0 -> Rebin(24, "ppR", xbins);
-	TH1D* ppR1 = (TH1D*)dNdeta1 -> Rebin(24, "ppR", xbins);
-	TH1D* ppR3 = (TH1D*)dNdeta3 -> Rebin(24, "ppR", xbins);
+	TH1D* ppR0 = (TH1D*)dNdeta0 -> Rebin((int)((6.0+6.0)/0.5), "ppR", xbins);
+	TH1D* ppR1 = (TH1D*)dNdeta1 -> Rebin((int)((6.0+6.0)/(0.5)), "ppR", xbins);
+	TH1D* ppR3 = (TH1D*)dNdeta3 -> Rebin((int)((6.0+6.0)/(0.5)), "ppR", xbins);
 
 	//scalar
 	double scalar0 = 1./(eventN0 -> Integral() * ppR0 -> GetBinWidth(1));
