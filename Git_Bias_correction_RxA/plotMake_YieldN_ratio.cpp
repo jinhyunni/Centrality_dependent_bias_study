@@ -8,8 +8,8 @@
 void plotMake_YieldN_ratio()
 {
 	//Read in files
-	TFile* input1 = new TFile("pAu200GeV_option1_pion0Analysis.root", "read");
-	TFile* input2 = new TFile("pAu200GeV_option1_avgNcoll.root", "read");
+	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
 	
 	//historams
 
@@ -21,21 +21,22 @@ void plotMake_YieldN_ratio()
 	TProfile* avgNcoll = (TProfile*)input2 -> Get("avgNcoll");
 
 	//Rebin binedges
- //	double xbins[]={0, 0.5, 1, 2, 3, 4, 5, 6, 7, 8};	
+ 	double xbins1[]={0, 0.1, 1, 10};
+	double xbins2[]={0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0};
 
 	//pAu yield
-	TH1D* pAu1R = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);
-	TH1D* pAu2R = (TH1D*)h2pTcent -> ProjectionY("pAu2", 2, 2);
-	TH1D* pAu3R = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);
-	TH1D* pAu4R = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);
-	TH1D* pAu5R = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);
+	TH1D* pAu1 = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);
+	TH1D* pAu2 = (TH1D*)h2pTcent -> ProjectionY("pAu2", 2, 2);
+	TH1D* pAu3 = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);
+	TH1D* pAu4 = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);
+	TH1D* pAu5 = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);
 
- //	//Rebin pAu yield
- //	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(9, "pAuR1", xbins);
- //	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(9, "pAuR2", xbins);
- //	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(9, "pAuR3", xbins);
- //	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(9, "pAuR4", xbins);
- //	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(9, "pAuR5", xbins);
+	//Rebin pAu yield
+	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(3, "pAuR1", xbins1);
+	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(3, "pAuR2", xbins1);
+	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(3, "pAuR3", xbins1);
+	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(3, "pAuR4", xbins1);
+	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(3, "pAuR5", xbins1);
 
 	//scaling pAu yield
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
@@ -118,7 +119,7 @@ void plotMake_YieldN_ratio()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option1(Fluctuation O)", "h");
+		leg1 -> AddEntry("", "option3(No diffraction)", "h");
 		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
 		//leg1 -> AddEntry("", "", "");
 		leg1 -> AddEntry(pAu1R, "0~10%", "p");
