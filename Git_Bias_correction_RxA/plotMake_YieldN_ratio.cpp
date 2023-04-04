@@ -8,8 +8,8 @@
 void plotMake_YieldN_ratio()
 {
 	//Read in files
-	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
-	TFile* input2 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
+	TFile* input1 = new TFile("pAu200GeV_option1_pion0Analysis.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option1_avgNcoll.root", "read");
 	
 	//historams
 
@@ -20,8 +20,8 @@ void plotMake_YieldN_ratio()
 	////avgNcoll
 	TProfile* avgNcoll = (TProfile*)input2 -> Get("avgNcoll");
 
- //	//Rebin binedges
- //	double xbins[]={0, 0.5, 1, 1.5, 2, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8};	
+	//Rebin binedges
+ //	double xbins[]={0, 0.5, 1, 2, 3, 4, 5, 6, 7, 8};	
 
 	//pAu yield
 	TH1D* pAu1R = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);
@@ -29,12 +29,14 @@ void plotMake_YieldN_ratio()
 	TH1D* pAu3R = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);
 	TH1D* pAu4R = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);
 	TH1D* pAu5R = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);
+
  //	//Rebin pAu yield
- //	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(16, "pAuR1", xbins);
- //	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(16, "pAuR1", xbins);
- //	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(16, "pAuR1", xbins);
- //	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(16, "pAuR1", xbins);
- //	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(16, "pAuR1", xbins);
+ //	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(9, "pAuR1", xbins);
+ //	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(9, "pAuR2", xbins);
+ //	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(9, "pAuR3", xbins);
+ //	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(9, "pAuR4", xbins);
+ //	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(9, "pAuR5", xbins);
+
 	//scaling pAu yield
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
 
@@ -73,13 +75,13 @@ void plotMake_YieldN_ratio()
 		gPad -> SetBottomMargin(0.12);
 		gPad -> SetLogx();
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 7, 5.0);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 10, 8.0);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
 		htmp -> GetXaxis() -> SetLabelSize(0.04);
 		htmp -> GetXaxis() -> SetTitleOffset(1.1);
-		htmp -> GetYaxis() -> SetTitle("R_{pAu}");
+		htmp -> GetYaxis() -> SetTitle("Y_{pAu}/#LTN_{coll}#GT");
 		htmp -> GetYaxis() -> SetTitleSize(0.05);
 		htmp -> GetYaxis() -> SetLabelSize(0.04);
 
@@ -108,23 +110,23 @@ void plotMake_YieldN_ratio()
 		pAu5R -> SetLineColor(6);
 		pAu5R -> Draw("p_same");
 
- //		//addig legend
- //		TLegend* leg1 = new TLegend(0.53, 0.57, 0.83, 0.93);
- //
- //		leg1 -> SetFillStyle(0);
- //		leg1 -> SetBorderSize(0);
- //		leg1 -> SetTextSize(0.04);
- //		leg1 -> AddEntry("", "PYTHIA8", "h");
- //		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
- //		leg1 -> AddEntry("", "option1(Default)", "h");
- //		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
- //		//leg1 -> AddEntry("", "", "");
- //		leg1 -> AddEntry(R_pAu1, "0~10%", "p");
- //		leg1 -> AddEntry(R_pAu2, "10~20%", "p");
- //		leg1 -> AddEntry(R_pAu3, "20~40%", "p");
- //		leg1 -> AddEntry(R_pAu4, "40~60%", "p");
- //		leg1 -> AddEntry(R_pAu5, "60~80%", "p");
- //		leg1 -> Draw();
+		//addig legend
+		TLegend* leg1 = new TLegend(0.53, 0.57, 0.83, 0.93);
+
+		leg1 -> SetFillStyle(0);
+		leg1 -> SetBorderSize(0);
+		leg1 -> SetTextSize(0.04);
+		leg1 -> AddEntry("", "PYTHIA8", "h");
+		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
+		leg1 -> AddEntry("", "option1(Fluctuation O)", "h");
+		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
+		//leg1 -> AddEntry("", "", "");
+		leg1 -> AddEntry(pAu1R, "0~10%", "p");
+		leg1 -> AddEntry(pAu2R, "10~20%", "p");
+		leg1 -> AddEntry(pAu3R, "20~40%", "p");
+		leg1 -> AddEntry(pAu4R, "40~60%", "p");
+		leg1 -> AddEntry(pAu5R, "60~80%", "p");
+		leg1 -> Draw();
 
 	}
 
