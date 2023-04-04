@@ -9,7 +9,7 @@ void plotMake_YieldN_ratio()
 {
 	//Read in files
 	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
-	TFile* input3 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
 	
 	//historams
 
@@ -18,23 +18,23 @@ void plotMake_YieldN_ratio()
 	TH2D* h2ncollcent = (TH2D*)input1 -> Get("ncoll_cent");
 
 	////avgNcoll
-	TProfile* avgNcoll = (TProfile*)input3 -> Get("avgNcoll");
+	TProfile* avgNcoll = (TProfile*)input2 -> Get("avgNcoll");
 
-	//Rebin binedges
-	double xbins[]={0, 0.5, 1, 1.5, 2, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8};	
+ //	//Rebin binedges
+ //	double xbins[]={0, 0.5, 1, 1.5, 2, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8};	
 
 	//pAu yield
-	TH1D* pAu1 = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);
-	TH1D* pAu2 = (TH1D*)h2pTcent -> ProjectionY("pAu2", 2, 2);
-	TH1D* pAu3 = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);
-	TH1D* pAu4 = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);
-	TH1D* pAu5 = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);
-	//Rebin pAu yield
-	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(16, "pAuR1", xbins);
-	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(16, "pAuR1", xbins);
-	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(16, "pAuR1", xbins);
-	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(16, "pAuR1", xbins);
-	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(16, "pAuR1", xbins);
+	TH1D* pAu1R = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);
+	TH1D* pAu2R = (TH1D*)h2pTcent -> ProjectionY("pAu2", 2, 2);
+	TH1D* pAu3R = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);
+	TH1D* pAu4R = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);
+	TH1D* pAu5R = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);
+ //	//Rebin pAu yield
+ //	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(16, "pAuR1", xbins);
+ //	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(16, "pAuR1", xbins);
+ //	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(16, "pAuR1", xbins);
+ //	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(16, "pAuR1", xbins);
+ //	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(16, "pAuR1", xbins);
 	//scaling pAu yield
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
 
@@ -65,12 +65,13 @@ void plotMake_YieldN_ratio()
 	{
 		
 		c1 -> cd();
-
+		
 		gPad -> SetTicks();
 		gPad -> SetLeftMargin(0.15);
 		gPad -> SetRightMargin(0.15);
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
+		gPad -> SetLogx();
 
 		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 7, 5.0);
 
