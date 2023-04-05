@@ -8,8 +8,8 @@
 void plotMake_YieldN_ratio()
 {
 	//Read in files
-	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
-	TFile* input2 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
+	TFile* input1 = new TFile("pAu200GeV_option1_pion0Analysis.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option1_avgNcoll.root", "read");
 	
 	//historams
 
@@ -76,7 +76,7 @@ void plotMake_YieldN_ratio()
 		gPad -> SetBottomMargin(0.12);
 		gPad -> SetLogx();
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 10, 8.0);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 10, 45.0);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -119,7 +119,7 @@ void plotMake_YieldN_ratio()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("", "PYTHIA8", "h");
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option3(No diffraction)", "h");
+		leg1 -> AddEntry("", "option1(Fluctuation O)", "h");
 		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
 		//leg1 -> AddEntry("", "", "");
 		leg1 -> AddEntry(pAu1R, "0~10%", "p");
