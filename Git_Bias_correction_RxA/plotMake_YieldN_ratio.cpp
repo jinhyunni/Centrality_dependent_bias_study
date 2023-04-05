@@ -32,11 +32,11 @@ void plotMake_YieldN_ratio()
 	TH1D* pAu5 = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);
 
 	//Rebin pAu yield
-	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(3, "pAuR1", xbins1);
-	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(3, "pAuR2", xbins1);
-	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(3, "pAuR3", xbins1);
-	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(3, "pAuR4", xbins1);
-	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(3, "pAuR5", xbins1);
+	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(20, "pAuR1", xbins2);
+	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(20, "pAuR2", xbins2);
+	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(20, "pAuR3", xbins2);
+	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(20, "pAuR4", xbins2);
+	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(20, "pAuR5", xbins2);
 
 	//scaling pAu yield
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
@@ -76,7 +76,7 @@ void plotMake_YieldN_ratio()
 		gPad -> SetBottomMargin(0.12);
 		gPad -> SetLogx();
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 10, 45.0);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 10, 10.0);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T}(GeV)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
