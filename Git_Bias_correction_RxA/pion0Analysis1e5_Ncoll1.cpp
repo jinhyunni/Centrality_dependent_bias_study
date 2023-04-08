@@ -79,9 +79,9 @@ void pion0Analysis1e5_Ncoll1()
 	double scalar = 1./(pTpion0 -> GetBinWidth(1)*ncoll1);
 	pTpion0 -> Scale(scalar);
 
-	//save histogram as root file
-	TFile *file = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5_rebined.root", "recreate");
-	pTpion0 -> Write();
-	file -> Close();
+ //	//save histogram as root file
+ //	TFile *file = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5_rebined.root", "recreate");
+ //	pTpion0 -> Write();
+ //	file -> Close();
 
 }
