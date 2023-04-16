@@ -8,9 +8,9 @@
 void plotMake_RpAu()
 {
 	//Read in files
-	TFile* input1 = new TFile("pAu200GeV_option1_pion0Analysis.root", "read");
-	TFile* input2 = new TFile("pAu200GeV_option1_pion0Analysis_Ncoll1.root", "read");
-	TFile* input3 = new TFile("pAu200GeV_option1_avgNcoll.root", "read");
+	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
+	TFile* input2 = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1.root", "read");
+	TFile* input3 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
 	
 	//historams
 
