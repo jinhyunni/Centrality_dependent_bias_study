@@ -8,28 +8,21 @@
 void plotMake_YavgNcollR()
 {
 	//Read in files
-	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
+	TFile* input1 = new TFile("pAu200GeV_option3_pAuYield.root", "read");
 	TFile* input2 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
 	
 	//historams
 
 	////pAu
-	TH2D* h2pTcent = (TH2D*)input1 -> Get("pTpion0_cent");
+	TH2D* h2pTcent1 = (TH2D*)input1 -> Get("pTpion0_cent1");	//pTClass1
+	TH2D* h2pTcent2 = (TH2D*)input1 -> Get("pTpion0_cent2");	//pTClass2
+	TH2D* h2pTcent3 = (TH2D*)input1 -> Get("pTpion0_cent3");	//pTClass3
 	TH2D* h2ncollcent = (TH2D*)input1 -> Get("ncoll_cent");
 	////avgNcoll
 	TProfile* avgNcoll = (TProfile*)input2 -> Get("avgNcoll");
 
-
 	//Rebin binedges
-	double pTbins[]={0, 0.5, 1, 1.5, 2, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0};	
-
-
-	//pAu yield
-	TH1D* pAu1 = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);	//pion0 pT in event cent 0~10%
-	TH1D* pAu2 = (TH1D*)h2pTcent -> ProjectionY("pAu2", 2, 2);	//pion0 pT in event cent 10~20%
-	TH1D* pAu3 = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);	//pino0 pT in event cent 20~40%
-	TH1D* pAu4 = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);	//pion0 pT in event cent 40~60%
-	TH1D* pAu5 = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);	//pion0 pT in event cent 60~80%
+	double pTbins[]={0, 10, 20, 40, 60, 80};	
 
 	//Rebin pAu yield
 	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(22, "pAuR1", pTbins);
@@ -173,7 +166,7 @@ void plotMake_YavgNcollR()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 0.0001);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 0.01);
 
 		htmp -> GetXaxis() -> SetTitle("centrality(%)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -183,10 +176,10 @@ void plotMake_YavgNcollR()
 		htmp -> GetYaxis() -> SetTitleSize(0.05);
 		htmp -> GetYaxis() -> SetLabelSize(0.04);
 
-		plot3 -> SetMarkerStyle(28);
-		plot3 -> SetMarkerColor(6);
-		plot3 -> SetLineColor(6);
-		plot3 -> Draw("p_same");
+		plot2 -> SetMarkerStyle(28);
+		plot2 -> SetMarkerColor(6);
+		plot2 -> SetLineColor(6);
+		plot2 -> Draw("p_same");
 
 		//addig legend
 		TLegend* leg1 = new TLegend(0.6, 0.57, 0.9, 0.93);
@@ -198,7 +191,7 @@ void plotMake_YavgNcollR()
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
 		leg1 -> AddEntry("", "option3(Default)", "h");
 		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
-		leg1 -> AddEntry("", "5 #leqp_{T}", "h");
+		leg1 -> AddEntry("", "2 #leqp_{T}<5", "h");
 		//leg1 -> AddEntry("", "", "");
 		leg1 -> Draw();
 

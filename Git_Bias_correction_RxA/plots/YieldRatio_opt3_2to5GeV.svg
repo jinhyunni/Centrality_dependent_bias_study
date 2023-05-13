@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.26/06
-CreationDate: Mon Apr 17 00:42:02 2023</desc>
+CreationDate: Fri May 12 16:06:56 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -245,51 +245,23 @@ CreationDate: Mon Apr 17 00:42:02 2023</desc>
 <path d="M475.332,27.2062h 7.05827" fill="none" stroke="black"/>
 <path d="M468.273,20.4251h 14.1165" fill="none" stroke="black"/>
 <path d="M468.273,20.4251h 14.1165" fill="none" stroke="black"/>
-<path d="M110.343,359.481v -81.5509" fill="none" stroke="#ff00ff"/>
-<path d="M110.343,272.247v -251.822" fill="none" stroke="#ff00ff"/>
-<path d="M85.5394,275.089h 21.9614" fill="none" stroke="#ff00ff"/>
-<path d="M113.184,275.089h 21.9614" fill="none" stroke="#ff00ff"/>
 <g stroke="#ff00ff" stroke-width="1" fill="none">
 <polygon points=" 109.395, 274.141 109.395, 272.247 111.29, 272.247 111.29, 274.141 113.184, 274.141 113.184, 276.036 111.29, 276.036 111.29, 277.93 109.395, 277.93 109.395, 276.036 107.501, 276.036 107.501, 274.141"/>
-</g>
-<path d="M159.949,359.481v -99.2871" fill="none" stroke="#ff00ff"/>
-<path d="M159.949,254.511v -234.086" fill="none" stroke="#ff00ff"/>
-<path d="M135.146,257.353h 21.9614" fill="none" stroke="#ff00ff"/>
-<path d="M162.791,257.353h 21.9614" fill="none" stroke="#ff00ff"/>
-<g stroke="#ff00ff" stroke-width="1" fill="none">
 <polygon points=" 159.002, 256.405 159.002, 254.511 160.896, 254.511 160.896, 256.405 162.791, 256.405 162.791, 258.3 160.896, 258.3 160.896, 260.194 159.002, 260.194 159.002, 258.3 157.107, 258.3 157.107, 256.405"/>
-</g>
-<path d="M234.358,359.481v -103.8" fill="none" stroke="#ff00ff"/>
-<path d="M234.358,249.998v -229.573" fill="none" stroke="#ff00ff"/>
-<path d="M184.752,252.839h 46.7645" fill="none" stroke="#ff00ff"/>
-<path d="M237.2,252.839h 46.7645" fill="none" stroke="#ff00ff"/>
-<g stroke="#ff00ff" stroke-width="1" fill="none">
 <polygon points=" 233.411, 251.892 233.411, 249.998 235.306, 249.998 235.306, 251.892 237.2, 251.892 237.2, 253.787 235.306, 253.787 235.306, 255.681 233.411, 255.681 233.411, 253.787 231.517, 253.787 231.517, 251.892"/>
-</g>
-<path d="M333.571,359.481v -105.648" fill="none" stroke="#ff00ff"/>
-<path d="M333.571,248.15v -227.725" fill="none" stroke="#ff00ff"/>
-<path d="M283.965,250.992h 46.7645" fill="none" stroke="#ff00ff"/>
-<path d="M336.413,250.992h 46.7645" fill="none" stroke="#ff00ff"/>
-<g stroke="#ff00ff" stroke-width="1" fill="none">
 <polygon points=" 332.624, 250.045 332.624, 248.15 334.518, 248.15 334.518, 250.045 336.413, 250.045 336.413, 251.939 334.518, 251.939 334.518, 253.834 332.624, 253.834 332.624, 251.939 330.729, 251.939 330.729, 250.045"/>
-</g>
-<path d="M432.783,359.481v -126.311" fill="none" stroke="#ff00ff"/>
-<path d="M432.783,227.487v -207.061" fill="none" stroke="#ff00ff"/>
-<path d="M383.177,230.328h 46.7645" fill="none" stroke="#ff00ff"/>
-<path d="M435.625,230.328h 46.7645" fill="none" stroke="#ff00ff"/>
-<g stroke="#ff00ff" stroke-width="1" fill="none">
 <polygon points=" 431.836, 229.381 431.836, 227.487 433.731, 227.487 433.731, 229.381 435.625, 229.381 435.625, 231.276 433.731, 231.276 433.731, 233.17 431.836, 233.17 431.836, 231.276 429.942, 231.276 429.942, 229.381"/>
 </g>
-<text xml:space="preserve" x="304.567" y="49.7306" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
-<text xml:space="preserve" x="304.567" y="78.8586" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
-<text xml:space="preserve" x="304.567" y="108.697" fill="black" font-size="15.4909" font-family="Helvetica">option3(Default)</text>
-<text xml:space="preserve" x="338.668" y="137.825" fill="black" font-size="15.4909" font-family="Helvetica">|&lt;1</text>
-<text xml:space="preserve" x="330.143" y="137.825" fill="black" font-size="15.4909" font-family="Times">&#0951;</text>
-<text xml:space="preserve" x="318.776" y="137.825" fill="black" font-size="15.4909" font-family="Helvetica">, |</text>
-<text xml:space="preserve" x="313.092" y="132.141" fill="black" font-size="10.4939" font-family="Helvetica">0</text>
-<text xml:space="preserve" x="304.567" y="137.825" fill="black" font-size="15.4909" font-family="Times">&#0960;</text>
-<text xml:space="preserve" x="340.8" y="166.953" fill="black" font-size="15.4909" font-family="Helvetica">&lt;5</text>
-<text xml:space="preserve" x="334.406" y="174.768" fill="black" font-size="10.4939" font-family="Helvetica">T</text>
-<text xml:space="preserve" x="325.88" y="166.953" fill="black" font-size="15.4909" font-family="Helvetica">p</text>
-<text xml:space="preserve" x="317.355" y="166.953" fill="black" font-size="15.4909" font-family="Times">&#8804;</text>
-<text xml:space="preserve" x="304.567" y="166.953" fill="black" font-size="15.4909" font-family="Helvetica">2 </text></svg>
+<text xml:space="preserve" x="344.352" y="49.7306" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
+<text xml:space="preserve" x="344.352" y="78.8586" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
+<text xml:space="preserve" x="344.352" y="108.697" fill="black" font-size="15.4909" font-family="Helvetica">option3(Default)</text>
+<text xml:space="preserve" x="378.453" y="137.825" fill="black" font-size="15.4909" font-family="Helvetica">|&lt;1</text>
+<text xml:space="preserve" x="369.928" y="137.825" fill="black" font-size="15.4909" font-family="Times">&#0951;</text>
+<text xml:space="preserve" x="358.561" y="137.825" fill="black" font-size="15.4909" font-family="Helvetica">, |</text>
+<text xml:space="preserve" x="352.877" y="132.141" fill="black" font-size="10.4939" font-family="Helvetica">0</text>
+<text xml:space="preserve" x="344.352" y="137.825" fill="black" font-size="15.4909" font-family="Times">&#0960;</text>
+<text xml:space="preserve" x="380.584" y="166.953" fill="black" font-size="15.4909" font-family="Helvetica">&lt;5</text>
+<text xml:space="preserve" x="374.19" y="174.768" fill="black" font-size="10.4939" font-family="Helvetica">T</text>
+<text xml:space="preserve" x="365.665" y="166.953" fill="black" font-size="15.4909" font-family="Helvetica">p</text>
+<text xml:space="preserve" x="357.14" y="166.953" fill="black" font-size="15.4909" font-family="Times">&#8804;</text>
+<text xml:space="preserve" x="344.352" y="166.953" fill="black" font-size="15.4909" font-family="Helvetica">2 </text></svg>
