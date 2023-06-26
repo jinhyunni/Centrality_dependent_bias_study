@@ -93,11 +93,13 @@ void pion0Analysis1e5()
 	cout << elevent << endl;
 
 	//save histogram as root file
-	TFile *file = new TFile("pAu200GeV_option3_pion0Analysis_etacut_INEL_1e5_rebined.root", "recreate");
+	TFile *file = new TFile("pAu200GeV_option3_pion0Analysis.root", "recreate");
 
 	pTpion0_cent -> Write();
 	ncoll_cent -> Write();
 
 	file -> Close();
+
+	delete opt3, pTpion0_cent, ncoll_cent, file;
 
 }
