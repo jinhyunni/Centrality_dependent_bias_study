@@ -1,16 +1,13 @@
 /***************************************
 * pion0 Analysis
 
-* Store pT of pion0 with Ncoll =1 events
+* Store pT of pion0
 * pTpion0 - centrality -> TH2D
-
-* will be used as reference histo
-* in calculation of RpAu
 
 * 100,000 events
 ***************************************/
 
-void pion0Analysis1e5_Ncoll1()
+void analysis_yield()
 {
 	//read files
 	TChain *opt3 = new TChain("T");
@@ -26,7 +23,7 @@ void pion0Analysis1e5_Ncoll1()
 	opt3 -> Add("outfile_pAu200GeV_set00_grp000_00009.root");
 	
 	//centrality reference his
-	TFile* input = new TFile("pAu200GeV_option3_pTcent_refhis_v1.root", "read");
+	TFile* input = new TFile("pAu200GeV_option3_pTcent_refhis_INEL_v1.root", "read");
 	TH1F* refhis = (TH1F*)input -> Get("centRef_pTe5");
 
 	//set variables to hold information
@@ -55,33 +52,54 @@ void pion0Analysis1e5_Ncoll1()
 	opt3 -> SetBranchAddress("i_nElTarg", &i_nElTarg);
 	
 	//Analysis
-	int ncoll1 = 0;
-	TH1D* pTpion0 = new TH1D("pTpion0", "", 28, 0, 14);
+
+	float pTsum = 0.;
+	float centrality = 0.;
+	int ncoll = 0;
+	int elevent = 0;
+
+	TH2D* pTpion0_cent = new TH2D("pTpion0_cent", "cent_pTpion0", 11, 0, 110, 28, 0, 14);
+	TH2D* ncoll_cent = new TH2D("ncoll_cent", "cent_ncoll", 11, 0, 110, 100, 0, 100);
 	
 	for(int i = 0; i < opt3 -> GetEntries(); i++){
 		opt3 -> GetEntry(i);
-
-		//store inelastic events only, Ncoll = 1 evnets only, at mid-rapidity
-		if(i_nAbsProj == 1 and i_nAbsTarg == 1){
-			
-				ncoll1 += 1;
-
+		//store inelastic events only
+		if(i_nAbsProj == 1 and i_nAbsTarg != 0){
+			elevent += 1;
 			for(int j = 0; j < np; j++){
-				if(p_id[j] == 111 and p_eta[j]>-1 and p_eta[j]<1){
-					pTpion0 -> Fill(p_pt[j]);
+				if(p_eta[j]>-3.9 and p_eta[j]<-3.0 and p_id[j] != 111){
+					pTsum = pTsum + p_pt[j];
 				}
-			}
-		}//j, particle
+			}//j, particle
+		
+			//centrality calculation
+			centrality = 100*((refhis -> Integral((refhis -> FindBin(pTsum)), 1e5))/(refhis -> Integral(1, 1e5)));
+			//Ncoll calculation
+			ncoll = i_nAbsTarg + i_nAbsProj - 1;
+
+			//store pion0's pT by centrality in midrapidity(|eta|<1);
+			for(int j = 0; j < np; j++){
+				if(p_id[j]==111 and p_eta[j] > -1 and p_eta[j] < 1){
+					pTpion0_cent -> Fill(centrality, p_pt[j]);
+				}
+			}//j, storing
+
+			ncoll_cent -> Fill(centrality, ncoll);
+
+			pTsum = 0.;
+		}
 	}//i, event
+	
+	cout << elevent << endl;
 
-	cout << ncoll1 << endl;
+	//save histogram as root file
+	TFile *file = new TFile("pAu200GeV_option3_pion0Analysis.root", "recreate");
 
-	double scalar = 1./(pTpion0 -> GetBinWidth(1)*ncoll1);
-	pTpion0 -> Scale(scalar);
+	pTpion0_cent -> Write();
+	ncoll_cent -> Write();
 
- //	//save histogram as root file
- //	TFile *file = new TFile("pAu200GeV_option3_pion0Analysis_Ncoll1_etacut_1e5_rebined.root", "recreate");
- //	pTpion0 -> Write();
- //	file -> Close();
+	file -> Close();
+
+	delete opt3, pTpion0_cent, ncoll_cent, file;
 
 }

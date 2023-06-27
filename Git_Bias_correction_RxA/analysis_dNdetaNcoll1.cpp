@@ -1,4 +1,4 @@
-void dNdeta_Ncoll1()
+void analysis_dNdetaNcoll1()
 {
 	//read files
 	TChain *opt3 = new TChain("T");
