@@ -20,7 +20,7 @@ void plotMake_YavgNcollR()
 	int centbins[]={0, 10, 20, 40, 60, 80};
 
 	//TH2D histogram rebin
-	h2pTcent -> GetXaxis() -> Set(5, centbins);
+	(TH2D*)(h2pTcent -> GetXaxis()) -> Set(5, centbins);
 	
 	h2pTcent -> Draw();
 	
