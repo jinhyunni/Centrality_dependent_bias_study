@@ -1,4 +1,4 @@
-void plotMake_YavgNcollR()
+void plotMake_YavgNcollR_old()
 {
 	//Read in files
 	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
