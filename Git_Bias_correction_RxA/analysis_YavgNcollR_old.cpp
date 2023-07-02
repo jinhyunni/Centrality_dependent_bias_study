@@ -1,4 +1,4 @@
-void plotMake_YavgNcollR_old()
+void analysis_YavgNcollR_old()
 {
 	//Read in files
 	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
@@ -31,7 +31,16 @@ void plotMake_YavgNcollR_old()
 	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(22, "pAuR1", pTbins);
 	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(22, "pAuR1", pTbins);
 
-	//scailing to get dN/dpT
+
+	//for checking
+	cout << pAu1R -> Integral(1, 4) << endl;
+	cout << pAu2R -> Integral(1, 4) << endl;
+	cout << pAu3R -> Integral(1, 4) << endl;
+	cout << pAu4R -> Integral(1, 4) << endl;
+	cout << pAu5R -> Integral(1, 4) << endl;
+
+
+	//scailing to get dN/dpTdeta
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
 
 	double num1 = h1cent -> GetBinContent(1);
@@ -40,11 +49,11 @@ void plotMake_YavgNcollR_old()
 	double num4 = h1cent -> GetBinContent(5) + h1cent -> GetBinContent(6);
 	double num5 = h1cent -> GetBinContent(7) + h1cent -> GetBinContent(8);
 
-	double scalar11 = 1./(pAu1R -> GetBinWidth(1) * num1);
-	double scalar12 = 1./(pAu2R -> GetBinWidth(1) * num2);
-	double scalar13 = 1./(pAu3R -> GetBinWidth(1) * num3);
-	double scalar14 = 1./(pAu4R -> GetBinWidth(1) * num4);
-	double scalar15 = 1./(pAu5R -> GetBinWidth(1) * num5);
+	double scalar11 = 1./(pAu1R -> GetBinWidth(1) * num1 * 2);
+	double scalar12 = 1./(pAu2R -> GetBinWidth(1) * num2 * 2);
+	double scalar13 = 1./(pAu3R -> GetBinWidth(1) * num3 * 2);
+	double scalar14 = 1./(pAu4R -> GetBinWidth(1) * num4 * 2);
+	double scalar15 = 1./(pAu5R -> GetBinWidth(1) * num5 * 2);
 	
 	pAu1R -> Scale(scalar11);
 	pAu2R -> Scale(scalar12);
@@ -53,25 +62,25 @@ void plotMake_YavgNcollR_old()
 	pAu5R -> Scale(scalar15);
 
 	//Yield/<Ncoll>, more than 0, under 2 GeV, Y(pTclass)(centClass)
-	double Y11 = pAu1R -> Integral(1, 4)/(avgNcoll -> GetBinContent(1) * 2);
-	double Y12 = pAu2R -> Integral(1, 4)/(avgNcoll -> GetBinContent(2) * 2);
-	double Y13 = pAu3R -> Integral(1, 4)/(avgNcoll -> GetBinContent(3) * 2);
-	double Y14 = pAu4R -> Integral(1, 4)/(avgNcoll -> GetBinContent(4) * 2);
-	double Y15 = pAu5R -> Integral(1, 4)/(avgNcoll -> GetBinContent(5) * 2);
+	double Y11 = pAu1R -> Integral(1, 4)/(avgNcoll -> GetBinContent(1));
+	double Y12 = pAu2R -> Integral(1, 4)/(avgNcoll -> GetBinContent(2));
+	double Y13 = pAu3R -> Integral(1, 4)/(avgNcoll -> GetBinContent(3));
+	double Y14 = pAu4R -> Integral(1, 4)/(avgNcoll -> GetBinContent(4));
+	double Y15 = pAu5R -> Integral(1, 4)/(avgNcoll -> GetBinContent(5));
 
 	//Yield/<Ncoll>, more than 2, under 5 GeV, Y(pTclass)(centClass)
-	double Y21 = pAu1R -> Integral(5, 10)/(avgNcoll -> GetBinContent(1) * 2);
-	double Y22 = pAu2R -> Integral(5, 10)/(avgNcoll -> GetBinContent(2) * 2);
-	double Y23 = pAu3R -> Integral(5, 10)/(avgNcoll -> GetBinContent(3) * 2);
-	double Y24 = pAu4R -> Integral(5, 10)/(avgNcoll -> GetBinContent(4) * 2);
-	double Y25 = pAu5R -> Integral(5, 10)/(avgNcoll -> GetBinContent(5) * 2);
+	double Y21 = pAu1R -> Integral(5, 10)/(avgNcoll -> GetBinContent(1));
+	double Y22 = pAu2R -> Integral(5, 10)/(avgNcoll -> GetBinContent(2));
+	double Y23 = pAu3R -> Integral(5, 10)/(avgNcoll -> GetBinContent(3));
+	double Y24 = pAu4R -> Integral(5, 10)/(avgNcoll -> GetBinContent(4));
+	double Y25 = pAu5R -> Integral(5, 10)/(avgNcoll -> GetBinContent(5));
 
 	//Yield/<Ncoll>, more than 2, under 5 GeV, Y(pTclass)(centClass)
-	double Y31 = pAu1R -> Integral(10, 22)/(avgNcoll -> GetBinContent(1) * 2);
-	double Y32 = pAu2R -> Integral(10, 22)/(avgNcoll -> GetBinContent(2) * 2);
-	double Y33 = pAu3R -> Integral(10, 22)/(avgNcoll -> GetBinContent(3) * 2);
-	double Y34 = pAu4R -> Integral(10, 22)/(avgNcoll -> GetBinContent(4) * 2);
-	double Y35 = pAu5R -> Integral(10, 22)/(avgNcoll -> GetBinContent(5) * 2);
+	double Y31 = pAu1R -> Integral(11, 22)/(avgNcoll -> GetBinContent(1));
+	double Y32 = pAu2R -> Integral(11, 22)/(avgNcoll -> GetBinContent(2));
+	double Y33 = pAu3R -> Integral(11, 22)/(avgNcoll -> GetBinContent(3));
+	double Y34 = pAu4R -> Integral(11, 22)/(avgNcoll -> GetBinContent(4));
+	double Y35 = pAu5R -> Integral(11, 22)/(avgNcoll -> GetBinContent(5));
 
  //	cout<< Y11 << endl;
  //	cout<< Y12 << endl;
@@ -132,11 +141,11 @@ void plotMake_YavgNcollR_old()
 
  //	//set false error	
  //	//0~2GeV
- //    plot1 -> SetBinError(1, 1./sqrt(num1));
- //    plot1 -> SetBinError(2, 1./sqrt(num2));
- //    plot1 -> SetBinError(3, 1./sqrt(num3));
- // 	plot1 -> SetBinError(4, 1./sqrt(num4));
- // 	plot1 -> SetBinError(5, 1./sqrt(num5));
+ // plot1 -> SetBinError(1, 1./sqrt(num1));
+ // plot1 -> SetBinError(2, 1./sqrt(num2));
+ // plot1 -> SetBinError(3, 1./sqrt(num3));
+ // plot1 -> SetBinError(4, 1./sqrt(num4));
+ // plot1 -> SetBinError(5, 1./sqrt(num5));
  //	
  //	//2~5GeV
  //	plot2 -> SetBinError(1, 1./sqrt(num1));
@@ -154,47 +163,47 @@ void plotMake_YavgNcollR_old()
 
 
  //	//Draw histogram
-	gStyle -> SetOptStat(0);
-	TCanvas* c1 = new TCanvas("", "", 800, 600);
-	{
-		
-		c1 -> cd();
-
-		gPad -> SetTicks();
-		gPad -> SetLeftMargin(0.15);
-		gPad -> SetRightMargin(0.15);
-		gPad -> SetTopMargin(0.05);
-		gPad -> SetBottomMargin(0.12);
-
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 0.0001);
-
-		htmp -> GetXaxis() -> SetTitle("centrality(%)");
-		htmp -> GetXaxis() -> SetTitleSize(0.05);
-		htmp -> GetXaxis() -> SetLabelSize(0.04);
-		htmp -> GetXaxis() -> SetTitleOffset(1.1);
-		htmp -> GetYaxis() -> SetTitle("Y_{pAu}/#LTN_{coll}#GT");
-		htmp -> GetYaxis() -> SetTitleSize(0.05);
-		htmp -> GetYaxis() -> SetLabelSize(0.04);
-
-		plot3 -> SetMarkerStyle(28);
-		plot3 -> SetMarkerColor(6);
-		plot3 -> SetLineColor(6);
-		plot3 -> Draw("p_same");
-
-		//addig legend
-		TLegend* leg1 = new TLegend(0.6, 0.57, 0.9, 0.93);
-
-		leg1 -> SetFillStyle(0);
-		leg1 -> SetBorderSize(0);
-		leg1 -> SetTextSize(0.04);
-		leg1 -> AddEntry("", "PYTHIA8", "h");
-		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
-		leg1 -> AddEntry("", "option3(Default)", "h");
-		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
-		leg1 -> AddEntry("", "5 #leqp_{T}", "h");
-		//leg1 -> AddEntry("", "", "");
-		leg1 -> Draw();
-
-	}
+ //	gStyle -> SetOptStat(0);
+ //	TCanvas* c1 = new TCanvas("", "", 800, 600);
+ //	{
+ //		
+ //		c1 -> cd();
+ //
+ //		gPad -> SetTicks();
+ //		gPad -> SetLeftMargin(0.15);
+ //		gPad -> SetRightMargin(0.15);
+ //		gPad -> SetTopMargin(0.05);
+ //		gPad -> SetBottomMargin(0.12);
+ //
+ //		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 5);
+ //
+ //		htmp -> GetXaxis() -> SetTitle("centrality(%)");
+ //		htmp -> GetXaxis() -> SetTitleSize(0.05);
+ //		htmp -> GetXaxis() -> SetLabelSize(0.04);
+ //		htmp -> GetXaxis() -> SetTitleOffset(1.1);
+ //		htmp -> GetYaxis() -> SetTitle("Y_{pAu}/#LTN_{coll}#GT");
+ //		htmp -> GetYaxis() -> SetTitleSize(0.05);
+ //		htmp -> GetYaxis() -> SetLabelSize(0.04);
+ //
+ //		plot1 -> SetMarkerStyle(28);
+ //		plot1 -> SetMarkerColor(6);
+ //		plot1 -> SetLineColor(6);
+ //		plot1 -> Draw("p_same");
+ //
+ //		//addig legend
+ //		TLegend* leg1 = new TLegend(0.6, 0.57, 0.9, 0.93);
+ //
+ //		leg1 -> SetFillStyle(0);
+ //		leg1 -> SetBorderSize(0);
+ //		leg1 -> SetTextSize(0.04);
+ //		leg1 -> AddEntry("", "PYTHIA8", "h");
+ //		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
+ //		leg1 -> AddEntry("", "option3(Default)", "h");
+ //		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
+ //		leg1 -> AddEntry("", "0 #GT p_{T} #LT 2", "h");
+ //		//leg1 -> AddEntry("", "", "");
+ //		leg1 -> Draw();
+ //
+ //	}
 
 }

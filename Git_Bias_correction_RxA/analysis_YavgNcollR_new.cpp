@@ -37,26 +37,26 @@ void plotMake_YavgNcollR_new()
  //		cout << endl;
  //	}
  //	
-	for(int i=0; i<5; i++)
-	{
-		cout << i+1 << " centrality class event num: " << eventNumCentR -> GetBinContent(i+1) << endl;
-	}
-
  //	for(int i=0; i<5; i++)
  //	{
- //		double binwidth = pTclass0 -> GetBinWidth(i+1);
- //
- //		pTclass0 -> SetBinContent(i+1, (pTclass0 -> GetBinContent(i+1))/binwidth);
- //		pTclass1 -> SetBinContent(i+1, (pTclass1 -> GetBinContent(i+1))/binwidth);
- //		pTclass2 -> SetBinContent(i+1, (pTclass2 -> GetBinContent(i+1))/binwidth);
- //		
+ //		cout << i+1 << " centrality class event num: " << eventNumCentR -> GetBinContent(i+1) << endl;
  //	}
+
+	for(int i=0; i<5; i++)
+	{
+		double binwidth = pTclass0 -> GetBinWidth(i+1);
+
+		pTclass0 -> SetBinContent(i+1, (pTclass0 -> GetBinContent(i+1))/binwidth);
+		pTclass1 -> SetBinContent(i+1, (pTclass1 -> GetBinContent(i+1))/binwidth);
+		pTclass2 -> SetBinContent(i+1, (pTclass2 -> GetBinContent(i+1))/binwidth);
+		
+	}
 	
 
- //	(*pTclass0) = (*pTclass0)/(*avgNcoll);
- //	(*pTclass0) = (*pTclass0)/(*eventNumCentR);
- //	
- //	pTclass0 -> Draw();
+	(*pTclass1) = (*pTclass1)/(*avgNcoll);
+	(*pTclass1) = (*pTclass1)/(*eventNumCentR);
+	pTclass1 -> Scale(1/0.01);		//pT binwidth divide	
+	pTclass1 -> Draw();
 
 
  //	//Draw histogram
