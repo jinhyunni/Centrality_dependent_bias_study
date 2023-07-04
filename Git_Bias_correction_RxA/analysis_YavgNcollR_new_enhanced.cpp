@@ -41,24 +41,18 @@ void analysis_YavgNcollR_new_enhanced()
 	TH1D *pTclass2R = (TH1D*)pTclass2 -> Rebin(5, "pTclass2", binCent);
 	TH1D *pTclass3R = (TH1D*)pTclass3 -> Rebin(5, "pTclass3", binCent);
 
-	//for checking
-	cout << pTclass1R -> GetBinContent(1) << endl;
-	cout << pTclass1R -> GetBinContent(2) << endl;
-	cout << pTclass1R -> GetBinContent(3) << endl;
-	cout << pTclass1R -> GetBinContent(4) << endl;
-	cout << pTclass1R -> GetBinContent(5) << endl;
-	
-	/*
-		pT binwidth and eta-range divided
+ //	/*
+ //		pT binwidth and eta-range divided
+ //
+ //		pT binwidth: 14/1400	*pT binning ignored
+ //		eta range: -1~1			*eta binning considered
+ //	*/
+ //
+ //	double scalar1 = 1/2.;
+ //	pTclass1R -> Scale(scalar1);
+ //	pTclass2R -> Scale(scalar1);
+ //	pTclass3R -> Scale(scalar1);
 
-		pT binwidth: 14/1400	*pT binning ignored
-		eta range: -1~1			*eta binning considered
-	*/
-
-	double scalar1 = 1/2.;
-	pTclass1R -> Scale(scalar1);
-	pTclass2R -> Scale(scalar1);
-	pTclass3R -> Scale(scalar1);
 
 	/*
 		Event number by each centrality class divided
@@ -66,16 +60,22 @@ void analysis_YavgNcollR_new_enhanced()
 		To get event# by each centrality class
 		h2ncollcent -> ProjectionX()
 		and rebin
-
 	*/
 
 	TH1D *eventCent = (TH1D*)h2ncollcent -> ProjectionX();
 	TH1D *eventCentR = (TH1D*)eventCent -> Rebin(5, "eventCentR", binCent);
-	
-	(*pTclass1R) = (*pTclass1R)/(*eventCentR);
-	(*pTclass2R) = (*pTclass2R)/(*eventCentR);
-	(*pTclass3R) = (*pTclass3R)/(*eventCentR);
-	
+
+	*pTclass1R = (*pTclass1R) / (*eventCentR);
+	*pTclass2R = (*pTclass2R) / (*eventCentR);
+	*pTclass3R = (*pTclass3R) / (*eventCentR);
+
+	printf("For checking\n\n");
+	printf("# of particle per %s per %s in each centrality class\n\n", "#eta", "#event");
+	printf("%lf\n", pTclass1R -> Integral(1, 5));		//0~2 GeV
+	printf("%lf\n", pTclass2R -> Integral(1, 5));		//2~5 GeV
+	printf("%lf\n\n", pTclass3R -> Integral(1, 5));		//5~  GeV
+
+
 	/*
 		Centrality binwidth divided
 
@@ -92,17 +92,65 @@ void analysis_YavgNcollR_new_enhanced()
 	for(int i=0; i<5; i++)
 	{
 		
-		cout << "Before scaling : " << pTclass1R -> GetBinContent(i+1) << endl;
 
 		double scalar2 = pTclass1R -> GetBinWidth(i+1);
-		
+
 		pTclass1R -> SetBinContent(i+1, pTclass1R -> GetBinContent(i+1)/scalar2);
 		pTclass2R -> SetBinContent(i+1, pTclass2R -> GetBinContent(i+1)/scalar2);
 		pTclass3R -> SetBinContent(i+1, pTclass3R -> GetBinContent(i+1)/scalar2);
 
-		cout << "After scaling : " << pTclass1R -> GetBinContent(i+1) << endl;
-		cout << "\n" << endl;
+	}
+	
+	/*
+	    Y_pAu/<N_coll> by centrality
+
+		avgNcoll scailing to get Y_pAu/<N_coll>
+		
+		To divide with (TH1D*)pTclassXR(X: 1~3)
+		Make (TH1D*)avgNcollR
+	*/
+
+	TH1D *avgNcollR = new TH1D("TH1D avgNcoll", "", 5, 0, 80);
+	avgNcollR -> GetXaxis() -> Set(5, binCent);
+
+	for(int i=0; i<5; i++)
+	{
+		double n1 = avgNcoll -> GetBinContent(i+1);
+		double e1 = avgNcoll -> GetBinError(i+1);
+		
+		cout<< "avgNcoll: " << n1 << endl;
+		cout<< "bin error: " << e1 << "\n" << endl;
+
+		avgNcollR -> SetBinContent(i+1, n1);
+		avgNcollR -> SetBinError(i+1, e1);
+
 	}
 
+
+	*pTclass1R = (*pTclass1R)/(*avgNcollR);
+	*pTclass2R = (*pTclass2R)/(*avgNcollR);
+	*pTclass3R = (*pTclass3R)/(*avgNcollR);
+
+	pTclass1R -> Sumw2();
+	pTclass2R -> Sumw2();
+	pTclass3R -> Sumw2();
+
+	
 	pTclass1R -> Draw();
+
+	cout << "\nResult\n" << endl;
+
+	for(int i=0; i<5; i++)
+	{
+		cout << pTclass1R -> GetBinContent(i+1) << endl;
+	}
+	
+	TFile *outfile = new TFile("pAu200GeV_option3_YavgNcollR_new_enhanced.root", "recreate");
+
+	pTclass1R -> Write();
+	pTclass2R -> Write();
+	pTclass3R -> Write();
+
+	outfile -> Close();
+
 }

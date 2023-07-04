@@ -15,7 +15,7 @@ void analysis_YavgNcollR_old()
 
 	//Rebin binedges
 	double pTbins[]={0, 0.5, 1, 1.5, 2, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0};	
-
+ 
 
 	//pAu yield
 	TH1D* pAu1 = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);	//pion0 pT in event cent 0~10%
@@ -26,21 +26,13 @@ void analysis_YavgNcollR_old()
 
 	//Rebin pAu yield
 	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(22, "pAuR1", pTbins);
-	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(22, "pAuR1", pTbins);
-	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(22, "pAuR1", pTbins);
-	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(22, "pAuR1", pTbins);
-	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(22, "pAuR1", pTbins);
+	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(22, "pAuR2", pTbins);
+	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(22, "pAuR3", pTbins);
+	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(22, "pAuR4", pTbins);
+	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(22, "pAuR5", pTbins);
 
 
-	//for checking
-	cout << pAu1R -> Integral(1, 4) << endl;
-	cout << pAu2R -> Integral(1, 4) << endl;
-	cout << pAu3R -> Integral(1, 4) << endl;
-	cout << pAu4R -> Integral(1, 4) << endl;
-	cout << pAu5R -> Integral(1, 4) << endl;
-
-
-	//scailing to get dN/dpTdeta
+	//scailing to get dN/deta per event
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
 
 	double num1 = h1cent -> GetBinContent(1);
@@ -49,11 +41,11 @@ void analysis_YavgNcollR_old()
 	double num4 = h1cent -> GetBinContent(5) + h1cent -> GetBinContent(6);
 	double num5 = h1cent -> GetBinContent(7) + h1cent -> GetBinContent(8);
 
-	double scalar11 = 1./(pAu1R -> GetBinWidth(1) * num1 * 2);
-	double scalar12 = 1./(pAu2R -> GetBinWidth(1) * num2 * 2);
-	double scalar13 = 1./(pAu3R -> GetBinWidth(1) * num3 * 2);
-	double scalar14 = 1./(pAu4R -> GetBinWidth(1) * num4 * 2);
-	double scalar15 = 1./(pAu5R -> GetBinWidth(1) * num5 * 2);
+	double scalar11 = 1./(num1);
+	double scalar12 = 1./(num2);
+	double scalar13 = 1./(num3);
+	double scalar14 = 1./(num4);
+	double scalar15 = 1./(num5);
 	
 	pAu1R -> Scale(scalar11);
 	pAu2R -> Scale(scalar12);
@@ -61,33 +53,56 @@ void analysis_YavgNcollR_old()
 	pAu4R -> Scale(scalar14);
 	pAu5R -> Scale(scalar15);
 
+	
+	/*
+		for checking
+		# of particle per eta per event
+	*/
+	
+	double n1 = pAu1R -> Integral(1, 4) + pAu2R -> Integral(1, 4) + pAu3R -> Integral(1, 4) + pAu4R -> Integral(1, 4) + pAu5R -> Integral(1, 4);
+
+	double n2 = pAu1R -> Integral(5, 10) + pAu2R -> Integral(5, 10) + pAu3R -> Integral(5, 10) + pAu4R -> Integral(5, 10) + pAu5R -> Integral(5, 10);
+
+	double n3 = pAu1R -> Integral(11, 22) + pAu2R -> Integral(11, 22) + pAu3R -> Integral(11, 22) + pAu4R -> Integral(11, 22) + pAu5R -> Integral(11, 22);
+
+	cout << "# of particle per #eta per #event in each centrality class\n" << endl;
+
+	cout << "0~2 GeV total # of event: " << n1 << endl;
+	cout << "2~5 GeV total # of event: " << n2 << endl;
+	cout << "5~  GeV total # of event: " << n3 << endl;
+
+	cout << "************\n" << endl;
+
+
+
 	//Yield/<Ncoll>, more than 0, under 2 GeV, Y(pTclass)(centClass)
-	double Y11 = pAu1R -> Integral(1, 4)/(avgNcoll -> GetBinContent(1));
-	double Y12 = pAu2R -> Integral(1, 4)/(avgNcoll -> GetBinContent(2));
-	double Y13 = pAu3R -> Integral(1, 4)/(avgNcoll -> GetBinContent(3));
-	double Y14 = pAu4R -> Integral(1, 4)/(avgNcoll -> GetBinContent(4));
-	double Y15 = pAu5R -> Integral(1, 4)/(avgNcoll -> GetBinContent(5));
+	double Y11 = pAu1R -> Integral(1, 4)/(avgNcoll -> GetBinContent(1)*10);
+	double Y12 = pAu2R -> Integral(1, 4)/(avgNcoll -> GetBinContent(2)*10);
+	double Y13 = pAu3R -> Integral(1, 4)/(avgNcoll -> GetBinContent(3)*20);
+	double Y14 = pAu4R -> Integral(1, 4)/(avgNcoll -> GetBinContent(4)*20);
+	double Y15 = pAu5R -> Integral(1, 4)/(avgNcoll -> GetBinContent(5)*20);
 
 	//Yield/<Ncoll>, more than 2, under 5 GeV, Y(pTclass)(centClass)
-	double Y21 = pAu1R -> Integral(5, 10)/(avgNcoll -> GetBinContent(1));
-	double Y22 = pAu2R -> Integral(5, 10)/(avgNcoll -> GetBinContent(2));
-	double Y23 = pAu3R -> Integral(5, 10)/(avgNcoll -> GetBinContent(3));
-	double Y24 = pAu4R -> Integral(5, 10)/(avgNcoll -> GetBinContent(4));
-	double Y25 = pAu5R -> Integral(5, 10)/(avgNcoll -> GetBinContent(5));
+	double Y21 = pAu1R -> Integral(5, 10)/(avgNcoll -> GetBinContent(1)*10);
+	double Y22 = pAu2R -> Integral(5, 10)/(avgNcoll -> GetBinContent(2)*10);
+	double Y23 = pAu3R -> Integral(5, 10)/(avgNcoll -> GetBinContent(3)*20);
+	double Y24 = pAu4R -> Integral(5, 10)/(avgNcoll -> GetBinContent(4)*20);
+	double Y25 = pAu5R -> Integral(5, 10)/(avgNcoll -> GetBinContent(5)*20);
 
 	//Yield/<Ncoll>, more than 2, under 5 GeV, Y(pTclass)(centClass)
-	double Y31 = pAu1R -> Integral(11, 22)/(avgNcoll -> GetBinContent(1));
-	double Y32 = pAu2R -> Integral(11, 22)/(avgNcoll -> GetBinContent(2));
-	double Y33 = pAu3R -> Integral(11, 22)/(avgNcoll -> GetBinContent(3));
-	double Y34 = pAu4R -> Integral(11, 22)/(avgNcoll -> GetBinContent(4));
-	double Y35 = pAu5R -> Integral(11, 22)/(avgNcoll -> GetBinContent(5));
+	double Y31 = pAu1R -> Integral(11, 22)/(avgNcoll -> GetBinContent(1)*10);
+	double Y32 = pAu2R -> Integral(11, 22)/(avgNcoll -> GetBinContent(2)*10);
+	double Y33 = pAu3R -> Integral(11, 22)/(avgNcoll -> GetBinContent(3)*20);
+	double Y34 = pAu4R -> Integral(11, 22)/(avgNcoll -> GetBinContent(4)*20);
+	double Y35 = pAu5R -> Integral(11, 22)/(avgNcoll -> GetBinContent(5)*20);
 
- //	cout<< Y11 << endl;
- //	cout<< Y12 << endl;
- //	cout<< Y13 << endl;
- //	cout<< Y14 << endl;
- //	cout<< Y15 << endl;
- //	cout<<"*****"<<endl;
+ 	cout<< "Y/<Ncoll> in 0~2 GeV\n" << endl; 
+	cout<< Y11 << endl;
+	cout<< Y12 << endl;
+	cout<< Y13 << endl;
+	cout<< Y14 << endl;
+	cout<< Y15 << endl;
+	cout<<"*****"<<endl;
  //
  //	cout<< Y21 << endl;
  //	cout<< Y22 << endl;
@@ -104,18 +119,15 @@ void analysis_YavgNcollR_old()
  //	cout<<"*****"<<endl;
 
 	//Y/<Ncoll> vs Centrality
-	TH1D *plot1 = new TH1D("Y and ratio1", "0~2GeV", 5, 0, 80);
-	TH1D *plot2 = new TH1D("Y and ratio2", "2~5GeV", 5, 0, 80);
-	TH1D *plot3 = new TH1D("Y and ratio3", "5~ GeV", 5, 0, 80);
+	TH1D *plot1 = new TH1D("YavgNcollR1", "0~2GeV", 5, 0, 80);
+	TH1D *plot2 = new TH1D("YavgNcollR2", "2~5GeV", 5, 0, 80);
+	TH1D *plot3 = new TH1D("YavgNcollR3", "5~ GeV", 5, 0, 80);
 	double bins[]={0, 10, 20, 40, 60, 80};
 
 	plot1 -> GetXaxis() -> Set(5, bins);
 	plot2 -> GetXaxis() -> Set(5, bins);
 	plot3 -> GetXaxis() -> Set(5, bins);
 
-	plot1 -> Sumw2();
-	plot2 -> Sumw2();
-	plot3 -> Sumw2();
 	
 	//Ratio
 	//0~2 GeV	
@@ -161,49 +173,12 @@ void analysis_YavgNcollR_old()
  //	plot3 -> SetBinError(4, 1./sqrt(num4));
  //	plot3 -> SetBinError(5, 1./sqrt(num5));
 
+	TFile *outfile = new TFile("pAu200GeV_option3_YavgNcollR_old.root", "recreate");
 
- //	//Draw histogram
- //	gStyle -> SetOptStat(0);
- //	TCanvas* c1 = new TCanvas("", "", 800, 600);
- //	{
- //		
- //		c1 -> cd();
- //
- //		gPad -> SetTicks();
- //		gPad -> SetLeftMargin(0.15);
- //		gPad -> SetRightMargin(0.15);
- //		gPad -> SetTopMargin(0.05);
- //		gPad -> SetBottomMargin(0.12);
- //
- //		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 5);
- //
- //		htmp -> GetXaxis() -> SetTitle("centrality(%)");
- //		htmp -> GetXaxis() -> SetTitleSize(0.05);
- //		htmp -> GetXaxis() -> SetLabelSize(0.04);
- //		htmp -> GetXaxis() -> SetTitleOffset(1.1);
- //		htmp -> GetYaxis() -> SetTitle("Y_{pAu}/#LTN_{coll}#GT");
- //		htmp -> GetYaxis() -> SetTitleSize(0.05);
- //		htmp -> GetYaxis() -> SetLabelSize(0.04);
- //
- //		plot1 -> SetMarkerStyle(28);
- //		plot1 -> SetMarkerColor(6);
- //		plot1 -> SetLineColor(6);
- //		plot1 -> Draw("p_same");
- //
- //		//addig legend
- //		TLegend* leg1 = new TLegend(0.6, 0.57, 0.9, 0.93);
- //
- //		leg1 -> SetFillStyle(0);
- //		leg1 -> SetBorderSize(0);
- //		leg1 -> SetTextSize(0.04);
- //		leg1 -> AddEntry("", "PYTHIA8", "h");
- //		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
- //		leg1 -> AddEntry("", "option3(Default)", "h");
- //		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
- //		leg1 -> AddEntry("", "0 #GT p_{T} #LT 2", "h");
- //		//leg1 -> AddEntry("", "", "");
- //		leg1 -> Draw();
- //
- //	}
+	plot1 -> Write();
+	plot2 -> Write();
+	plot3 -> Write();
+
+	outfile -> Close();
 
 }
