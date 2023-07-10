@@ -173,12 +173,14 @@ void analysis_YavgNcollR_old()
  //	plot3 -> SetBinError(4, 1./sqrt(num4));
  //	plot3 -> SetBinError(5, 1./sqrt(num5));
 
-	TFile *outfile = new TFile("pAu200GeV_option3_YavgNcollR_old.root", "recreate");
+ //	TFile *outfile = new TFile("pAu200GeV_option3_YavgNcollR_old.root", "recreate");
+ //
+ //	plot1 -> Write();
+ //	plot2 -> Write();
+ //	plot3 -> Write();
+ //
+ //	outfile -> Close();
 
-	plot1 -> Write();
-	plot2 -> Write();
-	plot3 -> Write();
-
-	outfile -> Close();
+	plot1 -> Draw();
 
 }
