@@ -31,7 +31,7 @@ void plotMake_YavgNcollR()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 0.000005);
+		TH1D* htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 0.00001);
 
 		htmp -> GetXaxis() -> SetTitle("centrality(%)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -66,7 +66,7 @@ void plotMake_YavgNcollR()
 		leg1 -> AddEntry("", "p+Au 200 GeV", "h");
 		leg1 -> AddEntry("", "option3(Default)", "h");
 		leg1 -> AddEntry("", "#pi^{0}, |#eta|<1", "h");
-		leg1 -> AddEntry("", "p_{T} #GT 5", "h");
+		leg1 -> AddEntry("", " p_{T} #GT 5", "h");
  //		leg1 -> AddEntry("", "new analysis code", "h");
 		leg1 -> Draw();
 
