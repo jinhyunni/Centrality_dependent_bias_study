@@ -17,37 +17,44 @@ void analysis_pTandCentParticle()
 	TH1D *pTclass3R = (TH1D*)pTclass3 -> Rebin(5, "pTclass3R", binEdge);
 
 	
-	cout << "\nIn pT class 1\n" << endl;
-	cout << pTclass1R -> GetBinContent(1) << endl;
-	cout << pTclass1R -> GetBinContent(2) << endl;
-	cout << pTclass1R -> GetBinContent(3) << endl;
-	cout << pTclass1R -> GetBinContent(4) << endl;
-	cout << pTclass1R -> GetBinContent(5) << endl;
-	cout <<"Total: " << pTclass1R -> Integral() << endl;
+ //	cout << "\nIn pT class 1\n" << endl;
+ //	cout << pTclass1R -> GetBinContent(1) << endl;
+ //	cout << pTclass1R -> GetBinContent(2) << endl;
+ //	cout << pTclass1R -> GetBinContent(3) << endl;
+ //	cout << pTclass1R -> GetBinContent(4) << endl;
+ //	cout << pTclass1R -> GetBinContent(5) << endl;
+ //	cout <<"Total: " << pTclass1R -> Integral() << endl;
+ //
+ //
+ //	cout << "\nIn pT class 2\n" << endl;
+ //	cout << pTclass2R -> GetBinContent(1) << endl;
+ //	cout << pTclass2R -> GetBinContent(2) << endl;
+ //	cout << pTclass2R -> GetBinContent(3) << endl;
+ //	cout << pTclass2R -> GetBinContent(4) << endl;
+ //	cout << pTclass2R -> GetBinContent(5) << endl;
+ //	cout << "Total: " << pTclass2R -> Integral() << endl;
+
+	cout << "1/sqrt(N) of pT class3:" << endl;
+	for(int i=1; i<=5; i++)
+	{
+		cout << 1./sqrt(pTclass3 -> GetBinContent(i)) << endl;
+	}
 
 
-	cout << "\nIn pT class 2\n" << endl;
-	cout << pTclass2R -> GetBinContent(1) << endl;
-	cout << pTclass2R -> GetBinContent(2) << endl;
-	cout << pTclass2R -> GetBinContent(3) << endl;
-	cout << pTclass2R -> GetBinContent(4) << endl;
-	cout << pTclass2R -> GetBinContent(5) << endl;
-	cout << "Total: " << pTclass2R -> Integral() << endl;
+	cout << "\nRelative error of pT class3:" << endl;
+	for(int i=1; i<=5; i++)
+	{
+		cout << pTclass3 -> GetBinError(i)/pTclass3 -> GetBinContent(i) << endl;
+	}
 
-
-	cout << 1./sqrt(pTclass2R -> GetBinContent(1)) << endl;
-	cout << 1./sqrt(pTclass2R -> GetBinContent(2)) << endl;
-	cout << 1./sqrt(pTclass2R -> GetBinContent(3)) << endl;
-	cout << 1./sqrt(pTclass2R -> GetBinContent(4)) << endl;
-	cout << 1./sqrt(pTclass2R -> GetBinContent(5)) << endl;
 	
-	cout << "\nIn pT class 3\n" << endl;
-	cout << pTclass3R -> GetBinContent(1) << endl;
-	cout << pTclass3R -> GetBinContent(2) << endl;
-	cout << pTclass3R -> GetBinContent(3) << endl;
-	cout << pTclass3R -> GetBinContent(4) << endl;
-	cout << pTclass3R -> GetBinContent(5) << endl;
-	cout << "Total: " << pTclass3R -> Integral() << endl;
+ //	cout << "\nIn pT class 3\n" << endl;
+ //	cout << pTclass3R -> GetBinContent(1) << endl;
+ //	cout << pTclass3R -> GetBinContent(2) << endl;
+ //	cout << pTclass3R -> GetBinContent(3) << endl;
+ //	cout << pTclass3R -> GetBinContent(4) << endl;
+ //	cout << pTclass3R -> GetBinContent(5) << endl;
+ //	cout << "Total: " << pTclass3R -> Integral() << endl;
 
 
 }
