@@ -55,16 +55,15 @@ void plotMake_centCheck_diffConditions()
 		TLegend *leg = new TLegend(0.19, 0.6, 0.45, 0.9);
 		leg -> SetFillStyle(0);
 		leg -> SetBorderSize(0);
-		leg -> SetTextSize(0.04);
-		leg -> AddEntry("", "PYTHIA8", "h");
-		leg -> AddEntry("", "p+Au 200 GeV", "h");
-		leg -> AddEntry("", "option = 3", "h");
+		leg -> SetTextSize(0.03);
+		leg -> AddEntry("", "PYTHIA8, p+Au 200 GeV, option3", "h");
+		leg -> AddEntry("", "Analyze:  #gamma included, 30 million events", "h");
  //		leg -> AddEntry("", "Non-fixed raddi and cross-section", "h");
-		leg -> AddEntry("", "centrality categorization check", "h");
+ //		leg -> AddEntry("", "centrality categorization check", "h");
 		leg -> AddEntry("", "random 600,000 events", "h");
 
-		leg -> AddEntry(dirAdded_newRef, "Refed with 30 million #gamma^{dir} included MC sims", "p");
-		leg -> AddEntry(dirAdded_oldRef, "Refed with 100 thousand #gamma^{dir} excluded MC sims", "p");
+		leg -> AddEntry(dirAdded_newRef, "Refed with 30 million #gamma  included MC sims", "p");
+		leg -> AddEntry(dirAdded_oldRef, "Refed with 100 thousand #gamma  excluded MC sims", "p");
 		leg -> Draw();
 		
 	}

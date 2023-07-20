@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.28/04
-CreationDate: Thu Jul 20 15:47:54 2023</desc>
+CreationDate: Thu Jul 20 18:49:09 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -318,22 +318,20 @@ CreationDate: Thu Jul 20 15:47:54 2023</desc>
 <g fill="black">
 <polygon points=" 462.547, 124.133 464.442, 126.975 462.547, 129.816 460.653, 126.975"/>
 </g>
-<text xml:space="preserve" x="111.328" y="53.2828" fill="black" font-size="15.4909" font-family="Helvetica">PYTHIA8</text>
-<text xml:space="preserve" x="111.328" y="71.0438" fill="black" font-size="15.4909" font-family="Helvetica">p+Au 200 GeV</text>
-<text xml:space="preserve" x="111.328" y="88.0943" fill="black" font-size="15.4909" font-family="Helvetica">option = 3</text>
-<text xml:space="preserve" x="111.328" y="105.855" fill="black" font-size="15.4909" font-family="Helvetica">centrality categorization check</text>
-<text xml:space="preserve" x="111.328" y="122.906" fill="black" font-size="15.4909" font-family="Helvetica">random 600,000 events</text>
-<text xml:space="preserve" x="305.988" y="140.667" fill="black" font-size="15.4909" font-family="Helvetica"> included MC sims</text>
-<text xml:space="preserve" x="294.621" y="134.983" fill="black" font-size="10.4939" font-family="Helvetica">dir</text>
-<text xml:space="preserve" x="286.806" y="140.667" fill="black" font-size="15.4909" font-family="Times">&#0947;</text>
-<text xml:space="preserve" x="144.719" y="140.667" fill="black" font-size="15.4909" font-family="Helvetica">Refed with 30 million </text>
+<text xml:space="preserve" x="111.328" y="56.1246" fill="black" font-size="11.7432" font-family="Helvetica">PYTHIA8, p+Au 200 GeV, option3</text>
+<text xml:space="preserve" x="167.453" y="80.9899" fill="black" font-size="11.7432" font-family="Helvetica"> included, 30 million events</text>
+<text xml:space="preserve" x="161.769" y="80.9899" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
+<text xml:space="preserve" x="111.328" y="80.9899" fill="black" font-size="11.7432" font-family="Helvetica">Analyze:  </text>
+<text xml:space="preserve" x="111.328" y="105.145" fill="black" font-size="11.7432" font-family="Helvetica">random 600,000 events</text>
+<text xml:space="preserve" x="258.389" y="130.01" fill="black" font-size="11.7432" font-family="Helvetica">  included MC sims</text>
+<text xml:space="preserve" x="252.705" y="130.01" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
+<text xml:space="preserve" x="144.719" y="130.01" fill="black" font-size="11.7432" font-family="Helvetica">Refed with 30 million </text>
 <g fill="#59d354">
-<polygon points=" 126.642, 134.298 128.536, 137.14 126.642, 139.982 124.747, 137.14"/>
+<polygon points=" 126.642, 123.794 128.536, 126.635 126.642, 129.477 124.747, 126.635"/>
 </g>
-<text xml:space="preserve" x="332.985" y="158.428" fill="black" font-size="15.4909" font-family="Helvetica"> excluded MC sims</text>
-<text xml:space="preserve" x="321.618" y="152.744" fill="black" font-size="10.4939" font-family="Helvetica">dir</text>
-<text xml:space="preserve" x="313.803" y="158.428" fill="black" font-size="15.4909" font-family="Times">&#0947;</text>
-<text xml:space="preserve" x="144.719" y="158.428" fill="black" font-size="15.4909" font-family="Helvetica">Refed with 100 thousand </text>
+<text xml:space="preserve" x="279.702" y="154.165" fill="black" font-size="11.7432" font-family="Helvetica">  excluded MC sims</text>
+<text xml:space="preserve" x="274.018" y="154.165" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
+<text xml:space="preserve" x="144.719" y="154.165" fill="black" font-size="11.7432" font-family="Helvetica">Refed with 100 thousand </text>
 <g fill="black">
-<polygon points=" 126.642, 151.805 128.536, 154.647 126.642, 157.489 124.747, 154.647"/>
+<polygon points=" 126.642, 148.304 128.536, 151.146 126.642, 153.987 124.747, 151.146"/>
 </g></svg>
