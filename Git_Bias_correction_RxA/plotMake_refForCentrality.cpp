@@ -5,8 +5,13 @@
 void plotMake_refForCentrality()
 {
 	//Read in TFile
-	TFile* input = new TFile("pAu200GeV_option3_dirAdded_refForCentrality.root", "read");
-	TH1D *h1Cent = (TH1D*)input -> Get("centRef_pTe5");
+	TFile* input1 = new TFile("pAu200GeV_option3_dirAdded_refForCentrality.root", "read");
+	TFile *input2 = new TFile("pAu200GeV_option3_dirExcluded_refForCentralitye5.root", "read");
+
+	TH1D *newRef = (TH1D*)input1 -> Get("centRef_pTe5");
+	TH1D *oldRef = (TH1D*)input2 -> Get("centRef_pTe5");
+
+	oldRef -> Scale(100);
 
 
 	//Draw histogram
@@ -31,10 +36,16 @@ void plotMake_refForCentrality()
 		htmp -> GetYaxis() -> SetTitleSize(0.05);
 		htmp -> GetYaxis() -> SetLabelSize(0.04);	
 
-		h1Cent -> SetMarkerStyle(33);
-		h1Cent -> SetMarkerColor(8);
-		h1Cent -> SetLineColor(8);
-		h1Cent -> Draw("p same");
+		newRef -> SetMarkerStyle(33);
+		newRef -> SetMarkerColor(8);
+		newRef -> SetLineColor(8);
+		newRef -> Draw("p same");
+
+		oldRef -> SetMarkerStyle(33);
+		oldRef -> SetMarkerColor(6);
+		oldRef -> SetLineColor(6);
+		oldRef -> Draw("p same");
+
 
 		//adding legend
 		TLegend *leg = new TLegend(0.47, 0.63, 0.73, 0.93);
