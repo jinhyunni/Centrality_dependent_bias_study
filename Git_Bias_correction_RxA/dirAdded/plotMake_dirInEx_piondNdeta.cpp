@@ -1,6 +1,6 @@
 void plotMake_dirInEx_piondNdeta()
 {
-	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_dNdeta_1e5events.root", "read");
+	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOff_dNdeta_1e5events.root", "read");
 	TFile *input2 = new TFile("pAu200GeV_option3_dirExcluded_dNdeta_1e5events.root", "read");
 
 	TFile *input3 = new TFile("pAu200GeV_option3_eventNwithNch.root", "read");
@@ -31,7 +31,7 @@ void plotMake_dirInEx_piondNdeta()
 		htmp -> GetXaxis() -> SetTitle("#eta");
 		htmp -> GetYaxis() -> SetTitle("1/N_{evt} dN^{#pi^{#pm}}/d#eta");
 
-		new_pionEta -> SetMarkerStyle(28);
+		new_pionEta -> SetMarkerStyle(20);
 		new_pionEta -> SetMarkerColor(2);
 		new_pionEta -> SetLineColor(2);
 		new_pionEta -> Draw("p same");
@@ -47,7 +47,7 @@ void plotMake_dirInEx_piondNdeta()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
 		leg1 -> AddEntry("","#pi^{#pm}", "h");
-		leg1 -> AddEntry(old_pionEta, "#gamma excluded file", "p");
+		leg1 -> AddEntry(old_pionEta, "#gamma excluded file, decayOff", "p");
 		leg1 -> AddEntry(new_pionEta, "#gamma included file", "p");
 
 		leg1 -> Draw();

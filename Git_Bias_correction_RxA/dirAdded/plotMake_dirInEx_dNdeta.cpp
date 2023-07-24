@@ -33,8 +33,8 @@ void plotMake_dirInEx_dNdeta()
 		c1 -> cd();
 
 		gPad -> SetTicks();
-		gPad -> SetLeftMargin(0.15);
-		gPad -> SetRightMargin(0.15);
+		gPad -> SetLeftMargin(0.1);
+		gPad -> SetRightMargin(0.1);
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
