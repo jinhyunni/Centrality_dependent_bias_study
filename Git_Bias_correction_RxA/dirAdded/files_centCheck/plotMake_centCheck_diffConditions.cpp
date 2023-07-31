@@ -29,7 +29,7 @@ void plotMake_centCheck_diffConditions()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 100, 1e5);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 100, 2e5);
 
 		htmp -> GetXaxis() -> SetTitle("centrality");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
