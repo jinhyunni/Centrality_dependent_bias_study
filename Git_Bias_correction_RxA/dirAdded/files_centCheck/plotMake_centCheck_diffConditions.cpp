@@ -5,14 +5,14 @@
 void plotMake_centCheck_diffConditions()
 {
 	//Read in TFile
- //	TFile *input1 = new TFile("pAu200GeV_option3_decayOn_dirAdded_refdirEx_centCheck.root", "read");
-	TFile *input2 = new TFile("pAu200GeV_option3_decayOn_dirAdded_refdirEx_centCheck.root", "read");
+ 	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_refdirAdded_5e6Events.root", "read");
+	TFile *input2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_refdirEx_5e6Events.root", "read");
 
- //	TH1D *dirAdded_newRef = (TH1D*)input1 -> Get(" //centralityCheck");
+ 	TH1D *dirAdded_newRef = (TH1D*)input1 -> Get("centCheck");
 	TH1D *dirAdded_oldRef = (TH1D*)input2 -> Get("centCheck");
 
 	//overflow bin control
- //	dirAdded_newRef -> SetBinContent(10, dirAdded_newRef -> GetBinContent(10) + dirAdded_newRef -> GetBinContent(11));
+ 	dirAdded_newRef -> SetBinContent(10, dirAdded_newRef -> GetBinContent(10) + dirAdded_newRef -> GetBinContent(11));
 
 	dirAdded_oldRef -> SetBinContent(10, dirAdded_oldRef -> GetBinContent(10) + dirAdded_oldRef -> GetBinContent(11));
 
@@ -29,7 +29,7 @@ void plotMake_centCheck_diffConditions()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0, 100, 2e5);
+		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0.5e4, 100, 1.5e5);
 
 		htmp -> GetXaxis() -> SetTitle("centrality");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
@@ -39,10 +39,10 @@ void plotMake_centCheck_diffConditions()
 		htmp -> GetYaxis() -> SetTitleSize(0.05);
 		htmp -> GetYaxis() -> SetLabelSize(0.04);	
 
- //		dirAdded_newRef -> SetMarkerStyle(33);
- //		dirAdded_newRef -> SetMarkerColor(8);
- //		dirAdded_newRef -> SetLineColor(8);
- //		dirAdded_newRef -> Draw("p same");
+ 		dirAdded_newRef -> SetMarkerStyle(25);
+ 		dirAdded_newRef -> SetMarkerColor(2);
+ 		dirAdded_newRef -> SetLineColor(2);
+ 		dirAdded_newRef -> Draw("p same");
 
 		dirAdded_oldRef -> SetMarkerStyle(33);
 		dirAdded_oldRef -> SetMarkerColor(1);
@@ -60,10 +60,10 @@ void plotMake_centCheck_diffConditions()
 		leg -> AddEntry("", "Analyze:  #gamma included, 30 million events", "h");
 		leg -> AddEntry("", "Non-fixed raddi and cross-section", "h");
 		leg -> AddEntry("", "centrality categorization check", "h");
-		leg -> AddEntry("", "random 600,000 events", "h");
+		leg -> AddEntry("", "random 500,000 events", "h");
 
- //		leg -> AddEntry(dirAdded_newRef, "Refed with 30 million #gamma  included MC sims", "p");
-		leg -> AddEntry(dirAdded_oldRef, "Refed with 100 thousand #gamma  excluded MC sims", "p");
+ 		leg -> AddEntry(dirAdded_newRef, "Refed with 1e7 #gamma  included MC sims", "p");
+		leg -> AddEntry(dirAdded_oldRef, "Refed with 1e5 #gamma  excluded MC sims", "p");
 		leg -> Draw();
 		
 	}
