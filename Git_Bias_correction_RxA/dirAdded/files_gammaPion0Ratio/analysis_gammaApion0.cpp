@@ -37,27 +37,41 @@ void analysis_gammaApion0()
 
     TH1D *Ypion0CentR = (TH1D*)Ypion0Cent -> Rebin(5, "Ypion0CentR", binEdge);
     TH1D *YdirCentR = (TH1D*)YdirCent -> Rebin(5, "YdirCentR", binEdge);
-    TH1D *nEvntCentPR = (TH1D*)nEvntCentP -> Rebin(5, "nEvntCentPR", binEdge);
-    TH1D *nEvntCentDR = (TH1D*)nEvntCentD -> Rebin(5, "nEvntCentDR", binEdge);
+    TH1D *nEventCentPR = (TH1D*)nEvntCentP -> Rebin(5, "nEvntCentPR", binEdge);
+    TH1D *nEventCentDR = (TH1D*)nEvntCentD -> Rebin(5, "nEvntCentDR", binEdge);
 
 
     //Get cent vs pion0(Direct photon)
     //No need to divide centrality width -> Cancle in double ratio
-    TH1D *Ypion0 = new TH1D("Ypion0", "", 5, 0, 80);
-    (*Ypion0) = (*Ypion0CentR)/(*nEvntCentPR);
-    
- //  Ypion0 -> Draw();
+    TH1D *Ypion0 = (TH1D*)Ypion0CentR -> Clone("Ypion0");
+    Ypion0 -> Divide(nEventCentPR);
 
-    TH1D *Ydir = new TH1D("Ydir", "", 5, 0, 80);
-    (*Ydir)=(*YdirCentR)/(*nEvntCentDR);
-    
-    Ydir -> Draw();
+    TH1D *Ydir = (TH1D*)YdirCentR -> Clone("Ydir");
+    Ydir -> Divide(nEventCentDR);
 
     //gamma/pion0 ratio by centrality
-    TH1D *gammaOverPion0 = new TH1D("gammaOverPion0", "", 5, 0, 80);
-    (*gammaOverPion0) = (*Ydir)/(*Ypion0);
+    TH1D *gammaOverPion0 = (TH1D*)Ydir -> Clone("gammaOverPion0");
+    gammaOverPion0 -> Divide(Ypion0);
+
+    //Write outputs in outputfile
+    Ypion0 -> Write();
+    Ydir -> Write();
+    gammaOverPion0 -> Write();
+
+    //Close files
+    pion1 -> Close();
+    pion2 -> Close();
+    dir1 -> Close();
+    dir2 -> Close();
+    output -> Close();
+
+    //disallocation
+    delete pion1;
+    delete pion2;
+    delete dir1;
+    delete dir2;
+    delete output;
+
 
         
-
-
 }
