@@ -1,11 +1,13 @@
 void analysis_YieldByCentrality()
 {
-    TFile *input = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_option3_nEventCentPion0.root", "read");
+
     
     //Target particle: pion0(111)
 
-    TH2D *h2pTcent = (TH2D*)input -> Get("pTpion0_cent");
-    TH2D *h2ncollcent = (TH2D*)input -> Get("ncoll_cent");
+    TH2D *h2pTcent = (TH2D*)input1 -> Get("pTpion0_cent");
+    TH2D *h2ncollcent = (TH2D*)input2 -> Get("ncoll_cent");
 
     //projections
     TH1D *h1yieldCent = (TH1D*)h2pTcent -> ProjectionX();
@@ -15,9 +17,14 @@ void analysis_YieldByCentrality()
     TH1D *yield = (TH1D*)h1yieldCent->Clone("yield");
     yield -> Divide(h1nEventCent);
 
-    TFile *output = new TFile("pAu200GeV_option3_pion0YieldCent", "recreate");
-
+    TFile *output = new TFile("pAu200GeV_option3_pion0YieldCent.root", "recreate");
     yield -> Write();
+    output -> Close();
+    
+    input1 -> Close();
+    input2 -> Close();
 
     delete output;
+    delete input1;
+    delete input2;
 }
