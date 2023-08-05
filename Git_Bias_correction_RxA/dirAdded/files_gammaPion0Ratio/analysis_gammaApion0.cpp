@@ -1,4 +1,4 @@
-void plotMake_dirPion0Ratio()
+void analysis_gammaApion0()
 {
     //input
     //-------------------------
@@ -7,6 +7,10 @@ void plotMake_dirPion0Ratio()
     TFile *dir1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DdirCent.root", "read");
     TFile *pion2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0.root", "read");
     TFile *dir2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentDir.root", "read");
+
+    //output
+    //-------------------------
+    TFile* output = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0.root", "recreate");
 
     //histograms
     //--------------------------
@@ -39,20 +43,21 @@ void plotMake_dirPion0Ratio()
 
     //Get cent vs pion0(Direct photon)
     //No need to divide centrality width -> Cancle in double ratio
-    TH1D *Ypion0 = new TH1D();
+    TH1D *Ypion0 = new TH1D("Ypion0", "", 5, 0, 80);
     (*Ypion0) = (*Ypion0CentR)/(*nEvntCentPR);
+    
+ //  Ypion0 -> Draw();
 
-    TH1D *Ydir = new TH1D();
+    TH1D *Ydir = new TH1D("Ydir", "", 5, 0, 80);
     (*Ydir)=(*YdirCentR)/(*nEvntCentDR);
+    
+    Ydir -> Draw();
 
     //gamma/pion0 ratio by centrality
-    TH1D *gammaOverPion0 = new TH1D();
-
+    TH1D *gammaOverPion0 = new TH1D("gammaOverPion0", "", 5, 0, 80);
     (*gammaOverPion0) = (*Ydir)/(*Ypion0);
 
-    gammaOverPion0 -> Draw();
-
-    
+        
 
 
 }
