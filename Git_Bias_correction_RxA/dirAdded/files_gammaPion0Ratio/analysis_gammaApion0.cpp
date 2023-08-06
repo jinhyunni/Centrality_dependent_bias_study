@@ -42,7 +42,7 @@ void analysis_gammaApion0()
 
 
     //Get cent vs pion0(Direct photon)
-    //No need to divide centrality width -> Cancle in double ratio
+    //No need to divide centrality width -> Cancel in ratio
     TH1D *Ypion0 = (TH1D*)Ypion0CentR -> Clone("Ypion0");
     Ypion0 -> Divide(nEventCentPR);
 
