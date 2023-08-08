@@ -7,7 +7,7 @@
 * 100,000 events
 ***************************************/
 
-void pion0Analysis1e5_avgNcoll()
+void analysis_avgNcoll()
 {
 	//read files
 	TChain *opt3 = new TChain("T");
@@ -53,8 +53,6 @@ void pion0Analysis1e5_avgNcoll()
 	
 	//Analysis
 	
-	double pTsum = 0.;
-	double centrality = 0.;
 	double ncoll = 0.;
 
 	//bin edges
@@ -63,43 +61,40 @@ void pion0Analysis1e5_avgNcoll()
 	//create TProfile
 	TProfile* avgNcoll = new TProfile("avgNcoll", "", 5, 0, 80);
 	avgNcoll -> GetXaxis() -> Set(5, bins);
-
- //	avgNcoll -> Fill(5, 10);
- //	avgNcoll -> Fill(15, 20);
- //	avgNcoll -> Fill(25, 30);
- //	avgNcoll -> Fill(35, 40);
- //	avgNcoll -> Fill(45, 50);
- //	avgNcoll -> Fill(55, 60);
- //	avgNcoll -> Fill(65, 70);
- //	avgNcoll -> Fill(75, 80);
- //	avgNcoll -> Fill(85, 90);
- //	avgNcoll -> Fill(95, 100);
-	
+ 	
 	for(int i = 0; i < opt3 -> GetEntries(); i++){
 		opt3 -> GetEntry(i);
-		if(i_nAbsProj == 1 and i_nAbsTarg != 0){
-			
-			//ncoll calculation
-			ncoll = i_nAbsTarg + i_nAbsProj - 1;
 
-			for(int j = 0; j < np; j++){
-				if(p_eta[j] > -3.9 and p_eta[j] < -3.0 and p_id[j] != 111){
-					pTsum += p_pt[j];
-				}//pTsum for centcal			 
+		if(i_nAbsProj == 1 and i_nAbsTarg != 0)
+        {
+			double pTsum=0.;
+            double centrality=0.;
+            int targetNum=0;
+            int ncoll=0;
+		
+			for(int j = 0; j < np; j++)
+            {
+                pTsum += p_pt[j]*(p_eta[j]>-3.9 and p_eta[j]<-3.0 and p_id[j] != 111);
+                targetNum += (p_id[j]==111 and p_eta[j]<1 and p_eta[j]>-1);
+
 			}//j
+            
+            if(targetNum)
+            {
+			    centrality = 100*((refhis -> Integral(refhis -> FindBin(pTsum), 1e5))/(refhis -> Integral(1, 1e5)));
 
-			centrality = 100*((refhis -> Integral(refhis -> FindBin(pTsum), 1e5))/(refhis -> Integral(1, 1e5)));
-			
-			avgNcoll -> Fill(centrality, ncoll);
-		}
+                ncoll = i_nAbsProj + i_nAbsTarg - 1;
+			    avgNcoll -> Fill(centrality, ncoll);
+            }
 
-		pTsum = 0;
+		}//inelastic event
+
 	}//i
 
  //	avgNcoll -> Draw();
 	
 	//save histogram as root file
-	TFile *file = new TFile("pAu200GeV_option3_INEL_avgNcoll.root", "recreate");
+	TFile *file = new TFile("pAu200GeV_option3_avgNcoll_newest.root", "recreate");
 	
 	avgNcoll -> Write();
 

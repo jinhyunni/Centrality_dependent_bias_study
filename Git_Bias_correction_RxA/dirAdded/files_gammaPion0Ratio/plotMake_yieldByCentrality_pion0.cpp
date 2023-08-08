@@ -29,8 +29,8 @@ void plotMake_yieldByCentrality_pion0()
         yieldPion0_new -> Draw("p same");
 
         yieldPion0_old -> SetMarkerStyle(20);
-        yieldPion0_old -> SetMarkerStyle(4);
         yieldPion0_old -> SetMarkerColor(4);
+        yieldPion0_old -> SetLineColor(4);
         yieldPion0_old -> Draw("p same");
 
 		TLegend *leg1 = new TLegend(0.5, 0.63, 0.8, 0.93);
