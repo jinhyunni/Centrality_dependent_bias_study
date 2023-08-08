@@ -58,12 +58,11 @@ void plotMake_centCheck_diffConditions()
 		leg -> SetTextSize(0.03);
 		leg -> AddEntry("", "PYTHIA8, p+Au 200 GeV, option3", "h");
 		leg -> AddEntry("", "Analyze:  #gamma included, 30 million events", "h");
-		leg -> AddEntry("", "Non-fixed raddi and cross-section", "h");
 		leg -> AddEntry("", "centrality categorization check", "h");
 		leg -> AddEntry("", "random 500,000 events", "h");
 
- 		leg -> AddEntry(dirAdded_newRef, "Refed with 1e7 #gamma  included MC sims", "p");
-		leg -> AddEntry(dirAdded_oldRef, "Refed with 1e5 #gamma  excluded MC sims", "p");
+ 		leg -> AddEntry(dirAdded_newRef, "Refed with 1e7, #gamma  included MC sims", "p");
+		leg -> AddEntry(dirAdded_oldRef, "Refed with 1e5, #gamma  excluded MC sims", "p");
 		leg -> Draw();
 		
 	}

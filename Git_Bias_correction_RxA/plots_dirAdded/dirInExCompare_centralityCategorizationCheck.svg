@@ -1,11 +1,11 @@
 <?xml version="1.0" standalone="no"?>
 <svg width="567.429" height="409.002" viewBox="0 0 567.429 409.002" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
 <title>
-/Users/jinhyunpark/npl/gitHub/xloadFromServer/Git_Bias_correction_RxA/plots_dirIncluded/dirInExCompare_centralityCategorizationCheck.svg
+/Users/jinhyunpark/npl/gitHub/xloadFromServer/Git_Bias_correction_RxA/plots_dirAdded/dirInExCompare_centralityCategorizationCheck.svg
 </title>
 <desc>
 Creator: ROOT Version 6.28/04
-CreationDate: Tue Aug  1 00:15:02 2023</desc>
+CreationDate: Mon Aug  7 22:30:42 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -306,22 +306,21 @@ CreationDate: Tue Aug  1 00:15:02 2023</desc>
 <g fill="black">
 <polygon points=" 462.547, 255.122 464.442, 257.963 462.547, 260.805 460.653, 257.963"/>
 </g>
-<text xml:space="preserve" x="111.328" y="53.2828" fill="black" font-size="11.7432" font-family="Helvetica">PYTHIA8, p+Au 200 GeV, option3</text>
-<text xml:space="preserve" x="167.453" y="71.0438" fill="black" font-size="11.7432" font-family="Helvetica"> included, 30 million events</text>
-<text xml:space="preserve" x="161.769" y="71.0438" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
-<text xml:space="preserve" x="111.328" y="71.0438" fill="black" font-size="11.7432" font-family="Helvetica">Analyze:  </text>
-<text xml:space="preserve" x="111.328" y="88.0943" fill="black" font-size="11.7432" font-family="Helvetica">Non-fixed raddi and cross-section</text>
-<text xml:space="preserve" x="111.328" y="105.855" fill="black" font-size="11.7432" font-family="Helvetica">centrality categorization check</text>
-<text xml:space="preserve" x="111.328" y="122.906" fill="black" font-size="11.7432" font-family="Helvetica">random 500,000 events</text>
-<text xml:space="preserve" x="229.971" y="140.667" fill="black" font-size="11.7432" font-family="Helvetica">  included MC sims</text>
-<text xml:space="preserve" x="224.288" y="140.667" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
-<text xml:space="preserve" x="144.719" y="140.667" fill="black" font-size="11.7432" font-family="Helvetica">Refed with 1e7 </text>
+<text xml:space="preserve" x="111.328" y="55.4141" fill="black" font-size="11.7432" font-family="Helvetica">PYTHIA8, p+Au 200 GeV, option3</text>
+<text xml:space="preserve" x="167.453" y="76.0168" fill="black" font-size="11.7432" font-family="Helvetica"> included, 30 million events</text>
+<text xml:space="preserve" x="161.769" y="76.0168" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
+<text xml:space="preserve" x="111.328" y="76.0168" fill="black" font-size="11.7432" font-family="Helvetica">Analyze:  </text>
+<text xml:space="preserve" x="111.328" y="95.9091" fill="black" font-size="11.7432" font-family="Helvetica">centrality categorization check</text>
+<text xml:space="preserve" x="111.328" y="116.512" fill="black" font-size="11.7432" font-family="Helvetica">random 500,000 events</text>
+<text xml:space="preserve" x="232.103" y="137.114" fill="black" font-size="11.7432" font-family="Helvetica">  included MC sims</text>
+<text xml:space="preserve" x="226.419" y="137.114" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
+<text xml:space="preserve" x="144.719" y="137.114" fill="black" font-size="11.7432" font-family="Helvetica">Refed with 1e7, </text>
 <g stroke="#ff0000" stroke-width="1" fill="none">
-<rect x="123.8" y="134.298" width="5.6835" height="5.6835"/>
+<rect x="123.8" y="129.921" width="5.6835" height="5.6835"/>
 </g>
-<text xml:space="preserve" x="229.971" y="158.428" fill="black" font-size="11.7432" font-family="Helvetica">  excluded MC sims</text>
-<text xml:space="preserve" x="224.288" y="158.428" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
-<text xml:space="preserve" x="144.719" y="158.428" fill="black" font-size="11.7432" font-family="Helvetica">Refed with 1e5 </text>
+<text xml:space="preserve" x="232.103" y="157.717" fill="black" font-size="11.7432" font-family="Helvetica">  excluded MC sims</text>
+<text xml:space="preserve" x="226.419" y="157.717" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
+<text xml:space="preserve" x="144.719" y="157.717" fill="black" font-size="11.7432" font-family="Helvetica">Refed with 1e5, </text>
 <g fill="black">
-<polygon points=" 126.642, 151.805 128.536, 154.647 126.642, 157.489 124.747, 154.647"/>
+<polygon points=" 126.642, 150.346 128.536, 153.188 126.642, 156.03 124.747, 153.188"/>
 </g></svg>
