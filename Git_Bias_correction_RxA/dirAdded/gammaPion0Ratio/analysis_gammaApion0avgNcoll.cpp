@@ -34,7 +34,8 @@ void analysis_gammaApion0avgNcoll()
 
     TH1D *avgNcollPion0 = new TH1D("avgNcollPion0", "", 11, 0, 110);
     TH1D *avgNcollDir = new TH1D("avgNcollDir", "", 11, 0, 110);
-
+    
+    //Make TH1D of avgNcoll vs Centrality_pion0, dirphoton
     for(int i=0; i<11; i++)
     {
         //make TH1D of <Ncoll> vs centrality, pion0
