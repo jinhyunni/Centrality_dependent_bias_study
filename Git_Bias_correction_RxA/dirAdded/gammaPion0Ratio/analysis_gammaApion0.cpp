@@ -12,21 +12,21 @@ void analysis_gammaApion0()
     //-------------------------
     TFile* output = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0.root", "recreate");
 
-    //histograms
+    //Input histograms
     //--------------------------
     TH2D *h2centPion0 = (TH2D*)pion1 -> Get("centPion0");
     TH2D *h2centDir = (TH2D*)dir1 -> Get("centDir");
     TH2D *h2NcollCentPion0 = (TH2D*)pion2 -> Get("ncollCentPion0");
     TH2D *h2NcollCentDir = (TH2D*)dir2 -> Get("ncollCentDir");
 
-    //Projection to get Yield
+    //Analysis1. Projection to get Yield
     //--------------------------
     TH1D *Ypion0Cent = (TH1D*)h2centPion0 -> ProjectionX();
     TH1D *YdirCent = (TH1D*)h2centDir -> ProjectionX();
     TH1D *nEvntCentP = (TH1D*)h2NcollCentPion0 -> ProjectionX();
     TH1D *nEvntCentD = (TH1D*)h2NcollCentDir -> ProjectionX();
 
-    //Rebin to fit cent Class
+    //Analysis2. Rebin to fit cent Class
     //0~10%
     //10~20%
     //20~40%
@@ -41,8 +41,9 @@ void analysis_gammaApion0()
     TH1D *nEventCentDR = (TH1D*)nEvntCentD -> Rebin(5, "nEvntCentDR", binEdge);
 
 
-    //Get cent vs pion0(Direct photon)
+    //Analysis3. Get cent vs pion0(Direct photon)
     //No need to divide centrality width -> Cancel in ratio
+    //--------------------------
     TH1D *Ypion0 = (TH1D*)Ypion0CentR -> Clone("Ypion0");
     Ypion0 -> Divide(nEventCentPR);
 
@@ -50,7 +51,7 @@ void analysis_gammaApion0()
     Ydir -> Divide(nEventCentDR);
 
     //gamma/pion0 ratio by centrality
-    TH1D *gammaOverPion0 = (TH1D*)Ydir -> Clone("gammaOverPion0");
+    :wqTH1D *gammaOverPion0 = (TH1D*)Ydir -> Clone("gammaOverPion0");
     gammaOverPion0 -> Divide(Ypion0);
 
     //Write outputs in outputfile

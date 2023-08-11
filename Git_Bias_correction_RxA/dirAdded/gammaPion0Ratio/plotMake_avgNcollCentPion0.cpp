@@ -1,13 +1,21 @@
+
+#define DIREX_PATH "/Users/jinhyunpark/npl/gitHub/xloadFromServer/Git_Bias_correction_RxA/dirExcluded"
+
 void plotMake_avgNcollCentPion0()
 {
 
     //Inputs
-
    	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCentPion0.root", "read");
-   TFile *input2 = new TFile("/Users/jinhyunpark/npl/gitHub/xloadFromServer/Git_Bias_correction_RxA/dirExcluded/pAu200GeV_option3_avgNcoll.root", "read");
+    TFile *input2 = new TFile(Form("%s/pAu200GeV_option3_avgNcoll.root", DIREX_PATH), "read");
+    TFile *input3 = new TFile(Form("%s/pAu200GeV_option3_avgNcoll_newest.root", DIREX_PATH), "read");
+
+ //    TFile *input2 = new TFile("DIREX_PATH/pAu200GeV_option3_avgNcoll.root", "read");
+ //    TFile *input3 = new TFile("DIREX_PATo/pAu200GeV_option3_avgNcoll_newest.root", "read");
 
     TProfile *avgNcoll_new = (TProfile*)input1 -> Get("avgNcollCentPion0"); 
     TProfile *avgNcoll_old = (TProfile*)input2 -> Get("avgNcoll"); //already rebinned
+    //Event selection condition added in old-MC to calculate <Ncoll>
+    TProfile *avgNcoll_old_modif = (TProfile*)input3 -> Get("avgNcoll");
     
     //Rebin to set centrality class
     double binX[] = {0, 10, 20, 40, 60, 80};
@@ -38,9 +46,14 @@ void plotMake_avgNcollCentPion0()
         avgNcoll_old -> SetMarkerColor(4);
         avgNcoll_old -> SetLineColor(4);
         avgNcoll_old -> Draw("p same");
+    
+        avgNcoll_old_modif -> SetMarkerStyle(25);
+        avgNcoll_old_modif -> SetMarkerColor(4);
+        avgNcoll_old_modif -> SetLineColor(4);
+        avgNcoll_old_modif -> Draw("p same");
 
 
-		TLegend *leg1 = new TLegend(0.5, 0.63, 0.8, 0.93);
+		TLegend *leg1 = new TLegend(0.4, 0.63, 0.7, 0.93);
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
 		leg1 -> SetTextSize(0.03);
@@ -51,6 +64,7 @@ void plotMake_avgNcollCentPion0()
 		leg1 -> AddEntry("","Including #pi^{0}, integrated p_{T}, |#eta|#LT1", "h");
         leg1 -> AddEntry(avgNcollR_new,"MC 3e7 Events, including #gamma^{dir}", "p");
         leg1 -> AddEntry(avgNcoll_old,"MC 1e5 Events, no #gamma^{dir}", "p");
+        leg1 -> AddEntry(avgNcoll_old_modif,"MC 1e5 Events, no #gamma^{dir}, Target Events", "p");
 		
         leg1 -> Draw();
 
