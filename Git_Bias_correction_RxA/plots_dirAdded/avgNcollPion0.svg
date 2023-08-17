@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.28/04
-CreationDate: Wed Aug  9 14:38:32 2023</desc>
+CreationDate: Thu Aug 17 15:17:00 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -289,39 +289,25 @@ CreationDate: Wed Aug  9 14:38:32 2023</desc>
 <g stroke="#0000ff" stroke-width="1" fill="none">
 <rect x="429.942" y="300.415" width="5.6835" height="5.6835"/>
 </g>
-<text xml:space="preserve" x="231.392" y="41.2054" fill="black" font-size="11.7432" font-family="Helvetica">PYTHIA8, option3</text>
-<text xml:space="preserve" x="257.678" y="58.2559" fill="black" font-size="11.7432" font-family="Helvetica"> of target events</text>
-<text xml:space="preserve" x="254.126" y="58.2559" fill="black" font-size="11.7432" font-family="Times">&#0062;</text>
-<text xml:space="preserve" x="242.759" y="63.9394" fill="black" font-size="7.99544" font-family="Helvetica">coll</text>
-<text xml:space="preserve" x="234.944" y="58.2559" fill="black" font-size="11.7432" font-family="Helvetica">N</text>
-<text xml:space="preserve" x="231.392" y="58.2559" fill="black" font-size="11.7432" font-family="Times">&#0060;</text>
-<text xml:space="preserve" x="231.392" y="76.0168" fill="black" font-size="11.7432" font-family="Helvetica">Target Events: </text>
-<text xml:space="preserve" x="383.426" y="93.7778" fill="black" font-size="11.7432" font-family="Helvetica">1</text>
-<text xml:space="preserve" x="379.874" y="93.7778" fill="black" font-size="11.7432" font-family="Times">&#0060;</text>
-<text xml:space="preserve" x="377.742" y="93.7778" fill="black" font-size="11.7432" font-family="Helvetica">|</text>
-<text xml:space="preserve" x="371.348" y="93.7778" fill="black" font-size="11.7432" font-family="Times">&#0951;</text>
-<text xml:space="preserve" x="362.823" y="93.7778" fill="black" font-size="11.7432" font-family="Helvetica">, |</text>
-<text xml:space="preserve" x="357.85" y="100.172" fill="black" font-size="7.99544" font-family="Helvetica">T</text>
-<text xml:space="preserve" x="291.069" y="93.7778" fill="black" font-size="11.7432" font-family="Helvetica">, integrated p</text>
-<text xml:space="preserve" x="286.806" y="89.5151" fill="black" font-size="7.99544" font-family="Helvetica">0</text>
-<text xml:space="preserve" x="280.412" y="93.7778" fill="black" font-size="11.7432" font-family="Times">&#0960;</text>
-<text xml:space="preserve" x="231.392" y="93.7778" fill="black" font-size="11.7432" font-family="Helvetica">Including </text>
-<text xml:space="preserve" x="407.581" y="105.855" fill="black" font-size="7.99544" font-family="Helvetica">dir</text>
-<text xml:space="preserve" x="401.897" y="110.828" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
-<text xml:space="preserve" x="269.756" y="110.828" fill="black" font-size="11.7432" font-family="Helvetica">MC 3e7 Events, including </text>
+<text xml:space="preserve" x="220.025" y="44.0471" fill="black" font-size="11.7432" font-family="Helvetica">PYTHIA8, option3</text>
+<text xml:space="preserve" x="220.025" y="68.9124" fill="black" font-size="11.7432" font-family="Helvetica">p+Au, 200GeV</text>
+<text xml:space="preserve" x="448.076" y="90.936" fill="black" font-size="11.7432" font-family="Helvetica">|&lt;1</text>
+<text xml:space="preserve" x="441.682" y="90.936" fill="black" font-size="11.7432" font-family="Times">&#0951;</text>
+<text xml:space="preserve" x="433.156" y="90.936" fill="black" font-size="11.7432" font-family="Helvetica">, |</text>
+<text xml:space="preserve" x="428.183" y="97.3299" fill="black" font-size="7.99544" font-family="Helvetica">T</text>
+<text xml:space="preserve" x="258.389" y="90.936" fill="black" font-size="11.7432" font-family="Helvetica">New MC 3e7 Events, integrated p</text>
 <g fill="#ff0000">
-<circle cx="248.531" cy="107.378" r="2.84175"/>
+<circle cx="237.193" cy="89.8703" r="2.84175"/>
 </g>
-<text xml:space="preserve" x="375.611" y="123.616" fill="black" font-size="7.99544" font-family="Helvetica">dir</text>
-<text xml:space="preserve" x="369.928" y="128.589" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
-<text xml:space="preserve" x="269.756" y="128.589" fill="black" font-size="11.7432" font-family="Helvetica">MC 1e5 Events, no </text>
-<g fill="#0000ff">
-<circle cx="248.531" cy="124.885" r="2.84175"/>
-</g>
-<text xml:space="preserve" x="384.136" y="145.64" fill="black" font-size="11.7432" font-family="Helvetica">, Target Events</text>
-<text xml:space="preserve" x="375.611" y="140.667" fill="black" font-size="7.99544" font-family="Helvetica">dir</text>
-<text xml:space="preserve" x="369.928" y="145.64" fill="black" font-size="11.7432" font-family="Times">&#0947;</text>
-<text xml:space="preserve" x="269.756" y="145.64" fill="black" font-size="11.7432" font-family="Helvetica">MC 1e5 Events, no </text>
+<text xml:space="preserve" x="443.103" y="115.801" fill="black" font-size="11.7432" font-family="Helvetica">|&lt;1</text>
+<text xml:space="preserve" x="436.709" y="115.801" fill="black" font-size="11.7432" font-family="Times">&#0951;</text>
+<text xml:space="preserve" x="428.183" y="115.801" fill="black" font-size="11.7432" font-family="Helvetica">, |</text>
+<text xml:space="preserve" x="423.21" y="122.195" fill="black" font-size="7.99544" font-family="Helvetica">T</text>
+<text xml:space="preserve" x="258.389" y="115.801" fill="black" font-size="11.7432" font-family="Helvetica">Old MC 1e5 Events, integrated p</text>
 <g stroke="#0000ff" stroke-width="1" fill="none">
-<rect x="245.69" y="139.55" width="5.6835" height="5.6835"/>
+<rect x="234.351" y="111.539" width="5.6835" height="5.6835"/>
+</g>
+<text xml:space="preserve" x="258.389" y="142.088" fill="black" font-size="11.7432" font-family="Helvetica">Old MC 1e5 Events, inelastic events</text>
+<g fill="#0000ff">
+<circle cx="237.193" cy="138.891" r="2.84175"/>
 </g></svg>

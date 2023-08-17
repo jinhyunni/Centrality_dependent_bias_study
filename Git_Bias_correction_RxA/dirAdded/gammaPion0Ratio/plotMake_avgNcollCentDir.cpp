@@ -37,8 +37,8 @@ void plotMake_avgNcollCentDir()
 		leg1 -> SetBorderSize(0);
 		leg1 -> SetTextSize(0.03);
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
+		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
         leg1 -> AddEntry("", "#LTN_{coll}#GT of target events", "h");
-		//leg1 -> AddEntry("","New 3e7 MC events including #gamma^{dir}", "h");
         leg1 -> AddEntry("", "Target Events: ", "h");
 		leg1 -> AddEntry("","Including #gamma^{dir}, integrated p_{T}, |#eta|#LT1", "h");
 		

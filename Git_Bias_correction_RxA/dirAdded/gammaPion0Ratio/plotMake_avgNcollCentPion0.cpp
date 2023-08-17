@@ -53,18 +53,15 @@ void plotMake_avgNcollCentPion0()
         avgNcoll_old_modif -> Draw("p same");
 
 
-		TLegend *leg1 = new TLegend(0.4, 0.63, 0.7, 0.93);
+		TLegend *leg1 = new TLegend(0.38, 0.63, 0.68, 0.93);
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
 		leg1 -> SetTextSize(0.03);
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
-        leg1 -> AddEntry("", "#LTN_{coll}#GT of target events", "h");
-		//leg1 -> AddEntry("","New 3e7 MC events including #gamma^{dir}", "h");
-        leg1 -> AddEntry("", "Target Events: ", "h");
-		leg1 -> AddEntry("","Including #pi^{0}, integrated p_{T}, |#eta|#LT1", "h");
-        leg1 -> AddEntry(avgNcollR_new,"MC 3e7 Events, including #gamma^{dir}", "p");
-        leg1 -> AddEntry(avgNcoll_old,"MC 1e5 Events, no #gamma^{dir}", "p");
-        leg1 -> AddEntry(avgNcoll_old_modif,"MC 1e5 Events, no #gamma^{dir}, Target Events", "p");
+		leg1 -> AddEntry("","p+Au, 200GeV", "h");
+        leg1 -> AddEntry(avgNcollR_new,"New MC 3e7 Events, integrated p_{T}, |#eta|<1", "p");
+        leg1 -> AddEntry(avgNcoll_old_modif,"Old MC 1e5 Events, integrated p_{T}, |#eta|<1", "p");
+        leg1 -> AddEntry(avgNcoll_old,"Old MC 1e5 Events, inelastic events", "p");
 		
         leg1 -> Draw();
 

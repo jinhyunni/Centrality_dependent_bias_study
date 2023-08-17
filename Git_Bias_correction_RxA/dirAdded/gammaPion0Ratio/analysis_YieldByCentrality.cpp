@@ -1,7 +1,7 @@
 void analysis_YieldByCentrality()
 {
-    TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DdirCent_fixtry1.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentDir.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DdirCent_eta0p5.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentDir_eta0p5.root", "read");
 
     
     //Target particle: pion0(111)
@@ -17,7 +17,7 @@ void analysis_YieldByCentrality()
     TH1D *yield = (TH1D*)h1yieldCent->Clone("yield");
     yield -> Divide(h1nEventCent);
 
-    TFile *output = new TFile("pAu200GeV_option3_dirAdded_decayOn_dirYieldCent.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_option3_dirAdded_decayOn_yieldCentDir_eta0p5.root", "recreate");
     yield -> Write();
     output -> Close();
     
