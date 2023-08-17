@@ -5,7 +5,7 @@ void analysis_gammaApion0()
 
     TFile *pion1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2Dpion0Cent.root", "read");
     TFile *dir1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DdirCent.root", "read");
-    TFile *pion2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0.root", "read");
+    TFile *pion2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0_highpT.root", "read");
     TFile *dir2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentDir.root", "read");
 
     //output
@@ -20,9 +20,11 @@ void analysis_gammaApion0()
     TH2D *h2NcollCentDir = (TH2D*)dir2 -> Get("ncollCentDir");
 
     //Analysis1. Projection to get Yield
+    //In high pT region: more than 2 GeV
+    //pT binning: 0~14 GeV, 1400 binning
     //--------------------------
-    TH1D *Ypion0Cent = (TH1D*)h2centPion0 -> ProjectionX();
-    TH1D *YdirCent = (TH1D*)h2centDir -> ProjectionX();
+    TH1D *Ypion0Cent = (TH1D*)h2centPion0 -> ProjectionX("", 200, 1400);
+    TH1D *YdirCent = (TH1D*)h2centDir -> ProjectionX("", 200, 1400);
     TH1D *nEvntCentP = (TH1D*)h2NcollCentPion0 -> ProjectionX();
     TH1D *nEvntCentD = (TH1D*)h2NcollCentDir -> ProjectionX();
 
