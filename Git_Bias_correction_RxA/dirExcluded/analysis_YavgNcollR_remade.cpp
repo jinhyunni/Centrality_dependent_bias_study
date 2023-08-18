@@ -1,4 +1,4 @@
-void analysis_YavgNcollR_old()
+void analysis_YavgNcollR_remade()
 {
 	//Read in files
 	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
@@ -13,45 +13,35 @@ void analysis_YavgNcollR_old()
 	TProfile* avgNcoll = (TProfile*)input2 -> Get("avgNcoll");
 
 
-	//Rebin binedges
-	double pTbins[]={0, 0.5, 1, 1.5, 2, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0};	
- 
 
-	//pAu yield
-	TH1D* pAu1 = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);	//pion0 pT in event cent 0~10%
-	TH1D* pAu2 = (TH1D*)h2pTcent -> ProjectionY("pAu2", 2, 2);	//pion0 pT in event cent 10~20%
-	TH1D* pAu3 = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);	//pino0 pT in event cent 20~40%
-	TH1D* pAu4 = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);	//pion0 pT in event cent 40~60%
-	TH1D* pAu5 = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);	//pion0 pT in event cent 60~80%
+	//pAu yield vs pT(0~14 GeV)
+	TH1D *pAu1 = (TH1D*)h2pTcent -> ProjectionY("pAu1", 1, 1);	//pion0 pT in event cent 0~10%
+	TH1D *pAu2 = (TH1D*)h2pTcent -> ProjectionY("pAu2", 2, 2);	//pion0 pT in event cent 10~20%
+	TH1D *pAu3 = (TH1D*)h2pTcent -> ProjectionY("pAu3", 3, 4);	//pino0 pT in event cent 20~40%
+	TH1D *pAu4 = (TH1D*)h2pTcent -> ProjectionY("pAu4", 5, 6);	//pion0 pT in event cent 40~60%
+	TH1D *pAu5 = (TH1D*)h2pTcent -> ProjectionY("pAu5", 7, 8);	//pion0 pT in event cent 60~80%
 
-	//Rebin pAu yield
-	TH1D* pAu1R = (TH1D*)pAu1 -> Rebin(22, "pAuR1", pTbins);
-	TH1D* pAu2R = (TH1D*)pAu2 -> Rebin(22, "pAuR2", pTbins);
-	TH1D* pAu3R = (TH1D*)pAu3 -> Rebin(22, "pAuR3", pTbins);
-	TH1D* pAu4R = (TH1D*)pAu4 -> Rebin(22, "pAuR4", pTbins);
-	TH1D* pAu5R = (TH1D*)pAu5 -> Rebin(22, "pAuR5", pTbins);
-
-
-	//scailing to get dN/deta per event
+	//scailing factor to get yield per event in each centrality class
 	TH1D* h1cent = (TH1D*)h2ncollcent -> ProjectionX("h1cent1");
 
-	double num1 = h1cent -> GetBinContent(1);
-	double num2 = h1cent -> GetBinContent(2);
-	double num3 = h1cent -> GetBinContent(3) + h1cent -> GetBinContent(4);
-	double num4 = h1cent -> GetBinContent(5) + h1cent -> GetBinContent(6);
-	double num5 = h1cent -> GetBinContent(7) + h1cent -> GetBinContent(8);
-
+	double num1 = h1cent -> GetBinContent(1);                                   // # of event in cent class1
+	double num2 = h1cent -> GetBinContent(2);                                   // # of event in cent class2
+	double num3 = h1cent -> GetBinContent(3) + h1cent -> GetBinContent(4);      // # of event in cent class3
+	double num4 = h1cent -> GetBinContent(5) + h1cent -> GetBinContent(6);      // # of event in cent class4
+	double num5 = h1cent -> GetBinContent(7) + h1cent -> GetBinContent(8);      // # of event in cent class5
+    
+    //1/N_event
 	double scalar11 = 1./(num1);
 	double scalar12 = 1./(num2);
 	double scalar13 = 1./(num3);
 	double scalar14 = 1./(num4);
 	double scalar15 = 1./(num5);
 	
-	pAu1R -> Scale(scalar11);
-	pAu2R -> Scale(scalar12);
-	pAu3R -> Scale(scalar13);
-	pAu4R -> Scale(scalar14);
-	pAu5R -> Scale(scalar15);
+	pAu1 -> Scale(scalar11);
+	pAu2 -> Scale(scalar12);
+	pAu3 -> Scale(scalar13);
+	pAu4 -> Scale(scalar14);
+	pAu5 -> Scale(scalar15);
 
 	
  //	/*
@@ -76,25 +66,25 @@ void analysis_YavgNcollR_old()
 
 
 	//Yield/<Ncoll>, more than 0, under 2 GeV, Y(pTclass)(centClass)
-	double Y11 = pAu1R -> Integral(1, 4)/(avgNcoll -> GetBinContent(1));
-	double Y12 = pAu2R -> Integral(1, 4)/(avgNcoll -> GetBinContent(2));
-	double Y13 = pAu3R -> Integral(1, 4)/(avgNcoll -> GetBinContent(3));
-	double Y14 = pAu4R -> Integral(1, 4)/(avgNcoll -> GetBinContent(4));
-	double Y15 = pAu5R -> Integral(1, 4)/(avgNcoll -> GetBinContent(5));
+	double Y11 = pAu1 -> Integral(1, 199)/(avgNcoll -> GetBinContent(1));
+	double Y12 = pAu2 -> Integral(1, 199)/(avgNcoll -> GetBinContent(2));
+	double Y13 = pAu3 -> Integral(1, 199)/(avgNcoll -> GetBinContent(3));
+	double Y14 = pAu4 -> Integral(1, 199)/(avgNcoll -> GetBinContent(4));
+	double Y15 = pAu5 -> Integral(1, 199)/(avgNcoll -> GetBinContent(5));
 
 	//Yield/<Ncoll>, more than 2, under 5 GeV, Y(pTclass)(centClass)
-	double Y21 = pAu1R -> Integral(5, 10)/(avgNcoll -> GetBinContent(1));
-	double Y22 = pAu2R -> Integral(5, 10)/(avgNcoll -> GetBinContent(2));
-	double Y23 = pAu3R -> Integral(5, 10)/(avgNcoll -> GetBinContent(3));
-	double Y24 = pAu4R -> Integral(5, 10)/(avgNcoll -> GetBinContent(4));
-	double Y25 = pAu5R -> Integral(5, 10)/(avgNcoll -> GetBinContent(5));
+	double Y21 = pAu1 -> Integral(200, 1400);
+	double Y22 = pAu2 -> Integral(200, 1400);
+	double Y23 = pAu3 -> Integral(200, 1400);
+	double Y24 = pAu4 -> Integral(200, 1400);
+	double Y25 = pAu5 -> Integral(200, 1400);
 
-	//Yield/<Ncoll>, more than 2, under 5 GeV, Y(pTclass)(centClass)
-	double Y31 = pAu1R -> Integral(11, 22)/(avgNcoll -> GetBinContent(1));
-	double Y32 = pAu2R -> Integral(11, 22)/(avgNcoll -> GetBinContent(2));
-	double Y33 = pAu3R -> Integral(11, 22)/(avgNcoll -> GetBinContent(3));
-	double Y34 = pAu4R -> Integral(11, 22)/(avgNcoll -> GetBinContent(4));
-	double Y35 = pAu5R -> Integral(11, 22)/(avgNcoll -> GetBinContent(5));
+ //	//Yield/<Ncoll>, more than 2, under 5 GeV, Y(pTclass)(centClass)
+ //	double Y31 = pAu1 -> Integral(500, 1400)/(avgNcoll -> GetBinContent(1));
+ //	double Y32 = pAu2 -> Integral(500, 1400)/(avgNcoll -> GetBinContent(2));
+ //	double Y33 = pAu3 -> Integral(500, 1400)/(avgNcoll -> GetBinContent(3));
+ //	double Y34 = pAu4 -> Integral(500, 1400)/(avgNcoll -> GetBinContent(4));
+ //	double Y35 = pAu5 -> Integral(500, 1400)/(avgNcoll -> GetBinContent(5));
 
  // cout<< "Y/<Ncoll> in 0~2 GeV\n" << endl; 
  //	cout<< Y11 << endl;
@@ -144,12 +134,12 @@ void analysis_YavgNcollR_old()
 	plot2 -> SetBinContent(4, Y24);
 	plot2 -> SetBinContent(5, Y25);
 
-	//5~ GeV
-	plot3 -> SetBinContent(1, Y31);
-	plot3 -> SetBinContent(2, Y32);
-	plot3 -> SetBinContent(3, Y33);
-	plot3 -> SetBinContent(4, Y34);
-	plot3 -> SetBinContent(5, Y35);
+ //	//5~ GeVv
+ //	plot3 -> SetBinContent(1, Y31);
+ //	plot3 -> SetBinContent(2, Y32);
+ //	plot3 -> SetBinContent(3, Y33);
+ //	plot3 -> SetBinContent(4, Y34);
+ //	plot3 -> SetBinContent(5, Y35);
 
  //	//set false error	
  //	//0~2GeV
@@ -181,8 +171,10 @@ void analysis_YavgNcollR_old()
  //
  //	outfile -> Close();
     
-    TFile *output = new TFile("pAu200GeV_option3_YavgNcoll_remade.root", "recreate");
-	plot1 -> Write();
-    output -> Close();
+ //    TFile *output = new TFile("pAu200GeV_option3_YavgNcoll_remade.root", "recreate");
+ //	plot1 -> Write();
+ //    output -> Close();
+
+    plot2 -> Draw();
 
 }

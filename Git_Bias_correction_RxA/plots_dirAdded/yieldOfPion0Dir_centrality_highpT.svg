@@ -5,7 +5,7 @@
 </title>
 <desc>
 Creator: ROOT Version 6.28/04
-CreationDate: Fri Aug 18 10:56:57 2023</desc>
+CreationDate: Fri Aug 18 11:13:44 2023</desc>
 <defs>
 </defs>
 <rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
@@ -272,9 +272,9 @@ CreationDate: Fri Aug 18 10:56:57 2023</desc>
 </g>
 <text xml:space="preserve" x="287.517" y="44.0471" fill="black" font-size="11.7432" font-family="Helvetica">PYTHIA8, option3</text>
 <text xml:space="preserve" x="287.517" y="68.9124" fill="black" font-size="11.7432" font-family="Helvetica">p+Au, 200 GeV</text>
-<text xml:space="preserve" x="364.954" y="90.936" fill="black" font-size="11.7432" font-family="Helvetica">1</text>
-<text xml:space="preserve" x="361.402" y="90.936" fill="black" font-size="11.7432" font-family="Times">&#0060;</text>
-<text xml:space="preserve" x="359.271" y="90.936" fill="black" font-size="11.7432" font-family="Helvetica">|</text>
+<text xml:space="preserve" x="368.507" y="90.936" fill="black" font-size="11.7432" font-family="Helvetica"> 1</text>
+<text xml:space="preserve" x="364.954" y="90.936" fill="black" font-size="11.7432" font-family="Times">&#0060;</text>
+<text xml:space="preserve" x="359.271" y="90.936" fill="black" font-size="11.7432" font-family="Helvetica">| </text>
 <text xml:space="preserve" x="352.877" y="90.936" fill="black" font-size="11.7432" font-family="Times">&#0951;</text>
 <text xml:space="preserve" x="308.83" y="90.936" fill="black" font-size="11.7432" font-family="Helvetica"> 2 GeV, |</text>
 <text xml:space="preserve" x="302.436" y="90.936" fill="black" font-size="11.7432" font-family="Times">&#8805;</text>

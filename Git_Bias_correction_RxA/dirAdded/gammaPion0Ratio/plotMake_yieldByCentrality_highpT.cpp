@@ -37,7 +37,7 @@ void plotMake_yieldByCentrality_highpT()
 		leg1 -> SetTextSize(0.03);
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
         leg1 -> AddEntry("", "p+Au, 200 GeV", "h");
-		leg1 -> AddEntry("","p_{T} #geq 2 GeV, |#eta|#LT1", "h");
+		leg1 -> AddEntry("","p_{T} #geq 2 GeV, |#eta| #LT 1", "h");
         leg1 -> AddEntry(highPion0,"#pi^{0}", "p");
         leg1 -> AddEntry(highdir,"#gamma^{dir}", "p");
 
