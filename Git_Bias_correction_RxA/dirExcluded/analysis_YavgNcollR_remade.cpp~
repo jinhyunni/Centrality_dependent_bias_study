@@ -175,6 +175,6 @@ void analysis_YavgNcollR_remade()
  //	plot1 -> Write();
  //    output -> Close();
 
-    plot2 -> Draw();
+    plot1 -> Draw();
 
 }

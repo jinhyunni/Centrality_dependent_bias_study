@@ -3,19 +3,20 @@ void analysis_YavgNcollR_remade()
 	//Read in files
 	TFile* input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2Dpion0Cent.root", "read");
 	TFile* input2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0_highpT.root", "read");
-    TFile *input3 = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCentPion0.root", "read");
-    TFile *input4 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0_lowpT");
+    TFile *input3 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0_lowpT.root", "read");
+    TFile *input4 = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCentPion0_highpT.root", "read");
+    TFile *input5 = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCentPion0_lowpT.root", "read");
 
 	//historams
 
 	////pAu
 	TH2D *h2pTcent = (TH2D*)input1 -> Get("centPion0");
 	TH2D *h2ncollcent_high = (TH2D*)input2 -> Get("ncollCentPion0");
-    TH2D *h2ncollcent_low = (TH2D*)input4 -> Get("ncollCentPion0");
+    TH2D *h2ncollcent_low = (TH2D*)input3 -> Get("ncollCentPion0");
 
 	////avgNcoll
- 	TProfile* avgNcoll = (TProfile*)input3 -> Get("avgNcollCentPion0");
-
+ 	TProfile* avgNcoll_high = (TProfile*)input4 -> Get("avgNcollCentPion0");
+ 	TProfile* avgNcoll_low = (TProfile*)input5 -> Get("avgNcollCentPion0");
 
 
 	//pAu yield vs pT(0~14 GeV)
@@ -28,21 +29,21 @@ void analysis_YavgNcollR_remade()
 
 	//scailing factor to get yield per event in each centrality class
 	TH1D *h1cent_high = (TH1D*)h2ncollcent_high -> ProjectionX("h1cent_high");
-    TH1D *h2cent_low = (TH1D*)h2ncollcent_low -> ProjectionX("h1cent_low");
+    TH1D *h1cent_low = (TH1D*)h2ncollcent_low -> ProjectionX("h1cent_low");
     
     //in low pT region
 	double num_low_1 = h1cent_low -> GetBinContent(1);                                          // # of event in cent class1
 	double num_low_2 = h1cent_low -> GetBinContent(2);                                          // # of event in cent class2
 	double num_low_3 = h1cent_low -> GetBinContent(3) + h1cent_low -> GetBinContent(4);         // # of event in cent class3
 	double num_low_4 = h1cent_low -> GetBinContent(5) + h1cent_low -> GetBinContent(6);         // # of event in cent class4
-	double num_low_5 = h1cent_low -> GetBinContent(7) + h1cent_low -> GetBinContent(8);         // # of event in cent classp5
+	double num_low_5 = h1cent_low -> GetBinContent(7) + h1cent_low -> GetBinContent(8);         // # of event in cent class5
     
     //in high pT region
     double num_high_1 = h1cent_high -> GetBinContent(1);                                        // # of event in cent class1
 	double num_high_2 = h1cent_high -> GetBinContent(2);                                        // # of event in cent class2
 	double num_high_3 = h1cent_high -> GetBinContent(3) + h1cent_high -> GetBinContent(4);      // # of event in cent class3
 	double num_high_4 = h1cent_high -> GetBinContent(5) + h1cent_high -> GetBinContent(6);      // # of event in cent class4
-	double num_high_5 = h1cent_high -> GetBinContent(7) + h1cent_high -> GetBinContent(8);      // # of event in cent classp5
+	double num_high_5 = h1cent_high -> GetBinContent(7) + h1cent_high -> GetBinContent(8);      // # of event in cent class5
       
     //Cloning histogram
     TH1D *pAu1_low = (TH1D*)pAu1 -> Clone("pAu1_low");
@@ -74,24 +75,34 @@ void analysis_YavgNcollR_remade()
     
 
 	//Yield/<Ncoll>, more than 0, under 2 GeV, Y(pTclass)(centClass)
-	double Y11 = pAu1 -> Integral(1, 199)/(avgNcoll -> GetBinContent(1));
-	double Y12 = pAu2 -> Integral(1, 199)/(avgNcoll -> GetBinContent(2));
-	double Y13 = pAu3 -> Integral(1, 199)/(avgNcoll -> GetBinContent(3));
-	double Y14 = pAu4 -> Integral(1, 199)/(avgNcoll -> GetBinContent(4));
-	double Y15 = pAu5 -> Integral(1, 199)/(avgNcoll -> GetBinContent(5));
+	double Y11 = pAu1_low -> Integral(1, 200)/(avgNcoll_low -> GetBinContent(1));
+	double Y12 = pAu2_low -> Integral(1, 200)/(avgNcoll_low -> GetBinContent(2));
+	double Y13 = pAu3_low -> Integral(1, 200)/(avgNcoll_low -> GetBinContent(3));
+	double Y14 = pAu4_low -> Integral(1, 200)/(avgNcoll_low -> GetBinContent(4));
+	double Y15 = pAu5_low -> Integral(1, 200)/(avgNcoll_low -> GetBinContent(5));
 
 	//Yield/<Ncoll>, more than 2, under 14 GeV, Y(pTclass)(centClass)
-    double Y21 = pAu1 -> Integral(200, 1400)/(avgNcoll -> GetBinContent(1));
-	double Y22 = pAu2 -> Integral(200, 1400)/(avgNcoll -> GetBinContent(2));
-	double Y23 = pAu3 -> Integral(200, 1400)/(avgNcoll -> GetBinContent(3));
-	double Y24 = pAu4 -> Integral(200, 1400)/(avgNcoll -> GetBinContent(4));
-	double Y25 = pAu5 -> Integral(200, 1400)/(avgNcoll -> GetBinContent(5));
+    double Y21 = pAu1_high -> Integral(201, 1400)/(avgNcoll_high -> GetBinContent(1));
+	double Y22 = pAu2_high -> Integral(201, 1400)/(avgNcoll_high -> GetBinContent(2));
+	double Y23 = pAu3_high -> Integral(201, 1400)/(avgNcoll_high -> GetBinContent(3));
+	double Y24 = pAu4_high -> Integral(201, 1400)/(avgNcoll_high -> GetBinContent(4));
+	double Y25 = pAu5_high -> Integral(201, 1400)/(avgNcoll_high -> GetBinContent(5));
+
+
+ //    double Y21 = pAu1_high -> Integral(200, 1400);
+ //	double Y22 = pAu2_high -> Integral(200, 1400);
+ //	double Y23 = pAu3_high -> Integral(200, 1400);
+ //	double Y24 = pAu4_high -> Integral(200, 1400);
+ //	double Y25 = pAu5_high -> Integral(200, 1400);
 
  
 	//Y/<Ncoll> vs Centrality
 	TH1D *plot1 = new TH1D("YavgNcollR1", "0~2GeV", 5, 0, 80);
 	TH1D *plot2 = new TH1D("YavgNcollR2", "2~5GeV", 5, 0, 80);
 	double bins[]={0, 10, 20, 40, 60, 80};
+    
+    plot1 -> SetTitle("YavgNcoll_0to2GeV");
+    plot2 -> SetTitle("YavgNcoll_over2GeV");
 
 	plot1 -> GetXaxis() -> Set(5, bins);
 	plot2 -> GetXaxis() -> Set(5, bins);
@@ -125,6 +136,6 @@ void analysis_YavgNcollR_remade()
  //	plot1 -> Write();
  //    output -> Close();
 
-    plot1 -> Draw();
+    plot2 -> Draw();
 
 }

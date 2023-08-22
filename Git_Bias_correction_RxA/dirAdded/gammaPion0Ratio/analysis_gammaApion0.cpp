@@ -21,8 +21,14 @@ void analysis_gammaApion0()
 
     //Analysis1. Projection to get Yield
     //--------------------------
-    TH1D *Ypion0Cent = (TH1D*)h2centPion0 -> ProjectionX();
-    TH1D *YdirCent = (TH1D*)h2centDir -> ProjectionX();
+    TH1D *Ypion0Cent = (TH1D*)h2centPion0 -> ProjectionX("pion0_integrated");
+    TH1D *Ypion0Cent_highpT = (TH1D*)h2centPion0 -> ProjectionX("pion0_highpT", 201, 1400);
+    TH1D *Ypion0Cent_lowpT = (TH1D*)h2centPion0 -> ProjectionX("pino0_lowpT", 1, 200);
+
+    TH1D *YdirCent = (TH1D*)h2centDir -> ProjectionX("dir_integrated");
+    TH1D *YdirCent_highpT = (TH1D*)h2centDir -> ProjectionX("dir_highpT", 201, 1400);
+    TH1D *YdirCent_lowpT = (TH1D*)h2centDir -> ProjectionX("dir_lowpT", 1, 200);
+
     TH1D *nEvntCentP = (TH1D*)h2NcollCentPion0 -> ProjectionX();
     TH1D *nEvntCentD = (TH1D*)h2NcollCentDir -> ProjectionX();
 
@@ -36,7 +42,14 @@ void analysis_gammaApion0()
     double binEdge[]={0, 10, 20, 40, 60, 80};
 
     TH1D *Ypion0CentR = (TH1D*)Ypion0Cent -> Rebin(5, "Ypion0CentR", binEdge);
+    TH1D *Ypion0Cent_highpTR = (TH1D*)Ypion0Cent_highpT -> Rebin(5, "Ypion0Cent_highpTR", binEdge);
+    TH1D *Ypion0Cent_lowpTR = (TH1D*)Ypion0Cent_lowpT -> Rebin(5, "Ypion0Cent_lowpTR", binEdge);
+
     TH1D *YdirCentR = (TH1D*)YdirCent -> Rebin(5, "YdirCentR", binEdge);
+    TH1D *YdirCent_highpTR = (TH1D*)YdirCent_highpT -> Rebin(5, "YdirCent_highpTR", binEdge);
+    TH1D *YdirCent_lowpTR = (TH1D*)YdirCent_lowpT -> Rebin(5, "YdirCent_lowpTR", binEdge);
+
+
     TH1D *nEventCentPR = (TH1D*)nEvntCentP -> Rebin(5, "nEvntCentPR", binEdge);
     TH1D *nEventCentDR = (TH1D*)nEvntCentD -> Rebin(5, "nEvntCentDR", binEdge);
 
@@ -47,17 +60,35 @@ void analysis_gammaApion0()
     TH1D *Ypion0 = (TH1D*)Ypion0CentR -> Clone("Ypion0");
     Ypion0 -> Divide(nEventCentPR);
 
+    TH1D *Ypion0_high = (TH1D*)Ypion0Cent_highpTR -> Clone("Ypion0_highpT");
+    Ypion0_high -> Divide(nEventCentPR);
+    
+    TH1D *Ypion0_low = (TH1D*)Ypion0Cent_lowpTR -> Clone("Ypion0_lowpT");
+    Ypion0_low -> Divide(nEventCentPR);
+
+
+
     TH1D *Ydir = (TH1D*)YdirCentR -> Clone("Ydir");
     Ydir -> Divide(nEventCentDR);
 
-    //gamma/pion0 ratio by centrality
-    :wqTH1D *gammaOverPion0 = (TH1D*)Ydir -> Clone("gammaOverPion0");
-    gammaOverPion0 -> Divide(Ypion0);
+    TH1D *Ydir_high = (TH1D*)YdirCent_highpTR -> Clone("Ydir_high");
+    Ydir_high -> Divide(nEventCentDR);
+
+    TH1D *Ydir_low = (TH1D*)YdirCent_lowpTR -> Clone("Ydir_low");
+    Ydir_low -> Divide(nEventCentDR);
+
+ //    //gamma/pion0 ratio by centrality
+ //    TH1D *gammaOverPion0 = (TH1D*)Ydir -> Clone("gammaOverPion0");
+ //    gammaOverPion0 -> Divide(Ypion0);
 
     //Write outputs in outputfile
     Ypion0 -> Write();
+    Ypion0_high -> Write();
+    Ypion0_low -> Write();
     Ydir -> Write();
-    gammaOverPion0 -> Write();
+    Ydir_high -> Write();
+    Ydir_low -> Write();
+ //    gammaOverPion0 -> Write();
 
     //Close files
     pion1 -> Close();
