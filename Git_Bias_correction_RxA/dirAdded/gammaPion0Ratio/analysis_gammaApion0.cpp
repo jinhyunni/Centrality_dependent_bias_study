@@ -5,8 +5,8 @@ void analysis_gammaApion0()
 
     TFile *pion1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2Dpion0Cent.root", "read");
     TFile *dir1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DdirCent.root", "read");
-    TFile *pion2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0.root", "read");
-    TFile *dir2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentDir.root", "read");
+    TFile *pion2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0_allEvents.root", "read");
+    TFile *dir2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentDir_integrated.root", "read");
 
     //output
     //-------------------------
@@ -60,10 +60,10 @@ void analysis_gammaApion0()
     TH1D *Ypion0 = (TH1D*)Ypion0CentR -> Clone("Ypion0");
     Ypion0 -> Divide(nEventCentPR);
 
-    TH1D *Ypion0_high = (TH1D*)Ypion0Cent_highpTR -> Clone("Ypion0_highpT");
+    TH1D *Ypion0_high = (TH1D*)Ypion0Cent_highpTR -> Clone("Ypion0_high");
     Ypion0_high -> Divide(nEventCentPR);
     
-    TH1D *Ypion0_low = (TH1D*)Ypion0Cent_lowpTR -> Clone("Ypion0_lowpT");
+    TH1D *Ypion0_low = (TH1D*)Ypion0Cent_lowpTR -> Clone("Ypion0_low");
     Ypion0_low -> Divide(nEventCentPR);
 
 
@@ -76,6 +76,9 @@ void analysis_gammaApion0()
 
     TH1D *Ydir_low = (TH1D*)YdirCent_lowpTR -> Clone("Ydir_low");
     Ydir_low -> Divide(nEventCentDR);
+
+    //Analysis4. Get Yield/<Ncoll> vs centrality
+
 
  //    //gamma/pion0 ratio by centrality
  //    TH1D *gammaOverPion0 = (TH1D*)Ydir -> Clone("gammaOverPion0");
