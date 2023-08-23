@@ -3,7 +3,7 @@ void analysis_YavgNcollR_remade_0to2GeV()
 	//Read in files
 	TFile* input1 = new TFile("pAu200GeV_option3_pion0Analysis.root", "read");
     TFile *input2 = new TFile("pAu200GeV_option3_avgNcoll.root", "read");
-   
+    
 	//historams
 
 	////pAu
@@ -37,13 +37,15 @@ void analysis_YavgNcollR_remade_0to2GeV()
     pAu3 -> Scale(1./num3);
     pAu4 -> Scale(1./num4);
     pAu5 -> Scale(1./num5);
+    
+    cout << pAu1 -> Integral(1, 200) << endl;
 
 
-    double Y11 = pAu1 -> Integral(1, 199) / avgNcoll -> GetBinContent(1);
-    double Y12 = pAu2 -> Integral(1, 199) / avgNcoll -> GetBinContent(2);
-    double Y13 = pAu3 -> Integral(1, 199) / avgNcoll -> GetBinContent(3);
-    double Y14 = pAu4 -> Integral(1, 199) / avgNcoll -> GetBinContent(4);
-    double Y15 = pAu5 -> Integral(1, 199) / avgNcoll -> GetBinContent(5);
+    double Y11 = pAu1 -> Integral(1, 200) / avgNcoll -> GetBinContent(1);
+    double Y12 = pAu2 -> Integral(1, 200) / avgNcoll -> GetBinContent(2);
+    double Y13 = pAu3 -> Integral(1, 200) / avgNcoll -> GetBinContent(3);
+    double Y14 = pAu4 -> Integral(1, 200) / avgNcoll -> GetBinContent(4);
+    double Y15 = pAu5 -> Integral(1, 200) / avgNcoll -> GetBinContent(5);
  
 	//Y/<Ncoll> vs Centrality
 	TH1D *plot1 = new TH1D("YavgNcollR1", "0~2GeV", 5, 0, 80);
@@ -59,12 +61,19 @@ void analysis_YavgNcollR_remade_0to2GeV()
 	plot1 -> SetBinContent(3, Y13);
 	plot1 -> SetBinContent(4, Y14);
 	plot1 -> SetBinContent(5, Y15);
+    
+    cout << Y11 << endl;
+    cout << Y12 << endl;
+    cout << Y13 << endl;
+    cout << Y14 << endl;
+    cout << Y15 << endl;
+
 
  //    plot1 -> Draw();
-
-    for(int i=0; i<5; i++)
-    {
-        cout << plot1 -> GetBinContent(i+1) << endl;
-    }
+ //
+ //    for(int i=0; i<5; i++)
+ //    {
+ //        cout << plot1 -> GetBinContent(i+1) << endl;
+ //    }
 
 }
