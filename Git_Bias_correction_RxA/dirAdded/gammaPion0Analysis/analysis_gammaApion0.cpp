@@ -3,13 +3,11 @@ void analysis_gammaApion0()
     //input
     //-----
 
-    TFile *pion1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2Dpion0Cent.root", "read");
-    TFile *dir1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DdirCent.root", "read");
-    TFile *pion2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentPion0_allEvents.root", "read");
-    TFile *dir2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCentDir_allEvents.root", "read");
-
-    TFile *input_pion0 = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCentPion0_allEvents.root", "read");
-    TFile *input_dir = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCentDir_allEvents.root", "read");
+    TFile *pion = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2Dpion0Cent.root", "read");
+    TFile *dir = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DdirCent.root", "read");
+    
+    TFile *input_Ncoll = new TFile("pAu200GeV_option3_dirAdded_decayOn_NcollCent_allEvents.root", "read");
+    TFile *input_avgNcoll = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCent_allEvents.root", "read");
 
     //output
     //------
@@ -17,13 +15,11 @@ void analysis_gammaApion0()
 
     //Input histograms
     //----------------
-    TH2D *h2centPion0 = (TH2D*)pion1 -> Get("centPion0");
-    TH2D *h2centDir = (TH2D*)dir1 -> Get("centDir");
-    TH2D *h2NcollCentPion0 = (TH2D*)pion2 -> Get("ncollCentPion0");
-    TH2D *h2NcollCentDir = (TH2D*)dir2 -> Get("ncollCentDir");
+    TH2D *h2centPion0 = (TH2D*)pion -> Get("centPion0");
+    TH2D *h2centDir = (TH2D*)dir -> Get("centDir");
 
-    TH1D *avgNcollPion0 = (TH1D*)input_pion0 -> Get("avgNcollCentPion0");
-    TH1D *avgNcollDir = (TH1D*)input_dir -> Get("avgNcollCentDir");
+    TH2D *h2NcollCent = (TH2D*)input_Ncoll -> Get("ncollCentDir");
+    TH1D *avgNcoll = (TH1D*)input_avgNcoll -> Get("avgNcollCentDir");
 
     //Analysis1. Projection to get Yield
     //----------------------------------
@@ -35,8 +31,7 @@ void analysis_gammaApion0()
     TH1D *YdirCent_highpT = (TH1D*)h2centDir -> ProjectionX("dir_highpT", 201, 1400);
     TH1D *YdirCent_lowpT = (TH1D*)h2centDir -> ProjectionX("dir_lowpT", 1, 200);
 
-    TH1D *nEvntCentP = (TH1D*)h2NcollCentPion0 -> ProjectionX();
-    TH1D *nEvntCentD = (TH1D*)h2NcollCentDir -> ProjectionX();
+    TH1D *nEvntCent = (TH1D*)h2NcollCent -> ProjectionX();
 
     //Analysis2. Rebin to fit cent Class
     //0~10%
@@ -56,57 +51,54 @@ void analysis_gammaApion0()
     TH1D *YdirCent_lowpTR = (TH1D*)YdirCent_lowpT -> Rebin(5, "YdirCent_lowpTR", binEdge);
 
 
-    TH1D *nEventCentPR = (TH1D*)nEvntCentP -> Rebin(5, "nEvntCentPR", binEdge);
-    TH1D *nEventCentDR = (TH1D*)nEvntCentD -> Rebin(5, "nEvntCentDR", binEdge);
-
-    TH1D *avgNcollPion0R = (TH1D*)avgNcollPion0 -> Rebin(5, "avgNcollPion0R", binEdge);
-    TH1D *avgNcollDirR = (TH1D*)avgNcollDir -> Rebin(5, "avgNcollDirR", binEdge);
+    TH1D *nEventCentR = (TH1D*)nEvntCent -> Rebin(5, "nEvntCentR", binEdge);
+    TH1D *avgNcollR = (TH1D*)avgNcoll -> Rebin(5, "avgNcollR", binEdge);
 
 
     //Analysis3. Get cent vs pion0(Direct photon)
     //No need to divide centrality width -> Cancel in ratio
     //-----------------------------------------------------
     TH1D *Ypion0 = (TH1D*)Ypion0CentR -> Clone("Ypion0");
-    Ypion0 -> Divide(nEventCentPR);
+    Ypion0 -> Divide(nEventCentR);
 
     TH1D *Ypion0_high = (TH1D*)Ypion0Cent_highpTR -> Clone("Ypion0_high");
-    Ypion0_high -> Divide(nEventCentPR);
+    Ypion0_high -> Divide(nEventCentR);
     
     TH1D *Ypion0_low = (TH1D*)Ypion0Cent_lowpTR -> Clone("Ypion0_low");
-    Ypion0_low -> Divide(nEventCentPR);
+    Ypion0_low -> Divide(nEventCentR);
 
 
 
     TH1D *Ydir = (TH1D*)YdirCentR -> Clone("Ydir");
-    Ydir -> Divide(nEventCentDR);
+    Ydir -> Divide(nEventCentR);
 
     TH1D *Ydir_high = (TH1D*)YdirCent_highpTR -> Clone("Ydir_high");
-    Ydir_high -> Divide(nEventCentDR);
+    Ydir_high -> Divide(nEventCentR);
 
     TH1D *Ydir_low = (TH1D*)YdirCent_lowpTR -> Clone("Ydir_low");
-    Ydir_low -> Divide(nEventCentDR);
+    Ydir_low -> Divide(nEventCentR);
 
 
     //Analysis4. Get Yield/<Ncoll> vs centrality
     //------------------------------------------
     TH1D *YavgNcollPion0 = (TH1D*)Ypion0 -> Clone("YavgNcollPion0_integrated");
-    YavgNcollPion0 -> Divide(avgNcollPion0R);
+    YavgNcollPion0 -> Divide(avgNcollR);
 
     TH1D *YavgNcollPion0_high = (TH1D*)Ypion0_high -> Clone("YavgNcollPion0_highpT");
-    YavgNcollPion0_high -> Divide(avgNcollPion0R);
+    YavgNcollPion0_high -> Divide(avgNcollR);
 
-    TH1D *YavgNcollPion0_low = (TH1D*)Ypion0_low -> Clone("YavgNcollPion0_low");
-    YavgNcollPion0_low -> Divide(avgNcollPion0R);
+    TH1D *YavgNcollPion0_low = (TH1D*)Ypion0_low -> Clone("YavgNcollPion0_lowpT");
+    YavgNcollPion0_low -> Divide(avgNcollR);
 
 
     TH1D *YavgNcollDir = (TH1D*)Ydir -> Clone("YavgNcollDir_integrated");
-    YavgNcollDir -> Divide(avgNcollDirR);
+    YavgNcollDir -> Divide(avgNcollR);
 
     TH1D *YavgNcollDir_high = (TH1D*)Ydir_high -> Clone("YavgNcollDir_highpT");
-    YavgNcollDir_high -> Divide(avgNcollDirR);
+    YavgNcollDir_high -> Divide(avgNcollR);
 
     TH1D *YavgNcollDir_low = (TH1D*)Ydir_low -> Clone("YavgNcollDir_lowpT");
-    YavgNcollDir_low -> Divide(avgNcollDirR);
+    YavgNcollDir_low -> Divide(avgNcollR);
 
 
  //    //gamma/pion0 ratio by centrality
@@ -132,10 +124,10 @@ void analysis_gammaApion0()
  //    gammaOverPion0 -> Write();
 
     //Close files
-    pion1 -> Close();
-    pion2 -> Close();
-    dir1 -> Close();
-    dir2 -> Close();
+    pion -> Close();
+    dir -> Close();
+    input_Ncoll -> Close();
+    input_avgNcoll -> Close();
     output -> Close();
 
  //    //disallocation

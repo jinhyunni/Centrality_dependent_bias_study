@@ -3,7 +3,7 @@ void plotMake_avgNcollCentDir()
 
     //Inputs
 
-   	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCentDir.root", "read");
+   	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCentDir_allEvents.root", "read");
 
     TProfile *avgNcoll_new = (TProfile*)input1 -> Get("avgNcollCentDir"); 
     
@@ -32,15 +32,13 @@ void plotMake_avgNcollCentDir()
         avgNcollR -> SetLineColor(2);
         avgNcollR -> Draw("p same");
 
-		TLegend *leg1 = new TLegend(0.4, 0.63, 0.7, 0.93);
+		TLegend *leg1 = new TLegend(0.6, 0.63, 0.9, 0.93);
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
 		leg1 -> SetTextSize(0.03);
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
 		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
-        leg1 -> AddEntry("", "#LTN_{coll}#GT of target events", "h");
-        leg1 -> AddEntry("", "Target Events: ", "h");
-		leg1 -> AddEntry("","Including #gamma^{dir}, integrated p_{T}, |#eta|#LT1", "h");
+        leg1 -> AddEntry("", "#LTN_{coll}#GT of Inelastic events", "h");
 		
         leg1 -> Draw();
 

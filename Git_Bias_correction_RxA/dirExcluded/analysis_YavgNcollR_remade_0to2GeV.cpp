@@ -38,8 +38,6 @@ void analysis_YavgNcollR_remade_0to2GeV()
     pAu4 -> Scale(1./num4);
     pAu5 -> Scale(1./num5);
     
-    cout << pAu1 -> Integral(1, 200) << endl;
-
 
     double Y11 = pAu1 -> Integral(1, 200) / avgNcoll -> GetBinContent(1);
     double Y12 = pAu2 -> Integral(1, 200) / avgNcoll -> GetBinContent(2);
@@ -62,18 +60,13 @@ void analysis_YavgNcollR_remade_0to2GeV()
 	plot1 -> SetBinContent(4, Y14);
 	plot1 -> SetBinContent(5, Y15);
     
-    cout << Y11 << endl;
-    cout << Y12 << endl;
-    cout << Y13 << endl;
-    cout << Y14 << endl;
-    cout << Y15 << endl;
+   
 
+    plot1 -> Draw();
 
- //    plot1 -> Draw();
- //
- //    for(int i=0; i<5; i++)
- //    {
- //        cout << plot1 -> GetBinContent(i+1) << endl;
- //    }
+    for(int i=0; i<5; i++)
+    {
+        cout << plot1 -> GetBinContent(i+1) << endl;
+    }
 
 }
