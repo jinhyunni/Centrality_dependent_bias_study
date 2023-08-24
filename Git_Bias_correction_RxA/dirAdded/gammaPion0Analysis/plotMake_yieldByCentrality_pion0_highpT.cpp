@@ -1,8 +1,8 @@
-void plotMake_yieldByCentrality_pion0()
+void plotMake_yieldByCentrality_pion0_highpT()
 {
 	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_byCent.root", "read");
 
-    TH1D *yieldPion0_integrated = (TH1D*)input1 -> Get("Ypion0"); 
+    TH1D *yieldPion0_high = (TH1D*)input1 -> Get("Ypion0_high");
 
 	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -15,15 +15,15 @@ void plotMake_yieldByCentrality_pion0()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 20);
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 80, 0.08);
 
 		htmp -> GetXaxis() -> SetTitle("centrality(%)");
 		htmp -> GetYaxis() -> SetTitle("# of #pi^{0} per event");
     
-        yieldPion0_integrated -> SetMarkerStyle(20);
-        yieldPion0_integrated -> SetMarkerColor(2);
-        yieldPion0_integrated -> SetLineColor(2);
-        yieldPion0_integrated -> Draw("p same");
+        yieldPion0_high -> SetMarkerStyle(20);
+        yieldPion0_high -> SetMarkerColor(2);
+        yieldPion0_high -> SetLineColor(2);
+        yieldPion0_high -> Draw("p same");
 
   		TLegend *leg1 = new TLegend(0.5, 0.63, 0.8, 0.93);
 		leg1 -> SetFillStyle(0);
@@ -32,7 +32,7 @@ void plotMake_yieldByCentrality_pion0()
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
 		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
 		//leg1 -> AddEntry("","New 3e7 MC events including #gamma^{dir}", "h");
-		leg1 -> AddEntry("","integrated p_{T}, |#eta|#LT1", "h");
+		leg1 -> AddEntry("","p_{T} #geq 2 GeV, |#eta|#LT1", "h");
 
 		leg1 -> Draw();
 

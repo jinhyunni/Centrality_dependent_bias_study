@@ -18,8 +18,8 @@ void analysis_gammaApion0()
     TH2D *h2centPion0 = (TH2D*)pion -> Get("centPion0");
     TH2D *h2centDir = (TH2D*)dir -> Get("centDir");
 
-    TH2D *h2NcollCent = (TH2D*)input_Ncoll -> Get("ncollCentDir");
-    TH1D *avgNcoll = (TH1D*)input_avgNcoll -> Get("avgNcollCentDir");
+    TH2D *h2NcollCent = (TH2D*)input_Ncoll -> Get("ncollCent");
+    TH1D *avgNcoll = (TH1D*)input_avgNcoll -> Get("avgNcollCent");
 
     //Analysis1. Projection to get Yield
     //----------------------------------
@@ -100,12 +100,20 @@ void analysis_gammaApion0()
     TH1D *YavgNcollDir_low = (TH1D*)Ydir_low -> Clone("YavgNcollDir_lowpT");
     YavgNcollDir_low -> Divide(avgNcollR);
 
+    //Analysis5. Get gamma and pion0 ratio
+    //------------------------------------
+    TH1D *gammaOverPion0 = (TH1D*)YavgNcollDir -> Clone("gammaOverPion0_integrated");
+    gammaOverPion0 -> Divide(YavgNcollPion0);
 
- //    //gamma/pion0 ratio by centrality
- //    TH1D *gammaOverPion0 = (TH1D*)Ydir -> Clone("gammaOverPion0");
- //    gammaOverPion0 -> Divide(Ypion0);
+    TH1D *gammaOverPion0_high = (TH1D*)YavgNcollDir_high -> Clone("gammaOverPion0_highpT");
+    gammaOverPion0_high -> Divide(YavgNcollPion0_high);
+
+    TH1D *gammaOverPion0_low = (TH1D*)YavgNcollDir_low-> Clone("gammaOverPion0_lowpT");
+    gammaOverPion0_low -> Divide(YavgNcollPion0_low);
+
 
     //Write outputs in outputfile
+    //---------------------------
     Ypion0 -> Write();
     Ypion0_high -> Write();
     Ypion0_low -> Write();
@@ -121,22 +129,24 @@ void analysis_gammaApion0()
     YavgNcollDir -> Write();
     YavgNcollDir_high -> Write();
     YavgNcollDir_low -> Write();
- //    gammaOverPion0 -> Write();
+
+    gammaOverPion0 -> Write();
+    gammaOverPion0_high -> Write();
+    gammaOverPion0_low -> Write();
 
     //Close files
+    //-----------
     pion -> Close();
     dir -> Close();
     input_Ncoll -> Close();
     input_avgNcoll -> Close();
     output -> Close();
 
- //    //disallocation
- //    delete pion1;
- //    delete pion2;
- //    delete dir1;
- //    delete dir2;
- //    delete output;
-
-
+    //disallocation
+    delete pion;
+    delete dir;
+    delete input_Ncoll;
+    delete input_avgNcoll;
+    delete output;
         
 }

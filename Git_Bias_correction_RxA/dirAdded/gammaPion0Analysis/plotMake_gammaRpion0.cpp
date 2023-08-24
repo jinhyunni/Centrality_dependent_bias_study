@@ -1,6 +1,6 @@
 void plotMake_gammaRpion0()
 {
-	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0.root", "read");
+	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_byCent.root", "read");
     TH1D *ratio = (TH1D*)input1 -> Get("gammaOverPion0"); 
     
 

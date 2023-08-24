@@ -1,7 +1,7 @@
-void plotMake_yieldByCentrality_dirPhoton()
+void plotMake_yieldByCentrality_dirPhoton_lowpT()
 {
 	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_byCent.root", "read");
-    TH1D *yieldPion0 = (TH1D*)input1 -> Get("Ydir"); 
+    TH1D *yieldPion0 = (TH1D*)input1 -> Get("Ydir_low"); 
     
 
 	gStyle -> SetOptStat(0);
@@ -31,7 +31,7 @@ void plotMake_yieldByCentrality_dirPhoton()
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
         leg1 -> AddEntry("", "p+Au, 200GeV", "h");
-		leg1 -> AddEntry("","integrated p_{T}, |#eta|#LT1", "h");
+		leg1 -> AddEntry("","p_{T} #LT 2 GeV, |#eta|#LT1", "h");
 
 		leg1 -> Draw();
 
