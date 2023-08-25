@@ -11,7 +11,7 @@ void analysis_gammaApion0_byCent()
 
     //output
     //------
-    TFile* output = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0.root", "recreate");
+    TFile* output = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_byCent.root", "recreate");
 
     //Input histograms
     //----------------
