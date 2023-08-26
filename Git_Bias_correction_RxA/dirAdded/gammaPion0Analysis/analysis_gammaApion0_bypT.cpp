@@ -78,7 +78,7 @@ void analysis_gammaApion0_bypT()
     for(int i=0; i<5; i++)
     {
         TString target_pion0 = Form("Ypion0pT_cent%dR", i+1);
-        TString target_dir = Form("Ypion0pT_dir%dR", i+1);
+        TString target_dir = Form("YdirpT_cent%dR", i+1);
 
         yieldPion0pT_centR[i] = (TH1D*)yieldPion0pT_cent[i] -> Rebin(10, target_pion0, binEdge);
         yieldDirpT_centR[i] = (TH1D*)yieldDirpT_cent[i] ->Rebin(10, target_dir, binEdge);
@@ -141,6 +141,24 @@ void analysis_gammaApion0_bypT()
     for(int i=0; i<5; i++)
     {
         YavgNcollPion0[i] -> Write();
+    }
+
+    //Write yield of dirPhoton vs pT(not rebinned)
+    for(int i=0; i<5; i++)
+    {
+        yieldDirpT_cent[i] -> Write();
+    }
+    
+    //Write yield of dirPhoton vs pT(rebinned)
+    for(int i=0; i<5; i++)
+    {
+        yieldDirpT_centR[i] -> Write();
+    }
+
+    //write YavgNcolll
+    for(int i=0; i<5; i++)
+    {
+        YavgNcollDir[i] -> Write();
     }
 
     //Close files

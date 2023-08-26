@@ -1,11 +1,11 @@
-void plotMake_yieldBypT_pion0()
+void plotMake_YavgNcollBypT_pion0()
 {
     TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_bypT.root", "read");
     
     TH1D *yieldBypT[10];
     for(int i=0; i<5; i++)
     {   
-        TString input = Form("Ypion0pT_cent%dR", i+1);
+        TString input = Form("YavgNcollPion0pT_cent%d", i+1);
         yieldBypT[i]=(TH1D*)input1 -> Get(input);
     }
     TH1D *yieldClass1 = yieldBypT[0];
@@ -23,10 +23,10 @@ void plotMake_yieldBypT_pion0()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 2, 25);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(5, 0, 14, 0.000015);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}");
-        htmp -> GetYaxis() -> SetTitle("1/N_{event} dN^{#pi^{0}}/dp_{T}");
+        htmp -> GetYaxis() -> SetTitle("Y^{#pi^{0}}/#LTN_{coll}#GT");
 
         yieldClass1 -> SetMarkerStyle(20);
         yieldClass1 -> SetMarkerColor(1);
