@@ -95,7 +95,10 @@ void analysis_gammaApion0_bypT()
             double binwidth = yieldPion0pT_centR[i] -> GetBinWidth(j+1);
 
             yieldPion0pT_centR[i] -> SetBinContent(j+1, yieldPion0pT_centR[i]->GetBinContent(j+1)/binwidth);
+            yieldPion0pT_centR[i] -> SetBinError(j+1, yieldPion0pT_centR[i] -> GetBinError(j+1)/binwidth);
+
             yieldDirpT_centR[i] -> SetBinContent(j+1, yieldDirpT_centR[i]->GetBinContent(j+1)/binwidth);
+            yieldDirpT_centR[i] -> SetBinError(j+1, yieldDirpT_centR[i] -> GetBinError(j+1)/binwidth);
         }
     }   
    
