@@ -125,6 +125,9 @@ void analysis_gammaApion0_bypT()
     }
     
     //Analysis5. Get ratio of direct photon and pion0 yield
+    //Divide pT rebinned direct photon yield with pion0
+    //<Ncoll> scaling cancels with ratio
+    //|eta|<1 scaling cacels with ratio
     //-----------------------------------------------------
     TH1D *gammaRpion0[5];
 
