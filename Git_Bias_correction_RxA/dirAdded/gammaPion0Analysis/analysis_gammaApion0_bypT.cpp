@@ -104,7 +104,7 @@ void analysis_gammaApion0_bypT()
    
 
     //Analysis4. Get Yield/<Ncoll> vs pT, by centrality
-    //------------------------------------------------
+    //-------------------------------------------------
     TH1D *YavgNcollPion0[5];
     TH1D *YavgNcollDir[5];
     
@@ -124,6 +124,17 @@ void analysis_gammaApion0_bypT()
         YavgNcollDir[i] -> Scale(1./avgNcollCent -> GetBinContent(i+1));
     }
     
+    //Analysis5. Get ratio of direct photon and pion0 yield
+    //-----------------------------------------------------
+    TH1D *gammaRpion0[5];
+
+    for(int i=0; i<5; i++)
+    {
+        TString ratio = Form("gammaRpion0_cent%d", i+1);
+
+        gammaRpion0[i] = (TH1D*)yieldDirpT_centR[i] -> Clone(ratio);
+        gammaRpion0[i] -> Divide(yieldPion0pT_centR[i]);
+    }
 
     //Write outputs in outputfile
     //---------------------------
@@ -162,6 +173,12 @@ void analysis_gammaApion0_bypT()
     for(int i=0; i<5; i++)
     {
         YavgNcollDir[i] -> Write();
+    }
+
+    //write gammaRpion0
+    for(int i=0; i<5; i++)
+    {
+        gammaRpion0[i] -> Write();
     }
 
     //Close files
