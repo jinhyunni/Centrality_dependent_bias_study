@@ -13,7 +13,7 @@ void plotMake_yieldBypT_pion0()
     TH1D *yieldClass3 = yieldBypT[2];
     TH1D *yieldClass4 = yieldBypT[3];
     TH1D *yieldClass5 = yieldBypT[4];
-
+    
     gStyle -> SetOptStat(0);
     TCanvas *c1 = new TCanvas("", "", 800, 600);
     {
@@ -34,17 +34,17 @@ void plotMake_yieldBypT_pion0()
         yieldClass1 -> SetLineColor(1);
         yieldClass1 -> Draw("p same");
 
-        yieldClass2 -> SetMarkerStyle(21);
+        yieldClass2 -> SetMarkerStyle(25);
         yieldClass2 -> SetMarkerColor(2);
         yieldClass2 -> SetLineColor(2);
         yieldClass2 -> Draw("p same");
 
-        yieldClass3 -> SetMarkerStyle(22);
+        yieldClass3 -> SetMarkerStyle(26);
         yieldClass3 -> SetMarkerColor(8);
         yieldClass3 -> SetLineColor(8);
         yieldClass3 -> Draw("p same");
     
-        yieldClass4 -> SetMarkerStyle(23);
+        yieldClass4 -> SetMarkerStyle(32);
         yieldClass4 -> SetMarkerColor(4);
         yieldClass4 -> SetLineColor(4);
         yieldClass4 -> Draw("p same");
@@ -53,8 +53,6 @@ void plotMake_yieldBypT_pion0()
         yieldClass5 -> SetMarkerColor(6);
         yieldClass5 -> SetLineColor(6);
         yieldClass5 -> Draw("p same");
-
-      
 
         TLegend *leg1 = new TLegend(0.5, 0.53, 0.8, 0.93);
         leg1 -> SetFillStyle(0);

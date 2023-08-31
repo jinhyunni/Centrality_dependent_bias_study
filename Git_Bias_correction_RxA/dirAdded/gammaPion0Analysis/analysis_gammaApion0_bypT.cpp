@@ -16,7 +16,7 @@ void analysis_gammaApion0_bypT()
     //----------------
     TH2D *h2centPion0 = (TH2D*)pion -> Get("centPion0");
     TH2D *h2centDir = (TH2D*)dir -> Get("centDir");
-
+   
     TH2D *h2NcollCent = (TH2D*)input_Ncoll -> Get("ncollCent");
     TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
 
@@ -42,7 +42,8 @@ void analysis_gammaApion0_bypT()
     numDirpT_cent[2] = (TH1D*)h2centDir -> ProjectionY("centClassDir3", 3, 4);             //centClass3: 20~40%
     numDirpT_cent[3] = (TH1D*)h2centDir -> ProjectionY("centClassDir4", 5, 6);             //centClass4: 40~60%
     numDirpT_cent[4] = (TH1D*)h2centDir -> ProjectionY("centClassDir5", 7, 8);             //centClass5: 60~80%
-
+    
+    
     //Event number scaling
     TH1D *yieldPion0pT_cent[5];
     TH1D *yieldDirpT_cent[5];
@@ -139,6 +140,7 @@ void analysis_gammaApion0_bypT()
         gammaRpion0[i] -> Divide(yieldPion0pT_centR[i]);
     }
 
+
     //Write outputs in outputfile
     //---------------------------
     
@@ -183,8 +185,8 @@ void analysis_gammaApion0_bypT()
     {
         gammaRpion0[i] -> Write();
     }
-
-    //Close files
+    
+     //Close files
     //-----------
     pion -> Close();
     dir -> Close();

@@ -14,6 +14,7 @@ void plotMake_yieldBypT_dir()
     TH1D *yieldClass4 = yieldBypT[3];
     TH1D *yieldClass5 = yieldBypT[4];
 
+
     gStyle -> SetOptStat(0);
     TCanvas *c1 = new TCanvas("", "", 800, 600);
     {
@@ -53,8 +54,6 @@ void plotMake_yieldBypT_dir()
         yieldClass5 -> SetMarkerColor(6);
         yieldClass5 -> SetLineColor(6);
         yieldClass5 -> Draw("p same");
-
-      
 
         TLegend *leg1 = new TLegend(0.5, 0.53, 0.8, 0.93);
         leg1 -> SetFillStyle(0);
