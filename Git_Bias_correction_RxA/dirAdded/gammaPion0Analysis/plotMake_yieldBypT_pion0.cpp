@@ -18,12 +18,13 @@ void plotMake_yieldBypT_pion0()
     TCanvas *c1 = new TCanvas("", "", 800, 600);
     {
         gPad -> SetTicks();
+        gPad -> SetLogy(1);
         gPad -> SetLeftMargin(0.15);
         gPad -> SetRightMargin(0.15);
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(5, 0, 14, 0.0001);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.000000001, 14, 100);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}");
         htmp -> GetYaxis() -> SetTitle("1/N_{event} dN^{#pi^{0}}/dp_{T}");

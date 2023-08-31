@@ -18,32 +18,33 @@ void plotMake_yieldBypT_dir()
     TCanvas *c1 = new TCanvas("", "", 800, 600);
     {
         gPad -> SetTicks();
+        gPad -> SetLogy();
         gPad -> SetLeftMargin(0.15);
         gPad -> SetRightMargin(0.15);
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 14, 0.0025);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.0000001, 10, 0.01);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}");
-        htmp -> GetYaxis() -> SetTitle("1/N_{event} dN^{#pi^{0}}/dp_{T}");
+        htmp -> GetYaxis() -> SetTitle("1/N_{event} dN^{#gamma^{dir}}/dp_{T}");
 
         yieldClass1 -> SetMarkerStyle(20);
         yieldClass1 -> SetMarkerColor(1);
         yieldClass1 -> SetLineColor(1);
         yieldClass1 -> Draw("p same");
 
-        yieldClass2 -> SetMarkerStyle(21);
+        yieldClass2 -> SetMarkerStyle(25);
         yieldClass2 -> SetMarkerColor(2);
         yieldClass2 -> SetLineColor(2);
         yieldClass2 -> Draw("p same");
 
-        yieldClass3 -> SetMarkerStyle(22);
+        yieldClass3 -> SetMarkerStyle(26);
         yieldClass3 -> SetMarkerColor(8);
         yieldClass3 -> SetLineColor(8);
         yieldClass3 -> Draw("p same");
     
-        yieldClass4 -> SetMarkerStyle(23);
+        yieldClass4 -> SetMarkerStyle(27);
         yieldClass4 -> SetMarkerColor(4);
         yieldClass4 -> SetLineColor(4);
         yieldClass4 -> Draw("p same");

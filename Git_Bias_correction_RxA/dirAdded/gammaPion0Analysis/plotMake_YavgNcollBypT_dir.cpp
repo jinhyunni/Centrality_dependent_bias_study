@@ -23,10 +23,10 @@ void plotMake_YavgNcollBypT_dir()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0, 14, 0.000005);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 2, 0.0005);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}");
-        htmp -> GetYaxis() -> SetTitle("Y^{#pi^{0}}/#LTN_{coll}#GT");
+        htmp -> GetYaxis() -> SetTitle("Y^{#gamma^{dir}}/#LTN_{coll}#GT");
 
         yieldClass1 -> SetMarkerStyle(20);
         yieldClass1 -> SetMarkerColor(1);
