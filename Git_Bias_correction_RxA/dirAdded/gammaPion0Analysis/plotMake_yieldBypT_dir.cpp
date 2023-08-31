@@ -1,8 +1,9 @@
 void plotMake_yieldBypT_dir()
 {
     TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_bypT.root", "read");
-    
-    TH1D *yieldBypT[10];
+    TFile *input2 = new TFile("pau200GeV_option3_dirAdded_decayOn_gammaApion0_MBevents.root", "read");
+
+    TH1D *yieldBypT[5];
     for(int i=0; i<5; i++)
     {   
         TString input = Form("YdirpT_cent%dR", i+1);
@@ -13,7 +14,8 @@ void plotMake_yieldBypT_dir()
     TH1D *yieldClass3 = yieldBypT[2];
     TH1D *yieldClass4 = yieldBypT[3];
     TH1D *yieldClass5 = yieldBypT[4];
-
+    
+    TH1D *yieldMB = (TH1D*)input2 -> Get("dndpt_dir_mb");
 
     gStyle -> SetOptStat(0);
     TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -55,6 +57,12 @@ void plotMake_yieldBypT_dir()
         yieldClass5 -> SetLineColor(6);
         yieldClass5 -> Draw("p same");
 
+        yieldMB -> SetMarkerStyle(8);
+        yieldMB -> SetMarkerColor(9);
+        yieldMB -> SetLineColor(9);
+        yieldMB -> Draw("p same");
+
+
         TLegend *leg1 = new TLegend(0.5, 0.53, 0.8, 0.93);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
@@ -66,6 +74,7 @@ void plotMake_yieldBypT_dir()
         leg1 -> AddEntry(yieldClass3, "cent: 20~40%", "p");
         leg1 -> AddEntry(yieldClass4, "cent: 40~60%", "p");
         leg1 -> AddEntry(yieldClass5, "cent: 60~80%", "p");
+        leg1 -> AddEntry(yieldMB, "MB events", "p");
         leg1 -> Draw();
 
 
