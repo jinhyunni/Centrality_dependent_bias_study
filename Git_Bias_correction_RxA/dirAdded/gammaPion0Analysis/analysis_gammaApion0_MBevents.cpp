@@ -4,6 +4,7 @@ void analysis_gammaApion0_MBevents()
     //-----
     TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DpTeta_MBevents.root", "read");
     TFile *input2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_Ncoll_MBevents.root", "read");
+    TFile *input3 = new TFile("pAu200GeV_option3_dirAdded_decayOn_avgNcollCent_allEvents.root", "read");
         
     TH2D *h2pTetaPion0 = (TH2D*)input1 -> Get("pTetaPion0_mb");
     TH2D *h2pTetaDir = (TH2D*)input1 -> Get("pTetaDir_mb");
@@ -71,15 +72,31 @@ void analysis_gammaApion0_MBevents()
         dndeta_dir_mb -> SetBinError(i+1, dndeta_dir_mb -> GetBinError(i+1)/binwidth);
     }
 
+    //Analysis3. average Ncoll Scaling
+    //--------------------------------
+    double allEvents[] = {0, 110};
+    TProfile *avgNcollCent = (TProfile*)input3 -> Get("avgNcollCent");
+    TProfile *avgNcoll = (TProfile*)avgNcollCent -> Rebin(1, "avgNcoll_mb", allEvents);
+
+    //Y/<Ncoll> vs pT in MB
+    TH1D *YavgNcollpT_pion0 = (TH1D*)dndpt_pion0_mb -> Clone("YavgNcollpT_pion0");
+    YavgNcollpT_pion0 -> Scale(1./avgNcoll -> GetBinContent(1));
+
+    TH1D *YavgNcollpT_dir = (TH1D*)dndpt_dir_mb -> Clone("YavgNcollpT_dir");
+    YavgNcollpT_dir -> Scale(1./avgNcoll -> GetBinContent(1));
+
     //ouput
-    //----
+    //-----
     TFile *output = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_MBevents.root", "recreate");
     
     dndpt_pion0_mb -> Write();
     dndpt_dir_mb -> Write();
     dndeta_pion0_mb -> Write();
     dndeta_dir_mb -> Write();
-    
+    YavgNcollpT_pion0 -> Write();
+    YavgNcollpT_dir -> Write();
+    numPion0eta -> Write();
+    numDireta -> Write();
 
     output -> Close();
 
