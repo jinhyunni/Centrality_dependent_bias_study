@@ -1,4 +1,4 @@
-void plotMake_dNdeta_inTargetEvents_compareMC()
+void plotMake_dNdetaPion0_inTargetEvents_compareMC()
 {
 	TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_dNdeta_inTargetEvents_testForNewMC.root", "read");
 
