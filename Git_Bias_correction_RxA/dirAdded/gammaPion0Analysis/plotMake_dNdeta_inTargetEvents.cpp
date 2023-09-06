@@ -22,6 +22,7 @@ void plotMake_dNdeta_inTargetEvents()
 
     TH1D *dndeta_pion0_indir = (TH1D*)pion0_indir -> Clone("dndeta_pion0_dir");
     dndeta_pion0_indir -> Scale(1./nEvents -> GetBinContent(22));
+    dndeta_pion0_indir -> Scale(2); //divide binwidth
 
     TH1D *dndeta_charge_inpion0 = (TH1D*)pionCh_inpion0 -> Clone("dndeta_charge_inpion0");
     dndeta_charge_inpion0 -> Add(kaonCh_inpion0);
@@ -32,6 +33,7 @@ void plotMake_dNdeta_inTargetEvents()
     dndeta_charge_indir -> Add(kaonCh_indir);
     dndeta_charge_indir -> Add(protonCh_indir);
     dndeta_charge_indir -> Scale(1./nEvents -> GetBinContent(22));
+    dndeta_charge_indir -> Scale(2); //divide binwidth
     
     //dndeta in MB events
     TH1D *pion0_inMB = (TH1D*)input2 -> Get("dndeta_pion0_mb");
@@ -43,11 +45,10 @@ void plotMake_dNdeta_inTargetEvents()
     TH1D *nEvents_inMB = (TH1D*)input2 -> Get("ncoll_mb");
 
     TH1D *dndeta_charge_inMB = (TH1D*)pionCh_inMB -> Clone("dndeta_charge_inMB");
-    dndeta_charge_inMB -> Add(pionCh_inMB);
     dndeta_charge_inMB -> Add(kaonCh_inMB);
     dndeta_charge_inMB -> Add(protonCh_inMB);
-    
     dndeta_charge_inMB -> Scale(1./nEvents_inMB -> Integral());
+    dndeta_charge_inMB -> Scale(2);     //divide binwidth
 
    	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -60,7 +61,7 @@ void plotMake_dNdeta_inTargetEvents()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-6, 0, 6, 17);
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-6, 0, 6, 23);
 
 		htmp -> GetXaxis() -> SetTitle("#eta");
 		htmp -> GetYaxis() -> SetTitle("1/N_{event} dN/d#eta");

@@ -3,12 +3,13 @@ void plotMake_yieldBypT_pion0()
     TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_bypT.root", "read");
     TFile *input2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_MBevents.root", "read");
     
-    TH1D *yieldBypT[10];
+    TH1D *yieldBypT[5];
     for(int i=0; i<5; i++)
     {   
         TString input = Form("Ypion0pT_cent%dR", i+1);
         yieldBypT[i]=(TH1D*)input1 -> Get(input);
     }
+
     TH1D *yieldClass1 = yieldBypT[0];
     TH1D *yieldClass2 = yieldBypT[1];
     TH1D *yieldClass3 = yieldBypT[2];
@@ -16,6 +17,18 @@ void plotMake_yieldBypT_pion0()
     TH1D *yieldClass5 = yieldBypT[4];
 
     TH1D *yieldMB = (TH1D*)input2 -> Get("dndpt_pion0_mb");
+
+
+    for(int i=0; i<5; i++)
+    {
+        TString output = Form("ratio_cent2mb_%d", i+1);
+        TString cloneName = Form("ratio%d", i+1);
+        
+        TH1D *output = (TH1D*)yieldBypT[i] -> Clone(cloneName);
+        output -> Divide(yieldMB);
+    }
+
+
 
     gStyle -> SetOptStat(0);
     TCanvas *c1 = new TCanvas("", "", 800, 600);

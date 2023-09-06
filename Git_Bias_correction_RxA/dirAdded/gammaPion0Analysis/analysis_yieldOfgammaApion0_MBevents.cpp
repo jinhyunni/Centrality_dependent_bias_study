@@ -1,4 +1,4 @@
-void analysis_gammaApion0_MBevents()
+void analysis_yieldOfgammaApion0_MBevents()
 {
     //input
     //-----
@@ -79,10 +79,10 @@ void analysis_gammaApion0_MBevents()
     TProfile *avgNcoll = (TProfile*)avgNcollCent -> Rebin(1, "avgNcoll_mb", allEvents);
 
     //Y/<Ncoll> vs pT in MB
-    TH1D *YavgNcollpT_pion0 = (TH1D*)dndpt_pion0_mb -> Clone("YavgNcollpT_pion0");
+    TH1D *YavgNcollpT_pion0 = (TH1D*)dndpt_pion0_mb -> Clone("YavgNcollpT_pion0_mb");
     YavgNcollpT_pion0 -> Scale(1./avgNcoll -> GetBinContent(1));
 
-    TH1D *YavgNcollpT_dir = (TH1D*)dndpt_dir_mb -> Clone("YavgNcollpT_dir");
+    TH1D *YavgNcollpT_dir = (TH1D*)dndpt_dir_mb -> Clone("YavgNcollpT_dir_mb");
     YavgNcollpT_dir -> Scale(1./avgNcoll -> GetBinContent(1));
 
     //ouput
