@@ -57,21 +57,15 @@ void analysis_yieldOfgammaApion0_MBevents()
     numDireta_perEvent -> Scale(1./h1ncoll -> Integral());
 
     //Analsysis2-3. Divide eta-binwidh
+    //24-bins, -6~6
+    //binwidth = 0.5
     //---------------------------------
     TH1D *dndeta_pion0_mb = (TH1D*)numPion0eta_perEvent -> Clone("dndeta_pion0_mb");
     TH1D *dndeta_dir_mb = (TH1D*)numDireta_perEvent -> Clone("dndeta_dir_mb");
-
-    for(int i=0; i<10; i++)
-    {
-        double binwidth = dndeta_pion0_mb -> GetBinWidth(i+1);
-
-        dndeta_pion0_mb -> SetBinContent(i+1, dndeta_pion0_mb -> GetBinContent(i+1)/binwidth);
-        dndeta_pion0_mb -> SetBinError(i+1, dndeta_pion0_mb -> GetBinError(i+1)/binwidth);
-
-        dndeta_dir_mb -> SetBinContent(i+1, dndeta_dir_mb -> GetBinContent(i+1)/binwidth);
-        dndeta_dir_mb -> SetBinError(i+1, dndeta_dir_mb -> GetBinError(i+1)/binwidth);
-    }
-
+    
+    dndeta_pion0_mb -> Scale(2);
+    dndeta_dir_mb -> Scale(2);
+    
     //Analysis3. average Ncoll Scaling
     //--------------------------------
     double allEvents[] = {0, 110};
