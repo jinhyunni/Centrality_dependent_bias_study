@@ -1,7 +1,7 @@
 void plotMake_YavgNcollBypT_dir()
 {
-    TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_bypT.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_gammaApion0_MBevents.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_kiaf_option3_yieldOfgammaApion0_bypT.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_kiaf_option3_yieldOfgammaApion0_MBevents.root", "read");
     
 
     TH1D *scaledYieldBypT_MB = (TH1D*)input2 -> Get("YavgNcollpT_dir_mb");
@@ -37,7 +37,7 @@ void plotMake_YavgNcollBypT_dir()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 10, 3);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 20, 3);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}");
         htmp -> GetYaxis() -> SetTitle("#frac{Y^{#gamma^{dir}}/#LTN_{coll}#GT_{cent}}{Y^{#gamma^{dir}}/#LTN_{coll}#GT_{MB}} ");
@@ -72,7 +72,7 @@ void plotMake_YavgNcollBypT_dir()
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.03);
-        leg1 -> AddEntry("", "PYTHIA8, option3", "h");
+        leg1 -> AddEntry("", "PYTHIA8, option3, KIAF", "h");
         leg1 -> AddEntry("", "p+Au, 200 GeV, |#eta|<1", "h");
         leg1 -> AddEntry(ratio[0], "cent: 0~10%", "p");
         leg1 -> AddEntry(ratio[1], "cent: 10~20%", "p");
