@@ -21,11 +21,12 @@ void plotMake_pTsumByCent_inTargetEvents()
     }
 
     for(int i=0; i<10; i++)
-    {   
+    {  
         inElastic[i] -> Scale(1./inElastic[i]->Integral());
         inPion0[i] -> Scale(1./inPion0[i]->Integral());
         inDir[i] -> Scale(1./inDir[i]->Integral());
     }
+
     
 	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -38,7 +39,7 @@ void plotMake_pTsumByCent_inTargetEvents()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(4, 0, 6, 0.003);
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(4.6, 0, 5.4, 0.015);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T} sum");
 		htmp -> GetYaxis() -> SetTitle("# of events");
