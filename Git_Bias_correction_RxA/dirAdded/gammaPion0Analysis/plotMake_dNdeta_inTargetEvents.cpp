@@ -4,6 +4,7 @@ void plotMake_dNdeta_inTargetEvents()
     TFile *input2 = new TFile("pAu200GeV_option3_dirAdded_decayOn_dNdeta_MBevents.root", "read");
     
     //dndeta by centrality
+    //--------------------
     TH1D *pion0_inpion0 = (TH1D*)input1 -> Get("dndeta_pion0_pion0");
     TH1D *pion0_indir = (TH1D*)input1 -> Get("dndeta_pion0_dir");
     
@@ -16,18 +17,23 @@ void plotMake_dNdeta_inTargetEvents()
     TH1D *protonCh_indir = (TH1D*)input1 -> Get("dndeta_protonCh_dir");
 
     TH1D *nEvents = (TH1D*)input1 -> Get("nEvents");
-
+    
+    //making dNdeta
+    //1. Divide event Number
+    //2. Divide eta-binwidth
     TH1D *dndeta_pion0_inpion0 = (TH1D*)pion0_inpion0 -> Clone("dndeta_pion0_inpion0");
     dndeta_pion0_inpion0 -> Scale(1./nEvents -> GetBinContent(111));
+    dndeta_pion0_inpion0 -> Scale(2);   //divide binwidth
 
     TH1D *dndeta_pion0_indir = (TH1D*)pion0_indir -> Clone("dndeta_pion0_dir");
     dndeta_pion0_indir -> Scale(1./nEvents -> GetBinContent(22));
     dndeta_pion0_indir -> Scale(2); //divide binwidth
-
+    
     TH1D *dndeta_charge_inpion0 = (TH1D*)pionCh_inpion0 -> Clone("dndeta_charge_inpion0");
     dndeta_charge_inpion0 -> Add(kaonCh_inpion0);
     dndeta_charge_inpion0 -> Add(protonCh_inpion0);
     dndeta_charge_inpion0 -> Scale(1./nEvents -> GetBinContent(111));
+    dndeta_charge_inpion0 -> Scale(2);  //divide binwidth
 
     TH1D* dndeta_charge_indir = (TH1D*)pionCh_indir -> Clone("dneta_charge_indir");
     dndeta_charge_indir -> Add(kaonCh_indir);
@@ -36,6 +42,7 @@ void plotMake_dNdeta_inTargetEvents()
     dndeta_charge_indir -> Scale(2); //divide binwidth
     
     //dndeta in MB events
+    //-------------------
     TH1D *pion0_inMB = (TH1D*)input2 -> Get("dndeta_pion0_mb");
     TH1D *dir_inMB = (TH1D*)input2 -> Get("dndeta_dir_mb");
     
