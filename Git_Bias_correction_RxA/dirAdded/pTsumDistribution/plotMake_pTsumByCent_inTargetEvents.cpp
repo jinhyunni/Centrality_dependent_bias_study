@@ -38,7 +38,7 @@ void plotMake_pTsumByCent_inTargetEvents()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(4, 0, 6, 0.2);
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(4, 0, 6, 0.003);
 
 		htmp -> GetXaxis() -> SetTitle("p_{T} sum");
 		htmp -> GetYaxis() -> SetTitle("# of events");
