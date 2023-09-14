@@ -6,6 +6,7 @@ void plotMake_dNdeta_dirMB_MCcompare()
     TH1D *dir_ver2 = (TH1D*)input1 -> Get("h1eta_dir_ver2");
     TH1D *dir_ver3 = (TH1D*)input1 -> Get("h1eta_dir_ver3");
     TH1D *dir_ver3_test = (TH1D*)input1 -> Get("h1eta_dir_ver3_test");
+    TH1D *dir_ver3_3e7 = (TH1D*)input1 -> Get("h1eta_dir_ver3_3e7events");
        
    	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -18,25 +19,31 @@ void plotMake_dNdeta_dirMB_MCcompare()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-6, 0, 6, 0.001);
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-6, 0, 6, 0.0008);
 
 		htmp -> GetXaxis() -> SetTitle("#eta");
 		htmp -> GetYaxis() -> SetTitle("1/N_{event} dN/d#eta");
     
-        dir_ver2 -> SetMarkerStyle(21);
-        dir_ver2 -> SetMarkerColor(9);
-        dir_ver2 -> SetLineColor(9);
+        dir_ver2 -> SetMarkerStyle(20);
+        dir_ver2 -> SetMarkerColor(kBlue);
+        dir_ver2 -> SetLineColor(kBlue);
         dir_ver2 -> Draw("p same");
 
-        dir_ver3 -> SetMarkerStyle(25);
-        dir_ver3 -> SetMarkerColor(6);
-        dir_ver3 -> SetLineColor(6);
+        dir_ver3 -> SetMarkerStyle(20);
+        dir_ver3 -> SetMarkerColor(kBlue+4);
+        dir_ver3 -> SetLineColor(kBlue+4);
         dir_ver3 -> Draw("p same");
 
-        dir_ver3_test -> SetMarkerStyle(34);
-        dir_ver3_test -> SetMarkerColor(8);
-        dir_ver3_test -> SetLineColor(8);
+        dir_ver3_test -> SetMarkerStyle(20);
+        dir_ver3_test -> SetMarkerColor(kBlue-10);
+        dir_ver3_test -> SetLineColor(kBlue-10);
         dir_ver3_test -> Draw("p same");
+
+        dir_ver3_3e7 -> SetMarkerStyle(20);
+        dir_ver3_3e7 -> SetMarkerColor(kBlue-2);
+        dir_ver3_3e7 -> SetLineColor(kBlue-2);
+        dir_ver3_3e7 -> Draw("p same");
+
 
         
         TLegend *leg1 = new TLegend(0.2, 0.60, 0.5, 0.93);
@@ -48,7 +55,8 @@ void plotMake_dNdeta_dirMB_MCcompare()
 		leg1 -> AddEntry("","MB events", "h");
         leg1 -> AddEntry(dir_ver2, "#gamma^{dir} in ver2. MC", "p");
         leg1 -> AddEntry(dir_ver3, "#gamma^{dir} in ver3. MC", "p");
-        leg1 -> AddEntry(dir_ver3_test, "gamma^{dir} in ver3. test MC", "p");
+        leg1 -> AddEntry(dir_ver3_test, "#gamma^{dir} in ver3. test MC", "p");
+        leg1 -> AddEntry(dir_ver3_3e7, "#gamma^{dir} in ver3. MC, 3e7 Events", "p");
         
 		leg1 -> Draw();
 
