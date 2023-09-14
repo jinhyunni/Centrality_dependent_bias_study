@@ -1,6 +1,6 @@
 void plotMake_dNdeta_dirMB_MCcompare()
 {
-	TFile *input1 = new TFile("pAu200GeV_option3_dNdeta_ver2ver3MC_compare.root", "read");
+	TFile *input1 = new TFile("pAu200GeV_option3_dNdeta_ver2ver3MC_compare_fix1.root", "read");
   
     //dndeta in MB events
     TH1D *dir_ver2 = (TH1D*)input1 -> Get("h1eta_dir_ver2");
@@ -39,7 +39,7 @@ void plotMake_dNdeta_dirMB_MCcompare()
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
 		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
 		leg1 -> AddEntry("","MB events", "h");
-        leg1 -> AddEntry(dir_ver2, "#gamma^{dir} in Old-MC(ver.2)", "p");
+        leg1 -> AddEntry(dir_ver2, "#gamma^{dir} in Old-MC(ver.2-fix1)", "p");
         leg1 -> AddEntry(dir_ver3, "#gamma^{dir} in New-MC(ver.3)", "p");
         
 		leg1 -> Draw();
