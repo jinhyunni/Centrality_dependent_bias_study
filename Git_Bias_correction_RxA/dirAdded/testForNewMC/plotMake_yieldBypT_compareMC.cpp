@@ -1,7 +1,7 @@
 void plotMake_yieldBypT_compareMC()
 {
     TFile *input1 = new TFile("pAu200GeV_option3_dirAdded_decayOn_dNdpT_gammaApion0_testForNewMC_MBevents.root", "read");
-    TFile *input2 = new TFile("/Users/jinhyunpark/npl/gitHub/xloadFromServer/Git_Bias_correction_RxA/dirAdded/gammaPion0Analysis/pAu200GeV_option3_dirAdded_decayOn_gammaApion0_MBevents.root", "read");
+    TFile *input2 = new TFile("/Users/jinhyunpark/npl/gitHub/git_share/Git_Bias_correction_RxA/dirAdded/gammaPion0Analysis/pAu200GeV_option3_dirAdded_decayOn_gammaApion0_MBevents.root", "read");
     
     TH1D *new_pion0_MB = (TH1D*)input1 -> Get("dndpt_pion0_mb");
     TH1D *old_pion0_MB = (TH1D*)input2 -> Get("dndpt_pion0_mb");

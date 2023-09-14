@@ -1,10 +1,11 @@
 void plotMake_dNdeta_dirMB_MCcompare()
 {
-	TFile *input1 = new TFile("pAu200GeV_option3_dNdeta_ver2ver3MC_compare_fix1.root", "read");
+	TFile *input1 = new TFile("pAu200GeV_option3_dNdeta_ver2ver3MC_compare.root", "read");
   
     //dndeta in MB events
     TH1D *dir_ver2 = (TH1D*)input1 -> Get("h1eta_dir_ver2");
     TH1D *dir_ver3 = (TH1D*)input1 -> Get("h1eta_dir_ver3");
+    TH1D *dir_ver3_test = (TH1D*)input1 -> Get("h1eta_dir_ver3_test");
        
    	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -31,6 +32,12 @@ void plotMake_dNdeta_dirMB_MCcompare()
         dir_ver3 -> SetMarkerColor(6);
         dir_ver3 -> SetLineColor(6);
         dir_ver3 -> Draw("p same");
+
+        dir_ver3_test -> SetMarkerStyle(34);
+        dir_ver3_test -> SetMarkerColor(8);
+        dir_ver3_test -> SetLineColor(8);
+        dir_ver3_test -> Draw("p same");
+
         
         TLegend *leg1 = new TLegend(0.2, 0.60, 0.5, 0.93);
 		leg1 -> SetFillStyle(0);
@@ -39,8 +46,9 @@ void plotMake_dNdeta_dirMB_MCcompare()
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
 		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
 		leg1 -> AddEntry("","MB events", "h");
-        leg1 -> AddEntry(dir_ver2, "#gamma^{dir} in Old-MC(ver.2-fix1)", "p");
-        leg1 -> AddEntry(dir_ver3, "#gamma^{dir} in New-MC(ver.3)", "p");
+        leg1 -> AddEntry(dir_ver2, "#gamma^{dir} in ver2. MC", "p");
+        leg1 -> AddEntry(dir_ver3, "#gamma^{dir} in ver3. MC", "p");
+        leg1 -> AddEntry(dir_ver3_test, "gamma^{dir} in ver3. test MC", "p");
         
 		leg1 -> Draw();
 
@@ -50,6 +58,7 @@ void plotMake_dNdeta_dirMB_MCcompare()
         leg2 -> SetTextSize(0.03);
         leg2 -> AddEntry("", "ver.2: 3 #times 10^{7} events", "h");
         leg2 -> AddEntry("", "ver.3: 10^{9} events", "h");
+        leg2 -> AddEntry("", "vet.3: 3 #times 10^{7} events", "h");
 
         leg2 -> Draw();
 
