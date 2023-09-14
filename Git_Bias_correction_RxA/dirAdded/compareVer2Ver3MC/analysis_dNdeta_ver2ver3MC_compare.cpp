@@ -2,7 +2,8 @@ void analysis_dNdeta_ver2ver3MC_compare()
 {
     //input
     //-----
-    TFile *ver2_yield = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DpTeta_MBevents.root", "read");
+    //TFile *ver2_yield = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DpTeta_MBevents.root", "read");
+    TFile *ver2_yield = new TFile("pAu200GeV_option3_TH2DpTeta_MBevents_fix1.root", "read");
     TFile *ver2_nEvent = new TFile("pAu200GeV_option3_dirAdded_decayOn_Ncoll_MBevents.root", "read");
 
     TFile *ver3_yield = new TFile("pAu200GeV_kiaf_option3_TH2DpTeta_MBevents.root", "read");
@@ -46,7 +47,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
 
     //output
     //------
-    TFile *output = new TFile("pAu200GeV_option3_dNdeta_ver2ver3MC_compare.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_option3_dNdeta_ver2ver3MC_compare_fix1.root", "recreate");
 
     h1eta_pion0_ver2 -> Write();
     h1eta_dir_ver2 -> Write();

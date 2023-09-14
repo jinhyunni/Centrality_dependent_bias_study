@@ -1,6 +1,6 @@
 void plotMake_dNdeta_pion0MB_MCcompare()
 {
-	TFile *input1 = new TFile("pAu200GeV_option3_dNdeta_ver2ver3MC_compare.root", "read");
+	TFile *input1 = new TFile("pAu200GeV_option3_dNdeta_ver2ver3MC_compare_fix1.root", "read");
   
     //dndeta in MB events
     TH1D *pion0_ver2 = (TH1D*)input1 -> Get("h1eta_pion0_ver2");
