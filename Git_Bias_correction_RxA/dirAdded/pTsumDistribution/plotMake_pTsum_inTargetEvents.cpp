@@ -23,7 +23,7 @@ void plotMake_pTsum_inTargetEvents()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.15);
 
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(0.1, 0, 10, 0.3);
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(0.1, 0, 20, 0.3);
 
         htmp -> GetXaxis() -> SetTitle("p_{T} sum (GeV)");
 		htmp -> GetYaxis() -> SetTitle("P(p_{T} sum)");
