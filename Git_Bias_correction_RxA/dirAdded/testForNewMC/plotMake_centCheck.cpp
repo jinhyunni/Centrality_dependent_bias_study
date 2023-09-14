@@ -34,7 +34,7 @@ void plotMake_centCheck()
         leg1 -> SetTextSize(0.04);
         leg1 -> AddEntry("", "PYTHIA8, option3", "h");
         leg1 -> AddEntry("", "p+Au, 200 GeV", "h");
-        leg1 -> AddEntry("", "Cent categotization of new MC test", "h");
+        leg1 -> AddEntry("", "Cent categotization of Ver3. test MC", "h");
         leg1 -> Draw();
 
 
