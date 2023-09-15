@@ -27,34 +27,34 @@ void plotMake_dNdpT_MCcompare()
         htmp -> GetYaxis() -> SetTitle("1/N_{event} dN^{#pi^{0}, #gamma^{dir}}/dp_{T}");
 
         pion0_ver2 -> SetMarkerStyle(25);
-        pion0_ver2 -> SetMarkerColor(1);
-        pion0_ver2 -> SetLineColor(1);
+        pion0_ver2 -> SetMarkerColor(kRed);
+        pion0_ver2 -> SetLineColor(kRed);
         pion0_ver2 -> Draw("p same");
         
         pion0_ver3 -> SetMarkerStyle(47);
-        pion0_ver3 -> SetMarkerColor(2);
-        pion0_ver3 -> SetLineColor(2);
+        pion0_ver3 -> SetMarkerColor(kOrange);
+        pion0_ver3 -> SetLineColor(kOrange);
         pion0_ver3 -> Draw("p same");
 
         pion0_ver3_test -> SetMarkerStyle(24);
-        pion0_ver3_test -> SetMarkerColor(9);
-        pion0_ver3_test -> SetLineColor(9);
+        pion0_ver3_test -> SetMarkerColor(kMagenta);
+        pion0_ver3_test -> SetLineColor(kMagenta);
         pion0_ver3_test -> Draw("p same");
 
 
         dir_ver2 -> SetMarkerStyle(25);
-        dir_ver2 -> SetMarkerColor(1);
-        dir_ver2 -> SetLineColor(1);
+        dir_ver2 -> SetMarkerColor(kBlue);
+        dir_ver2 -> SetLineColor(kBlue);
         dir_ver2 -> Draw("p same");
         
         dir_ver3 -> SetMarkerStyle(34);
-        dir_ver3 -> SetMarkerColor(2);
-        dir_ver3 -> SetLineColor(2);
+        dir_ver3 -> SetMarkerColor(kBlue+4);
+        dir_ver3 -> SetLineColor(kBlue+4);
         dir_ver3 -> Draw("p same");
 
         dir_ver3_test -> SetMarkerStyle(20);
-        dir_ver3_test -> SetMarkerColor(9);
-        dir_ver3_test -> SetLineColor(9);
+        dir_ver3_test -> SetMarkerColor(kCyan+2);
+        dir_ver3_test -> SetLineColor(kCyan+2);
         dir_ver3_test -> Draw("p same");
 
         TLegend *leg1 = new TLegend(0.5, 0.53, 0.8, 0.93);

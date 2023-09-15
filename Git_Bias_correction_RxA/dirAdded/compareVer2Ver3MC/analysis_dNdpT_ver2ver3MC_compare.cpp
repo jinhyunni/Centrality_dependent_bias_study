@@ -12,7 +12,6 @@ void analysis_dNdpT_ver2ver3MC_compare()
     //input
     //-----
     TFile *ver2_yield = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DpTeta_MBevents.root", "read");
-    //TFile *ver2_yield = new TFile("pAu200GeV_option3_TH2DpTeta_MBevents_fix1.root", "read");
     TFile *ver2_nEvent = new TFile("pAu200GeV_option3_dirAdded_decayOn_Ncoll_MBevents.root", "read");
 
     TFile *ver3_yield = new TFile("pAu200GeV_kiaf_option3_TH2DpTeta_MBevents.root", "read");

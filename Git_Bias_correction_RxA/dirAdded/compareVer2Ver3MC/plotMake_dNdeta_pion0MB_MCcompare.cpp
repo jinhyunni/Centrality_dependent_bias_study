@@ -18,24 +18,24 @@ void plotMake_dNdeta_pion0MB_MCcompare()
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
 
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-6, 0, 6, 8);
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-1, 2.7, 1, 4.5);
 
 		htmp -> GetXaxis() -> SetTitle("#eta");
 		htmp -> GetYaxis() -> SetTitle("1/N_{event} dN/d#eta");
     
-        pion0_ver2 -> SetMarkerStyle(21);
-        pion0_ver2 -> SetMarkerColor(9);
-        pion0_ver2 -> SetLineColor(9);
+        pion0_ver2 -> SetMarkerStyle(25);
+        pion0_ver2 -> SetMarkerColor(kRed);
+        pion0_ver2 -> SetLineColor(kRed);
         pion0_ver2 -> Draw("p same");
        
-        pion0_ver3 -> SetMarkerStyle(25);
-        pion0_ver3 -> SetMarkerColor(6);
-        pion0_ver3 -> SetLineColor(6);
+        pion0_ver3 -> SetMarkerStyle(29);
+        pion0_ver3 -> SetMarkerColor(kOrange);
+        pion0_ver3 -> SetLineColor(kOrange);
         pion0_ver3 -> Draw("p same");
 
-        pion0_ver3_test -> SetMarkerStyle(34);
-        pion0_ver3_test -> SetMarkerColor(8);
-        pion0_ver3_test -> SetLineColor(8);
+        pion0_ver3_test -> SetMarkerStyle(20);
+        pion0_ver3_test -> SetMarkerColor(kMagenta);
+        pion0_ver3_test -> SetLineColor(kMagenta);
         pion0_ver3_test -> Draw("p same");
 
 
