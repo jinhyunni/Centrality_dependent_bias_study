@@ -20,6 +20,9 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TFile *ver3_tmp_yield = new TFile("pAu200GeV_kiaf_ver3tmp_option3_TH2DpTeta_MBevents.root", "read");
     TFile *ver3_tmp_nEvent = new TFile("pAu200GeV_kiaf_ver3tmp_option3_Ncoll_MBevents.root", "read");
 
+    TFile *ver2_tmp_yield = new TFile("pAu200GeV_kiaf_ver2MC_option3_TH2DpTeta_MBevents.root", "read");
+    TFile *ver2_tmp_nEvent = new TFile("pAu200GeV_kiaf_ver2MC_option3_Ncoll_MBevents.root", "read");
+
     //TH2D pTeta of pion0/dirphoton
     TH2D *h2pTeta_pion0_ver2 = (TH2D*)ver2_yield -> Get("pTetaPion0_mb");
     TH2D *h2pTeta_dir_ver2 = (TH2D*)ver2_yield -> Get("pTetaDir_mb");
@@ -39,6 +42,9 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TH2D *h2pTeta_pion0_ver3_tmp = (TH2D*)ver3_tmp_yield -> Get("pTetaPion0_mb");
     TH2D *h2pTeta_dir_ver3_tmp = (TH2D*)ver3_tmp_yield -> Get("pTetaDir_mb");
 
+    TH2D *h2pTeta_pion0_ver2_tmp = (TH2D*)ver2_tmp_yield -> Get("pTetaPion0_mb");
+    TH2D *h2pTeta_dir_ver2_tmp = (TH2D*)ver2_tmp_yield -> Get("pTetaDir_mb");
+
     
     //TH1D ncoll
     TH1D *ncoll_ver2 = (TH1D*)ver2_nEvent -> Get("ncoll_mb");
@@ -47,6 +53,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TH1D *ncoll_ver3_test_2e7events = (TH1D*)ver3_test_2e7events_nEvent -> Get("ncoll_mb");
     TH1D *ncoll_ver3_3e7events = (TH1D*)ver3_3e7events_nEvent -> Get("ncoll_mb");
     TH1D *ncoll_ver3_tmp = (TH1D*)ver3_tmp_nEvent -> Get("ncoll_mb");
+    TH1D *ncoll_ver2_tmp = (TH1D*)ver2_tmp_nEvent -> Get("ncoll_mb");
     
     //anlysis1. projection to get eta yield
     //projectionX -> num of particle by eta
@@ -57,6 +64,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TH1D *h1eta_pion0_ver3_test_2e7events = (TH1D*)h2pTeta_pion0_ver3_test_2e7events -> ProjectionX("h1eta_pion0_ver3_test_2e7events");
     TH1D *h1eta_pion0_ver3_3e7events = (TH1D*)h2pTeta_pion0_ver3_3e7events -> ProjectionX("h1eta_pion0_ver3_3e7events");
     TH1D *h1eta_pion0_ver3_tmp = (TH1D*)h2pTeta_pion0_ver3_tmp -> ProjectionX("h1eta_pion0_ver3_tmp");
+    TH1D *h1eta_pion0_ver2_tmp = (TH1D*)h2pTeta_pion0_ver2_tmp -> ProjectionX("h1eta_pion0_ver2_tmp");
 
     TH1D *h1eta_dir_ver2 = (TH1D*)h2pTeta_dir_ver2 -> ProjectionX("h1eta_dir_ver2");
     TH1D *h1eta_dir_ver3 = (TH1D*)h2pTeta_dir_ver3 -> ProjectionX("h1eta_dir_ver3");
@@ -64,6 +72,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TH1D *h1eta_dir_ver3_test_2e7events = (TH1D*)h2pTeta_dir_ver3_test_2e7events -> ProjectionX("h1eta_dir_ver3_test_2e7events");
     TH1D *h1eta_dir_ver3_3e7events = (TH1D*)h2pTeta_dir_ver3_3e7events -> ProjectionX("h1eta_dir_ver3_3e7events");
     TH1D *h1eta_dir_ver3_tmp = (TH1D*)h2pTeta_dir_ver3_tmp -> ProjectionX("h1eta_dir_ver3_tmp");
+    TH1D *h1eta_dir_ver2_tmp = (TH1D*)h2pTeta_dir_ver2_tmp -> ProjectionX("h1eta_dir_ver2_tmp");
     
     //analysis2. scailing
     // a. event Num Scaling
@@ -75,6 +84,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     double nevent_ver3_test_2e7events = ncoll_ver3_test_2e7events -> Integral();
     double nevent_ver3_3e7events = ncoll_ver3_3e7events -> Integral();
     double nevent_ver3_tmp = ncoll_ver3_tmp -> Integral();
+    double nevent_ver2_tmp = ncoll_ver2_tmp -> Integral();
 
     double binwidth = h1eta_pion0_ver2 -> GetBinWidth(1);
 
@@ -84,6 +94,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     double scalar_ver3_test_2e7events = (1./(nevent_ver3_test_2e7events * binwidth));
     double scalar_ver3_3e7events = (1./(nevent_ver3_3e7events * binwidth));
     double scalar_ver3_tmp = (1./(nevent_ver3_tmp * binwidth));
+    double scalar_ver2_tmp = (1./(nevent_ver2_tmp * binwidth));
 
     h1eta_pion0_ver2 -> Scale(scalar_ver2);
     h1eta_dir_ver2 -> Scale(scalar_ver2);
@@ -102,6 +113,9 @@ void analysis_dNdeta_ver2ver3MC_compare()
 
     h1eta_pion0_ver3_tmp -> Scale(scalar_ver3_tmp);
     h1eta_dir_ver3_tmp -> Scale(scalar_ver3_tmp);
+
+    h1eta_pion0_ver2_tmp -> Scale(scalar_ver2_tmp);
+    h1eta_dir_ver2_tmp -> Scale(scalar_ver2_tmp);
 
 
     //output
@@ -125,6 +139,9 @@ void analysis_dNdeta_ver2ver3MC_compare()
 
     h1eta_pion0_ver3_tmp -> Write();
     h1eta_dir_ver3_tmp -> Write();
+
+    h1eta_pion0_ver2_tmp -> Write();
+    h1eta_dir_ver2_tmp -> Write();
 
     output -> Close();
 
