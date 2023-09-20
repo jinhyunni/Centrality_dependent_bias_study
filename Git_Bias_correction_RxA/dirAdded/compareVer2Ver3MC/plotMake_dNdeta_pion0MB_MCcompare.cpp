@@ -6,6 +6,7 @@ void plotMake_dNdeta_pion0MB_MCcompare()
     TH1D *pion0_ver2 = (TH1D*)input1 -> Get("h1eta_pion0_ver2");
     TH1D *pion0_ver3 = (TH1D*)input1 -> Get("h1eta_pion0_ver3");
     TH1D *pion0_ver3_test = (TH1D*)input1 -> Get("h1eta_pion0_ver3_test");
+    TH1D *pion0_ver3_nplRootOnly = (TH1D*)input1 -> Get("h1eta_pion0_ver3_nplRootOnly");
 
    	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -37,7 +38,11 @@ void plotMake_dNdeta_pion0MB_MCcompare()
         pion0_ver3_test -> SetMarkerColor(kMagenta);
         pion0_ver3_test -> SetLineColor(kMagenta);
         pion0_ver3_test -> Draw("p same");
-
+    
+        pion0_ver3_nplRootOnly -> SetMarkerStyle(28);
+        pion0_ver3_nplRootOnly -> SetMarkerColor(2);
+        pion0_ver3_nplRootOnly -> SetLineColor(2);
+        pion0_ver3_nplRootOnly -> Draw("p same");
 
         TLegend *leg1 = new TLegend(0.2, 0.60, 0.5, 0.93);
 		leg1 -> SetFillStyle(0);
@@ -49,6 +54,7 @@ void plotMake_dNdeta_pion0MB_MCcompare()
         leg1 -> AddEntry(pion0_ver2, "#pi^{0} in ver.2 MC", "p");
         leg1 -> AddEntry(pion0_ver3, "#pi^{0} in ver.3 MC", "p");
         leg1 -> AddEntry(pion0_ver3_test, "#pi^{0} in ver.3 test  MC", "p");
+        leg1 -> AddEntry(pion0_ver3_nplRootOnly, "#pi^{0} in ver.3, NPL root Only", "p");
 
         
 		leg1 -> Draw();
@@ -61,7 +67,7 @@ void plotMake_dNdeta_pion0MB_MCcompare()
         leg2 -> AddEntry("", "ver.3: 10^{9} events", "h");
         leg2 -> AddEntry("","ver.3 test: 3 #times 10^{7} events", "h");
 
-        leg2 -> Draw();
+        //leg2 -> Draw();
 
 	}
 
