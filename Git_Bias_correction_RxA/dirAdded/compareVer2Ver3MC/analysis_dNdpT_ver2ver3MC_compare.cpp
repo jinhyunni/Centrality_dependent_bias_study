@@ -20,6 +20,8 @@ void analysis_dNdpT_ver2ver3MC_compare()
     TFile *ver3_test_yield = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DpTeta_testForNewMC_MBevents.root", "read");
     TFile *ver3_test_nEvent = new TFile("pAu200GeV_option3_dirAdded_decayOn_Ncoll_testForNewMC_MBevents.root", "read");
 
+    TFile *ver3_nplRootOnly_yield = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DpTeta_ver3rootOnly_MBevents.root", "read");
+
 
     //TH2D pTeta of pion0/dirphoton
     TH2D *h2pTeta_pion0_ver2 = (TH2D*)ver2_yield -> Get("pTetaPion0_mb");

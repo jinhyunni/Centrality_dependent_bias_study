@@ -25,6 +25,9 @@ void analysis_dNdeta_ver2ver3MC_compare()
 
         TFile *ver3_inNPL_yield = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DpTeta_tmpFile_MBevents.root", "read");
     TFile *ver3_inNPL_nEvent = new TFile("pAu200GeV_option3_dirAdded_decayOn_Ncoll_tmpFile_MBevents.root", "read");
+    
+    TFile *ver3_nplRootOnly_yield = new TFile("pAu200GeV_option3_dirAdded_decayOn_TH2DpTeta_ver3rootOnly_MBevents.root", "read");
+    TFile *ver3_nplRootOnly_nEvent = new TFile("pAu200GeV_option3_dirAdded_decayOn_Ncoll_ver3rootOnly_MBevents.root", "read");
 
     //TH2D pTeta of pion0/dirphoton
     TH2D *h2pTeta_pion0_ver2 = (TH2D*)ver2_yield -> Get("pTetaPion0_mb");
@@ -51,7 +54,9 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TH2D *h2pTeta_pion0_ver3_inNPL = (TH2D*)ver3_inNPL_yield -> Get("pTetaPion0_mb");
     TH2D *h2pTeta_dir_ver3_inNPL = (TH2D*)ver3_inNPL_yield -> Get("pTetaDir_mb");
 
-    
+    TH2D *h2pTeta_pion0_ver3_nplRootOnly = (TH2D*)ver3_nplRootOnly_yield -> Get("pTetaPion0_mb");
+    TH2D *h2pTeta_dir_ver3_nplRootOnly = (TH2D*)ver3_nplRootOnly_yield -> Get("pTetaDir_mb");
+
     //TH1D ncoll
     TH1D *ncoll_ver2 = (TH1D*)ver2_nEvent -> Get("ncoll_mb");
     TH1D *ncoll_ver3 = (TH1D*)ver3_nEvent -> Get("ncoll_mb");
@@ -61,6 +66,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TH1D *ncoll_ver3_tmp = (TH1D*)ver3_tmp_nEvent -> Get("ncoll_mb");
     TH1D *ncoll_ver2_tmp = (TH1D*)ver2_tmp_nEvent -> Get("ncoll_mb");
     TH1D *ncoll_ver3_inNPL = (TH1D*)ver3_inNPL_nEvent -> Get("ncoll_mb");
+    TH1D *ncoll_ver3_nplRootOnly = (TH1D*)ver3_nplRootOnly_nEvent -> Get("ncoll_mb");
     
     //anlysis1. projection to get eta yield
     //projectionX -> num of particle by eta
@@ -73,6 +79,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TH1D *h1eta_pion0_ver3_tmp = (TH1D*)h2pTeta_pion0_ver3_tmp -> ProjectionX("h1eta_pion0_ver3_tmp");
     TH1D *h1eta_pion0_ver2_tmp = (TH1D*)h2pTeta_pion0_ver2_tmp -> ProjectionX("h1eta_pion0_ver2_tmp");
     TH1D *h1eta_pion0_ver3_inNPL = (TH1D*)h2pTeta_pion0_ver3_inNPL -> ProjectionX("h1eta_pion0_ver3_inNPL");
+    TH1D *h1eta_pion0_ver3_nplRootOnly = (TH1D*)h2pTeta_pion0_ver3_nplRootOnly -> ProjectionX("h1eta_pion0_ver3_nplRootOnly");
     
 
     TH1D *h1eta_dir_ver2 = (TH1D*)h2pTeta_dir_ver2 -> ProjectionX("h1eta_dir_ver2");
@@ -83,6 +90,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     TH1D *h1eta_dir_ver3_tmp = (TH1D*)h2pTeta_dir_ver3_tmp -> ProjectionX("h1eta_dir_ver3_tmp");
     TH1D *h1eta_dir_ver2_tmp = (TH1D*)h2pTeta_dir_ver2_tmp -> ProjectionX("h1eta_dir_ver2_tmp");
     TH1D *h1eta_dir_ver3_inNPL = (TH1D*)h2pTeta_dir_ver3_inNPL -> ProjectionX("h1eta_dir_ver3_inNPL");
+    TH1D *h1eta_dir_ver3_nplRootOnly = (TH1D*)h2pTeta_dir_ver3_nplRootOnly -> ProjectionX("h1eta_dir_ver3_nplRootOnly");
     
     //analysis2. scailing
     // a. event Num Scaling
@@ -96,6 +104,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     double nevent_ver3_tmp = ncoll_ver3_tmp -> Integral();
     double nevent_ver2_tmp = ncoll_ver2_tmp -> Integral();
     double nevent_ver3_inNPL = ncoll_ver3_inNPL -> Integral();
+    double nevent_ver3_nplRootOnly = ncoll_ver3_nplRootOnly -> Integral();
 
     double binwidth = h1eta_pion0_ver2 -> GetBinWidth(1);
 
@@ -107,6 +116,7 @@ void analysis_dNdeta_ver2ver3MC_compare()
     double scalar_ver3_tmp = (1./(nevent_ver3_tmp * binwidth));
     double scalar_ver2_tmp = (1./(nevent_ver2_tmp * binwidth));
     double scalar_ver3_inNPL = (1./(nevent_ver3_inNPL * binwidth));
+    double scalar_ver3_nplRootOnly = (1./(nevent_ver3_nplRootOnly * binwidth));
 
     h1eta_pion0_ver2 -> Scale(scalar_ver2);
     h1eta_dir_ver2 -> Scale(scalar_ver2);
@@ -131,6 +141,9 @@ void analysis_dNdeta_ver2ver3MC_compare()
 
     h1eta_pion0_ver3_inNPL -> Scale(scalar_ver3_inNPL);
     h1eta_dir_ver3_inNPL -> Scale(scalar_ver3_inNPL);
+    
+    h1eta_pion0_ver3_nplRootOnly -> Scale(scalar_ver3_nplRootOnly);
+    h1eta_dir_ver3_nplRootOnly -> Scale(scalar_ver3_nplRootOnly);
 
     //output
     //------
@@ -159,6 +172,9 @@ void analysis_dNdeta_ver2ver3MC_compare()
 
     h1eta_pion0_ver3_inNPL -> Write();
     h1eta_dir_ver3_inNPL -> Write();
+    
+    h1eta_pion0_ver3_nplRootOnly -> Write();
+    h1eta_dir_ver3_nplRootOnly -> Write();
 
     output -> Close();
 
