@@ -12,6 +12,7 @@ void plotMake_dNdeta_dirMB_MCcompare()
  //    TH1D *dir_ver2_tmp = (TH1D*)input1 -> Get("h1eta_dir_ver2_tmp");
  //    TH1D *dir_ver3_inNPL = (TH1D*)input1 -> Get("h1eta_dir_ver3_inNPL");
     TH1D *dir_ver3_nplRootOnly = (TH1D*)input1 -> Get("h1eta_dir_ver3_nplRootOnly");
+    TH1D *dir_ver3_p8303ver3 = (TH1D*)input1 -> Get("h1eta_dir_ver3_p8303ver3");
        
    	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -23,8 +24,12 @@ void plotMake_dNdeta_dirMB_MCcompare()
 		gPad -> SetRightMargin(0.15);
 		gPad -> SetTopMargin(0.05);
 		gPad -> SetBottomMargin(0.12);
+        
+        //mid-rapidity
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-1.5, 0.00026, 1.5, 0.00045);
 
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-1, 0.00026, 1, 0.00045);
+        //full-rapidity
+		//TH1D *htmp = (TH1D*)gPad -> DrawFrame(-6, 0.000, 6, 0.0007);
 
 		htmp -> GetXaxis() -> SetTitle("#eta");
 		htmp -> GetYaxis() -> SetTitle("1/N_{event} dN/d#eta");
@@ -76,6 +81,12 @@ void plotMake_dNdeta_dirMB_MCcompare()
         dir_ver3_nplRootOnly -> SetLineColor(kPink+7);
         dir_ver3_nplRootOnly -> Draw("p same");
 
+        dir_ver3_p8303ver3 -> SetMarkerStyle(30);
+        dir_ver3_p8303ver3 -> SetMarkerColor(kTeal+3);
+        dir_ver3_p8303ver3 -> SetLineColor(kTeal+3);
+        dir_ver3_p8303ver3 -> Draw("p same");
+
+
         TLegend *leg1 = new TLegend(0.2, 0.65, 0.5, 0.93);
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
@@ -83,14 +94,15 @@ void plotMake_dNdeta_dirMB_MCcompare()
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
 		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
 		leg1 -> AddEntry("","MB events", "h");
-        leg1 -> AddEntry(dir_ver2, "#gamma^{dir} in ver2. MC", "p");
-        leg1 -> AddEntry(dir_ver3, "#gamma^{dir} in ver3. MC", "p");
-        leg1 -> AddEntry(dir_ver3_test, "#gamma^{dir} in ver3. test MC", "p");
-        leg1 -> AddEntry(dir_ver3_nplRootOnly, "#gamma^{dir} in ver3, root Only", "p");
+
+        leg1 -> AddEntry(dir_ver2, "#gamma^{dir} in ver2, pythia8303 in NPL, external package attatched", "p");
+        leg1 -> AddEntry(dir_ver3, "#gamma^{dir} in ver3, pythia8307 in KIAF", "p");
+        leg1 -> AddEntry(dir_ver3_test, "#gamma^{dir} in ver3, pythia8303 in NPL, external package attatched", "p");
+        leg1 -> AddEntry(dir_ver3_nplRootOnly, "#gamma^{dir} in ver3, pythia8307 in NPL, root only", "p");
+        leg1 -> AddEntry(dir_ver3_p8303ver3, "#gamma^{dir} in ver3, pythia8303 in KIAF, root only", "p");
  //        leg1 -> AddEntry(dir_ver3_test_2e7, "#gamma^{dir} in ver3. test MC, 2e7 Events", "p");
  //        leg1 -> AddEntry(dir_ver3_3e7, "#gamma^{dir} in ver3. MC, 3e7 Events", "p");
  //        leg1 -> AddEntry(dir_ver2_tmp, "#gamma^{dir} in ver2. tmp -> in KIAF", "p");
- //        leg1 -> AddEntry(dir_ver3_inNPL, "#gamma^{dir} in ver3, 10^{7} events in NPL", "p");
         
 		leg1 -> Draw();
 
