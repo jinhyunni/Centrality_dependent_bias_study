@@ -26,7 +26,7 @@ void plotMake_dNdeta_dirMB_MCcompare()
 		gPad -> SetBottomMargin(0.12);
         
         //mid-rapidity
-		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-1.5, 0.00026, 1.5, 0.00045);
+		TH1D *htmp = (TH1D*)gPad -> DrawFrame(-1.5, 0.00026, 1.5, 0.0005);
 
         //full-rapidity
 		//TH1D *htmp = (TH1D*)gPad -> DrawFrame(-6, 0.000, 6, 0.0007);
@@ -98,7 +98,7 @@ void plotMake_dNdeta_dirMB_MCcompare()
         leg1 -> AddEntry(dir_ver2, "#gamma^{dir} in ver2, pythia8303 in NPL, external package attatched", "p");
         leg1 -> AddEntry(dir_ver3, "#gamma^{dir} in ver3, pythia8307 in KIAF", "p");
         leg1 -> AddEntry(dir_ver3_test, "#gamma^{dir} in ver3, pythia8303 in NPL, external package attatched", "p");
-        leg1 -> AddEntry(dir_ver3_nplRootOnly, "#gamma^{dir} in ver3, pythia8307 in NPL, root only", "p");
+        leg1 -> AddEntry(dir_ver3_nplRootOnly, "#gamma^{dir} in ver3, pythia8303 in NPL, root only", "p");
         leg1 -> AddEntry(dir_ver3_p8303ver3, "#gamma^{dir} in ver3, pythia8303 in KIAF, root only", "p");
  //        leg1 -> AddEntry(dir_ver3_test_2e7, "#gamma^{dir} in ver3. test MC, 2e7 Events", "p");
  //        leg1 -> AddEntry(dir_ver3_3e7, "#gamma^{dir} in ver3. MC, 3e7 Events", "p");
