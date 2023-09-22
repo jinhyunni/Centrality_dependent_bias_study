@@ -1,0 +1,537 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="567.429" height="409.002" viewBox="0 0 567.429 409.002" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+<title>
+/Users/jinhyunpark/npl/gitHub/git_share/Git_Bias_correction_RxA/plots_dirAdded/ratioOfScaleYield_cent2mb_dirPhoton.svg
+</title>
+<desc>
+Creator: ROOT Version 6.28/04
+CreationDate: Wed Sep  6 00:19:48 2023</desc>
+<defs>
+</defs>
+<rect x="0.5" y="0" width="566.929" height="408.502" fill="white"/>
+<rect x="85.5394" y="20.4251" width="396.85" height="339.056" fill="white"/>
+<rect x="85.5394" y="20.4251" width="396.85" height="339.056" fill="none" stroke="black"/>
+<rect x="85.5394" y="20.4251" width="396.85" height="339.056" fill="white"/>
+<rect x="85.5394" y="20.4251" width="396.85" height="339.056" fill="none" stroke="black"/>
+<path d="M85.5394,359.481h 396.85" fill="none" stroke="black"/>
+<path d="M85.5394,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M93.4764,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M101.413,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M109.35,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M117.287,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M125.224,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M133.161,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M141.098,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M149.035,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M156.972,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M164.909,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M172.846,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M180.783,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M188.72,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M196.657,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M204.594,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M212.531,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M220.469,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M228.406,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M236.343,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M244.28,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M252.217,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M260.154,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M268.091,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M276.028,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M283.965,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M291.902,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M299.839,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M307.776,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M315.713,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M323.65,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M331.587,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M339.524,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M347.461,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M355.398,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M363.335,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M371.272,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M379.209,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M387.146,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M395.083,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M403.02,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M410.957,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M418.894,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M426.831,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M434.768,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M442.705,350.903v 8.57853" fill="none" stroke="black"/>
+<path d="M450.642,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M458.579,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M466.516,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M474.453,355.192v 4.28927" fill="none" stroke="black"/>
+<path d="M482.39,350.903v 8.57853" fill="none" stroke="black"/>
+<text xml:space="preserve" x="81.4899" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">0</text>
+<text xml:space="preserve" x="121.985" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">1</text>
+<text xml:space="preserve" x="161.059" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">2</text>
+<text xml:space="preserve" x="200.843" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">3</text>
+<text xml:space="preserve" x="240.628" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">4</text>
+<text xml:space="preserve" x="280.412" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">5</text>
+<text xml:space="preserve" x="319.486" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">6</text>
+<text xml:space="preserve" x="359.271" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">7</text>
+<text xml:space="preserve" x="399.055" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">8</text>
+<text xml:space="preserve" x="438.84" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">9</text>
+<text xml:space="preserve" x="474.362" y="372.269" fill="black" font-size="13.617" font-family="Helvetica">10</text>
+<text xml:space="preserve" x="476.493" y="390.741" fill="black" font-size="9.24468" font-family="Helvetica">T</text>
+<text xml:space="preserve" x="468.678" y="382.926" fill="black" font-size="13.617" font-family="Helvetica">p</text>
+<path d="M85.5394,20.4251h 396.85" fill="none" stroke="black"/>
+<path d="M85.5394,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M93.4764,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M101.413,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M109.35,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M117.287,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M125.224,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M133.161,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M141.098,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M149.035,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M156.972,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M164.909,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M172.846,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M180.783,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M188.72,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M196.657,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M204.594,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M212.531,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M220.469,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M228.406,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M236.343,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M244.28,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M252.217,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M260.154,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M268.091,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M276.028,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M283.965,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M291.902,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M299.839,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M307.776,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M315.713,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M323.65,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M331.587,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M339.524,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M347.461,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M355.398,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M363.335,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M371.272,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M379.209,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M387.146,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M395.083,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M403.02,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M410.957,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M418.894,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M426.831,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M434.768,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M442.705,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M450.642,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M458.579,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M466.516,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M474.453,24.7143v -4.28927" fill="none" stroke="black"/>
+<path d="M482.39,29.0036v -8.57853" fill="none" stroke="black"/>
+<path d="M85.5394,359.481v -339.056" fill="none" stroke="black"/>
+<path d="M99.6559,359.481h -14.1165" fill="none" stroke="black"/>
+<path d="M92.5976,348.18h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,336.878h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,325.576h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,314.274h -7.05827" fill="none" stroke="black"/>
+<path d="M99.6559,302.972h -14.1165" fill="none" stroke="black"/>
+<path d="M92.5976,291.67h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,280.368h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,269.066h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,257.764h -7.05827" fill="none" stroke="black"/>
+<path d="M99.6559,246.463h -14.1165" fill="none" stroke="black"/>
+<path d="M92.5976,235.161h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,223.859h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,212.557h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,201.255h -7.05827" fill="none" stroke="black"/>
+<path d="M99.6559,189.953h -14.1165" fill="none" stroke="black"/>
+<path d="M92.5976,178.651h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,167.349h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,156.048h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,144.746h -7.05827" fill="none" stroke="black"/>
+<path d="M99.6559,133.444h -14.1165" fill="none" stroke="black"/>
+<path d="M92.5976,122.142h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,110.84h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,99.5382h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,88.2363h -7.05827" fill="none" stroke="black"/>
+<path d="M99.6559,76.9345h -14.1165" fill="none" stroke="black"/>
+<path d="M92.5976,65.6326h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,54.3307h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,43.0288h -7.05827" fill="none" stroke="black"/>
+<path d="M92.5976,31.727h -7.05827" fill="none" stroke="black"/>
+<path d="M99.6559,20.4251h -14.1165" fill="none" stroke="black"/>
+<text xml:space="preserve" x="75.0959" y="364.454" fill="black" font-size="13.617" font-family="Helvetica">0</text>
+<text xml:space="preserve" x="63.7289" y="307.619" fill="black" font-size="13.617" font-family="Helvetica">0.5</text>
+<text xml:space="preserve" x="77.2272" y="251.495" fill="black" font-size="13.617" font-family="Helvetica">1</text>
+<text xml:space="preserve" x="63.7289" y="194.66" fill="black" font-size="13.617" font-family="Helvetica">1.5</text>
+<text xml:space="preserve" x="75.0959" y="138.535" fill="black" font-size="13.617" font-family="Helvetica">2</text>
+<text xml:space="preserve" x="63.7289" y="81.7003" fill="black" font-size="13.617" font-family="Helvetica">2.5</text>
+<text xml:space="preserve" x="75.0959" y="24.8653" fill="black" font-size="13.617" font-family="Helvetica">3</text>
+<g transform="rotate(-90,51.6515,24.1549)">
+<text xml:space="preserve" x="51.6515" y="24.1549" fill="black" font-size="13.617" font-family="Helvetica"> </text>
+</g>
+<g transform="rotate(-90,69.4124,39.7845)">
+<text xml:space="preserve" x="69.4124" y="39.7845" fill="black" font-size="9.24468" font-family="Helvetica">MB</text>
+</g>
+<g transform="rotate(-90,63.0185,44.0471)">
+<text xml:space="preserve" x="63.0185" y="44.0471" fill="black" font-size="13.617" font-family="Times">&#0062;</text>
+</g>
+<g transform="rotate(-90,69.4124,57.5454)">
+<text xml:space="preserve" x="69.4124" y="57.5454" fill="black" font-size="9.24468" font-family="Helvetica">coll</text>
+</g>
+<g transform="rotate(-90,63.0185,66.7811)">
+<text xml:space="preserve" x="63.0185" y="66.7811" fill="black" font-size="13.617" font-family="Helvetica">N</text>
+</g>
+<g transform="rotate(-90,63.0185,71.0438)">
+<text xml:space="preserve" x="63.0185" y="71.0438" fill="black" font-size="13.617" font-family="Times">&#0060;</text>
+</g>
+<g transform="rotate(-90,63.0185,76.0168)">
+<text xml:space="preserve" x="63.0185" y="76.0168" fill="black" font-size="13.617" font-family="Helvetica">/</text>
+</g>
+<g transform="rotate(-90,50.9411,82.4108)">
+<text xml:space="preserve" x="50.9411" y="82.4108" fill="black" font-size="6.32979" font-family="Helvetica">dir</text>
+</g>
+<g transform="rotate(-90,54.4933,87.3838)">
+<text xml:space="preserve" x="54.4933" y="87.3838" fill="black" font-size="9.24468" font-family="Times">&#0947;</text>
+</g>
+<g transform="rotate(-90,63.0185,96.6195)">
+<text xml:space="preserve" x="63.0185" y="96.6195" fill="black" font-size="13.617" font-family="Helvetica">Y</text>
+</g>
+<g transform="rotate(-90,44.5471,41.9158)">
+<text xml:space="preserve" x="44.5471" y="41.9158" fill="black" font-size="9.24468" font-family="Helvetica">cent</text>
+</g>
+<g transform="rotate(-90,38.8636,46.1784)">
+<text xml:space="preserve" x="38.8636" y="46.1784" fill="black" font-size="13.617" font-family="Times">&#0062;</text>
+</g>
+<g transform="rotate(-90,45.2576,59.6768)">
+<text xml:space="preserve" x="45.2576" y="59.6768" fill="black" font-size="9.24468" font-family="Helvetica">coll</text>
+</g>
+<g transform="rotate(-90,38.8636,68.9124)">
+<text xml:space="preserve" x="38.8636" y="68.9124" fill="black" font-size="13.617" font-family="Helvetica">N</text>
+</g>
+<g transform="rotate(-90,38.8636,73.1751)">
+<text xml:space="preserve" x="38.8636" y="73.1751" fill="black" font-size="13.617" font-family="Times">&#0060;</text>
+</g>
+<g transform="rotate(-90,38.8636,78.1481)">
+<text xml:space="preserve" x="38.8636" y="78.1481" fill="black" font-size="13.617" font-family="Helvetica">/</text>
+</g>
+<g transform="rotate(-90,26.7862,84.5421)">
+<text xml:space="preserve" x="26.7862" y="84.5421" fill="black" font-size="6.32979" font-family="Helvetica">dir</text>
+</g>
+<g transform="rotate(-90,31.0488,89.5151)">
+<text xml:space="preserve" x="31.0488" y="89.5151" fill="black" font-size="9.24468" font-family="Times">&#0947;</text>
+</g>
+<g transform="rotate(-90,38.8636,98.7508)">
+<text xml:space="preserve" x="38.8636" y="98.7508" fill="black" font-size="13.617" font-family="Helvetica">Y</text>
+</g>
+<path d="M48.0993,98.7508v -74.5959" fill="none" stroke="black" stroke-width="2"/>
+<path d="M482.39,359.481v -339.056" fill="none" stroke="black"/>
+<path d="M468.273,359.481h 14.1165" fill="none" stroke="black"/>
+<path d="M475.332,348.18h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,336.878h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,325.576h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,314.274h 7.05827" fill="none" stroke="black"/>
+<path d="M468.273,302.972h 14.1165" fill="none" stroke="black"/>
+<path d="M475.332,291.67h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,280.368h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,269.066h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,257.764h 7.05827" fill="none" stroke="black"/>
+<path d="M468.273,246.463h 14.1165" fill="none" stroke="black"/>
+<path d="M475.332,235.161h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,223.859h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,212.557h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,201.255h 7.05827" fill="none" stroke="black"/>
+<path d="M468.273,189.953h 14.1165" fill="none" stroke="black"/>
+<path d="M475.332,178.651h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,167.349h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,156.048h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,144.746h 7.05827" fill="none" stroke="black"/>
+<path d="M468.273,133.444h 14.1165" fill="none" stroke="black"/>
+<path d="M475.332,122.142h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,110.84h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,99.5382h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,88.2363h 7.05827" fill="none" stroke="black"/>
+<path d="M468.273,76.9345h 14.1165" fill="none" stroke="black"/>
+<path d="M475.332,65.6326h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,54.3307h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,43.0288h 7.05827" fill="none" stroke="black"/>
+<path d="M475.332,31.727h 7.05827" fill="none" stroke="black"/>
+<path d="M468.273,20.4251h 14.1165" fill="none" stroke="black"/>
+<path d="M85.5394,324.599h 7.07951" fill="none" stroke="black"/>
+<path d="M98.3024,324.599h 7.07951" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="95.4606" cy="324.599" r="2.84175"/>
+</g>
+<path d="M105.382,333.499h 7.07951" fill="none" stroke="black"/>
+<path d="M118.145,333.499h 7.07951" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="115.303" cy="333.499" r="2.84175"/>
+</g>
+<path d="M125.224,337.759h 7.07951" fill="none" stroke="black"/>
+<path d="M137.987,337.759h 7.07951" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="135.146" cy="337.759" r="2.84175"/>
+</g>
+<path d="M145.067,340.418h 7.07951" fill="none" stroke="black"/>
+<path d="M157.83,340.418h 7.07951" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="154.988" cy="340.418" r="2.84175"/>
+</g>
+<path d="M164.909,341.896h 17.0008" fill="none" stroke="black"/>
+<path d="M187.594,341.896h 17.0008" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="184.752" cy="341.896" r="2.84175"/>
+</g>
+<path d="M224.437,341.665v -3.82675" fill="none" stroke="black"/>
+<path d="M224.437,332.155v -3.82675" fill="none" stroke="black"/>
+<path d="M204.594,334.997h 17.0008" fill="none" stroke="black"/>
+<path d="M227.279,334.997h 17.0008" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="224.437" cy="334.997" r="2.84175"/>
+</g>
+<path d="M264.122,344.329v -13.0594" fill="none" stroke="black"/>
+<path d="M264.122,325.586v -13.0594" fill="none" stroke="black"/>
+<path d="M244.28,328.427h 17.0008" fill="none" stroke="black"/>
+<path d="M266.964,328.427h 17.0008" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="264.122" cy="328.427" r="2.84175"/>
+</g>
+<path d="M323.65,341.977v -23.0583" fill="none" stroke="black"/>
+<path d="M323.65,313.235v -23.0583" fill="none" stroke="black"/>
+<path d="M283.965,316.076h 36.8433" fill="none" stroke="black"/>
+<path d="M326.491,316.076h 36.8433" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="323.65" cy="316.076" r="2.84175"/>
+</g>
+<path d="M422.862,359.481v -76.734" fill="none" stroke="black"/>
+<path d="M422.862,277.064v -81.561" fill="none" stroke="black"/>
+<path d="M363.335,279.906h 56.6858" fill="none" stroke="black"/>
+<path d="M425.704,279.906h 56.6858" fill="none" stroke="black"/>
+<g fill="black">
+<circle cx="422.862" cy="279.906" r="2.84175"/>
+</g>
+<path d="M85.5394,323.188h 7.07951" fill="none" stroke="#ff0000"/>
+<path d="M98.3024,323.188h 7.07951" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="92.6189" y="320.346" width="5.6835" height="5.6835"/>
+</g>
+<path d="M105.382,331.304h 7.07951" fill="none" stroke="#ff0000"/>
+<path d="M118.145,331.304h 7.07951" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="112.461" y="328.462" width="5.6835" height="5.6835"/>
+</g>
+<path d="M125.224,334.629h 7.07951" fill="none" stroke="#ff0000"/>
+<path d="M137.987,334.629h 7.07951" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="132.304" y="331.787" width="5.6835" height="5.6835"/>
+</g>
+<path d="M145.067,332.084h 7.07951" fill="none" stroke="#ff0000"/>
+<path d="M157.83,332.084h 7.07951" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="152.146" y="329.243" width="5.6835" height="5.6835"/>
+</g>
+<path d="M184.752,342.368v -0.244204" fill="none" stroke="#ff0000"/>
+<path d="M184.752,336.441v -0.244204" fill="none" stroke="#ff0000"/>
+<path d="M164.909,339.282h 17.0008" fill="none" stroke="#ff0000"/>
+<path d="M187.594,339.282h 17.0008" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="181.91" y="336.441" width="5.6835" height="5.6835"/>
+</g>
+<path d="M224.437,340.312v -4.69679" fill="none" stroke="#ff0000"/>
+<path d="M224.437,329.932v -4.69679" fill="none" stroke="#ff0000"/>
+<path d="M204.594,332.774h 17.0008" fill="none" stroke="#ff0000"/>
+<path d="M227.279,332.774h 17.0008" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="221.595" y="329.932" width="5.6835" height="5.6835"/>
+</g>
+<path d="M264.122,348.204v -13.2405" fill="none" stroke="#ff0000"/>
+<path d="M264.122,329.28v -13.2405" fill="none" stroke="#ff0000"/>
+<path d="M244.28,332.122h 17.0008" fill="none" stroke="#ff0000"/>
+<path d="M266.964,332.122h 17.0008" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="261.28" y="329.28" width="5.6835" height="5.6835"/>
+</g>
+<path d="M323.65,359.481v -14.1541" fill="none" stroke="#ff0000"/>
+<path d="M323.65,339.644v -14.3462" fill="none" stroke="#ff0000"/>
+<path d="M283.965,342.486h 36.8433" fill="none" stroke="#ff0000"/>
+<path d="M326.491,342.486h 36.8433" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="320.808" y="339.644" width="5.6835" height="5.6835"/>
+</g>
+<path d="M85.5394,320.666h 8.50039" fill="none" stroke="#59d354"/>
+<path d="M96.8815,320.666h 8.50039" fill="none" stroke="#59d354"/>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 95.4606, 317.824 98.3024, 323.507 92.6189, 323.507"/>
+</g>
+<path d="M105.382,329.412h 8.50039" fill="none" stroke="#59d354"/>
+<path d="M116.724,329.412h 8.50039" fill="none" stroke="#59d354"/>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 115.303, 326.57 118.145, 332.254 112.461, 332.254"/>
+</g>
+<path d="M125.224,333.614h 8.50039" fill="none" stroke="#59d354"/>
+<path d="M136.567,333.614h 8.50039" fill="none" stroke="#59d354"/>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 135.146, 330.772 137.987, 336.456 132.304, 336.456"/>
+</g>
+<path d="M145.067,330.274h 8.50039" fill="none" stroke="#59d354"/>
+<path d="M156.409,330.274h 8.50039" fill="none" stroke="#59d354"/>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 154.988, 327.433 157.83, 333.116 152.146, 333.116"/>
+</g>
+<path d="M184.752,333.675v -0.0332444" fill="none" stroke="#59d354"/>
+<path d="M184.752,327.958v -0.0332444" fill="none" stroke="#59d354"/>
+<path d="M164.909,330.8h 18.4216" fill="none" stroke="#59d354"/>
+<path d="M186.173,330.8h 18.4216" fill="none" stroke="#59d354"/>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 184.752, 327.958 187.594, 333.642 181.91, 333.642"/>
+</g>
+<path d="M224.437,342.948v -2.42123" fill="none" stroke="#59d354"/>
+<path d="M224.437,334.843v -2.42123" fill="none" stroke="#59d354"/>
+<path d="M204.594,337.685h 18.4216" fill="none" stroke="#59d354"/>
+<path d="M225.858,337.685h 18.4216" fill="none" stroke="#59d354"/>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 224.437, 334.843 227.279, 340.527 221.595, 340.527"/>
+</g>
+<path d="M264.122,340.87v -10.7982" fill="none" stroke="#59d354"/>
+<path d="M264.122,324.388v -10.7982" fill="none" stroke="#59d354"/>
+<path d="M244.28,327.23h 18.4216" fill="none" stroke="#59d354"/>
+<path d="M265.543,327.23h 18.4216" fill="none" stroke="#59d354"/>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 264.122, 324.388 266.964, 330.071 261.28, 330.071"/>
+</g>
+<path d="M323.65,325.533v -23.3158" fill="none" stroke="#59d354"/>
+<path d="M323.65,296.534v -23.3158" fill="none" stroke="#59d354"/>
+<path d="M283.965,299.376h 38.2642" fill="none" stroke="#59d354"/>
+<path d="M325.07,299.376h 38.2642" fill="none" stroke="#59d354"/>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 323.65, 296.534 326.491, 302.218 320.808, 302.218"/>
+</g>
+<path d="M85.5394,317.583h 8.50039" fill="none" stroke="#0000ff"/>
+<path d="M96.8815,317.583h 8.50039" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 92.6189, 314.741 98.3024, 314.741 95.4606, 320.425"/>
+</g>
+<path d="M105.382,327.16h 8.50039" fill="none" stroke="#0000ff"/>
+<path d="M116.724,327.16h 8.50039" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 112.461, 324.318 118.145, 324.318 115.303, 330.001"/>
+</g>
+<path d="M125.224,329.292h 8.50039" fill="none" stroke="#0000ff"/>
+<path d="M136.567,329.292h 8.50039" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 132.304, 326.45 137.987, 326.45 135.146, 332.134"/>
+</g>
+<path d="M145.067,330.094h 8.50039" fill="none" stroke="#0000ff"/>
+<path d="M156.409,330.094h 8.50039" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 152.146, 327.253 157.83, 327.253 154.988, 332.936"/>
+</g>
+<path d="M184.752,336.033v -0.275841" fill="none" stroke="#0000ff"/>
+<path d="M184.752,330.074v -0.275841" fill="none" stroke="#0000ff"/>
+<path d="M164.909,332.915h 18.4216" fill="none" stroke="#0000ff"/>
+<path d="M186.173,332.915h 18.4216" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 181.91, 330.074 187.594, 330.074 184.752, 335.757"/>
+</g>
+<path d="M224.437,329.85v -5.07052" fill="none" stroke="#0000ff"/>
+<path d="M224.437,319.096v -5.07052" fill="none" stroke="#0000ff"/>
+<path d="M204.594,321.937h 18.4216" fill="none" stroke="#0000ff"/>
+<path d="M225.858,321.937h 18.4216" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 221.595, 319.096 227.279, 319.096 224.437, 324.779"/>
+</g>
+<path d="M264.122,340.755v -13.1522" fill="none" stroke="#0000ff"/>
+<path d="M264.122,321.919v -13.1522" fill="none" stroke="#0000ff"/>
+<path d="M244.28,324.761h 18.4216" fill="none" stroke="#0000ff"/>
+<path d="M265.543,324.761h 18.4216" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 261.28, 321.919 266.964, 321.919 264.122, 327.602"/>
+</g>
+<path d="M323.65,352.312v -15.8714" fill="none" stroke="#0000ff"/>
+<path d="M323.65,330.757v -15.8714" fill="none" stroke="#0000ff"/>
+<path d="M283.965,333.599h 38.2642" fill="none" stroke="#0000ff"/>
+<path d="M325.07,333.599h 38.2642" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 320.808, 330.757 326.491, 330.757 323.65, 336.44"/>
+</g>
+<path d="M85.5394,313.981h 7.07951" fill="none" stroke="#ff00ff"/>
+<path d="M98.3024,313.981h 7.07951" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 94.5134, 313.033 94.5134, 311.139 96.4079, 311.139 96.4079, 313.033 98.3024, 313.033 98.3024, 314.928 96.4079, 314.928 96.4079, 316.822 94.5134, 316.822 94.5134, 314.928 92.6189, 314.928 92.6189, 313.033"/>
+</g>
+<path d="M105.382,323.153h 7.07951" fill="none" stroke="#ff00ff"/>
+<path d="M118.145,323.153h 7.07951" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 114.356, 322.206 114.356, 320.311 116.25, 320.311 116.25, 322.206 118.145, 322.206 118.145, 324.1 116.25, 324.1 116.25, 325.995 114.356, 325.995 114.356, 324.1 112.461, 324.1 112.461, 322.206"/>
+</g>
+<path d="M125.224,326.036h 7.07951" fill="none" stroke="#ff00ff"/>
+<path d="M137.987,326.036h 7.07951" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 134.198, 325.089 134.198, 323.194 136.093, 323.194 136.093, 325.089 137.987, 325.089 137.987, 326.983 136.093, 326.983 136.093, 328.878 134.198, 328.878 134.198, 326.983 132.304, 326.983 132.304, 325.089"/>
+</g>
+<path d="M145.067,330.088h 7.07951" fill="none" stroke="#ff00ff"/>
+<path d="M157.83,330.088h 7.07951" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 154.041, 329.14 154.041, 327.246 155.935, 327.246 155.935, 329.14 157.83, 329.14 157.83, 331.035 155.935, 331.035 155.935, 332.929 154.041, 332.929 154.041, 331.035 152.146, 331.035 152.146, 329.14"/>
+</g>
+<path d="M184.752,338.575v -0.745242" fill="none" stroke="#ff00ff"/>
+<path d="M184.752,332.146v -0.745242" fill="none" stroke="#ff00ff"/>
+<path d="M164.909,334.988h 17.0008" fill="none" stroke="#ff00ff"/>
+<path d="M187.594,334.988h 17.0008" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 183.805, 334.041 183.805, 332.146 185.699, 332.146 185.699, 334.041 187.594, 334.041 187.594, 335.935 185.699, 335.935 185.699, 337.83 183.805, 337.83 183.805, 335.935 181.91, 335.935 181.91, 334.041"/>
+</g>
+<path d="M224.437,334.252v -6.18306" fill="none" stroke="#ff00ff"/>
+<path d="M224.437,322.385v -6.18306" fill="none" stroke="#ff00ff"/>
+<path d="M204.594,325.227h 17.0008" fill="none" stroke="#ff00ff"/>
+<path d="M227.279,325.227h 17.0008" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 223.49, 324.28 223.49, 322.385 225.384, 322.385 225.384, 324.28 227.279, 324.28 227.279, 326.174 225.384, 326.174 225.384, 328.069 223.49, 328.069 223.49, 326.174 221.595, 326.174 221.595, 324.28"/>
+</g>
+<path d="M264.122,346.946v -15.0344" fill="none" stroke="#ff00ff"/>
+<path d="M264.122,326.229v -15.0344" fill="none" stroke="#ff00ff"/>
+<path d="M244.28,329.07h 17.0008" fill="none" stroke="#ff00ff"/>
+<path d="M266.964,329.07h 17.0008" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 263.175, 328.123 263.175, 326.229 265.069, 326.229 265.069, 328.123 266.964, 328.123 266.964, 330.018 265.069, 330.018 265.069, 331.912 263.175, 331.912 263.175, 330.018 261.28, 330.018 261.28, 328.123"/>
+</g>
+<path d="M323.65,336.625v -30.9768" fill="none" stroke="#ff00ff"/>
+<path d="M323.65,299.964v -30.9768" fill="none" stroke="#ff00ff"/>
+<path d="M283.965,302.806h 36.8433" fill="none" stroke="#ff00ff"/>
+<path d="M326.491,302.806h 36.8433" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 322.702, 301.859 322.702, 299.964 324.597, 299.964 324.597, 301.859 326.491, 301.859 326.491, 303.753 324.597, 303.753 324.597, 305.648 322.702, 305.648 322.702, 303.753 320.808, 303.753 320.808, 301.859"/>
+</g>
+<path d="M422.862,258.799v -208.19" fill="none" stroke="#ff00ff"/>
+<path d="M422.862,44.9257v -24.5007" fill="none" stroke="#ff00ff"/>
+<path d="M363.335,47.7675h 56.6858" fill="none" stroke="#ff00ff"/>
+<path d="M425.704,47.7675h 56.6858" fill="none" stroke="#ff00ff"/>
+<g fill="#ff00ff">
+<polygon points=" 421.915, 46.8202 421.915, 44.9257 423.809, 44.9257 423.809, 46.8202 425.704, 46.8202 425.704, 48.7147 423.809, 48.7147 423.809, 50.6092 421.915, 50.6092 421.915, 48.7147 420.02, 48.7147 420.02, 46.8202"/>
+</g>
+<text xml:space="preserve" x="117.722" y="44.0471" fill="black" font-size="11.7432" font-family="Helvetica">PYTHIA8, option3</text>
+<text xml:space="preserve" x="210.79" y="69.6229" fill="black" font-size="11.7432" font-family="Helvetica">|&lt;1</text>
+<text xml:space="preserve" x="204.396" y="69.6229" fill="black" font-size="11.7432" font-family="Times">&#0951;</text>
+<text xml:space="preserve" x="117.722" y="69.6229" fill="black" font-size="11.7432" font-family="Helvetica">p+Au, 200 GeV, |</text>
+<text xml:space="preserve" x="156.086" y="95.1986" fill="black" font-size="11.7432" font-family="Helvetica">cent: 0~10%</text>
+<g fill="black">
+<circle cx="135.146" cy="91.3293" r="2.84175"/>
+</g>
+<text xml:space="preserve" x="156.086" y="120.064" fill="black" font-size="11.7432" font-family="Helvetica">cent: 10~20%</text>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<rect x="132.304" y="113.581" width="5.6835" height="5.6835"/>
+</g>
+<text xml:space="preserve" x="156.086" y="145.64" fill="black" font-size="11.7432" font-family="Helvetica">cent: 20~40%</text>
+<g stroke="#59d354" stroke-width="1" fill="none">
+<polygon points=" 135.146, 138.675 137.987, 144.358 132.304, 144.358"/>
+</g>
+<text xml:space="preserve" x="156.086" y="170.505" fill="black" font-size="11.7432" font-family="Helvetica">cent: 40~60%</text>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<polygon points=" 132.304, 163.769 137.987, 163.769 135.146, 169.452"/>
+</g>
+<text xml:space="preserve" x="156.086" y="195.37" fill="black" font-size="11.7432" font-family="Helvetica">cent: 60~80%</text>
+<g fill="#ff00ff">
+<polygon points=" 134.198, 190.757 134.198, 188.862 136.093, 188.862 136.093, 190.757 137.987, 190.757 137.987, 192.651 136.093, 192.651 136.093, 194.546 134.198, 194.546 134.198, 192.651 132.304, 192.651 132.304, 190.757"/>
+</g></svg>
