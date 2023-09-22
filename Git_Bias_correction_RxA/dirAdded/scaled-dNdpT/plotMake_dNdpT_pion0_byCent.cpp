@@ -29,34 +29,34 @@ void plotMake_dNdpT_pion0_byCent()
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}}");
 
-        dNdpT_pion0_MB -> SetMarkerStyle(34);
-        dNdpT_pion0_MB -> SetMarkerColor(kPink+7);
-        dNdpT_pion0_MB -> SetLineColor(kPink+7);
+        dNdpT_pion0_MB -> SetMarkerStyle(21);
+        dNdpT_pion0_MB -> SetMarkerColor(1);
+        dNdpT_pion0_MB -> SetLineColor(1);
         dNdpT_pion0_MB -> Draw("p same");
     
-        dNdpT_pion0_cent1 -> SetMarkerStyle(34);
-        dNdpT_pion0_cent1 -> SetMarkerColor(kRed);
-        dNdpT_pion0_cent1 -> SetLineColor(kRed);
+        dNdpT_pion0_cent1 -> SetMarkerStyle(25);
+        dNdpT_pion0_cent1 -> SetMarkerColor(kOrange);
+        dNdpT_pion0_cent1 -> SetLineColor(kOrange);
         dNdpT_pion0_cent1 -> Draw("p same");
 
-        dNdpT_pion0_cent2 -> SetMarkerStyle(34);
-        dNdpT_pion0_cent2 -> SetMarkerColor(kRed+1);
-        dNdpT_pion0_cent2 -> SetLineColor(kRed+1);
+        dNdpT_pion0_cent2 -> SetMarkerStyle(25);
+        dNdpT_pion0_cent2 -> SetMarkerColor(kRed);
+        dNdpT_pion0_cent2 -> SetLineColor(kRed);
         dNdpT_pion0_cent2 -> Draw("p same");
 
-        dNdpT_pion0_cent3 -> SetMarkerStyle(34);
-        dNdpT_pion0_cent3 -> SetMarkerColor(kRed+2);
-        dNdpT_pion0_cent3 -> SetLineColor(kRed+2);
+        dNdpT_pion0_cent3 -> SetMarkerStyle(25);
+        dNdpT_pion0_cent3 -> SetMarkerColor(kPink);
+        dNdpT_pion0_cent3 -> SetLineColor(kPink);
         dNdpT_pion0_cent3 -> Draw("p same");
     
-        dNdpT_pion0_cent4 -> SetMarkerStyle(34);
-        dNdpT_pion0_cent4 -> SetMarkerColor(kRed+3);
-        dNdpT_pion0_cent4 -> SetLineColor(kRed+3);
+        dNdpT_pion0_cent4 -> SetMarkerStyle(25);
+        dNdpT_pion0_cent4 -> SetMarkerColor(kMagenta);
+        dNdpT_pion0_cent4 -> SetLineColor(kMagenta);
         dNdpT_pion0_cent4 -> Draw("p same");
 
-        dNdpT_pion0_cent5 -> SetMarkerStyle(34);
-        dNdpT_pion0_cent5 -> SetMarkerColor(kRed+4);
-        dNdpT_pion0_cent5 -> SetLineColor(kRed+4);
+        dNdpT_pion0_cent5 -> SetMarkerStyle(25);
+        dNdpT_pion0_cent5 -> SetMarkerColor(kViolet);
+        dNdpT_pion0_cent5 -> SetLineColor(kViolet);
         dNdpT_pion0_cent5 -> Draw("p same");
 
 
@@ -66,6 +66,13 @@ void plotMake_dNdpT_pion0_byCent()
         leg1 -> SetTextSize(0.03);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
         leg1 -> AddEntry("", "#pi^{0} in |#eta|<1", "h");
+        
+        leg1 -> AddEntry(dNdpT_pion0_MB, "all inelastic(MB)", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent1, "cent: 0~10%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent2, "cent: 10~20%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent3, "cent: 20~40%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent4, "cent: 40~60%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent5, "cent: 60~80%", "p");
 
         leg1 -> Draw();
 

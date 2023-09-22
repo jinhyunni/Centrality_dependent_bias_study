@@ -24,39 +24,39 @@ void plotMake_dNdpT_dirPhoton_byCent()
 
         gPad -> SetLogy();
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.000000005, 20, 100);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.0000000001, 20, 0.01);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}}");
 
-        dNdpT_dir_MB -> SetMarkerStyle(34);
-        dNdpT_dir_MB -> SetMarkerColor(kPink+7);
-        dNdpT_dir_MB -> SetLineColor(kPink+7);
+        dNdpT_dir_MB -> SetMarkerStyle(29);
+        dNdpT_dir_MB -> SetMarkerColor(1);
+        dNdpT_dir_MB -> SetLineColor(1);
         dNdpT_dir_MB -> Draw("p same");
     
-        dNdpT_dir_cent1 -> SetMarkerStyle(34);
-        dNdpT_dir_cent1 -> SetMarkerColor(kRed);
-        dNdpT_dir_cent1 -> SetLineColor(kRed);
+        dNdpT_dir_cent1 -> SetMarkerStyle(28);
+        dNdpT_dir_cent1 -> SetMarkerColor(kGreen+1);
+        dNdpT_dir_cent1 -> SetLineColor(kGreen+1);
         dNdpT_dir_cent1 -> Draw("p same");
 
         dNdpT_dir_cent2 -> SetMarkerStyle(34);
-        dNdpT_dir_cent2 -> SetMarkerColor(kRed+1);
-        dNdpT_dir_cent2 -> SetLineColor(kRed+1);
+        dNdpT_dir_cent2 -> SetMarkerColor(kTeal+1);
+        dNdpT_dir_cent2 -> SetLineColor(kTeal+1);
         dNdpT_dir_cent2 -> Draw("p same");
 
-        dNdpT_dir_cent3 -> SetMarkerStyle(34);
-        dNdpT_dir_cent3 -> SetMarkerColor(kRed+2);
-        dNdpT_dir_cent3 -> SetLineColor(kRed+2);
+        dNdpT_dir_cent3 -> SetMarkerStyle(28);
+        dNdpT_dir_cent3 -> SetMarkerColor(kCyan+1);
+        dNdpT_dir_cent3 -> SetLineColor(kCyan+1);
         dNdpT_dir_cent3 -> Draw("p same");
     
-        dNdpT_dir_cent4 -> SetMarkerStyle(34);
-        dNdpT_dir_cent4 -> SetMarkerColor(kRed+3);
-        dNdpT_dir_cent4 -> SetLineColor(kRed+3);
+        dNdpT_dir_cent4 -> SetMarkerStyle(28);
+        dNdpT_dir_cent4 -> SetMarkerColor(kAzure);
+        dNdpT_dir_cent4 -> SetLineColor(kAzure);
         dNdpT_dir_cent4 -> Draw("p same");
 
-        dNdpT_dir_cent5 -> SetMarkerStyle(34);
-        dNdpT_dir_cent5 -> SetMarkerColor(kRed+4);
-        dNdpT_dir_cent5 -> SetLineColor(kRed+4);
+        dNdpT_dir_cent5 -> SetMarkerStyle(28);
+        dNdpT_dir_cent5 -> SetMarkerColor(kBlue);
+        dNdpT_dir_cent5 -> SetLineColor(kBlue);
         dNdpT_dir_cent5 -> Draw("p same");
 
 
@@ -66,6 +66,13 @@ void plotMake_dNdpT_dirPhoton_byCent()
         leg1 -> SetTextSize(0.03);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
         leg1 -> AddEntry("", "#gamma^{dir} in |#eta|<1", "h");
+
+        leg1 -> AddEntry(dNdpT_dir_MB, "all inelastic events(MB)", "p");
+        leg1 -> AddEntry(dNdpT_dir_cent1, "centrality: 0~10%", "p");
+        leg1 -> AddEntry(dNdpT_dir_cent2, "centrality: 10~20%", "p");
+        leg1 -> AddEntry(dNdpT_dir_cent3, "centrality: 20~40%", "p");
+        leg1 -> AddEntry(dNdpT_dir_cent4, "centrality: 40~60%", "p");
+        leg1 -> AddEntry(dNdpT_dir_cent5, "centrality: 60~80%", "p");
 
         leg1 -> Draw();
 
