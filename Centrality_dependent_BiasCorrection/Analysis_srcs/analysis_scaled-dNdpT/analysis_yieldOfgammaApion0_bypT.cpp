@@ -142,47 +142,21 @@ void analysis_yieldOfgammaApion0_bypT()
 
     //Write outputs in outputfile
     //---------------------------
-    
     //Write yield of pion0 vs pT(not rebinned)
     for(int i=0; i<5; i++)
     {
-        yieldPion0pT_cent[i] -> Write();
-    }
+        //pion0
+        yieldPion0pT_cent[i] -> Write();        // yield of pion0 vs pT (not rebinned)
+        dNdpT_pion0_cent[i] -> Write();         // dNdpT_pion0
+        YavgNcollPion0[i] -> Write();           // scaled_dNdpT_pion0
 
-    //Write Yield of pion0 vs pT(rebinned)
-    for(int i=0; i<5; i++)
-    {
-        dNdpT_pion0_cent[i] -> Write();
-    }
-
-    //Write Y/avgNcoll
-    for(int i=0; i<5; i++)
-    {
-        YavgNcollPion0[i] -> Write();
-    }
-
-    //Write yield of dirPhoton vs pT(not rebinned)
-    for(int i=0; i<5; i++)
-    {
-        yieldDirpT_cent[i] -> Write();
-    }
-    
-    //Write yield of dirPhoton vs pT(rebinned)
-    for(int i=0; i<5; i++)
-    {
-        dNdpT_dir_cent[i] -> Write();
-    }
-
-    //write YavgNcolll
-    for(int i=0; i<5; i++)
-    {
-        YavgNcollDir[i] -> Write();
-    }
-
-    //write gammaRpion0
-    for(int i=0; i<5; i++)
-    {
-        gammaRpion0[i] -> Write();
+        //dirPhoton
+        yieldDirpT_cent[i] -> Write();          // yield of direct photon vs pT(not rebinned)
+        dNdpT_dir_cent[i] -> Write();           // dNdpT_dirPhoton
+        YavgNcollDir[i] -> Write();             //scaled_dNdpT_dirPhoton
+        
+        //dirPhoton & pion0 ratio
+        gammaRpion0[i] -> Write();              // (scaled)dNdpT ration, dirPhoton2pion0
     }
     
      //Close files
