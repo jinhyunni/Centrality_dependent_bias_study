@@ -1,7 +1,7 @@
-void plotMake_scaledYield_pion0cent()
+void plotMake_scaledYield_highpT_pion0cent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
 
     TH1D *scaled_cent[5];
     for(int i=0; i<5; i++)
@@ -26,7 +26,7 @@ void plotMake_scaledYield_pion0cent()
 
         gPad -> SetLogy();
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.0000000001, 20, 10);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.0000000001, 20, 0.01);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         htmp -> GetYaxis() -> SetTitle("#frac{1}{#LTN_{coll}#GT_{cent}} #frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}} ");

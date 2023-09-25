@@ -2,9 +2,9 @@ void analysis_yieldOfgammaApion0_bypT_MBevents()
 {
     //input
     //-----
-    TFile *input1 = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_TH2DpTeta_midrapidity_MBevents.root", "read");
-    TFile *input2 = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_Ncoll_MBevents.root", "read");
-    TFile *input3 = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_avgNcoll_MBevents.root", "read");
+    TFile *input1 = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_TH2DpTeta_midrapidity_MBevents.root", "read");
+    TFile *input2 = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_Ncoll_MBevents.root", "read");
+    TFile *input3 = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_avgNcoll_MBevents.root", "read");
         
     TH2D *h2pTetaPion0 = (TH2D*)input1 -> Get("pTetaPion0_mb");
     TH2D *h2pTetaDir = (TH2D*)input1 -> Get("pTetaDir_mb");
@@ -57,7 +57,7 @@ void analysis_yieldOfgammaApion0_bypT_MBevents()
 
     //ouput
     //-----
-    TFile *output = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_MBevents.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_MBevents.root", "recreate");
     
 	numPion0pT_perEvent -> Write();
 	dndpt_pion0_mb -> Write();

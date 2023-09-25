@@ -20,7 +20,7 @@ void analysis_NcollByCent()
     //-----
     TString prep_data = "../pre_processed";
 
-    TString cent_input = TString::Format("%s/pAu200GeV_p8303ver3_option3_NcollCent_allEvents.root", prep_data.Data());
+    TString cent_input = TString::Format("%s/pAu200GeV_p8303ver4_option3_NcollCent_allEvents.root", prep_data.Data());
     TFile *input_cent = new TFile(cent_input, "read");
 
     //Get pre-processed histogram
@@ -36,7 +36,7 @@ void analysis_NcollByCent()
 
     //output
     //------
-    TFile *output = new TFile("pAu200GeV_p8303ver3_option3_NcollByCent.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303ver4_option3_NcollByCent.root", "recreate");
 
     ncoll_cent1 -> Write();
     ncoll_cent2 -> Write();

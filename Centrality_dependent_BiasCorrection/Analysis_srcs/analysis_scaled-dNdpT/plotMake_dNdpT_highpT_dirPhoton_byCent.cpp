@@ -1,7 +1,7 @@
-void plotMake_dNdpT_dirPhoton_byCent()
+void plotMake_dNdpT_highpT_dirPhoton_byCent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
 
     TH1D *dNdpT_dir_cent1 = (TH1D*)input1 -> Get("dNdpT_dir_cent1");
     TH1D *dNdpT_dir_cent2 = (TH1D*)input1 -> Get("dNdpT_dir_cent2");
@@ -24,12 +24,12 @@ void plotMake_dNdpT_dirPhoton_byCent()
 
         gPad -> SetLogy();
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.0000000001, 20, 0.01);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.0000000001, 20, 0.0001);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}}");
 
-        dNdpT_dir_MB -> SetMarkerStyle(29);
+        dNdpT_dir_MB -> SetMarkerStyle(34);
         dNdpT_dir_MB -> SetMarkerColor(1);
         dNdpT_dir_MB -> SetLineColor(1);
         dNdpT_dir_MB -> Draw("p same");

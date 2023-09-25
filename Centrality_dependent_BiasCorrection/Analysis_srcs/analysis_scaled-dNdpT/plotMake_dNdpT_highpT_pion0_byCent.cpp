@@ -1,7 +1,7 @@
-void plotMake_dNdpT_pion0_byCent()
+void plotMake_dNdpT_highpT_pion0_byCent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
 
     TH1D *dNdpT_pion0_cent1 = (TH1D*)input1 -> Get("dNdpT_pion0_cent1");
     TH1D *dNdpT_pion0_cent2 = (TH1D*)input1 -> Get("dNdpT_pion0_cent2");
@@ -24,12 +24,12 @@ void plotMake_dNdpT_pion0_byCent()
 
         gPad -> SetLogy();
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.000000005, 20, 100);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.000000005, 20, 1e-1);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}}");
 
-        dNdpT_pion0_MB -> SetMarkerStyle(21);
+        dNdpT_pion0_MB -> SetMarkerStyle(34);
         dNdpT_pion0_MB -> SetMarkerColor(1);
         dNdpT_pion0_MB -> SetLineColor(1);
         dNdpT_pion0_MB -> Draw("p same");

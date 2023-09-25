@@ -25,7 +25,7 @@ void plotMake_ratio_scaledYield_pion0cent()
         TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 20, 3);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
-        htmp -> GetYaxis() -> SetTitle("(#frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}})_{cent} / (#frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}})_{MB} ");
+        htmp -> GetYaxis() -> SetTitle("(#frac{1}{#LTN_{coll}#GT} #frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}})_{cent} / (#frac{1}{#LTN_{coll}#GT} #frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}})_{MB} ");
 
             
         ratio_scaled[0] -> SetMarkerStyle(34);
@@ -43,7 +43,7 @@ void plotMake_ratio_scaledYield_pion0cent()
         ratio_scaled[2] -> SetLineColor(kPink);
         ratio_scaled[2] -> Draw("p same");
     
-        ratio_scaled[3] -> SetMarkerStyle(46);
+        ratio_scaled[3] -> SetMarkerStyle(47);
         ratio_scaled[3] -> SetMarkerColor(kMagenta);
         ratio_scaled[3] -> SetLineColor(kMagenta);
         ratio_scaled[3] -> Draw("p same");

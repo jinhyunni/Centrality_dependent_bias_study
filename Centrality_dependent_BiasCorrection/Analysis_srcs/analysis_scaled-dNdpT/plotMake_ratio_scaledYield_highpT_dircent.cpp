@@ -1,6 +1,6 @@
-void plotMake_ratio_scaledYield_dircent()
+void plotMake_ratio_scaledYield_highpT_dircent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver3_option3_ratio_scaled-dNdpt.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_ratio_scaled-dNdpt.root", "read");
 
     TH1D *ratio_scaled[5];
     for(int i=0; i<5; i++)
@@ -22,7 +22,7 @@ void plotMake_ratio_scaledYield_dircent()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, -1, 20, 5);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, -1, 20, 5);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         htmp -> GetYaxis() -> SetTitle("(#frac{1}{#LTN_{coll}#GT} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}})_{cent} / (#frac{1}{#LTN_{coll}#GT} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}})_{MB} ");

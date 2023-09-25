@@ -1,17 +1,17 @@
-void plotMake_scaledYield_pion0cent()
+void plotMake_scaledYield_highpT_dircent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
 
     TH1D *scaled_cent[5];
     for(int i=0; i<5; i++)
     {
-        TString inputname = Form("YavgNcollPion0pT_cent%d", i+1);
+        TString inputname = Form("YavgNcollDirpT_cent%d", i+1);
 
         scaled_cent[i] = (TH1D*)input1 -> Get(inputname);
     }
     
-    TH1D *scaled_mb = (TH1D*)input2 -> Get("YavgNcollPion0pT_mb");
+    TH1D *scaled_mb = (TH1D*)input2 -> Get("YavgNcollDirpT_mb");
 
     gStyle -> SetOptStat(0);
     TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -26,10 +26,10 @@ void plotMake_scaledYield_pion0cent()
 
         gPad -> SetLogy();
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.0000000001, 20, 10);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.00000000001, 20, 0.0001);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
-        htmp -> GetYaxis() -> SetTitle("#frac{1}{#LTN_{coll}#GT_{cent}} #frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}} ");
+        htmp -> GetYaxis() -> SetTitle("#frac{1}{#LTN_{coll}#GT_{cent}} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}} ");
         
         scaled_mb -> SetMarkerStyle(34);
         scaled_mb -> SetMarkerColor(1);
@@ -37,28 +37,28 @@ void plotMake_scaledYield_pion0cent()
         scaled_mb -> Draw("p same");
             
         scaled_cent[0] -> SetMarkerStyle(34);
-        scaled_cent[0]-> SetMarkerColor(kOrange);
-        scaled_cent[0] -> SetLineColor(kOrange);
+        scaled_cent[0]-> SetMarkerColor(kGreen+1);
+        scaled_cent[0] -> SetLineColor(kGreen+1);
         scaled_cent[0] -> Draw("p same");
 
         scaled_cent[1] -> SetMarkerStyle(34);
-        scaled_cent[1] -> SetMarkerColor(kRed);
-        scaled_cent[1] -> SetLineColor(kRed);
+        scaled_cent[1] -> SetMarkerColor(kTeal+1);
+        scaled_cent[1] -> SetLineColor(kTeal+1);
         scaled_cent[1] -> Draw("p same");
 
         scaled_cent[2] -> SetMarkerStyle(28);
-        scaled_cent[2] -> SetMarkerColor(kPink);
-        scaled_cent[2] -> SetLineColor(kPink);
+        scaled_cent[2] -> SetMarkerColor(kCyan+1);
+        scaled_cent[2] -> SetLineColor(kCyan+1);
         scaled_cent[2] -> Draw("p same");
     
-        scaled_cent[3] -> SetMarkerStyle(46);
-        scaled_cent[3] -> SetMarkerColor(kMagenta);
-        scaled_cent[3] -> SetLineColor(kMagenta);
+        scaled_cent[3] -> SetMarkerStyle(47);
+        scaled_cent[3] -> SetMarkerColor(kAzure);
+        scaled_cent[3] -> SetLineColor(kAzure);
         scaled_cent[3] -> Draw("p same");
 
         scaled_cent[4] -> SetMarkerStyle(28);
-        scaled_cent[4] -> SetMarkerColor(kViolet);
-        scaled_cent[4] -> SetLineColor(kViolet);
+        scaled_cent[4] -> SetMarkerColor(kBlue);
+        scaled_cent[4] -> SetLineColor(kBlue);
         scaled_cent[4] -> Draw("p same");
 
 
@@ -67,7 +67,7 @@ void plotMake_scaledYield_pion0cent()
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.03);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
-        leg1 -> AddEntry("", "#pi^{0} in |#eta|<1", "h");
+        leg1 -> AddEntry("", "#gamma^{dir} in |#eta|<1", "h");
         
         leg1 -> AddEntry(scaled_mb, "inelastic events(MB)", "p");
         leg1 -> AddEntry(scaled_cent[0], "centrality: 0~10%", "p");

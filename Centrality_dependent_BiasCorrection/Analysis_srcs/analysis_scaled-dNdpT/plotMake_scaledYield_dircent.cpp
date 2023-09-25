@@ -29,7 +29,7 @@ void plotMake_scaledYield_dircent()
         TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.00000000001, 20, 0.001);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
-        htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}} ");
+        htmp -> GetYaxis() -> SetTitle("#frac{1}{#LTN_{coll}#GT_{cent}} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}} ");
         
         scaled_mb -> SetMarkerStyle(34);
         scaled_mb -> SetMarkerColor(1);
