@@ -63,6 +63,8 @@ void analysis_yieldOfgammaApion0_bypT()
 
         yieldPion0pT_cent[i] -> Scale(1./eventN[i]);
         yieldDirpT_cent[i] -> Scale(1./eventN[i]);
+
+        cout << eventN[i] << endl;
                 
     }
 

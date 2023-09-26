@@ -1,6 +1,6 @@
 void plotMake_ratio_scaledYield_highpT_dircent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_ratio_scaled-dNdpt.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_ratio_scaled-dNdpt_scalingFixTry1.root", "read");
 
     TH1D *ratio_scaled[5];
     for(int i=0; i<5; i++)
@@ -22,7 +22,7 @@ void plotMake_ratio_scaledYield_highpT_dircent()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, -1, 20, 5);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0, 20, 2.5);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         htmp -> GetYaxis() -> SetTitle("(#frac{1}{#LTN_{coll}#GT} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}})_{cent} / (#frac{1}{#LTN_{coll}#GT} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}})_{MB} ");
@@ -54,7 +54,7 @@ void plotMake_ratio_scaledYield_highpT_dircent()
         ratio_scaled[4] -> Draw("p same");
 
 
-        TLegend *leg1 = new TLegend(0.4, 0.65, 0.8, 0.9);
+        TLegend *leg1 = new TLegend(0.2, 0.65, 0.6, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.03);
