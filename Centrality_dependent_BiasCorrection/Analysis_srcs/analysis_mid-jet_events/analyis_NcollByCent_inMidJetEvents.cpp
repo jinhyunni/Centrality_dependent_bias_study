@@ -2,7 +2,7 @@ void analyis_NcollByCent_inMidJetEvents()
 {
     //input
     //-----
-    TFile *input2 = new TFile("pAu200GeV_p8303ver2_option3_TH3DncollCent_inMidJetEvents.root", "read");
+    TFile *input2 = new TFile("../pre_processed/pAu200GeV_p8303ver2_option3_TH3DncollCent_inMidJetEvents.root", "read");
     
     //ncoll by cent, by mid-jet event
     TH3D *event = (TH3D*)input2 -> Get("ncollCent_inMidJetEvent");

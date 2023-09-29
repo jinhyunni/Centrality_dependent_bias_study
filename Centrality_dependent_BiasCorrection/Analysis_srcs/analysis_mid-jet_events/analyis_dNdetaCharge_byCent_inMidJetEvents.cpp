@@ -2,8 +2,8 @@ void analyis_dNdetaCharge_byCent_inMidJetEvents()
 {
     //input
     //-----
-    TFile *input1 = new TFile("pAu200GeV_p8303ver2_option3_TH3DpTetaCharge_inMidJetEvents.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_p8303ver2_option3_TH3DncollCent_inMidJetEvents.root", "read");
+    TFile *input1 = new TFile("../pre_processed/pAu200GeV_p8303ver2_option3_TH3DpTetaCharge_inMidJetEvents.root", "read");
+    TFile *input2 = new TFile("../pre_processed/pAu200GeV_p8303ver2_option3_TH3DncollCent_inMidJetEvents.root", "read");
     
     //particle info by mid-jet event
     TH3D *particle[5];
