@@ -75,8 +75,8 @@ void analyis_dNdetaCharge_byCent_inMidJetEvents()
         {
             TString outputname = Form("dndeta_midpion0_%dGeV_cent%d", 2*i+3, j+1);
             dndeta_charge_midpion0[i][j] = (TH1D*)chargeByeta_midpion0[i][j] -> Clone(outputname);
-        }
-    }
+        }//j: centrality
+    }//: events with jet
 
     for(int i=0; i<5; i++)
     {
@@ -87,8 +87,8 @@ void analyis_dNdetaCharge_byCent_inMidJetEvents()
             double scalar = 1./(binwidth * eventNumber);
 
             dndeta_charge_midpion0[i][j] -> Scale(scalar);
-        }
-    }
+        }//j: centrality
+    }//i: events with jet
     
     //output
     //------
