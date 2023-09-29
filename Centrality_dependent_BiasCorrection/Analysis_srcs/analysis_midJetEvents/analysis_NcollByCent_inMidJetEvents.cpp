@@ -1,4 +1,4 @@
-void analyis_NcollByCent_inMidJetEvents()
+void analysis_NcollByCent_inMidJetEvents()
 {
     //input
     //-----

@@ -1,4 +1,4 @@
-void analyis_dNdetaCharge_highpT_byCent_inMidJetEvents()
+void analysis_dNdetaCharge_byCent_inMidJetEvents()
 {
     //input
     //-----
@@ -21,7 +21,6 @@ void analyis_dNdetaCharge_highpT_byCent_inMidJetEvents()
     // i -> indicates mid-jet events class
     // j -> indicates centrality class
     // TH3D -> x: eta y: pT z: centrality
-    // high pT required: above 3GeV
     //------------------------------------
     TH1D *chargeByeta_midpion0[5][5];
 
@@ -33,11 +32,11 @@ void analyis_dNdetaCharge_highpT_byCent_inMidJetEvents()
         TString outputname4  = Form("pTetaCharge_midpion0_%dGeV_cent4", 2*i+3);
         TString outputname5  = Form("pTetaCharge_midpion0_%dGeV_cent5", 2*i+3);
 
-        chargeByeta_midpion0[i][0] = (TH1D*)particle[i] -> ProjectionX(outputname1, 301, 2000, 1, 1);
-        chargeByeta_midpion0[i][1] = (TH1D*)particle[i] -> ProjectionX(outputname2, 301, 2000, 2, 2);
-        chargeByeta_midpion0[i][2] = (TH1D*)particle[i] -> ProjectionX(outputname3, 301, 2000, 3, 4);
-        chargeByeta_midpion0[i][3] = (TH1D*)particle[i] -> ProjectionX(outputname4, 301, 2000, 5, 6);
-        chargeByeta_midpion0[i][4] = (TH1D*)particle[i] -> ProjectionX(outputname5, 301, 2000, 7, 8);
+        chargeByeta_midpion0[i][0] = (TH1D*)particle[i] -> ProjectionX(outputname1, 1, 2000, 1, 1);
+        chargeByeta_midpion0[i][1] = (TH1D*)particle[i] -> ProjectionX(outputname2, 1, 2000, 2, 2);
+        chargeByeta_midpion0[i][2] = (TH1D*)particle[i] -> ProjectionX(outputname3, 1, 2000, 3, 4);
+        chargeByeta_midpion0[i][3] = (TH1D*)particle[i] -> ProjectionX(outputname4, 1, 2000, 5, 6);
+        chargeByeta_midpion0[i][4] = (TH1D*)particle[i] -> ProjectionX(outputname5, 1, 2000, 7, 8);
     }
 
     //Analysis2. Get Event number by each case
@@ -74,10 +73,10 @@ void analyis_dNdetaCharge_highpT_byCent_inMidJetEvents()
     {
         for(int j=0; j<5; j++)
         {
-            TString outputname = Form("dndeta_midpion0_highpT_%dGeV_cent%d", 2*i+3, j+1);
+            TString outputname = Form("dndeta_midpion0_%dGeV_cent%d", 2*i+3, j+1);
             dndeta_charge_midpion0[i][j] = (TH1D*)chargeByeta_midpion0[i][j] -> Clone(outputname);
-        }
-    }
+        }//j: centrality
+    }//: events with jet
 
     for(int i=0; i<5; i++)
     {
@@ -88,12 +87,12 @@ void analyis_dNdetaCharge_highpT_byCent_inMidJetEvents()
             double scalar = 1./(binwidth * eventNumber);
 
             dndeta_charge_midpion0[i][j] -> Scale(scalar);
-        }
-    }
+        }//j: centrality
+    }//i: events with jet
     
     //output
     //------
-    TFile *output = new TFile("pAu200GeV_p8303ver2_option3_dNdetaCharge_highpT_byCent_inMidJetEvents.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303ver2_option3_dNdetaCharge_byCent_inMidJetEvents.root", "recreate");
     for(int i=0; i<5; i++)
     {       
         for(int j=0; j<5; j++)

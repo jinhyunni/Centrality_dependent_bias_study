@@ -1,6 +1,6 @@
-void plotMake_ratio_avgncollcent_target2all()
+void plotMake_ratio_avgncollcent_midJetEvents2all()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_ratio_avgncollcent_target2all.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_ratio_avgncollcent_midJetEvents2all.root", "read");
 
     TH1D *target2all[5];
     for(int i=0; i<5; i++)

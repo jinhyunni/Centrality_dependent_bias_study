@@ -1,4 +1,4 @@
-void analysis_ratio_avgncollcent_target2all()
+void analysis_ratio_avgncollcent_midJetEvents2all()
 {
 	//input
 	//-----
@@ -63,7 +63,7 @@ void analysis_ratio_avgncollcent_target2all()
 
     //output
     //------
-    TFile *output = new TFile("pAu200GeV_p8303ver4_ratio_avgncollcent_target2all.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303ver4_ratio_avgncollcent_midJetEvents2all.root", "recreate");
 
     for(int i=0; i<5; i++)
     {
