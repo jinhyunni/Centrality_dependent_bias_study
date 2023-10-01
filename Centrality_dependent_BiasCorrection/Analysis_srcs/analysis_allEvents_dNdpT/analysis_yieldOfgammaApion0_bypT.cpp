@@ -70,7 +70,8 @@ void analysis_yieldOfgammaApion0_bypT()
 
     //Analysis2. Rebin for pT
     //-----------------------
-    double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};   //11 binning   
+    //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};   //11 binning   
+    double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};   //11 binning   
     
     TH1D *dNdpT_pion0_cent[5];
     TH1D *dNdpT_dir_cent[5];

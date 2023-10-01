@@ -27,7 +27,8 @@ void analysis_yieldOfgammaApion0_bypT_MBevents()
     
     //Analysis2. Rebin for pT, divde binwidht to get dndpt
     //------------------------------------------------------
-    double pTrange[] = {0, 0.5, 1, 1.5, 2, 3, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};   //11 binning
+    //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};
+    double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};   //11 binning
 
     TH1D *dndpt_pion0_mb = (TH1D*)numPion0pT_perEvent -> Rebin(11, "dNdpt_pion0_mb", pTrange);
     TH1D *dndpt_dir_mb = (TH1D*)numDirpT_perEvent -> Rebin(11, "dNdpt_dir_mb", pTrange);
