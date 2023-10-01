@@ -29,8 +29,6 @@ void plotMake_dNdeta_charged_midJetEvents2all()
             TString inputname_highpT_midJetEvents = Form("dndeta_midpion0_highpT_%dGeV_cent%d", 2*i+3, j+1);
             dndetaCh_midJetEvents_byCent[i][j] = (TH1D*)input_midJetEvents -> Get(inputname_midJetEvents);
             dndetaCh_midJetEvents_highpT_byCent[i][j] = (TH1D*)input_highpT_midJetEvents -> Get(inputname_highpT_midJetEvents);
-
-            dndetaCh_midJetEvents_highpT_byCent[i][j] -> Scale(150);
         }
     }
     
@@ -49,8 +47,6 @@ void plotMake_dNdeta_charged_midJetEvents2all()
             {
                 TString input_allEvents_byCent = Form("allEvents: centClass%d", j+1);
                 TString input_midJetEvents_byCent = Form("events with #pi^{0} > %d, in |#eta|<1: centClass%d", 2*i+3, j+1);
-                TString input_midJetEvents_byCent_high = Form("events with #pi^{0} > %d, in |#eta|<1: centClass%d", 2*i+5, j+1);
-                TString input_midJetEvents_byCent_highpT = Form("events with #pi^{0} > %d, in |#eta|<1: centClass%d, (charges > 3GeV) #times 150", 2*i+3, j+1);
                 //set legend
                 leg[i][j] = new TLegend(0.4, 0.7, 0.8, 0.9);
                 leg[i][j] -> SetFillStyle(0);
@@ -60,8 +56,6 @@ void plotMake_dNdeta_charged_midJetEvents2all()
                 leg[i][j] -> AddEntry(dndetaCh_allEvents_mb, "MB events", "p");
                 leg[i][j] -> AddEntry(dndetaCh_allEvents_byCent[j], input_allEvents_byCent, "p");
                 leg[i][j] -> AddEntry(dndetaCh_midJetEvents_byCent[i][j], input_midJetEvents_byCent, "p");
-                leg[i][j] -> AddEntry(dndetaCh_midJetEvents_byCent[i+1][j], input_midJetEvents_byCent_high, "p");
-                leg[i][j] -> AddEntry(dndetaCh_midJetEvents_highpT_byCent[i][j], input_midJetEvents_byCent_highpT, "p");
             }
          }
 
@@ -80,7 +74,7 @@ void plotMake_dNdeta_charged_midJetEvents2all()
                 gPad -> SetRightMargin(0.15);
                 gPad -> SetBottomMargin(0.12);
 
-                htmp[0] = (TH1D*)gPad -> DrawFrame(-6, 0, 6, 15);
+                htmp[0] = (TH1D*)gPad -> DrawFrame(-3.9, 0, -3.0, 25);
                 htmp[0] -> GetXaxis() -> SetTitle("#eta");
                 htmp[0] -> GetYaxis() -> SetTitle("dN^{ch}/d#eta");
 
@@ -96,21 +90,10 @@ void plotMake_dNdeta_charged_midJetEvents2all()
                 dndetaCh_allEvents_byCent[centClass] -> SetLineColor(1);
                 dndetaCh_allEvents_byCent[centClass] -> Draw("p same");
 
-                dndetaCh_midJetEvents_highpT_byCent[midJetIndex][centClass] -> SetMarkerStyle(34);
-                dndetaCh_midJetEvents_highpT_byCent[midJetIndex][centClass] -> SetMarkerColor(6);
-                dndetaCh_midJetEvents_highpT_byCent[midJetIndex][centClass] -> SetLineColor(6);
-                dndetaCh_midJetEvents_highpT_byCent[midJetIndex][centClass] -> Draw("p same");
-
                 dndetaCh_midJetEvents_byCent[midJetIndex][centClass] -> SetMarkerStyle(34);
                 dndetaCh_midJetEvents_byCent[midJetIndex][centClass] -> SetMarkerColor(2);
                 dndetaCh_midJetEvents_byCent[midJetIndex][centClass] -> SetLineColor(2);
                 dndetaCh_midJetEvents_byCent[midJetIndex][centClass] -> Draw("p same");
-
-                    
-                dndetaCh_midJetEvents_byCent[midJetIndex+1][centClass] -> SetMarkerStyle(34);
-                dndetaCh_midJetEvents_byCent[midJetIndex+1][centClass] -> SetMarkerColor(4);
-                dndetaCh_midJetEvents_byCent[midJetIndex+1][centClass] -> SetLineColor(4);
-                dndetaCh_midJetEvents_byCent[midJetIndex+1][centClass] -> Draw("p same");
 
                 centRangeLow -> Draw();
                 centRangeHigh -> Draw();
