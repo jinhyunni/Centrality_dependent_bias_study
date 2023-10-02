@@ -58,7 +58,7 @@ void plotMake_dNdeta_pion0_midJetEvents2all()
             }
          }
 
-            const int midJetIndex = 0;
+            const int midJetIndex = 1;
 
             //cent: 0~10%
             c1 -> cd(1);

@@ -32,18 +32,21 @@ void plotMake_NcollByCent_allEvents2midJetEvents()
 
     //For events with mid-jets
     TGraph *ncollcentG_midjet[5][5];
+    TGraphErrors *ncollcentG_midjet_errors[5][5];
 
     for(int i=0; i<5; i++)
     {
         for(int j=0; j<5; j++)
         {
             ncollcentG_midjet[i][j] = new TGraph();
+            ncollcentG_midjet_errors[i][j] = new TGraphErrors();
 
             for(int k=0; k<ncollcent_midjet[i][j] -> GetNbinsX(); k++)
             {
                 if(ncollcent_midjet[i][j] -> GetBinContent(k+1) != 0)
                 {
                     ncollcentG_midjet[i][j] -> SetPoint(ncollcentG_midjet[i][j] -> GetN(), ncollcent_midjet[i][j] -> GetBinCenter(k+1), ncollcent_midjet[i][j] -> GetBinContent(k+1));
+                    ncollcentG_midjet_errors[i][j] -> SetPointError(k, 0, ncollcent_midjet[j][j] -> GetBinError(k+1));
                 }
 
             }//set Tgraph
@@ -75,6 +78,32 @@ void plotMake_NcollByCent_allEvents2midJetEvents()
     gStyle -> SetOptStat(0);
     TCanvas *c1 = new TCanvas("", "", 800, 600);
     {
+        const int midJetEvent = 3;
+
+        TLegend *leg[5];
+        for(int i=0; i<5; i++)
+        {
+
+            TString outputname = Form("Events with #pi^{0} > %d GeV in |#eta|<1", 2*i+3);
+            
+            leg[i] = new TLegend(0.47, 0.6, 0.87, 0.9);
+            leg[i] -> SetFillStyle(0);
+            leg[i] -> SetBorderSize(0);
+            leg[i] -> SetTextSize(0.03);
+            leg[i] -> AddEntry("", "PYTHIA8", "h");
+            leg[i] -> AddEntry("", "pAu200GeV, option3", "h");
+            leg[i] -> AddEntry("", outputname, "h");
+
+            leg[i] -> AddEntry(ncollcentG_midjet[i][0], "centrality: 0~10%", "p");
+            leg[i] -> AddEntry(ncollcentG_midjet[i][1], "centrality: 10~20%", "p");
+            leg[i] -> AddEntry(ncollcentG_midjet[i][2], "centrality: 20~40%", "p");
+            leg[i] -> AddEntry(ncollcentG_midjet[i][3], "centrality: 40~60%", "p");
+            leg[i] -> AddEntry(ncollcentG_midjet[i][4], "centrality: 60~80%", "p");
+
+
+        }// event type
+
+
         c1 -> cd();
 
         gPad -> SetTicks();
@@ -83,78 +112,42 @@ void plotMake_NcollByCent_allEvents2midJetEvents()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(1, 0, 25, 1e3);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(1, 0, 25, 75);
 
         htmp -> GetXaxis() -> SetTitle("Ncoll");
         htmp -> GetYaxis() -> SetTitle("# of events");
-        
-        //all events
-        ncollcentG_all[0] -> SetMarkerStyle(47);
-        ncollcentG_all[0] -> SetMarkerColor(kRed+1);
-        ncollcentG_all[0] -> SetLineColor(kRed+1);
-        ncollcentG_all[0] -> Draw("p L same");
+         
+        //with mid-jet, pion0
+        ncollcentG_midjet[midJetEvent][0] -> SetMarkerStyle(34);
+        ncollcentG_midjet_errors[midJetEvent][0] -> SetFillStyle(3013);
+        ncollcentG_midjet[midJetEvent][0] -> SetMarkerColor(kOrange);
+        ncollcentG_midjet_errors[midJetEvent][0] -> SetMarkerColor(kOrange);
+        ncollcentG_midjet[midJetEvent][0] -> SetLineColor(kOrange);
+        ncollcentG_midjet[midJetEvent][0] -> Draw("p L same");
+        ncollcentG_midjet_errors[midJetEvent][0] -> Draw("p L 3 same");
 
-        ncollcentG_all[1] -> SetMarkerStyle(25);
-        ncollcentG_all[1] -> SetMarkerColor(kRed+1);
-        ncollcentG_all[1] -> SetLineColor(kRed+1);
-        ncollcentG_all[1] -> Draw("p L same");
+        ncollcentG_midjet[midJetEvent][1] -> SetMarkerStyle(34);
+        ncollcentG_midjet[midJetEvent][1] -> SetMarkerColor(kRed);
+        ncollcentG_midjet[midJetEvent][1] -> SetLineColor(kRed);
+        ncollcentG_midjet[midJetEvent][1] -> Draw("p L same");
 
-        ncollcentG_all[2] -> SetMarkerStyle(28);
-        ncollcentG_all[2] -> SetMarkerColor(kRed+1);
-        ncollcentG_all[2] -> SetLineColor(kRed+1);
-        ncollcentG_all[2] -> Draw("p L same");
+        ncollcentG_midjet[midJetEvent][2] -> SetMarkerStyle(28);
+        ncollcentG_midjet[midJetEvent][2] -> SetMarkerColor(kPink);
+        ncollcentG_midjet[midJetEvent][2] -> SetLineColor(kPink);
+        ncollcentG_midjet[midJetEvent][2] -> Draw("p L same");
     
-        ncollcentG_all[3] -> SetMarkerStyle(22);
-        ncollcentG_all[3] -> SetMarkerColor(kRed+1);
-        ncollcentG_all[3] -> SetLineColor(kRed+1);
-        ncollcentG_all[3] -> Draw("p L same");
+        ncollcentG_midjet[midJetEvent][3] -> SetMarkerStyle(47);
+        ncollcentG_midjet[midJetEvent][3] -> SetMarkerColor(kMagenta);
+        ncollcentG_midjet[midJetEvent][3] -> SetLineColor(kMagenta);
+        ncollcentG_midjet[midJetEvent][3] -> Draw("p L same");
 
-        ncollcentG_all[4] -> SetMarkerStyle(24);
-        ncollcentG_all[4] -> SetMarkerColor(kRed+1);
-        ncollcentG_all[4] -> SetLineColor(kRed+1);
-        ncollcentG_all[4] -> Draw("p L same");
-    
-        //with mid-jet, pion0 > 5 GeV
-        ncollcentG_midjet[1][0] -> SetMarkerStyle(47);
-        ncollcentG_midjet[1][0] -> SetMarkerColor(kBlue);
-        ncollcentG_midjet[1][0] -> SetLineColor(kBlue);
-        ncollcentG_midjet[1][0] -> Draw("p L same");
+        ncollcentG_midjet[midJetEvent][4] -> SetMarkerStyle(28);
+        ncollcentG_midjet[midJetEvent][4] -> SetMarkerColor(kViolet);
+        ncollcentG_midjet[midJetEvent][4] -> SetLineColor(kViolet);
+        ncollcentG_midjet[midJetEvent][4] -> Draw("p L same");
 
-        ncollcentG_midjet[1][1] -> SetMarkerStyle(25);
-        ncollcentG_midjet[1][1] -> SetMarkerColor(kBlue);
-        ncollcentG_midjet[1][1] -> SetLineColor(kBlue);
-        ncollcentG_midjet[1][1] -> Draw("p L same");
+        leg[midJetEvent] -> Draw();
 
-        ncollcentG_midjet[1][2] -> SetMarkerStyle(28);
-        ncollcentG_midjet[1][2] -> SetMarkerColor(kBlue);
-        ncollcentG_midjet[1][2] -> SetLineColor(kBlue);
-        ncollcentG_midjet[1][2] -> Draw("p L same");
-    
-        ncollcentG_midjet[1][3] -> SetMarkerStyle(22);
-        ncollcentG_midjet[1][3] -> SetMarkerColor(kBlue);
-        ncollcentG_midjet[1][3] -> SetLineColor(kBlue);
-        ncollcentG_midjet[1][3] -> Draw("p L same");
-
-        ncollcentG_midjet[1][4] -> SetMarkerStyle(24);
-        ncollcentG_midjet[1][4] -> SetMarkerColor(kBlue);
-        ncollcentG_midjet[1][4] -> SetLineColor(kBlue);
-        ncollcentG_midjet[1][4] -> Draw("p L same");
-
-        TLegend *leg1 = new TLegend(0.47, 0.6, 0.87, 0.9);
-        leg1 -> SetFillStyle(0);
-        leg1 -> SetBorderSize(0);
-        leg1 -> SetTextSize(0.03);
-        leg1 -> AddEntry("", "PYTHIA8", "h");
-        leg1 -> AddEntry("", "pAu200GeV, option3", "h");
-
-        leg1 -> AddEntry(ncollcentG_all[0], "centrality: 0~10%, #LTN_{coll}#GT: 9.02", "p");
-        leg1 -> AddEntry(ncollcentG_all[1], "centrality: 10~20%, #LTN_{coll}#GT: 7.69", "p");
-        leg1 -> AddEntry(ncollcentG_all[2], "centrality: 20~40%, #LTN_{coll}#GT: 6.52", "p");
-        leg1 -> AddEntry(ncollcentG_all[3], "centrality: 40~60%, #LTN_{coll}#GT: 5.04", "p");
-        leg1 -> AddEntry(ncollcentG_all[4], "centrality: 60~80%, #LTN_{coll}#GT: 3.45", "p");
-
-        leg1 -> Draw();
-
-    }
+     }
 
 }

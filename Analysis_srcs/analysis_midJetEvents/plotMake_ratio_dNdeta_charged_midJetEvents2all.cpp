@@ -37,7 +37,7 @@ void plotMake_ratio_dNdeta_charged_midJetEvents2all()
 
     TH1D *ratio_dNdeta_midJet2all[5][5];
 
-    for(int i=0; i<5l; i++)
+    for(int i=0; i<5; i++)
     {
         for(int j=0; j<5; j++)
         {
@@ -78,7 +78,7 @@ void plotMake_ratio_dNdeta_charged_midJetEvents2all()
                 leg[i] -> AddEntry(ratio_dNdeta_midJet2all[i][4], input_midJetEvents_byCent5, "p");
          }
 
-            const int midJetIndex = 1;  //0~4
+            const int midJetIndex = 2;  //0~4
 
 
             //cent: 0~10%

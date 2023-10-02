@@ -4,6 +4,7 @@ void analysis_dNdetaCharge_highpT_byCent_inMidJetEvents()
     //-----
     TFile *input1 = new TFile("../pre_processed/pAu200GeV_p8303ver2_option3_TH3DpTetaCharge_inMidJetEvents.root", "read");
     TFile *input2 = new TFile("../pre_processed/pAu200GeV_p8303ver2_option3_TH3DncollCent_inMidJetEvents.root", "read");
+    TFile *input3 = new TFile("../pre_processed/pAu200GeV_p8303ver2_option3_NcollCent_allEvents.root", "read");
     
     //particle info by mid-jet event
     TH3D *particle[5];
@@ -15,6 +16,8 @@ void analysis_dNdetaCharge_highpT_byCent_inMidJetEvents()
 
     //ncoll by cent, by mid-jet event
     TH3D *event = (TH3D*)input2 -> Get("ncollCent_inMidJetEvent");
+    //ncoll by cent, all event
+    TH2D *ncollcent_allEvents = (TH2D*)input3 -> Get("ncollCent");
 
     //Analysis1. Get Particle by eta
     // chargeByeta_midpinon[i][j]
@@ -63,11 +66,18 @@ void analysis_dNdetaCharge_highpT_byCent_inMidJetEvents()
         ncoll_midpion0_cent[i][4] = (TH1D*)event -> ProjectionY(outputname5, 7, 8, i+1, i+1);
     }
 
+    //get total number of events by centrality
+    double centrange[] = {0, 10, 20, 40, 60, 80};
+
+    TH1D *ncollByCent = (TH1D*)ncollcent_allEvents -> ProjectionX("ncollcent_allevents");
+    TH1D *ncollByCentR = (TH1D*)ncollByCent -> Rebin(5, "ncollByCent_allevents", centrange);
+
     //Analysis3. scale to get dNdeta
     // scale1: event number
     // scale2: binwidth
     //------------------------------
     TH1D *dndeta_charge_midpion0[5][5];
+    TH1D *dndeta_charge_midpion0_amongAll[5][5];
 
     //cloning
     for(int i=0; i<5; i++)
@@ -75,7 +85,9 @@ void analysis_dNdetaCharge_highpT_byCent_inMidJetEvents()
         for(int j=0; j<5; j++)
         {
             TString outputname = Form("dndeta_midpion0_highpT_%dGeV_cent%d", 2*i+3, j+1);
+            TString outputname_amongAll = Form("dndeta_midpion0_highpT_%dGeV_amongAll_cent%d", 2*i+3, j+1);
             dndeta_charge_midpion0[i][j] = (TH1D*)chargeByeta_midpion0[i][j] -> Clone(outputname);
+            dndeta_charge_midpion0_amongAll[i][j] = (TH1D*)chargeByeta_midpion0[i][j] -> Clone(outputname_amongAll);
         }
     }
 
@@ -84,10 +96,14 @@ void analysis_dNdetaCharge_highpT_byCent_inMidJetEvents()
         for(int j=0; j<5; j++)
         {
             double binwidth = dndeta_charge_midpion0[i][j] -> GetBinWidth(1);
-            double eventNumber = ncoll_midpion0_cent[i][j] -> Integral();
-            double scalar = 1./(binwidth * eventNumber);
+            double eventNumber_ofTarget = ncoll_midpion0_cent[i][j] -> Integral();
+            double eventNumber_amongAll = ncollByCentR -> GetBinContent(j+1);
 
-            dndeta_charge_midpion0[i][j] -> Scale(scalar);
+            double scalar_ofTarget = 1./(binwidth * eventNumber_ofTarget);
+            double scalar_amongAll = 1./(binwidth * eventNumber_amongAll);
+
+            dndeta_charge_midpion0[i][j] -> Scale(scalar_ofTarget);
+            dndeta_charge_midpion0_amongAll[i][j] -> Scale(scalar_amongAll);
         }
     }
     
@@ -99,6 +115,7 @@ void analysis_dNdetaCharge_highpT_byCent_inMidJetEvents()
         for(int j=0; j<5; j++)
         {
             dndeta_charge_midpion0[i][j] -> Write();
+            dndeta_charge_midpion0_amongAll[i][j] -> Write();
         }
     }
     output -> Close();

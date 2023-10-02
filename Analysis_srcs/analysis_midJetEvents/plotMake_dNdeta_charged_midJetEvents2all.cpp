@@ -59,8 +59,8 @@ void plotMake_dNdeta_charged_midJetEvents2all()
             }
          }
 
-            const int midJetIndex = 0;  //0~4
-            const int centClass = 4;    //0~4
+            const int midJetIndex = 2;  //0~4
+            const int centClass = 0;    //0~4
 
             TLine *centRangeLow = new TLine(-3.9, 0, -3.9, 25);
             TLine *centRangeHigh = new TLine(-3.0, 0, -3.0, 25);
