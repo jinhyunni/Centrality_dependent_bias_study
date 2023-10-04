@@ -16,11 +16,11 @@ void analysis_NcollByCent_inForwardJetEvents()
 
     for(int i=0; i<5; i++)
     {
-        TString outputname1 = Form("ncoll_forwardCharge_%dGeV_cent1", 2*i+3);
-        TString outputname2 = Form("ncoll_forwardCharge_%dGeV_cent2", 2*i+3);
-        TString outputname3 = Form("ncoll_forwardCharge_%dGeV_cent3", 2*i+3);
-        TString outputname4 = Form("ncoll_forwardCharge_%dGeV_cent4", 2*i+3);
-        TString outputname5 = Form("ncoll_forwardCharge_%dGeV_cent5", 2*i+3);
+        TString outputname1 = Form("ncoll_forwardCharge_%dGeV_cent1", i+1);
+        TString outputname2 = Form("ncoll_forwardCharge_%dGeV_cent2", i+1);
+        TString outputname3 = Form("ncoll_forwardCharge_%dGeV_cent3", i+1);
+        TString outputname4 = Form("ncoll_forwardCharge_%dGeV_cent4", i+1);
+        TString outputname5 = Form("ncoll_forwardCharge_%dGeV_cent5", i+1);
         
         //                                                                       [cent]  [type]
         ncoll_forwardCharge_cent[i][0] = (TH1D*)event -> ProjectionY(outputname1, 1, 1, i+1, i+1);
