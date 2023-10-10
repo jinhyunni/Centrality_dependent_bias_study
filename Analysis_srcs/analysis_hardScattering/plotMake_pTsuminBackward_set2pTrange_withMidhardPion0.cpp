@@ -2,7 +2,7 @@ void plotMake_pTsuminBackward_set2pTrange_withMidhardPion0()
 {
     //Input
     //-----
-    TFile *input = new TFile("pAu200GeV_p8303ver4_option3_pTsuminBackward_set2pTrange_limitedinMidJetEvents.root", "read");
+    TFile *input = new TFile("pAu200GeV_p8303ver4_option3_pTsuminBackward_set2pTrange_maxpTcut_inMidJetEvents.root", "read");
 
     TH1D *midjet2to3GeV = (TH1D*)input -> Get("pTsum_rebinned_midpion0_highpT1");
     TH1D *midjet3to5GeV = (TH1D*)input -> Get("pTsum_rebinned_midpion0_highpT2");
@@ -26,7 +26,7 @@ void plotMake_pTsuminBackward_set2pTrange_withMidhardPion0()
         TH1D * htmp = (TH1D*)gPad -> DrawFrame(0.754, 0, 10, 0.5);
         
         htmp -> GetXaxis() -> SetTitle("pTsum of charged particles in backward-range");
-        htmp -> GetYaxis() -> SetTitle("d(# of events)/dp_{T}");
+        htmp -> GetYaxis() -> SetTitle("dN/d(#sump_{T})");
         
         midjet2to3GeV -> SetMarkerStyle(20);
         midjet2to3GeV -> SetMarkerColor(1);
@@ -109,13 +109,11 @@ void plotMake_pTsuminBackward_set2pTrange_withMidhardPion0()
          
         leg1 -> AddEntry("", "Pythia8, p+Au 200 GeV", "h");
         leg1 -> AddEntry("", "Angantyr: option3(ND only)", "h");
-        leg1 -> AddEntry(midjet2to3GeV, "#pi^{0}, |#eta|<1, 2 GeV#leq p_{T} #LT 3 GeV", "p");
-        leg1 -> AddEntry(midjet3to5GeV, "#pi^{0}, |#eta|<1, 3 GeV #leq p_{T} #LT 5 GeV", "p");
-        leg1 -> AddEntry(midjet5to7GeV, "#pi^{0}, |#eta|<1, 5 GeV #leq p_{T} #LT 7 GeV", "p");
-        leg1 -> AddEntry(midjet7to9GeV, "#pi^{0}, |#eta|<1, 7 GeV #leq p_{T} #LT 9 GeV", "p");
-        leg1 -> AddEntry(midjet9to11GeV, "#pi^{0}, |#eta|<1, p_{T} #geq 9 GeV", "p");
-        //leg1 -> AddEntry(midjet11to15GeV, "#pi^{0}, |#eta|<1, 11 #leq p_{T} #LT 15", "p");
-        //leg1 -> AddEntry(midjet15to20GeV, "#pi^{0}, |#eta|<1, 15 #leq p_{T} #LT 20", "p");
+        leg1 -> AddEntry(midjet2to3GeV, "#pi^{0}, |#eta|<1, 2 GeV#leq max p_{T} #LT 3 GeV", "p");
+        leg1 -> AddEntry(midjet3to5GeV, "#pi^{0}, |#eta|<1, 3 GeV #leq max p_{T} #LT 5 GeV", "p");
+        leg1 -> AddEntry(midjet5to7GeV, "#pi^{0}, |#eta|<1, 5 GeV #leq max p_{T} #LT 7 GeV", "p");
+        leg1 -> AddEntry(midjet7to9GeV, "#pi^{0}, |#eta|<1, 7 GeV #leq max p_{T} #LT 9 GeV", "p");
+        leg1 -> AddEntry(midjet9to11GeV, "#pi^{0}, |#eta|<1, max p_{T} #geq 9 GeV", "p");
     
         leg1 -> Draw("p same");
     }
