@@ -19,8 +19,8 @@ void plotMake_pTsuminBackward_set2pTrange_withMidhardPion0()
 
     {       
         gPad -> SetTicks();
-        gPad -> SetLeftMargin(0.15);
-        gPad -> SetRightMargin(0.15);
+        gPad -> SetLeftMargin(0.12);
+        gPad -> SetRightMargin(0.12);
         gPad -> SetBottomMargin(0.12);
 
         TH1D * htmp = (TH1D*)gPad -> DrawFrame(0.754, 0, 10, 0.5);

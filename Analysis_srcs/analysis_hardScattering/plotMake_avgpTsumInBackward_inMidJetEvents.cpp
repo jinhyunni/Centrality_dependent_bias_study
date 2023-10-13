@@ -1,8 +1,8 @@
 void plotMake_avgpTsumInBackward_inMidJetEvents()
 {   
-    TFile *input = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_avgpTsumInBackward_inMidJetEvents.root", "read");
+    TFile *input = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_avgpTsumInBackward_maxpTcut_inMidJetEvents.root", "read");
 
-    TProfile *avgpTsum = (TProfile *)input -> Get("avgpTsum_midpion0_trigger");
+    TProfile *avgpTsum = (TProfile *)input -> Get("avgpTsum_midpion0_maxTriggerpT");
 
     //Draw
     TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -14,7 +14,7 @@ void plotMake_avgpTsumInBackward_inMidJetEvents()
         gPad -> SetBottomMargin(0.12);
 
         TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 1.8, 20, 3.5);
-        htmp -> GetXaxis() -> SetTitle("#pi^{0}'s p_{T} at |#eta|<1");
+        htmp -> GetXaxis() -> SetTitle("#pi^{0}'s max p_{T} at |#eta|<1");
         htmp -> GetYaxis() -> SetTitle("#LT#sumpT#GT");
 
         avgpTsum -> SetMarkerStyle(34);
@@ -22,7 +22,7 @@ void plotMake_avgpTsumInBackward_inMidJetEvents()
         avgpTsum -> SetLineColor(6);
         avgpTsum -> Draw("p same");
 
-        TLegend *leg1 = new TLegend(0.4, 0.7, 0.65, 0.9);
+        TLegend *leg1 = new TLegend(0.43, 0.7, 0.62, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.03);
