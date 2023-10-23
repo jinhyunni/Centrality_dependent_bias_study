@@ -29,7 +29,7 @@ void plotMake_scaledYield_highpT_pion0cent()
         TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.0000000001, 20, 0.01);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
-        htmp -> GetYaxis() -> SetTitle("#frac{1}{#LTN_{coll}#GT_{cent}} #frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}} ");
+        htmp -> GetYaxis() -> SetTitle("#frac{1}{#LT N_{coll} #GT_{cent}} #frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}} ");
         
         scaled_mb -> SetMarkerStyle(34);
         scaled_mb -> SetMarkerColor(1);
@@ -62,10 +62,10 @@ void plotMake_scaledYield_highpT_pion0cent()
         scaled_cent[4] -> Draw("p same");
 
 
-        TLegend *leg1 = new TLegend(0.4, 0.65, 0.8, 0.9);
+        TLegend *leg1 = new TLegend(0.4, 0.6, 0.8, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
-        leg1 -> SetTextSize(0.03);
+        leg1 -> SetTextSize(0.04);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
         leg1 -> AddEntry("", "#pi^{0} in |#eta|<1", "h");
         

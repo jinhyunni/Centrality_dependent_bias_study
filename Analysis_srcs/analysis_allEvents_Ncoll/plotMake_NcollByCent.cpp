@@ -62,8 +62,8 @@ void plotMake_NcollByCent()
         c1 -> cd();
 
         gPad -> SetTicks();
-        gPad -> SetLeftMargin(0.1);
-        gPad -> SetRightMargin(0.1);
+        gPad -> SetLeftMargin(0.12);
+        gPad -> SetRightMargin(0.12);
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
@@ -71,6 +71,10 @@ void plotMake_NcollByCent()
 
         htmp -> GetXaxis() -> SetTitle("N_{coll}");
         htmp -> GetYaxis() -> SetTitle("dN/dN_{coll}");
+
+        htmp -> GetXaxis() -> SetTitleSize(0.04);
+        htmp -> GetYaxis() -> SetTitleSize(0.04);
+
 
         ncollmbG -> SetMarkerStyle(21);
         ncollmbG -> SetMarkerColor(1);
@@ -103,7 +107,7 @@ void plotMake_NcollByCent()
         ncollcentG[4] -> Draw("p L same");
 
 
-        TLegend *leg1 = new TLegend(0.45, 0.6, 0.85, 0.9);
+        TLegend *leg1 = new TLegend(0.45, 0.6, 0.8, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.03);

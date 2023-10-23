@@ -40,7 +40,7 @@ void plotMake_avgNcollCent()
         avgNcollver4 -> SetLineColor(2);
         avgNcollver4 -> Draw("p same");
 
-		TLegend *leg1 = new TLegend(0.5, 0.83, 0.8, 0.93);
+		TLegend *leg1 = new TLegend(0.45, 0.83, 0.75, 0.93);
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
 		leg1 -> SetTextSize(0.04);
@@ -48,15 +48,15 @@ void plotMake_avgNcollCent()
 		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
 	    leg1 -> Draw();
         
-        TLegend *leg2 = new TLegend(0.5, 0.63, 0.8, 0.83);
+        TLegend *leg2 = new TLegend(0.45, 0.63, 0.7, 0.83);
         leg2 -> SetFillStyle(0);
         leg2 -> SetBorderSize(0);
         leg2 -> SetTextSize(0.03);
-        leg2 -> AddEntry("", "#LTN_{coll}#GT_{0~10%} = 9.02056 #pm 7.45 #times 10^{-5}(stat)", "h");
-        leg2 -> AddEntry("", "#LTN_{coll}#GT_{10~20%} = 7.69286 #pm 7.26 #times 10^{-5}(stat)", "h");
-        leg2 -> AddEntry("", "#LTN_{coll}#GT_{20~40%} = 6.52323 #pm 5.29 #times 10^{-5} (stat)", "h");
-        leg2 -> AddEntry("", "#LTN_{coll}#GT_{40~60%} = 5.04424 #pm 5.34 #times 10^{-5}(stat)", "h");
-        leg2 -> AddEntry("", "#LTN_{coll}#GT_{60~80%} = 3.45525 #pm 4.88 #times 10^{-5}(stat)", "h");
+        leg2 -> AddEntry("", "#LT N_{coll} #GT_{0~10%} = 9.02056 #pm 7.45 #times 10^{-5}(stat)", "h");
+        leg2 -> AddEntry("", "#LT N_{coll} #GT_{10~20%} = 7.69286 #pm 7.26 #times 10^{-5}(stat)", "h");
+        leg2 -> AddEntry("", "#LT N_{coll} #GT_{20~40%} = 6.52323 #pm 5.29 #times 10^{-5} (stat)", "h");
+        leg2 -> AddEntry("", "#LT N_{coll} #GT_{40~60%} = 5.04424 #pm 5.34 #times 10^{-5}(stat)", "h");
+        leg2 -> AddEntry("", "#LT N_{coll} #GT_{60~80%} = 3.45525 #pm 4.88 #times 10^{-5}(stat)", "h");
         leg2 -> Draw();
 
 	}

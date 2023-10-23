@@ -43,7 +43,7 @@ void analysis_ratio_dNdpT_highpT_cent2mb()
 
     //output
     //------
-    TFile *output = new TFile("pAu200GeV_p8303ver4_option3_ratio_scaled-dNdpt.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303ver4_option3_ratio_scaled-dNdpT_highpT.root", "recreate");
 
     for(int i=0; i<5; i++)
     {

@@ -16,7 +16,7 @@ void plotMake_scaled_highpT_dNdetaCharge_allEvents()
     gStyle -> SetOptStat(0);
     TCanvas *c1 = new TCanvas("", "", 800, 600);
 
-    const int dndeta_centclass = 2;
+    const int dndeta_centclass = 4;
 
     TLegend *leg[5];
     for(int i=0; i<5; i++)

@@ -24,7 +24,7 @@ void plotMake_scaled_dNdetaCharge_allEvents()
         leg[i] = new TLegend(0.55, 0.6, 0.95, 0.9);
         leg[i] -> SetFillStyle(0);
         leg[i] -> SetBorderSize(0);
-        leg[i] -> SetTextSize(0.03);
+        leg[i] -> SetTextSize(0.04);
 
         leg[i] -> AddEntry("", "PYTHIA8, Angantyr option3", "h");
         leg[i] -> AddEntry("", "p+Au 200 GeV", "h");
@@ -56,7 +56,7 @@ void plotMake_scaled_dNdetaCharge_allEvents()
         TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 2.5);
 
         htmp -> GetXaxis() -> SetTitle("#eta");
-        htmp -> GetYaxis() -> SetTitle("#frac{1}{#LTN_{coll}#GT} #frac{1}{N_{event}} #frac{dN^{ch}}{d#eta}");
+        htmp -> GetYaxis() -> SetTitle("#frac{1}{#LT N_{coll} #GT} #frac{1}{N_{event}} #frac{dN^{ch}}{d#eta}");
         
         dndeta_mb -> SetMarkerStyle(28);
         dndeta_mb -> SetMarkerColor(1);
@@ -78,12 +78,12 @@ void plotMake_scaled_dNdetaCharge_allEvents()
         backward_high -> SetLineColor(2);
         backward_high -> Draw("p same");
 
-        TLine *mid_low= new TLine(-1, 0, -1, 1.7);
+        TLine *mid_low= new TLine(-1, 0, -1, 1.5);
         mid_low -> SetLineStyle(9);
         mid_low -> SetLineColor(2);
         mid_low -> Draw("p same");
 
-        TLine *mid_high= new TLine(1, 0, 1, 1.7);
+        TLine *mid_high= new TLine(1, 0, 1, 1.5);
         mid_high -> SetLineStyle(9);
         mid_high -> SetLineColor(2);
         mid_high -> Draw("p same");

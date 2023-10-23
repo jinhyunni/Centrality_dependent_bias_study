@@ -1,11 +1,11 @@
-void plotMake_ratio_scaledYield_highpT_pion0cent()
+void plotMake_ratio_ratioCent2MB_highpT_dir2pion0_byCent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_ratio_scaled-dNdpt.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_ratio_ratioCent2MB_highpT_dir2pion0_bypT.root", "read");
 
     TH1D *ratio_scaled[5];
     for(int i=0; i<5; i++)
     {
-        TString inputname = Form("ratio_scaledYield_pion0cent%d", i+1);
+        TString inputname = Form("centBias_bypT_dir2pion0_cent%d", i+1);
 
         ratio_scaled[i] = (TH1D*)input1 -> Get(inputname);
     }
@@ -22,10 +22,10 @@ void plotMake_ratio_scaledYield_highpT_pion0cent()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0, 20, 2.5);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.5, 15, 2.0);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
-        htmp -> GetYaxis() -> SetTitle("(#frac{1}{#LT N_{coll} #GT} #frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}})_{cent} / (#frac{1}{#LT N_{coll} #GT} #frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}})_{MB} ");
+        htmp -> GetYaxis() -> SetTitle("Centrality Bias on #gamma^{dir} / Centrality Bias on #pi^{0}");
                    
         ratio_scaled[0] -> SetMarkerStyle(34);
         ratio_scaled[0]-> SetMarkerColor(kOrange);
@@ -58,7 +58,7 @@ void plotMake_ratio_scaledYield_highpT_pion0cent()
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.04);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
-        leg1 -> AddEntry("", "#pi^{0} in |#eta|<1", "h");
+        leg1 -> AddEntry("", "#gamma^{dir}, #pi^{0} in |#eta|<1", "h");
 
         leg1 -> AddEntry(ratio_scaled[0], "centrality: 0~10%", "p");
         leg1 -> AddEntry(ratio_scaled[1], "centrality: 10~20%", "p");

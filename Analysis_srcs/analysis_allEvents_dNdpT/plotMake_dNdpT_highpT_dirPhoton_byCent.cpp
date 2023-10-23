@@ -60,10 +60,10 @@ void plotMake_dNdpT_highpT_dirPhoton_byCent()
         dNdpT_dir_cent5 -> Draw("p same");
 
 
-        TLegend *leg1 = new TLegend(0.4, 0.65, 0.8, 0.9);
+        TLegend *leg1 = new TLegend(0.4, 0.6, 0.8, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
-        leg1 -> SetTextSize(0.03);
+        leg1 -> SetTextSize(0.04);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
         leg1 -> AddEntry("", "#gamma^{dir} in |#eta|<1", "h");
 

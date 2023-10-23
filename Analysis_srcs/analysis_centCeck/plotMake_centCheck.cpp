@@ -29,7 +29,7 @@ void plotMake_centCheck()
 
 		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0.1e8, 100, 1.5e8);
 
-		htmp -> GetXaxis() -> SetTitle("centrality");
+		htmp -> GetXaxis() -> SetTitle("centrality(%)");
 		htmp -> GetXaxis() -> SetTitleSize(0.05);
 		htmp -> GetXaxis() -> SetLabelSize(0.04);
 		htmp -> GetXaxis() -> SetTitleOffset(1.1);
