@@ -21,15 +21,13 @@ void plotMake_scaled_dNdetaCharge_allEvents()
     TLegend *leg[5];
     for(int i=0; i<5; i++)
     {
-        leg[i] = new TLegend(0.55, 0.6, 0.95, 0.9);
+        leg[i] = new TLegend(0.15, 0.6, 0.55, 0.9);
         leg[i] -> SetFillStyle(0);
         leg[i] -> SetBorderSize(0);
-        leg[i] -> SetTextSize(0.04);
+        leg[i] -> SetTextSize(0.05);
 
-        leg[i] -> AddEntry("", "PYTHIA8, Angantyr option3", "h");
-        leg[i] -> AddEntry("", "p+Au 200 GeV", "h");
-        leg[i] -> AddEntry("", "#pi^{#pm}, k^{#pm}, p^{#pm}", "h");
-        leg[i] -> AddEntry("", "integrated p_{T}", "h");
+        leg[i] -> AddEntry("", "PYTHIA8, p+Au 200 GeV with option3", "h");
+        leg[i] -> AddEntry("", "#pi^{#pm}, k^{#pm}, p^{#pm}, integrated p_{T}", "h");
         
         TString legname[5];
         legname[0] = "cent: 0~10%";
@@ -47,13 +45,13 @@ void plotMake_scaled_dNdetaCharge_allEvents()
         c1 -> cd();
 
         gPad -> SetTicks();
-        gPad -> SetLeftMargin(0.1);
-        gPad -> SetRightMargin(0.1);
+        gPad -> SetLeftMargin(0.12);
+        gPad -> SetRightMargin(0.12);
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 2.5);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 4.0);
 
         htmp -> GetXaxis() -> SetTitle("#eta");
         htmp -> GetYaxis() -> SetTitle("#frac{1}{#LT N_{coll} #GT} #frac{1}{N_{event}} #frac{dN^{ch}}{d#eta}");
@@ -64,29 +62,29 @@ void plotMake_scaled_dNdetaCharge_allEvents()
         dndeta_mb -> Draw("p same");
 
         dndeta_allEvents[dndeta_centclass] -> SetMarkerStyle(34);
-        dndeta_allEvents[dndeta_centclass] -> SetMarkerColor(9);
-        dndeta_allEvents[dndeta_centclass] -> SetLineColor(9);
+        dndeta_allEvents[dndeta_centclass] -> SetMarkerColor(kGreen+1);
+        dndeta_allEvents[dndeta_centclass] -> SetLineColor(kGreen+1);
         dndeta_allEvents[dndeta_centclass] -> Draw("p same");
 
-        TLine *backward_low = new TLine(-3.9, 0, -3.9, 2.0);
-        backward_low -> SetLineStyle(9);
-        backward_low -> SetLineColor(2);
-        backward_low -> Draw("p same");
-
-        TLine *backward_high = new TLine(-3.0, 0, -3.0, 2.0);
-        backward_high -> SetLineStyle(9);
-        backward_high -> SetLineColor(2);
-        backward_high -> Draw("p same");
-
-        TLine *mid_low= new TLine(-1, 0, -1, 1.5);
-        mid_low -> SetLineStyle(9);
-        mid_low -> SetLineColor(2);
-        mid_low -> Draw("p same");
-
-        TLine *mid_high= new TLine(1, 0, 1, 1.5);
-        mid_high -> SetLineStyle(9);
-        mid_high -> SetLineColor(2);
-        mid_high -> Draw("p same");
+ //        TLine *backward_low = new TLine(-3.9, 0, -3.9, 2.0);
+ //        backward_low -> SetLineStyle(9);
+ //        backward_low -> SetLineColor(2);
+ //        backward_low -> Draw("p same");
+ //
+ //        TLine *backward_high = new TLine(-3.0, 0, -3.0, 2.0);
+ //        backward_high -> SetLineStyle(9);
+ //        backward_high -> SetLineColor(2);
+ //        backward_high -> Draw("p same");
+ //
+ //        TLine *mid_low= new TLine(-1, 0, -1, 1.5);
+ //        mid_low -> SetLineStyle(9);
+ //        mid_low -> SetLineColor(2);
+ //        mid_low -> Draw("p same");
+ //
+ //        TLine *mid_high= new TLine(1, 0, 1, 1.5);
+ //        mid_high -> SetLineStyle(9);
+ //        mid_high -> SetLineColor(2);
+ //        mid_high -> Draw("p same");
 
 
             

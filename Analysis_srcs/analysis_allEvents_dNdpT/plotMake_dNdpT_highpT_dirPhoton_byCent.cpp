@@ -17,8 +17,8 @@ void plotMake_dNdpT_highpT_dirPhoton_byCent()
         c1 -> cd();
 
         gPad -> SetTicks();
-        gPad -> SetLeftMargin(0.15);
-        gPad -> SetRightMargin(0.15);
+        gPad -> SetLeftMargin(0.12);
+        gPad -> SetRightMargin(0.12);
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
@@ -60,10 +60,10 @@ void plotMake_dNdpT_highpT_dirPhoton_byCent()
         dNdpT_dir_cent5 -> Draw("p same");
 
 
-        TLegend *leg1 = new TLegend(0.4, 0.6, 0.8, 0.9);
+        TLegend *leg1 = new TLegend(0.31, 0.6, 0.71, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
-        leg1 -> SetTextSize(0.04);
+        leg1 -> SetTextSize(0.05);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
         leg1 -> AddEntry("", "#gamma^{dir} in |#eta|<1", "h");
 

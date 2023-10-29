@@ -23,16 +23,16 @@ void analysis_ratio_ratioCent2MB_highpT_dir2pion0_bypT()
     
     for(int i=0; i<5; i++)
     {
-        TString outputname = Form("centBias_bypT_dir2pion0_cent%d", i+1);
+        TString outputname = Form("centBias_bypT_pion0toDir_cent%d", i+1);
         
         //centBias by pT, dirPhoton/pion0
-        centBias_bypT_dir2pion0[i] = (TH1D*)ratio_scaled_dir_cent[i] -> Clone(outputname);
-        centBias_bypT_dir2pion0[i] -> Divide(ratio_scaled_pion0_cent[i]);
+        centBias_bypT_dir2pion0[i] = (TH1D*)ratio_scaled_pion0_cent[i] -> Clone(outputname);
+        centBias_bypT_dir2pion0[i] -> Divide(ratio_scaled_dir_cent[i]);
     }
 
     //output
     //------
-    TFile *output = new TFile("pAu200GeV_p8303ver4_option3_ratio_ratioCent2MB_highpT_dir2pion0_bypT.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303ver4_option3_ratio_ratioCent2MB_highpT_pion0toDir_bypT.root", "recreate");
 
     for(int i=0; i<5; i++)
     {

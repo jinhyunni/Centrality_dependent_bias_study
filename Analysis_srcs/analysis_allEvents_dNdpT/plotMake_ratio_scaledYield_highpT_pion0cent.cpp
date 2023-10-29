@@ -1,6 +1,6 @@
 void plotMake_ratio_scaledYield_highpT_pion0cent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_ratio_scaled-dNdpt.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_ratio_scaled-dNdpT_highpT.root", "read");
 
     TH1D *ratio_scaled[5];
     for(int i=0; i<5; i++)
@@ -17,8 +17,8 @@ void plotMake_ratio_scaledYield_highpT_pion0cent()
         c1 -> cd();
 
         gPad -> SetTicks();
-        gPad -> SetLeftMargin(0.15);
-        gPad -> SetRightMargin(0.15);
+        gPad -> SetLeftMargin(0.12);
+        gPad -> SetRightMargin(0.12);
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
@@ -53,10 +53,10 @@ void plotMake_ratio_scaledYield_highpT_pion0cent()
         ratio_scaled[4] -> Draw("p same");
 
 
-        TLegend *leg1 = new TLegend(0.18, 0.6, 0.6, 0.9);
+        TLegend *leg1 = new TLegend(0.14, 0.6, 0.56, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
-        leg1 -> SetTextSize(0.04);
+        leg1 -> SetTextSize(0.05);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
         leg1 -> AddEntry("", "#pi^{0} in |#eta|<1", "h");
 
