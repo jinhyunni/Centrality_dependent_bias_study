@@ -1,15 +1,15 @@
-void analysis_yieldOfgammaApion0_bypT()
+void analysis_dNdpT_allEvents()
 {
     //input
     //-----
-    TFile *pion = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_TH2Dpion0Cent.root", "read");
-    TFile *dir = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_TH2DdirCent.root", "read");
-    TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_NcollCent_allEvents.root", "read");
-    TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303ver4_option3_avgNcollCent_allEvents.root", "read");
+    TFile *pion = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_TH2Dpion0Cent.root", "read");
+    TFile *dir = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_TH2DdirCent.root", "read");
+    TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_NcollCent_allEvents.root", "read");
+    TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_avgNcollCent_allEvents.root", "read");
 
     //output
     //------
-    TFile* output = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_byCentrality.root", "recreate");
+    TFile* output = new TFile("pAu200GeV_p8303ver3_option3_dNdpT_allEvents.root", "recreate");
 
     //Input histograms
     //----------------
