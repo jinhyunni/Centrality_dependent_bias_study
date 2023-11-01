@@ -12,12 +12,12 @@ void analysis_dNdpT_MBevents()
 
 	TProfile *avgNcoll = (TProfile*)input3 -> Get("avgNcoll_mb");
 
-    //Analysis1-1. Project to y to get number of particle by pT
+    //Analysis1. Project to y to get number of particle by pT
     //----------------------------------------------------------
     TH1D *numPion0pT = (TH1D*)h2pTetaPion0 -> ProjectionY("numPion0pT");
     TH1D *numDirpT = (TH1D*)h2pTetaDir -> ProjectionY("numDirpT");
     
-    //Analysis1-2. Scale event number
+    //Analysis2. Scale event number
     //-------------------------------
     TH1D *numPion0pT_perEvent = (TH1D*)numPion0pT -> Clone("yieldPion0pT_mb");
     TH1D *numDirpT_perEvent = (TH1D*)numDirpT -> Clone("yieldDirpT_mb");
@@ -25,7 +25,7 @@ void analysis_dNdpT_MBevents()
     numPion0pT_perEvent -> Scale(1./h1ncoll -> Integral());
     numDirpT_perEvent -> Scale(1./h1ncoll -> Integral());
     
-    //Analysis2. Rebin for pT, divde binwidht to get dndpt
+    //Analysis3. Rebin for pT, divde binwidht to get dndpT
     //------------------------------------------------------
     //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};
     double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};   //11 binning
@@ -33,7 +33,7 @@ void analysis_dNdpT_MBevents()
     TH1D *dndpt_pion0_mb = (TH1D*)numPion0pT_perEvent -> Rebin(11, "dNdpt_pion0_mb", pTrange);
     TH1D *dndpt_dir_mb = (TH1D*)numDirpT_perEvent -> Rebin(11, "dNdpt_dir_mb", pTrange);
 	
-    //scaling binwidth to get dNdpt
+    //scaling binwidth to get dNdpT
     for(int i=0; i<11; i++)
     {
         double binwidth = dndpt_pion0_mb -> GetBinWidth(i+1);
@@ -48,7 +48,7 @@ void analysis_dNdpT_MBevents()
     }
 
     
-    //Analysis3. average Ncoll Scaling
+    //Analysis4. average Ncoll Scaling
     //--------------------------------
     TH1D *YavgNcollpT_pion0 = (TH1D*)dndpt_pion0_mb -> Clone("YavgNcollPion0pT_mb");
     YavgNcollpT_pion0 -> Scale(1./avgNcoll -> GetBinContent(1));
