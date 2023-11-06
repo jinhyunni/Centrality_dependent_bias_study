@@ -1,7 +1,7 @@
 void plotMake_scaledYield_highpT_pion0cent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver5_option3_dNdpT_allEvents.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_p8303ver5_option3_dNdpT_MBevents.root", "read");
 
     TH1D *scaled_cent[5];
     for(int i=0; i<5; i++)
