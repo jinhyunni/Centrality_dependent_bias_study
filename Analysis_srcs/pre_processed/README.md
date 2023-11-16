@@ -20,4 +20,13 @@
 
     pythia version: 8303
     saved particle: (high pT)pion0, (high pT)direct photon  *high pT: more than 2 GeV
+	updated variable: pT sum of charge particles in -3.9 < eta < -3.0 range
     external package: None
+
+4. pythia8303_ver5
+	
+	pythia version: 8303
+	saved particle: (high pT)pion0, (high pT)direct photon * high pT: more than 2 GeV
+	external package: None
+	saved particle: centrality calculated by using pT sum of charged particles in -3.9 < eta < -3.0 range 
+

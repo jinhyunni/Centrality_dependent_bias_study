@@ -29,28 +29,28 @@ void plotMake_ratio_ratioCent2MB_highpT_dir2pion0_byCent()
         htmp -> GetYaxis() -> SetTitle("(Y^{#pi^{0}}/Y^{#gamma^{dir}})_{cent} / (Y^{#pi^{0}}/Y^{#gamma^{dir}})_{MB}");
                    
         ratio_scaled[0] -> SetMarkerStyle(34);
-        ratio_scaled[0]-> SetMarkerColor(kViolet-1);
-        ratio_scaled[0] -> SetLineColor(kViolet-1);
+        ratio_scaled[0]-> SetMarkerColor(kViolet);
+        ratio_scaled[0] -> SetLineColor(kViolet);
         ratio_scaled[0] -> Draw("p same");
 
         ratio_scaled[1] -> SetMarkerStyle(49);
-        ratio_scaled[1] -> SetMarkerColor(kViolet+1);
-        ratio_scaled[1] -> SetLineColor(kViolet+1);
+        ratio_scaled[1] -> SetMarkerColor(kBlue);
+        ratio_scaled[1] -> SetLineColor(kBlue);
         ratio_scaled[1] -> Draw("p same");
 
         ratio_scaled[2] -> SetMarkerStyle(28);
-        ratio_scaled[2] -> SetMarkerColor(kViolet+2);
-        ratio_scaled[2] -> SetLineColor(kViolet+2);
+        ratio_scaled[2] -> SetMarkerColor(kGreen+1);
+        ratio_scaled[2] -> SetLineColor(kGreen+1);
         ratio_scaled[2] -> Draw("p same");
     
         ratio_scaled[3] -> SetMarkerStyle(48);
-        ratio_scaled[3] -> SetMarkerColor(kViolet+3);
-        ratio_scaled[3] -> SetLineColor(kViolet+3);
+        ratio_scaled[3] -> SetMarkerColor(kOrange);
+        ratio_scaled[3] -> SetLineColor(kOrange);
         ratio_scaled[3] -> Draw("p same");
 
         ratio_scaled[4] -> SetMarkerStyle(47);
-        ratio_scaled[4] -> SetMarkerColor(kViolet+4);
-        ratio_scaled[4] -> SetLineColor(kViolet+4);
+        ratio_scaled[4] -> SetMarkerColor(kRed);
+        ratio_scaled[4] -> SetLineColor(kRed);
         ratio_scaled[4] -> Draw("p same");
 
 

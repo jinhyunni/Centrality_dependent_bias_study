@@ -46,12 +46,8 @@ void analysis_dNdpT_allEvents()
     TH1D *yieldDirpT_cent[5];
 
     TH1D *nEventCent=(TH1D*)h2NcollCent -> ProjectionX("nEventByCent");
-    double eventN[5];
-    eventN[0] = nEventCent -> GetBinContent(1);
-    eventN[1] = nEventCent -> GetBinContent(2);
-    eventN[2] = nEventCent -> GetBinContent(3) + nEventCent -> GetBinContent(4);
-    eventN[3] = nEventCent -> GetBinContent(5) + nEventCent -> GetBinContent(6);
-    eventN[4] = nEventCent -> GetBinContent(7) + nEventCent -> GetBinContent(8);
+	double centRange[] = {0, 10, 20, 40, 60, 80};
+	TH1D *eventN = (TH1D*)nEventCent -> Rebin(5, "nEventByCent", centRange);
 
     for(int i=0; i<5; i++)
     {
@@ -61,10 +57,10 @@ void analysis_dNdpT_allEvents()
         yieldPion0pT_cent[i] = (TH1D*)numPion0pT_cent[i] -> Clone(hisname_pion0);
         yieldDirpT_cent[i] = (TH1D*)numDirpT_cent[i] -> Clone(hisname_dir);
 
-        yieldPion0pT_cent[i] -> Scale(1./eventN[i]);
-        yieldDirpT_cent[i] -> Scale(1./eventN[i]);
+        yieldPion0pT_cent[i] -> Scale(1./eventN -> GetBinContent(i+1));
+        yieldDirpT_cent[i] -> Scale(1./eventN -> GetBinContent(i+1));
 
-        cout << eventN[i] << endl;
+        cout << eventN -> GetBinContent(i+1) << endl;
                 
     }
 
