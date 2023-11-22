@@ -19,15 +19,15 @@ void analysis_ratio_ratioCent2MB_highpT_dir2pion0_bypT()
     
     //Analysis1. Get scaled yield Ratio
     //---------------------------------
-    TH1D *centBias_bypT_dir2pion0[5];
+    TH1D *centBias_bypT_pion0todir[5];
     
     for(int i=0; i<5; i++)
     {
         TString outputname = Form("centBias_bypT_pion0toDir_cent%d", i+1);
         
-        //centBias by pT, dirPhoton/pion0
-        centBias_bypT_dir2pion0[i] = (TH1D*)ratio_scaled_pion0_cent[i] -> Clone(outputname);
-        centBias_bypT_dir2pion0[i] -> Divide(ratio_scaled_dir_cent[i]);
+        //centBias by pT, pion0/dir
+        centBias_bypT_pion0todir[i] = (TH1D*)ratio_scaled_pion0_cent[i] -> Clone(outputname);
+        centBias_bypT_pion0todir[i] -> Divide(ratio_scaled_dir_cent[i]);
     }
 
     //output
@@ -36,7 +36,7 @@ void analysis_ratio_ratioCent2MB_highpT_dir2pion0_bypT()
 
     for(int i=0; i<5; i++)
     {
-        centBias_bypT_dir2pion0[i] -> Write();
+        centBias_bypT_pion0todir[i] -> Write();
     }
 
     output -> Close();
