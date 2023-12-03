@@ -1,7 +1,7 @@
 void plotMake_dNdpT_highpT_pion0_byCent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver5_option3_dNdpT_allEvents.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_p8303ver5_option3_dNdpT_MBevents.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303ver5_option3_pion0_dNdpT_allEvents.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_p8303ver5_option3_pion0_dNdpT_MBevents.root", "read");
 
     TH1D *dNdpT_pion0_cent1 = (TH1D*)input1 -> Get("dNdpT_pion0_cent1");
     TH1D *dNdpT_pion0_cent2 = (TH1D*)input1 -> Get("dNdpT_pion0_cent2");
