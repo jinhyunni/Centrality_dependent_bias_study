@@ -2,8 +2,8 @@ void analysis_pion0_ratio_dNdpT_highpT_cent2mb()
 {
     //input
     //-----
-    TFile *cent = new TFile("pAu200GeV_p8303ver5_option3_dNdpT_allEvents.root", "read");
-    TFile *mb = new TFile("pAu200GeV_p8303ver5_option3_dNdpT_MBevents.root", "read");
+    TFile *cent = new TFile("pAu200GeV_p8303ver5_option3_pion0_dNdpT_allEvents.root", "read");
+    TFile *mb = new TFile("pAu200GeV_p8303ver5_option3_pion0_dNdpT_MBevents.root", "read");
     
     TH1D *scaled_pion0_cent[5];
     

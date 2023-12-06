@@ -2,13 +2,13 @@ void analysis_dirPhoton_dNdpT_allEvents()
 {
     //input
     //-----
-    TFile *dir = new TFile("../pre_processed/pAu200GeV_p8303ver5_option3_TH2DdirCent_allEvents.root", "read");
-    TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303ver5_option3_NcollCent_allEvents.root", "read");
-    TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303ver5_option3_avgNcollCent_allEvents.root", "read");
+    TFile *dir = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_TH2DdirCent_allEvents.root", "read");
+    TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_NcollCent_allEvents.root", "read");
+    TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_avgNcollCent_allEvents.root", "read");
 
     //output
     //------
-    TFile* output = new TFile("pAu200GeV_p8303ver5_option3_dirPhoton_dNdpT_allEvents.root", "recreate");
+    TFile* output = new TFile("pAu200GeV_p8303ver3_option3_dirPhoton_dNdpT_allEvents.root", "recreate");
 
     //Input histograms
     //----------------
@@ -23,7 +23,7 @@ void analysis_dirPhoton_dNdpT_allEvents()
     //centclass3: 20~40%
     //centclass4: 40~60%
     //centclass5: 60~80%
-    //----------------------------------------
+    //--------------------------------------------------------------
     TH1D *numDirpT_cent[5];
     
     numDirpT_cent[0] = (TH1D*)h2centDir -> ProjectionY("centClassDir1", 1, 1);             //centClass1: 0~10%
