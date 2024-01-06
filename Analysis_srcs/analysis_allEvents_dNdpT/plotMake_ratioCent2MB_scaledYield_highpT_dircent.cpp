@@ -1,6 +1,6 @@
 void plotMake_ratioCent2MB_scaledYield_highpT_dircent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver5_option3_dirPhoton_ratio_scaled-dNdpT_highpT.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_ratio_scaled-dNdpT_highpT_grp0to4.root", "read");
 
     TH1D *ratio_scaled[5];
     for(int i=0; i<5; i++)

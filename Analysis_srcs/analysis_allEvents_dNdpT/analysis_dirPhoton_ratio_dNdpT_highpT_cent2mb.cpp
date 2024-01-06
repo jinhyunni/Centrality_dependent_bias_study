@@ -2,8 +2,8 @@ void analysis_dirPhoton_ratio_dNdpT_highpT_cent2mb()
 {
     //input
     //-----
-    TFile *cent = new TFile("pAu200GeV_p8303ver5_option3_dirPhoton_dNdpT_allEvents.root", "read");
-    TFile *mb = new TFile("pAu200GeV_p8303ver5_option3_dirPhoton_dNdpT_MBevents.root", "read");
+    TFile *cent = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_dNdpT_allEvents_grp0to4.root", "read");
+    TFile *mb = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_dNdpT_MBevents_grp0to4.root", "read");
     
     TH1D *scaled_dir_cent[5];
     
@@ -32,7 +32,7 @@ void analysis_dirPhoton_ratio_dNdpT_highpT_cent2mb()
 
     //output
     //------
-    TFile *output = new TFile("pAu200GeV_p8303ver5_option3_dirPhoton_ratio_scaled-dNdpT_highpT.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_ratio_scaled-dNdpT_highpT_grp0to4.root", "recreate");
 
     for(int i=0; i<5; i++)
     {
