@@ -2,10 +2,8 @@ void analysis_ratio_ratioCent2MB_highpT_dir2pion0_bypT()
 {
     //input
     //-----
-    TFile *input = new TFile("pAu200GeV_p8303ver5_option3_pion0_ratio_scaled-dNdpT_highpT.root", "read");
-   	
-	TFile *input_pion0 = new TFile("pAu200GeV_p8303ver5_option3_pion0_ratio_scaled-dNdpT_highpT.root", "read");
-	TFile *input_dirPhoton = new TFile("pAu200GeV_p8303ver5_option3_dirPhoton_ratio_scaled-dNdpT_highpT.root", "read");
+	TFile *input_pion0 = new TFile("pAu200GeV_p8303ver5_onlyDirPhotonUsed_option3_pion0_ratio_scaled-dNdpT_highpT.root", "read");
+	TFile *input_dirPhoton = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_ratio_scaled-dNdpT_highpT.root", "read");
 
     TH1D *ratio_scaled_pion0_cent[5];
     TH1D *ratio_scaled_dir_cent[5];
@@ -35,7 +33,7 @@ void analysis_ratio_ratioCent2MB_highpT_dir2pion0_bypT()
 
     //output
     //------
-    TFile *output = new TFile("pAu200GeV_p8303ver5_option3_ratio_ratioCent2MB_highpT_pion0toDir_bypT.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303_onlyDirPhotonUsed_option3_ratio_ratioCent2MB_highpT_pion0toDir_bypT.root", "recreate");
 
     for(int i=0; i<5; i++)
     {

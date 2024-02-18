@@ -2,19 +2,20 @@ void analysis_dirPhoton_dNdpT_allEvents()
 {
     //input
     //-----
-    TFile *dir = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_TH2DdirCent_allEvents_grp0to4.root", "read");
-    TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_NcollCent_allEvents_grp0to4.root", "read");
-    TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_avgNcollCent_allEvents_grp0to4.root", "read");
+    TFile *dir = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_centDivided_TH2DdirCent.root", "read");
+    TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_centDivided_NcollCent.root", "read");
+    TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_centDivided_avgNcollCent.root", "read");
 
     //output
     //------
-    TFile* output = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_dNdpT_allEvents_grp0to4.root", "recreate");
+    TFile* output = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_dNdpT_allEvents.root", "recreate");
 
     //Input histograms
     //----------------
     TH2D *h2centDir = (TH2D*)dir -> Get("centDir");
     TH2D *h2NcollCent = (TH2D*)input_Ncoll -> Get("ncollCent");
-    TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
+    TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("ncollCent");
+	//TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
 
     //Analysis1. Get number of direct photon by centrality per event
     //CentClass
@@ -133,9 +134,9 @@ void analysis_dirPhoton_dNdpT_allEvents()
     output -> Close();
 
     //disallocation
-    delete dir;
-    delete input_Ncoll;
-    delete input_avgNcoll;
-    delete output;
+ 	delete dir;
+ 	delete input_Ncoll;
+ 	delete input_avgNcoll;
+ 	delete output;
         
 }

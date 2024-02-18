@@ -2,19 +2,20 @@ void analysis_pion0_dNdpT_allEvents()
 {
     //input
     //-----
-    TFile *pion = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_TH2Dpion0Cent_allEvents.root", "read");
-    TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_NcollCent_allEvents.root", "read");
-    TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303ver3_option3_avgNcollCent_allEvents.root", "read");
+    TFile *pion = new TFile("../pre_processed/pAu200GeV_p8303ver5_option3_TH2Dpion0Cent_allEvents.root", "read");
+    TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303ver5_option3_NcollCent_allEvents.root", "read");
+    TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_centDivided_avgNcollCent.root", "read");
 
     //output
     //------
-    TFile* output = new TFile("pAu200GeV_p8303ver3_option3_pion0_dNdpT_allEvents.root", "recreate");
+    TFile* output = new TFile("pAu200GeV_p8303ver5_onlyDirPhotonUsed_option3_pion0_dNdpT_allEvents.root", "recreate");
 
     //Input histograms
     //----------------
     TH2D *h2centPion0 = (TH2D*)pion -> Get("centPion0");
     TH2D *h2NcollCent = (TH2D*)input_Ncoll -> Get("ncollCent");
-    TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
+    TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("ncollCent");
+	//TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
 
     //Analysis1. Projection to get Yield by pT
     //CentClass

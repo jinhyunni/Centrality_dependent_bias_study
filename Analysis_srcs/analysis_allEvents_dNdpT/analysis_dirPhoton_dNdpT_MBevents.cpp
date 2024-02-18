@@ -2,9 +2,9 @@ void analysis_dirPhoton_dNdpT_MBevents()
 {
     //input
     //-----
-    TFile *input1 = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_TH2DpTeta_dirPhoton_midrapidity_MBevents_grp0to4.root", "read");
-    TFile *input2 = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_Ncoll_MBevents_grp0to4.root", "read");
-    TFile *input3 = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_avgNcoll_MBevents_grp0to4.root", "read");
+    TFile *input1 = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_MBevents_TH2DpTeta_midDirPhoton.root", "read");
+    TFile *input2 = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_MBevents_Ncoll.root", "read");
+    TFile *input3 = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_MBevents_avgNcoll.root", "read");
        
     TH2D *h2pTetaDir = (TH2D*)input1 -> Get("pTetaDir_mb");
     TH1D *h1ncoll = (TH1D*)input2 -> Get("ncoll_mb");
@@ -45,7 +45,7 @@ void analysis_dirPhoton_dNdpT_MBevents()
 
     //ouput
     //-----
-    TFile *output = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_dNdpT_MBevents_grp0to4.root", "recreate");
+    TFile *output = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_dNdpT_MBevents.root", "recreate");
     
 	numDirpT_perEvent -> Write();
 	dndpt_dir_mb -> Write();

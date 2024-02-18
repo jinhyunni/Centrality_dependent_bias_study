@@ -1,6 +1,6 @@
 void plotMake_ratio_ratioCent2MB_highpT_dir2pion0_byCent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver5_option3_ratio_ratioCent2MB_highpT_pion0toDir_bypT.root", "read");
+    TFile *input1 = new TFile("pAu200GeV_p8303_onlyDirPhotonUsed_option3_ratio_ratioCent2MB_highpT_pion0toDir_bypT.root", "read");
 
     TH1D *ratio_scaled[5];
     for(int i=0; i<5; i++)
