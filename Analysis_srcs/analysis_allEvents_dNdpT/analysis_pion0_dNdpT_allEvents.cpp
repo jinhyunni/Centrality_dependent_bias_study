@@ -14,8 +14,7 @@ void analysis_pion0_dNdpT_allEvents()
     //----------------
     TH2D *h2centPion0 = (TH2D*)pion -> Get("centPion0");
     TH2D *h2NcollCent = (TH2D*)input_Ncoll -> Get("ncollCent");
-    TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("ncollCent");
-	//TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
+	TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
 
     //Analysis1. Projection to get Yield by pT
     //CentClass

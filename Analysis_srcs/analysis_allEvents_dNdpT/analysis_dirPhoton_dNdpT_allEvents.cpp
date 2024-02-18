@@ -14,8 +14,7 @@ void analysis_dirPhoton_dNdpT_allEvents()
     //----------------
     TH2D *h2centDir = (TH2D*)dir -> Get("centDir");
     TH2D *h2NcollCent = (TH2D*)input_Ncoll -> Get("ncollCent");
-    TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("ncollCent");
-	//TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
+	TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("avgNcollCent");
 
     //Analysis1. Get number of direct photon by centrality per event
     //CentClass
