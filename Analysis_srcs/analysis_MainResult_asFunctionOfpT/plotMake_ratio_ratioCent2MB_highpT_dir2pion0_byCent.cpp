@@ -22,7 +22,7 @@ void plotMake_ratio_ratioCent2MB_highpT_dir2pion0_byCent()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.7, 20, 1.5);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2.0, 0.7, 20, 1.5);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         //htmp -> GetYaxis() -> SetTitle("Centrality Bias on #pi^{0} / Centrality Bias on #gamma^{dir}");
@@ -54,10 +54,10 @@ void plotMake_ratio_ratioCent2MB_highpT_dir2pion0_byCent()
         ratio_scaled[4] -> Draw("p same");
 
 
-        TLegend *leg1 = new TLegend(0.14, 0.57, 0.58, 0.9);
+        TLegend *leg1 = new TLegend(0.14, 0.65, 0.58, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
-        leg1 -> SetTextSize(0.04);
+        leg1 -> SetTextSize(0.02);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
         leg1 -> AddEntry("", "#gamma^{dir}, #pi^{0} in |#eta|<1", "h");
 

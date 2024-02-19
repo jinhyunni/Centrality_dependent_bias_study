@@ -22,13 +22,15 @@ void analysis_dirPhoton_dNdpT_MBevents()
     
     //Analysis3. Rebin for pT, divde binwidht to get dndpT
     //------------------------------------------------------
-    //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};
-    double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};   //11 binning
+    //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 11;	//11 binning
+    //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};	int binNumber = 11; //11 binning
+	//double pTrange[] = {2.0, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 12.0, 14.0, 16.0, 20.0}; int binNumber = 15; //12 binning
+	double pTrange[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
 
-    TH1D *dndpt_dir_mb = (TH1D*)numDirpT_perEvent -> Rebin(11, "dNdpt_dir_mb", pTrange);
+    TH1D *dndpt_dir_mb = (TH1D*)numDirpT_perEvent -> Rebin(binNumber, "dNdpt_dir_mb", pTrange);
 	
     //scaling binwidth to get dNdpT
-    for(int i=0; i<11; i++)
+    for(int i=0; i<binNumber; i++)
     {
         double binwidth = dndpt_dir_mb -> GetBinWidth(i+1);
 		

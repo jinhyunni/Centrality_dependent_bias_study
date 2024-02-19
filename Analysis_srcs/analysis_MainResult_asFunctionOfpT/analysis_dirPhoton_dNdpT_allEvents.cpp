@@ -53,15 +53,17 @@ void analysis_dirPhoton_dNdpT_allEvents()
 
     //Analysis2. Rebin for pT
     //-----------------------
-    //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};   //11 binning   
-    double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};   //11 binning   
+    //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};	int binNumber = 11; //11 binning   
+    //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};	int binNumber = 11; //11 binning   
+	//double binEdge[] = {2.0, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 12.0, 14.0, 16.0, 20.0};	int binNumber = 15;//12binning
+	double binEdge[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
     
     TH1D *dNdpT_dir_cent[5];
 
     for(int i=0; i<5; i++)
     {
         TString target_dir = Form("dNdpT_dir_cent%d", i+1);
-        dNdpT_dir_cent[i] = (TH1D*)yieldDirpT_cent[i] ->Rebin(11, target_dir, binEdge);
+        dNdpT_dir_cent[i] = (TH1D*)yieldDirpT_cent[i] ->Rebin(binNumber, target_dir, binEdge);
     }
     
    //Analysis3. Dividing pT bin Width
@@ -70,7 +72,7 @@ void analysis_dirPhoton_dNdpT_allEvents()
    //--------------------------------------
     for(int i=0; i<5; i++)
     {
-        for(int j=0; j<11; j++)
+        for(int j=0; j<binNumber; j++)
         {
             double binwidth = dNdpT_dir_cent[i] -> GetBinWidth(j+1);
 			
