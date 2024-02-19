@@ -1,3 +1,5 @@
+#include "../headerFiles/configurable.h"
+
 void analysis_pion0_dNdpT_MBevents()
 {
     //input
@@ -25,7 +27,7 @@ void analysis_pion0_dNdpT_MBevents()
     //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};	int binNumber = 11;	//11 binning
     //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};	int binNumber = 11;	//11 binning
    	//double pTrange[] = {2.0, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 12.0, 14.0, 16.0, 20.0}; int binNumber = 15;	//12 binning
-	double pTrange[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
+	//double pTrange[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
 
     TH1D *dndpt_pion0_mb = (TH1D*)numPion0pT_perEvent -> Rebin(binNumber, "dNdpt_pion0_mb", pTrange);
 	

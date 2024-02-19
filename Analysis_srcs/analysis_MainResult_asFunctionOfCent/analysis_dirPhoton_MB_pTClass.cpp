@@ -34,8 +34,6 @@ void analysis_dirPhoton_MB_pTClass()
     numDirCent_pT[3] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir4", 1001, 1500);	DirMB_pT[3] = (TH1D*)numDirCent_pT[3] -> Rebin(1, "DirMB_pTClass4", binMB);	//pT bin width: 5           
     numDirCent_pT[4] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir5", 1501, 2000);	DirMB_pT[4] = (TH1D*)numDirCent_pT[4] -> Rebin(1, "DirMB_pTClass5", binMB); //pT bin width: 5  
    
-	cout << "Analysis start" << endl;
-
     //Event number scaling
 	for(int i=0; i<5; i++)
 	{
@@ -53,8 +51,6 @@ void analysis_dirPhoton_MB_pTClass()
 		DirMB_pT[i] -> Scale(1./pTbin -> GetBinWidth(i+1));
 	}
 
-	cout << "pT scaling"<<endl;
- 
  //?   //Analysis2. Dividing Cent bin Width
  //?   // xAxis: centrality with inter 110
  //?   //----------------------------------
@@ -80,8 +76,6 @@ void analysis_dirPhoton_MB_pTClass()
 
 		DirMB_avgNcollScaled_pT[i] -> Scale(1./avgNcollMB -> GetBinContent(1));
     }
-
-	cout << "avgNcoll scaling" << endl;
 
     //Write outputs in outputfile
     //---------------------------

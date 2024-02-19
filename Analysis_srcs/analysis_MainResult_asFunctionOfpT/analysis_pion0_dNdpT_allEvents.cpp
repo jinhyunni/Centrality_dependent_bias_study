@@ -1,8 +1,10 @@
+#include "../headerFiles/configurable.h"
+
 void analysis_pion0_dNdpT_allEvents()
 {
     //input
     //-----
-    TFile *pion = new TFile("../pre_processed/pAu200GeV_p8303ver5_option3_TH2Dpion0Cent_allEvents.root", "read");
+    TFile *pion = new TFile("../pre_processed/pAu200GeV_p8303ver5_option3_TH2DpTCent_pion0.root", "read");
     TFile *input_Ncoll = new TFile("../pre_processed/pAu200GeV_p8303ver5_option3_NcollCent_allEvents.root", "read");
     TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303_onlyDirPhoton_option3_centDivided_avgNcollCent.root", "read");
 
@@ -56,7 +58,7 @@ void analysis_pion0_dNdpT_allEvents()
     //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};	int binNumber = 11;	//11 binning   
     //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};   int binNumber = 11;	//11 binning   
    	//double binEdge[] = {2.0, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 12.0, 14.0, 16.0, 20.0}; int binNumber = 15;	//12 binning
-	double binEdge[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
+	//double binEdge[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
 
     TH1D *dNdpT_pion0_cent[5];
 
@@ -64,7 +66,7 @@ void analysis_pion0_dNdpT_allEvents()
     {
         TString target_pion0 = Form("dNdpT_pion0_cent%d", i+1);
 
-        dNdpT_pion0_cent[i] = (TH1D*)yieldPion0pT_cent[i] -> Rebin(binNumber, target_pion0, binEdge);
+        dNdpT_pion0_cent[i] = (TH1D*)yieldPion0pT_cent[i] -> Rebin(binNumber, target_pion0, pTrange);
     }
     
    //Analysis3. Dividing pT bin Width
