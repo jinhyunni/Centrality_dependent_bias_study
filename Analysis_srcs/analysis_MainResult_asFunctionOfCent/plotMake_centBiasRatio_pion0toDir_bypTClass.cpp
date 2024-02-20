@@ -48,10 +48,10 @@ void plotMake_centBiasRatio_pion0toDir_bypTClass()
         ratio_scaled[3] -> SetLineColor(kOrange);
         ratio_scaled[3] -> Draw("p same");
 
- //*        ratio_scaled[4] -> SetMarkerStyle(47);
- //*        ratio_scaled[4] -> SetMarkerColor(kRed);
- //*        ratio_scaled[4] -> SetLineColor(kRed);
- //*        ratio_scaled[4] -> Draw("p same");
+        ratio_scaled[4] -> SetMarkerStyle(47);
+        ratio_scaled[4] -> SetMarkerColor(kRed);
+        ratio_scaled[4] -> SetLineColor(kRed);
+        ratio_scaled[4] -> Draw("p same");
 
 
         TLegend *leg1 = new TLegend(0.14, 0.65, 0.58, 0.9);

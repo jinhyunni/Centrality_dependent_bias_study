@@ -22,7 +22,7 @@ void plotMake_ratioCent2MB_scaledYield_highpT_dircent()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(5.0, 0, 20, 2.5);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2.0, 0, 20, 2.5);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         htmp -> GetYaxis() -> SetTitle("(#frac{1}{#LT N_{coll} #GT} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}})_{cent} / (#frac{1}{#LT N_{coll} #GT} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}})_{MB} ");
