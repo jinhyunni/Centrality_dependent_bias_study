@@ -48,16 +48,16 @@ void plotMake_centBiasRatio_pion0toDir_bypTClass()
         ratio_scaled[3] -> SetLineColor(kOrange);
         ratio_scaled[3] -> Draw("p same");
 
-        ratio_scaled[4] -> SetMarkerStyle(47);
-        ratio_scaled[4] -> SetMarkerColor(kRed);
-        ratio_scaled[4] -> SetLineColor(kRed);
-        ratio_scaled[4] -> Draw("p same");
+ //*        ratio_scaled[4] -> SetMarkerStyle(47);
+ //*        ratio_scaled[4] -> SetMarkerColor(kRed);
+ //*        ratio_scaled[4] -> SetLineColor(kRed);
+ //*        ratio_scaled[4] -> Draw("p same");
 
 
         TLegend *leg1 = new TLegend(0.14, 0.65, 0.58, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
-        leg1 -> SetTextSize(0.02);
+        leg1 -> SetTextSize(0.04);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
         leg1 -> AddEntry("", "#gamma^{dir}, #pi^{0} in |#eta|<1", "h");
 
@@ -65,7 +65,7 @@ void plotMake_centBiasRatio_pion0toDir_bypTClass()
         leg1 -> AddEntry(ratio_scaled[1], "p_{T}: 4~7 GeV/c", "p");
         leg1 -> AddEntry(ratio_scaled[2], "p_{T}: 7~10 GeV/c", "p");
         leg1 -> AddEntry(ratio_scaled[3], "p_{T}: 10~15 GeV/c", "p");
-        leg1 -> AddEntry(ratio_scaled[4], "p_{T}: 15~20 GeV/c", "p");
+ //*        leg1 -> AddEntry(ratio_scaled[4], "p_{T}: 15~20 GeV/c", "p");
 
         leg1 -> Draw();
 
