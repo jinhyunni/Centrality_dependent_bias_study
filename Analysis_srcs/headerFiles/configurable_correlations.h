@@ -12,4 +12,8 @@ int centClass_edge = 5;
  //int centClass[]={1, 10, 11, 20, 21, 30, 31, 40, 41, 50, 51, 60, 61, 70, 71, 80, 81, 90, 81, 100};
  //int centClass_edge = 10;
 
+//centrality class 
+double centralityClass[] = {0., 10., 20., 40., 60., 80.};
+int centralityClass_classNum = 5;
+
 #endif

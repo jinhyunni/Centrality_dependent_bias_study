@@ -20,20 +20,20 @@ void analysis_correlations_withDirPhoton_charge()
 
     for(int i=0; i < pTClass_edge; i++)
     {  //i: pT Class loop 
-		int pTClass_start = 2*i;
-		int pTClass_finish = 2*i + 1;
+		int pTClass_start = pTClass[2*i];
+		int pTClass_finish = pTClass[2*i + 1];
 		
 		cout << "**pTClass " << i+1 << " analyze start**\n" << endl;
 
 		for(int j=0; j<centClass_edge; j++)
 		{
 			//j: cent class loop
-			int centClass_start = 2*j;
-			int centClass_finish = 2*j+1;
+			int centClass_start = centClass[2*j];
+			int centClass_finish = centClass[2*j+1];
 
 			cout << "\tcentClass " << j+1 << "start" << endl;
 
-	        TString outputname  = Form("charge_eta_corWithPion0_pTClass%d_centClass%d", i+1, j+1);
+	        TString outputname  = Form("charge_eta_corWithDirPhoton_pTClass%d_centClass%d", i+1, j+1);
 			charge_corWithPion0_pTClass_centClass[i][j] = (TH1D*)charge_corWithPion0[i] -> ProjectionX(outputname, pTClass_start, pTClass_finish, centClass_start, centClass_finish);
 			
 			cout << "\tcentClass " << j+1 << "finished\n" << endl;
