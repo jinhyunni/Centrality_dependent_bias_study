@@ -24,21 +24,17 @@ void analysis_dirPhoton_dNdpT_MBevents()
     
     //Analysis3. Rebin for pT, divde binwidht to get dndpT
     //------------------------------------------------------
-    //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 11;	//11 binning
-    //double pTrange[] = {0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};	int binNumber = 11; //11 binning
-	//double pTrange[] = {2.0, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 12.0, 14.0, 16.0, 20.0}; int binNumber = 15; //12 binning
-	//double pTrange[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
 
-    TH1D *dndpt_dir_mb = (TH1D*)numDirpT_perEvent -> Rebin(binNumber, "dNdpt_dir_mb", pTrange);
+    TH1D *dndpt_dir_mb = (TH1D*)numDirpT_perEvent -> Rebin(pTBinNum, "dNdpt_dir_mb", pTBin);
 	
     //scaling binwidth to get dNdpT
-    for(int i=0; i<binNumber; i++)
+    for(int pT=0; pT<pTBinNum; pT++)
     {
-        double binwidth = dndpt_dir_mb -> GetBinWidth(i+1);
+        double binwidth = dndpt_dir_mb -> GetBinWidth(pT+1);
 		
 		//scale variable binwidth
-        dndpt_dir_mb -> SetBinContent(i+1, dndpt_dir_mb -> GetBinContent(i+1)/binwidth);
-        dndpt_dir_mb -> SetBinError(i+1, dndpt_dir_mb -> GetBinError(i+1)/binwidth);
+        dndpt_dir_mb -> SetBinContent(pT+1, dndpt_dir_mb -> GetBinContent(pT+1)/binwidth);
+        dndpt_dir_mb -> SetBinError(pT+1, dndpt_dir_mb -> GetBinError(pT+1)/binwidth);
     }
 
     

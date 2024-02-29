@@ -1,3 +1,5 @@
+#include "../headerFiles/configurable.h"
+
 void analysis_pion0_MB_pTClass()
 {
     //input
@@ -16,7 +18,7 @@ void analysis_pion0_MB_pTClass()
     TH1D *nEventMB = (TH1D*)input_NcollMB -> Get("ncoll_mb");
 	TProfile *avgNcollMB = (TProfile*)input_avgNcoll -> Get("avgNcoll_mb");
 
-    //Analysis1. Get number of direct photon by pT as function of centrality  per event
+    //Analysis1. Get number of pion0 by pT as function of centrality  per event
     //pTClass
     //pTClass1: 2~4 GeV
     //pTClass2: 4~7 GeV
@@ -24,33 +26,36 @@ void analysis_pion0_MB_pTClass()
     //pTClass4: 10~15 GeV
     //pTClass5: 15~20GeV
     //---------------------------------------------------------------------------------
-    TH1D *numPion0Cent_pT[5];
-	double binMB[] = {0, 110};
-	TH1D *Pion0MB_pT[5];
+    TH1D *numPion0Cent_pT[pTBinNum];
+	TH1D *Pion0MB_pT[pTBinNum];
     
-    numPion0Cent_pT[0] = (TH1D*)h2pTCent_pion0 -> ProjectionX("pTClassPion0_class1", 201, 400);		Pion0MB_pT[0] = (TH1D*)numPion0Cent_pT[0] -> Rebin(1, "Pion0MB_pTClass1", binMB);	//pT bin width: 2          
-    numPion0Cent_pT[1] = (TH1D*)h2pTCent_pion0 -> ProjectionX("pTClassPion0_class2", 401, 700);		Pion0MB_pT[1] = (TH1D*)numPion0Cent_pT[1] -> Rebin(1, "Pion0MB_pTClass2", binMB);	//pT bin width: 3
-    numPion0Cent_pT[2] = (TH1D*)h2pTCent_pion0 -> ProjectionX("pTClassPion0_class3", 701, 1000); 	Pion0MB_pT[2] = (TH1D*)numPion0Cent_pT[2] -> Rebin(1, "Pion0MB_pTClass3", binMB);	//pT bin width: 3
-    numPion0Cent_pT[3] = (TH1D*)h2pTCent_pion0 -> ProjectionX("pTClassPion0_class4", 1001, 1500);	Pion0MB_pT[3] = (TH1D*)numPion0Cent_pT[3] -> Rebin(1, "Pion0MB_pTClass4", binMB);	//pT bin width: 5           
-    numPion0Cent_pT[4] = (TH1D*)h2pTCent_pion0 -> ProjectionX("pTClassPion0_class5", 1501, 2000);	Pion0MB_pT[4] = (TH1D*)numPion0Cent_pT[4] -> Rebin(1, "Pion0MB_pTClass5", binMB); 	//pT bin width: 5  
-   
-	cout << "Analysis start" << endl;
+	//Get yield of pion0 by pTClass, in total events
+	for(int pT=0; pT<pTBinNum; pT++)
+	{
+		TString outputname1 = Form("pTClassPion0_class%d", pT+1);
+		TString outputname2 = Form("Pion0MB_pTClass%d", pT+1);
+		
+		cout << "pT hist start: " << (int)(pTBin[pT]*100)+1 << endl;
+		cout << "pT hist finish: " << (int)(pTBin[pT+1]*100) << endl;
+
+		numPion0Cent_pT[pT] = (TH1D*)h2pTCent_pion0 -> ProjectionX(outputname1, (int)(pTBin[pT]*100)+1, (int)(pTBin[pT+1]*100));
+		Pion0MB_pT[pT] = (TH1D*)numPion0Cent_pT[pT] -> Rebin(centBin_MergedNum, outputname2, centBin_Merged);
+	}
 
     //Event number scaling
-	for(int i=0; i<5; i++)
+	for(int pT=0; pT<pTBinNum; pT++)
 	{
-		Pion0MB_pT[i] -> Scale(1./nEventMB -> Integral());
+		Pion0MB_pT[pT] -> Scale(1./nEventMB -> Integral());
 	}
 	
 	cout << "Event Num scaling" << endl;
 
 	//pT binwidth scaling
-	double pTbinEdge[]={2.0, 4.0, 7.0, 10.0, 15.0, 20.0};	int pTbinNum = 5;
-	TH1D *pTbin = new TH1D("pTbins", "", pTbinNum, pTbinEdge);
+	TH1D *pTbin = new TH1D("pTbins", "", pTBinNum, pTBin);
 
-	for(int i=0; i < pTbinNum; i++)
+	for(int pT=0; pT < pTBinNum; pT++)
 	{
-		Pion0MB_pT[i] -> Scale(1./pTbin -> GetBinWidth(i+1));
+		Pion0MB_pT[pT] -> Scale(1./pTbin -> GetBinWidth(pT+1));
 	}
 
 	cout << "pT scaling"<<endl;
@@ -71,14 +76,14 @@ void analysis_pion0_MB_pTClass()
 
     //Analysis2. Get Yield/<Ncoll> by pT class
     //-------------------------------------------------------
-    TH1D *Pion0MB_avgNcollScaled_pT[5];
+    TH1D *Pion0MB_avgNcollScaled_pT[pTBinNum];
 
-    for(int i=0; i<pTbinNum; i++)
+    for(int pT=0; pT<pTBinNum; pT++)
     {
-        TString histname = Form("Pion0MB_avgNcollScaled_pTClass%d", i+1);
-        Pion0MB_avgNcollScaled_pT[i] = (TH1D*)Pion0MB_pT[i] -> Clone(histname);
+        TString histname = Form("Pion0MB_avgNcollScaled_pTClass%d", pT+1);
+        Pion0MB_avgNcollScaled_pT[pT] = (TH1D*)Pion0MB_pT[pT] -> Clone(histname);
 
-		Pion0MB_avgNcollScaled_pT[i] -> Scale(1./avgNcollMB -> GetBinContent(1));
+		Pion0MB_avgNcollScaled_pT[pT] -> Scale(1./avgNcollMB -> GetBinContent(1));
     }
 
 	cout << "avgNcoll scaling" << endl;

@@ -1,3 +1,5 @@
+#include "../headerFiles/configurable.h"
+
 void analysis_dirPhoton_dNdCent()
 {
     //input
@@ -24,75 +26,73 @@ void analysis_dirPhoton_dNdCent()
     //pTClass4: 10~15 GeV
     //pTClass5: 15~20GeV
     //---------------------------------------------------------------------------------
-    TH1D *numDirCent_pT[5];
-    
-    numDirCent_pT[0] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir1", 201, 400);  	//pT bin width: 2          
-    numDirCent_pT[1] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir2", 401, 700);	 	//pT bin width: 3
-    numDirCent_pT[2] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir3", 701, 1000); 	//pT bin width: 3
-    numDirCent_pT[3] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir4", 1001, 1500);	//pT bin width: 5           
-    numDirCent_pT[4] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir5", 1501, 2000);	//pT bin width: 5  
+    TH1D *numDirCent_pT[pTBinNum];
    
+	for(int pT=0; pT<pTBinNum; pT++)
+	{
+		TString outputname = Form("pTClassDir%d", pT+1);
+		numDirCent_pT[pT] = (TH1D*)h2pTCent_dir -> ProjectionX(outputname, (int)(pTBin[pT]*100)+1, (int)(pTBin[pT+1]*100));
+	}
 
     //Event number scaling
 	//scaling must be done by each centrality bin
-    TH1D *yieldDirCent_pT[5];
+    TH1D *yieldDirCent_pT[pTBinNum];
     TH1D *nEventCent=(TH1D*)h2NcollCent -> ProjectionX("nEventByCent");
 
-	for(int i=0; i<5; i++)
+	for(int pT=0; pT<pTBinNum; pT++)
 	{
-    	TString hisname_dir = Form("yieldDirCent_pTclass%d", i+1);
-		yieldDirCent_pT[i] = new TH1D(hisname_dir, "", 11, 0, 110);
+    	TString hisname_dir = Form("yieldDirCent_pTclass%d", pT+1);
+		yieldDirCent_pT[pT] = new TH1D(hisname_dir, "", centBin_defaultNum, centBin_default);
 
-    	for(int j=0; j<nEventCent -> GetNbinsX(); j++)
+    	for(int cent=0; cent<nEventCent -> GetNbinsX(); cent++)
    		 {
-			double numEvent = nEventCent -> GetBinContent(j+1);
+			double numEvent = nEventCent -> GetBinContent(cent+1);
 
-        	yieldDirCent_pT[i] -> SetBinContent(j+1, numDirCent_pT[i] -> GetBinContent(j+1)/numEvent);
-        	yieldDirCent_pT[i] -> SetBinError(j+1, numDirCent_pT[i] -> GetBinError(j+1)/numEvent);
+        	yieldDirCent_pT[pT] -> SetBinContent(cent+1, numDirCent_pT[pT] -> GetBinContent(cent+1)/numEvent);
+        	yieldDirCent_pT[pT] -> SetBinError(cent+1, numDirCent_pT[pT] -> GetBinError(cent+1)/numEvent);
 
-			cout << "pT class: " << i+1 << " cent class: " << j+1 << " value: " << yieldDirCent_pT[i] -> GetBinContent(j+1) <<" Error: "<< yieldDirCent_pT[i]->GetBinError(j+1) <<endl;
+			cout << "pT class: " << pT+1 << " cent class: " << cent+1 << " value: " << yieldDirCent_pT[pT] -> GetBinContent(cent+1) <<" Error: "<< yieldDirCent_pT[pT]->GetBinError(cent+1) <<endl;
     	}
 		cout << "" << endl;
 	}
 
 	//pT binwidth scaling
-	double pTbinEdge[]={2.0, 4.0, 7.0, 10.0, 15.0, 20.0};	int pTbinNum = 5;
-	TH1D *pTbin = new TH1D("pTbins", "", pTbinNum, pTbinEdge);
+	TH1D *pTbin = new TH1D("pTbins", "", pTBinNum, pTBin);
 
-	for(int i=0; i < pTbinNum; i++)
+	for(int pT=0; pT<pTBinNum; pT++)
 	{
-		yieldDirCent_pT[i] -> Scale(1./pTbin -> GetBinWidth(i+1));
+		yieldDirCent_pT[pT] -> Scale(1./pTbin -> GetBinWidth(pT+1));
 	}
  
    //Analysis2. Dividing Cent bin Width
    // xAxis: centrality with inter 10%
    //----------------------------------
 	
-	TH1D *dNdCent_dir_pT[5];
-	for(int i=0; i<pTbinNum; i++)
+	TH1D *dNdCent_dir_pT[pTBinNum];
+	for(int pT=0; pT<pTBinNum; pT++)
 	{	
-		TString histname = Form("dNdCent_pTClass%d", i+1);
-		dNdCent_dir_pT[i] = (TH1D*)yieldDirCent_pT[i] -> Clone(histname);
+		TString histname = Form("dNdCent_pTClass%d", pT+1);
+		dNdCent_dir_pT[pT] = (TH1D*)yieldDirCent_pT[pT] -> Clone(histname);
 		
 		//scaling centrality binwidth
-		dNdCent_dir_pT[i] -> Scale(1./10);
+		dNdCent_dir_pT[pT] -> Scale(1./10);
 	}
 	
 
     //Analysis4. Get Yield/<Ncoll> vs centrality, by pT class
     //-------------------------------------------------------
-    TH1D *avgNcoll_scaled_dNdCent_dir_pT[5];
+    TH1D *avgNcoll_scaled_dNdCent_dir_pT[pTBinNum];
 
-    for(int i=0; i<pTbinNum; i++)
+    for(int pT=0; pT<pTBinNum; pT++)
     {
-        TString histname = Form("dNdCent_avgNcollScaled_pTClass%d", i+1);
-        avgNcoll_scaled_dNdCent_dir_pT[i] = (TH1D*)dNdCent_dir_pT[i] -> Clone(histname);
+        TString histname = Form("dNdCent_avgNcollScaled_pTClass%d", pT+1);
+        avgNcoll_scaled_dNdCent_dir_pT[pT] = (TH1D*)dNdCent_dir_pT[pT] -> Clone(histname);
 
-		for(int j=0; j < avgNcollCent -> GetNbinsX(); j++)
+		for(int cent=0; cent < avgNcollCent -> GetNbinsX(); cent++)
 		{
-			double avgNcollByCent = avgNcollCent -> GetBinContent(j+1);
-        	avgNcoll_scaled_dNdCent_dir_pT[i] -> SetBinContent(j+1, avgNcoll_scaled_dNdCent_dir_pT[i] -> GetBinContent(j+1)/avgNcollByCent);
-			avgNcoll_scaled_dNdCent_dir_pT[i] -> SetBinError(j+1, avgNcoll_scaled_dNdCent_dir_pT[i] -> GetBinError(j+1)/avgNcollByCent);
+			double avgNcollByCent = avgNcollCent -> GetBinContent(cent+1);
+        	avgNcoll_scaled_dNdCent_dir_pT[pT] -> SetBinContent(cent+1, avgNcoll_scaled_dNdCent_dir_pT[pT] -> GetBinContent(cent+1)/avgNcollByCent);
+			avgNcoll_scaled_dNdCent_dir_pT[pT] -> SetBinError(cent+1, avgNcoll_scaled_dNdCent_dir_pT[pT] -> GetBinError(cent+1)/avgNcollByCent);
 		}
     }
 

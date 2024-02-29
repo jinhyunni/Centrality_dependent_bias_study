@@ -1,3 +1,5 @@
+#include "../headerFiles/configurable.h"
+
 void analysis_dirPhoton_MB_pTClass()
 {
     //input
@@ -25,30 +27,31 @@ void analysis_dirPhoton_MB_pTClass()
     //pTClass5: 15~20GeV
     //---------------------------------------------------------------------------------
     TH1D *numDirCent_pT[5];
-	double binMB[] = {0, 110};
 	TH1D *DirMB_pT[5];
-    
-    numDirCent_pT[0] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir1", 201, 400);		DirMB_pT[0] = (TH1D*)numDirCent_pT[0] -> Rebin(1, "DirMB_pTClass1", binMB);	//pT bin width: 2          
-    numDirCent_pT[1] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir2", 401, 700);		DirMB_pT[1] = (TH1D*)numDirCent_pT[1] -> Rebin(1, "DirMB_pTClass2", binMB);	//pT bin width: 3
-    numDirCent_pT[2] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir3", 701, 1000); 	DirMB_pT[2] = (TH1D*)numDirCent_pT[2] -> Rebin(1, "DirMB_pTClass3", binMB);	//pT bin width: 3
-    numDirCent_pT[3] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir4", 1001, 1500);	DirMB_pT[3] = (TH1D*)numDirCent_pT[3] -> Rebin(1, "DirMB_pTClass4", binMB);	//pT bin width: 5           
-    numDirCent_pT[4] = (TH1D*)h2pTCent_dir -> ProjectionX("pTClassDir5", 1501, 2000);	DirMB_pT[4] = (TH1D*)numDirCent_pT[4] -> Rebin(1, "DirMB_pTClass5", binMB); //pT bin width: 5  
+   
+	for(int pT=0; pT<pTBinNum; pT++)
+	{
+		TString outputname1 = Form("pTClassDir%d", pT+1);
+		TString outputname2 = Form("DirMB_pTClass%d", pT+1);
+
+		numDirCent_pT[pT] = (TH1D*)h2pTCent_dir -> ProjectionX(outputname1, (int)(pTBin[pT]*100)+1, (int)(pTBin[pT+1]*100));
+		DirMB_pT[pT] = (TH1D*)numDirCent_pT[pT] -> Rebin(centBin_MergedNum, outputname2, centBin_Merged);
+	}
    
     //Event number scaling
-	for(int i=0; i<5; i++)
+	for(int pT=0; pT<pTBinNum; pT++)
 	{
-		DirMB_pT[i] -> Scale(1./nEventMB -> Integral());
+		DirMB_pT[pT] -> Scale(1./nEventMB -> Integral());
 	}
 	
 	cout << "Event Num scaling" << endl;
 
 	//pT binwidth scaling
-	double pTbinEdge[]={2.0, 4.0, 7.0, 10.0, 15.0, 20.0};	int pTbinNum = 5;
-	TH1D *pTbin = new TH1D("pTbins", "", pTbinNum, pTbinEdge);
+	TH1D *pTbin = new TH1D("pTbins", "", pTBinNum, pTBin);
 
-	for(int i=0; i < pTbinNum; i++)
+	for(int pT=0; pT<pTBinNum; pT++)
 	{
-		DirMB_pT[i] -> Scale(1./pTbin -> GetBinWidth(i+1));
+		DirMB_pT[pT] -> Scale(1./pTbin -> GetBinWidth(pT+1));
 	}
 
  //?   //Analysis2. Dividing Cent bin Width
@@ -67,14 +70,14 @@ void analysis_dirPhoton_MB_pTClass()
 
     //Analysis2. Get Yield/<Ncoll> by pT class
     //-------------------------------------------------------
-    TH1D *DirMB_avgNcollScaled_pT[5];
+    TH1D *DirMB_avgNcollScaled_pT[pTBinNum];
 
-    for(int i=0; i<pTbinNum; i++)
+    for(int pT=0; pT<pTBinNum; pT++)
     {
-        TString histname = Form("DirMB_avgNcollScaled_pTClass%d", i+1);
-        DirMB_avgNcollScaled_pT[i] = (TH1D*)DirMB_pT[i] -> Clone(histname);
+        TString histname = Form("DirMB_avgNcollScaled_pTClass%d", pT+1);
 
-		DirMB_avgNcollScaled_pT[i] -> Scale(1./avgNcollMB -> GetBinContent(1));
+        DirMB_avgNcollScaled_pT[pT] = (TH1D*)DirMB_pT[pT] -> Clone(histname);
+		DirMB_avgNcollScaled_pT[pT] -> Scale(1./avgNcollMB -> GetBinContent(1));
     }
 
     //Write outputs in outputfile

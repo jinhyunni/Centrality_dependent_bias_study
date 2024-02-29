@@ -35,70 +35,60 @@ void analysis_dirPhoton_dNdpT_allEvents()
     numDirpT_cent[4] = (TH1D*)h2centDir -> ProjectionY("centClassDir5", 7, 8);             //centClass5: 60~80%
     
     //Event number scaling
-    TH1D *yieldDirpT_cent[5];
+    TH1D *yieldDirpT_cent[centBinNum];
 
     TH1D *nEventCent=(TH1D*)h2NcollCent -> ProjectionX("nEventByCent");
-	double centRange[] = {0, 10, 20, 40, 60, 80};
-	TH1D *eventN = (TH1D*)nEventCent -> Rebin(5, "nEventByCent", centRange);
+	TH1D *eventN = (TH1D*)nEventCent -> Rebin(centBinNum, "nEventByCent", centBin);
 
-    for(int i=0; i<5; i++)
+    for(int cent=0; cent<centBinNum; cent++)
     {
-        TString hisname_dir = Form("yieldDirpT_cent%d", i+1);
+        TString hisname_dir = Form("yieldDirpT_cent%d", cent+1);
 
-        yieldDirpT_cent[i] = (TH1D*)numDirpT_cent[i] -> Clone(hisname_dir);
+        yieldDirpT_cent[cent] = (TH1D*)numDirpT_cent[cent] -> Clone(hisname_dir);
+        yieldDirpT_cent[cent] -> Scale(1./eventN -> GetBinContent(cent+1));
 
-        yieldDirpT_cent[i] -> Scale(1./eventN -> GetBinContent(i+1));
-
-        //cout << eventN -> GetBinContent(i+1) << endl;
-                
     }
 
     //Analysis2. Rebin for pT
     //-----------------------
-    //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};	int binNumber = 11; //11 binning   
-    //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};	int binNumber = 11; //11 binning   
-	//double binEdge[] = {2.0, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 12.0, 14.0, 16.0, 20.0};	int binNumber = 15;//12binning
-	//double pTrange[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
-    
-    TH1D *dNdpT_dir_cent[5];
-
-    for(int i=0; i<5; i++)
+    TH1D *dNdpT_dir_cent[centBinNum];
+	
+	//loop over particle yields by cent and rebin
+    for(int cent=0; cent<centBinNum; cent++)
     {
-        TString target_dir = Form("dNdpT_dir_cent%d", i+1);
-        dNdpT_dir_cent[i] = (TH1D*)yieldDirpT_cent[i] ->Rebin(binNumber, target_dir, pTrange);
+        TString target_dir = Form("dNdpT_dir_cent%d", cent+1);
+        dNdpT_dir_cent[cent] = (TH1D*)yieldDirpT_cent[cent] ->Rebin(pTBinNum, target_dir, pTBin);
     }
     
    //Analysis3. Dividing pT bin Width
    // 1/Nevent dN/dpT: binwidth not cancled
    // 1/avgNcoll     : binwidth not cancled
    //--------------------------------------
-    for(int i=0; i<5; i++)
+    for(int cent=0; cent<centBinNum; cent++)
     {
-        for(int j=0; j<binNumber; j++)
+        for(int pT=0; pT<pTBinNum; pT++)
         {
-            double binwidth = dNdpT_dir_cent[i] -> GetBinWidth(j+1);
+            double binwidth = dNdpT_dir_cent[cent] -> GetBinWidth(pT+1);
 			
 			//scale variable binwidth
-            dNdpT_dir_cent[i] -> SetBinContent(j+1, dNdpT_dir_cent[i]->GetBinContent(j+1)/binwidth);
-            dNdpT_dir_cent[i] -> SetBinError(j+1, dNdpT_dir_cent[i] -> GetBinError(j+1)/binwidth);
+            dNdpT_dir_cent[cent] -> SetBinContent(pT+1, dNdpT_dir_cent[cent]->GetBinContent(pT+1)/binwidth);
+            dNdpT_dir_cent[cent] -> SetBinError(pT+1, dNdpT_dir_cent[cent] -> GetBinError(pT+1)/binwidth);
         }
     }   
    
 
     //Analysis4. Get Yield/<Ncoll> vs pT, by centrality
     //-------------------------------------------------
-    TH1D *YavgNcollDir[5];
+    TH1D *YavgNcollDir[centBinNum];
     
-    double centclass[] = {0, 10, 20, 40, 60, 80};
-    TProfile *avgNcollCent = (TProfile*)avgNcoll -> Rebin(5, "avgNcollCent", centclass);
+    TProfile *avgNcollCent = (TProfile*)avgNcoll -> Rebin(centBinNum, "avgNcollCent", centBin);
 
-    for(int i=0; i<5; i++)
+    for(int cent=0; cent<centBinNum; cent++)
     {
-        TString dir = Form("YavgNcollDirpT_cent%d", i+1);
+        TString dir = Form("YavgNcollDirpT_cent%d", cent+1);
 
-        YavgNcollDir[i] = (TH1D*)dNdpT_dir_cent[i] -> Clone(dir);
-
-        YavgNcollDir[i] -> Scale(1./avgNcollCent -> GetBinContent(i+1));
+        YavgNcollDir[cent] = (TH1D*)dNdpT_dir_cent[cent] -> Clone(dir);
+        YavgNcollDir[cent] -> Scale(1./avgNcollCent -> GetBinContent(cent+1));
     }
     
  //*    //Analysis5. Get ratio of direct photon and pion0 yield

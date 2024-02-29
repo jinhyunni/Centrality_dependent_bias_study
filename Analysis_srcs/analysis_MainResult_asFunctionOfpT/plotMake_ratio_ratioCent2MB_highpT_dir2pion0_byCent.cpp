@@ -12,7 +12,7 @@ void plotMake_ratio_ratioCent2MB_highpT_dir2pion0_byCent()
     
 
     gStyle -> SetOptStat(0);
-    TCanvas *c1 = new TCanvas("", "", 800, 600);
+    TCanvas *c1 = new TCanvas("", "", 800, 300);
     {
         c1 -> cd();
 
@@ -22,11 +22,12 @@ void plotMake_ratio_ratioCent2MB_highpT_dir2pion0_byCent()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2.0, 0.7, 20, 1.5);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2.0, 0.8, 20, 1.3);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
         //htmp -> GetYaxis() -> SetTitle("Centrality Bias on #pi^{0} / Centrality Bias on #gamma^{dir}");
-        htmp -> GetYaxis() -> SetTitle("(Y^{#pi^{0}}/Y^{#gamma^{dir}})_{cent} / (Y^{#pi^{0}}/Y^{#gamma^{dir}})_{MB}");
+        //htmp -> GetYaxis() -> SetTitle("(Y^{#pi^{0}}/Y^{#gamma^{dir}})_{cent} / (Y^{#pi^{0}}/Y^{#gamma^{dir}})_{MB}");
+        htmp -> GetYaxis() -> SetTitle("#pi^{0} bias/ #gamma^{dir} bias");
                    
         ratio_scaled[0] -> SetMarkerStyle(34);
         ratio_scaled[0]-> SetMarkerColor(kViolet);
@@ -58,8 +59,8 @@ void plotMake_ratio_ratioCent2MB_highpT_dir2pion0_byCent()
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.04);
-        leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
-        leg1 -> AddEntry("", "#gamma^{dir}, #pi^{0} in |#eta|<1", "h");
+        leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3, #gamma^{dir}, #pi^{0} in |#eta|<1", "h");
+        //leg1 -> AddEntry("", "#gamma^{dir}, #pi^{0} in |#eta|<1", "h");
 
         leg1 -> AddEntry(ratio_scaled[0], "centrality: 0~10%", "p");
         leg1 -> AddEntry(ratio_scaled[1], "centrality: 10~20%", "p");

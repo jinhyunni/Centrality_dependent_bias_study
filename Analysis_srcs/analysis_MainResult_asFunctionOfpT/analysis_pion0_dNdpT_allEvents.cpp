@@ -26,7 +26,7 @@ void analysis_pion0_dNdpT_allEvents()
     //centclass4: 40~60%
     //centclass5: 60~80%
     //----------------------------------------
-    TH1D *numPion0pT_cent[5];
+    TH1D *numPion0pT_cent[centBinNum];
     
     numPion0pT_cent[0] = (TH1D*)h2centPion0 -> ProjectionY("centClassPion01", 1, 1);       //centClass1: 0~10%
     numPion0pT_cent[1] = (TH1D*)h2centPion0 -> ProjectionY("centClassPion02", 2, 2);       //centClass2: 10~20%
@@ -35,53 +35,45 @@ void analysis_pion0_dNdpT_allEvents()
     numPion0pT_cent[4] = (TH1D*)h2centPion0 -> ProjectionY("centClassPion05", 7, 8);       //centClass5: 60~80%
        
     //Event number scaling
-    TH1D *yieldPion0pT_cent[5];
+    TH1D *yieldPion0pT_cent[centBinNum];
 
     TH1D *nEventCent=(TH1D*)h2NcollCent -> ProjectionX("nEventByCent");
-	double centRange[] = {0, 10, 20, 40, 60, 80};
-	TH1D *eventN = (TH1D*)nEventCent -> Rebin(5, "nEventByCent", centRange);
+	TH1D *eventN = (TH1D*)nEventCent -> Rebin(centBinNum, "nEventByCent", centBin);
 
-    for(int i=0; i<5; i++)
+    for(int cent=0; cent<centBinNum; cent++)
     {
-        TString hisname_pion0 = Form("yieldPion0pT_cent%d", i+1);
+        TString hisname_pion0 = Form("yieldPion0pT_cent%d", cent+1);
 
-        yieldPion0pT_cent[i] = (TH1D*)numPion0pT_cent[i] -> Clone(hisname_pion0);
+        yieldPion0pT_cent[cent] = (TH1D*)numPion0pT_cent[cent] -> Clone(hisname_pion0);
+        yieldPion0pT_cent[cent] -> Scale(1./eventN -> GetBinContent(cent+1));
 
-        yieldPion0pT_cent[i] -> Scale(1./eventN -> GetBinContent(i+1));
-
-        cout << eventN -> GetBinContent(i+1) << endl;
-                
     }
 
     //Analysis2. Rebin for pT
     //-----------------------
-    //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 20.0};	int binNumber = 11;	//11 binning   
-    //double binEdge[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0};   int binNumber = 11;	//11 binning   
-   	//double binEdge[] = {2.0, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 12.0, 14.0, 16.0, 20.0}; int binNumber = 15;	//12 binning
-	//double binEdge[] = {2.0, 4.0, 7.0, 10.0, 15.0, 20.0}; int binNumber = 5;
 
-    TH1D *dNdpT_pion0_cent[5];
+    TH1D *dNdpT_pion0_cent[centBinNum];
 
-    for(int i=0; i<5; i++)
+    for(int cent=0; cent<centBinNum; cent++)
     {
-        TString target_pion0 = Form("dNdpT_pion0_cent%d", i+1);
+        TString target_pion0 = Form("dNdpT_pion0_cent%d", cent+1);
 
-        dNdpT_pion0_cent[i] = (TH1D*)yieldPion0pT_cent[i] -> Rebin(binNumber, target_pion0, pTrange);
+        dNdpT_pion0_cent[cent] = (TH1D*)yieldPion0pT_cent[cent] -> Rebin(pTBinNum, target_pion0, pTBin);
     }
     
    //Analysis3. Dividing pT bin Width
    // 1/Nevent dN/dpT: binwidth not cancled
    // 1/avgNcoll     : binwidth not cancled
    //--------------------------------------
-    for(int i=0; i<5; i++)
+    for(int cent=0; cent<centBinNum; cent++)
     {
-        for(int j=0; j<binNumber; j++)
+        for(int pT=0; pT<pTBinNum; pT++)
         {
-            double binwidth = dNdpT_pion0_cent[i] -> GetBinWidth(j+1);
+            double binwidth = dNdpT_pion0_cent[cent] -> GetBinWidth(pT+1);
 			
 			//scale variable binwidth
-            dNdpT_pion0_cent[i] -> SetBinContent(j+1, dNdpT_pion0_cent[i]->GetBinContent(j+1)/binwidth);
-            dNdpT_pion0_cent[i] -> SetBinError(j+1, dNdpT_pion0_cent[i] -> GetBinError(j+1)/binwidth);
+            dNdpT_pion0_cent[cent] -> SetBinContent(pT+1, dNdpT_pion0_cent[cent]->GetBinContent(pT+1)/binwidth);
+            dNdpT_pion0_cent[cent] -> SetBinError(pT+1, dNdpT_pion0_cent[cent] -> GetBinError(pT+1)/binwidth);
 			
         }
     }   
@@ -89,19 +81,16 @@ void analysis_pion0_dNdpT_allEvents()
 
     //Analysis4. Get Yield/<Ncoll> vs pT, by centrality
     //-------------------------------------------------
-    TH1D *YavgNcollPion0[5];
-    
-    double centclass[] = {0, 10, 20, 40, 60, 80};
+    TH1D *YavgNcollPion0[centBinNum];
 
-    TProfile *avgNcollCent = (TProfile*)avgNcoll -> Rebin(5, "avgNcollCent", centclass);
+    TProfile *avgNcollCent = (TProfile*)avgNcoll -> Rebin(centBinNum, "avgNcollCent", centBin);
 
-    for(int i=0; i<5; i++)
+    for(int cent=0; cent<centBinNum; cent++)
     {
-        TString pion0 = Form("YavgNcollPion0pT_cent%d", i+1);
+        TString pion0 = Form("YavgNcollPion0pT_cent%d", cent+1);
 
-        YavgNcollPion0[i] = (TH1D*)dNdpT_pion0_cent[i] -> Clone(pion0);
-
-        YavgNcollPion0[i] -> Scale(1./avgNcollCent -> GetBinContent(i+1));
+        YavgNcollPion0[cent] = (TH1D*)dNdpT_pion0_cent[cent] -> Clone(pion0);
+        YavgNcollPion0[cent] -> Scale(1./avgNcollCent -> GetBinContent(cent+1));
     }
     
  //*    //Analysis5. Get ratio of direct photon and pion0 yield
