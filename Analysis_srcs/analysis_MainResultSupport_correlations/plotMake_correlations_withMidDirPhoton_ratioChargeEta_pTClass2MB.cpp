@@ -54,7 +54,7 @@ void plotMake_correlations_withMidDirPhoton_ratioChargeEta_pTClass2MB()
 		TLine *one = new TLine(-5, 1, 5, 1);
 		one -> Draw();
 
-        TLegend *leg1 = new TLegend(0.15, 0.6, 0.51, 0.9);
+        TLegend *leg1 = new TLegend(0.15, 0.7, 0.51, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.03);

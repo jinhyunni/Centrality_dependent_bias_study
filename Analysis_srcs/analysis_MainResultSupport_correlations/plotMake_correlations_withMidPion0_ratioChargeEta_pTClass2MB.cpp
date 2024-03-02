@@ -48,17 +48,16 @@ void plotMake_correlations_withMidPion0_ratioChargeEta_pTClass2MB()
 		TLine *one = new TLine(-5, 1, 5, 1);
 		one -> Draw();
 
-        TLegend *leg1 = new TLegend(0.15, 0.6, 0.51, 0.9);
+        TLegend *leg1 = new TLegend(0.15, 0.7, 0.51, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
-        leg1 -> SetTextSize(0.04);
+        leg1 -> SetTextSize(0.03);
         leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
-        leg1 -> AddEntry("", "Events with #pi^{0} at mid-rapdity, pTClasses", "h");
         
-        leg1 -> AddEntry(ratio_1, "pTClass1/MB", "p");
-        leg1 -> AddEntry(ratio_2, "pTClass2/MB", "p");
-        leg1 -> AddEntry(ratio_3, "pTClass3/MB", "p");
-        leg1 -> AddEntry(ratio_4, "pTClass4/MB", "p");
+        leg1 -> AddEntry(ratio_1, "Events with 2 GeV #leq p_{T} 4 GeV #pi^{0} at |#eta|<1", "p");
+        leg1 -> AddEntry(ratio_2, "Events with 4 GeV #leq p_{T} 7 GeV #pi^{0} at |#eta|<1", "p");
+        leg1 -> AddEntry(ratio_3, "Events with 7 GeV #leq p_{T} 10 GeV #pi^{0} at |#eta|<1", "p");
+        leg1 -> AddEntry(ratio_4, "Events with 10 GeV #leq p_{T} 15 GeV #pi^{0} at |#eta|<1", "p");
 
         leg1 -> Draw();
 
