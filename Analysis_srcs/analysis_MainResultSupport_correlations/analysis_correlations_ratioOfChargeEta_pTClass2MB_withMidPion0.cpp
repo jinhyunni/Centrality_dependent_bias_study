@@ -51,6 +51,8 @@ void analysis_correlations_ratioOfChargeEta_pTClass2MB_withMidPion0()
 	//-----
 	TFile *outfile = new TFile("pAu200GeV_p8303_ver2_option3_correlations_ratioChargeEta_pTClass2MB_withMidPion0.root", "recreate");
 	outfile -> cd();
+	
+	charge_eta_MB_etaRebinned -> Write();
 
 	for(int pT=0; pT<pTBinNum; pT++)
 	{	
