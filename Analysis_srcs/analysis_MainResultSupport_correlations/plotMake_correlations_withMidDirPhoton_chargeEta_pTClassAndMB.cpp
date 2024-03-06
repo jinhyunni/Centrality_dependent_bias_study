@@ -32,37 +32,37 @@ void plotMake_correlations_withMidDirPhoton_chargeEta_pTClassAndMB()
         dNdeta_1 -> SetMarkerStyle(25);
         dNdeta_1 -> SetMarkerColor(kViolet-1);
         dNdeta_1 -> SetLineColor(kViolet-1);
-        dNdeta_1 -> Draw("p same");
+        dNdeta_1 -> Draw("p L same");
 
 		dNdeta_2 -> SetMarkerStyle(34);
         dNdeta_2 -> SetMarkerColor(kGreen+1);
         dNdeta_2 -> SetLineColor(kGreen+1);
-        dNdeta_2 -> Draw("p same");
+        dNdeta_2 -> Draw("p L same");
 
         dNdeta_3 -> SetMarkerStyle(34);
         dNdeta_3 -> SetMarkerColor(kTeal+1);
         dNdeta_3 -> SetLineColor(kTeal+1);
-        dNdeta_3 -> Draw("p same");
+        dNdeta_3 -> Draw("p L same");
 
         dNdeta_4 -> SetMarkerStyle(28);
         dNdeta_4 -> SetMarkerColor(kCyan+1);
         dNdeta_4 -> SetLineColor(kCyan+1);
-        dNdeta_4 -> Draw("p same");
+        dNdeta_4 -> Draw("p L same");
     
         dNdeta_5 -> SetMarkerStyle(47);
         dNdeta_5 -> SetMarkerColor(kAzure);
         dNdeta_5 -> SetLineColor(kAzure);
-        dNdeta_5 -> Draw("p same");
+        dNdeta_5 -> Draw("p L same");
 
 		dNdeta_6 -> SetMarkerStyle(25);
         dNdeta_6 -> SetMarkerColor(kBlue+1);
         dNdeta_6 -> SetLineColor(kBlue+1);
-        dNdeta_6 -> Draw("p same");
+        dNdeta_6 -> Draw("p L same");
 
 		dNdeta_MB -> SetMarkerStyle(34);
         dNdeta_MB -> SetMarkerColor(1);
         dNdeta_MB -> SetLineColor(1);
-        dNdeta_MB -> Draw("p same");
+        dNdeta_MB -> Draw("p L same");
 		
         TLegend *leg1 = new TLegend(0.15, 0.7, 0.51, 0.9);
         leg1 -> SetFillStyle(0);

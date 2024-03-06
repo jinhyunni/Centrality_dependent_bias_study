@@ -1,29 +1,28 @@
 #include "../headerFiles/configurable.h"
 
 
-void analysis_correlations_ratioOfChargeEta_scaleAvgNcoll_pTClass2MB_withMidPion0()
+void analysis_correlations_ratioOfChargeEta_scaleAvgNcoll_pTClass2MB_withMidDirPhoton()
 {
 	//input
 	//-----
-	TFile *input = new TFile("pAu200GeV_p8303_ver2_option3_correlations_charge_withPion0_ofpTClass.root", "read");
-	TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303_ver2_option3_correlations_withPion0_TProfileNcollMaxpT.root", "read");
+	TFile *input = new TFile("pAu200GeV_p8303_ver2_option3_correlations_charge_withDirPhoton_ofpTClass.root", "read");
+	TFile *input_avgNcoll = new TFile("../pre_processed/pAu200GeV_p8303_ver2_option3_correlations_withDirPhoton_TProfileNcollMaxpT.root", "read");
 	TFile *input_mb_charge = new TFile("../pre_processed/pAu200GeV_p8303ver2_option3_TH2DpTetaCharge_MBevents.root", "read");
 	TFile *input_mb_ncoll = new TFile("../pre_processed/pAu200GeV_p8303ver2_option3_NcollCent_allEvents.root", "read");
 
-	TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("maxpT_vs_avgNcoll_corrWithMidPion0");
+	TProfile *avgNcoll = (TProfile*)input_avgNcoll -> Get("maxpT_vs_avgNcoll_corrWithMidDirPhoton");
 
-	TH1D *charge_corWithPion0[pTBinNum];
-	TH1D *charge_corWithPion0_etaRebinned[pTBinNum];
+	TH1D *charge_corWithDirPhoton[pTBinNum];
+	TH1D *charge_corWithDirPhoton_etaRebinned[pTBinNum];
 
 	TH2D *charge_MB = (TH2D*)input_mb_charge -> Get("pTetaCharge_MBevents");
 	TH2D *NeventCent_MB = (TH2D*)input_mb_ncoll -> Get("ncollCent");
 
-	for(int pT=0; pT<pTBinNum; pT++)
+	for(int dirPt=0; dirPt<pTBinNum; dirPt++)
 	{
-		TString inputName = Form("charge_eta_corWithPion0_ofpTClass%d_scaled", pT+1);
-		charge_corWithPion0[pT] = (TH1D*)input -> Get(inputName);
+		TString inputName = Form("charge_eta_corWithDirPhoton_ofpTClass%d_scaled", dirPt+1);
+		charge_corWithDirPhoton[dirPt] = (TH1D*)input -> Get(inputName);
 	}
-	
 	
 	//Analysis0. Get charge-eta distribution of MB events
 	//---------------------------------------------------
@@ -47,14 +46,14 @@ void analysis_correlations_ratioOfChargeEta_scaleAvgNcoll_pTClass2MB_withMidPion
 	TH1D *charge_scaledEta[pTBinNum];
 	
 	//Events divided by pT-Class
-	for(int pT=0; pT<pTBinNum; pT++)
+	for(int dirPt=0; dirPt<pTBinNum; dirPt++)
 	{	
-		TString outputname1 = Form("charge_ncollScaledEta_pTClass%d", pT+1);
+		TString outputname1 = Form("charge_ncollScaledEta_pTClass%d", dirPt+1);
 
-		charge_scaledEta[pT] = (TH1D*)charge_corWithPion0[pT] -> Clone(outputname1);
-		charge_scaledEta[pT] -> Scale(1./avgNcoll_pTClass -> GetBinContent(pT+1));
+		charge_scaledEta[dirPt] = (TH1D*)charge_corWithDirPhoton[dirPt] -> Clone(outputname1);
+		charge_scaledEta[dirPt] -> Scale(1./avgNcoll_pTClass -> GetBinContent(dirPt+1));
 		
-		cout << avgNcoll_mb -> GetBinContent(1) << " : " << avgNcoll_pTClass -> GetBinContent(pT+1) << " : " << (avgNcoll_mb -> GetBinContent(1))/(avgNcoll_pTClass -> GetBinContent(pT+1)) << endl;
+		cout << avgNcoll_mb -> GetBinContent(1) << " : " << avgNcoll_pTClass -> GetBinContent(dirPt+1) << " : " << (avgNcoll_mb -> GetBinContent(1))/(avgNcoll_pTClass -> GetBinContent(dirPt+1)) << endl;
 	}
 
 	//MB events
@@ -65,30 +64,30 @@ void analysis_correlations_ratioOfChargeEta_scaleAvgNcoll_pTClass2MB_withMidPion
 	//--------------------------------------------------------------
 	TH1D *charge_ratiopTMB[pTBinNum];
 	
-	for(int pi0pT=0; pi0pT<pTBinNum; pi0pT++)
+	for(int dirPt=0; dirPt<pTBinNum; dirPt++)
 	{
-		charge_ratiopTMB[pi0pT] = (TH1D*)charge_scaledEta[pi0pT] -> Clone(Form("charge_etaRatio_scaleAvgNcoll_pT%dtoMB", pi0pT+1));
-		charge_ratiopTMB[pi0pT] -> Divide(charge_eta_MB_NcollScaled);
+		charge_ratiopTMB[dirPt] = (TH1D*)charge_scaledEta[dirPt] -> Clone(Form("charge_etaRatio_scaleAvgNcoll_pT%dtoMB", dirPt+1));
+		charge_ratiopTMB[dirPt] -> Divide(charge_eta_MB_NcollScaled);
 	}
 	
 	//output
 	//-----
-	TFile *outfile = new TFile("pAu200GeV_p8303_ver2_option3_correlations_ratioChargeEta_scaleAvgNcoll_pTClass2MB_withMidPion0.root", "recreate");
+	TFile *outfile = new TFile("pAu200GeV_p8303_ver2_option3_correlations_ratioChargeEta_scaleAvgNcoll_pTClass2MB_withMidDirPhoton.root", "recreate");
 	outfile -> cd();
 	
 	//MB, NcollScaled
 	charge_eta_MB_NcollScaled -> Write();
 
 	//pTClass, NcollSclaed
-	for(int pi0pT=0; pi0pT<pTBinNum; pi0pT++)
+	for(int dirPt=0; dirPt<pTBinNum; dirPt++)
 	{
-		charge_scaledEta[pi0pT] -> Write();
+		charge_scaledEta[dirPt] -> Write();
 	}
 
 	// ratio of pTClass 2 MB
-	for(int pi0pT=0; pi0pT<pTBinNum; pi0pT++)
+	for(int dirPt=0; dirPt<pTBinNum; dirPt++)
 	{	
-		charge_ratiopTMB[pi0pT] -> Write();
+		charge_ratiopTMB[dirPt] -> Write();
 	}
 	outfile -> Close();
 

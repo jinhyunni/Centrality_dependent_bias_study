@@ -79,7 +79,7 @@ void plotMake_correlations_withMidPion0_chargeEta_bypTClass_pTClassAndMB()
         leg1 -> AddEntry(ratio[0][charge_pTClass], "Events with #pi^{0} of 0 GeV/c #leq p_{T} #LT 2 GeV/c", "p");
         leg1 -> AddEntry(ratio[1][charge_pTClass], "Events with #pi^{0} of 2 GeV/c #leq p_{T} #LT 4 GeV/c", "p");
         leg1 -> AddEntry(ratio[2][charge_pTClass], "Events with #pi^{0} of 4 GeV/c #leq p_{T} #LT 7 GeV/c", "p");
-        leg1 -> AddEntry(ratio[3][charge_pTClass], "Events with #pi^{0} of }7 GeV/c #leq p_{T} #LT 10 GeV/c", "p");
+        leg1 -> AddEntry(ratio[3][charge_pTClass], "Events with #pi^{0} of 7 GeV/c #leq p_{T} #LT 10 GeV/c", "p");
         leg1 -> AddEntry(ratio[4][charge_pTClass], "Events with #pi^{0} of 10 GeV/c #leq p_{T} #LT 15 GeV/c", "p");
         leg1 -> AddEntry(ratio[5][charge_pTClass], "Events with #pi^{0} of 15 GeV/c #leq p_{T} #LT 20 GeV/c", "p");
 
