@@ -49,6 +49,8 @@ void analysis_NcollTagging_charge_pTeta_byNcoll_byCent()
 		{
 			charge_pTeta_scaled[ncoll][cent] = (TH2D*)charge_pTeta[ncoll][cent] -> Clone(Form("pTeta_charge_ncollClass%d_centClass%d_scaled", ncoll+1, cent+1));
 			charge_pTeta_scaled[ncoll][cent] -> Scale(1./numEvent_ncollClass[ncoll] -> GetBinContent(cent+1));
+			charge_pTeta_scaled[ncoll][cent] -> Scale(1./charge_pTeta_scaled[ncoll][cent]->GetYaxis()->GetBinWidth(1));		//scale pT bin width
+			charge_pTeta_scaled[ncoll][cent] -> Scale(1./charge_pTeta_scaled[ncoll][cent]->GetXaxis()->GetBinWidth(1));		//scale pT bin width
 		}
 	}
 
