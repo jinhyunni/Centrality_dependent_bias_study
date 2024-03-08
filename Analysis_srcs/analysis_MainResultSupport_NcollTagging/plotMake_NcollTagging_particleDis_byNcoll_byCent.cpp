@@ -69,7 +69,7 @@ void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 			
 			leg1 -> AddEntry("", ncollClassInfo[NCOLLPLOT], "h");
 			leg1 -> AddEntry("", centClassInfo[cent], "h");
-			leg1 -> AddEntry("", "#pi^{#pm}, k^{pm}, p^{pm}", "h");
+			leg1 -> AddEntry("", "#pi^{#pm}, k^{#pm}, p^{#pm}", "h");
 
 			leg1 -> Draw();
 		}
