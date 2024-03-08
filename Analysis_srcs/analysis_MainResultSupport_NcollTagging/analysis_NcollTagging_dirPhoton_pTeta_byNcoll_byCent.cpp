@@ -34,6 +34,7 @@ void analysis_NcollTagging_dirPhoton_pTeta_byNcoll_byCent()
 	//Analysis2. Scale Event #
 	//========================
 	TH1D *numEvent_ncollClass[NcollClass];
+	TH1D *numEvent_ncollClass_centRebinned[NcollClass];
 
 	for(int ncoll=0; ncoll<NcollClass; ncoll++)
 	{
@@ -43,11 +44,12 @@ void analysis_NcollTagging_dirPhoton_pTeta_byNcoll_byCent()
 	TH2D *dirPhoton_pTeta_scaled[NcollClass][centBinNum];
 	for(int ncoll=0; ncoll<NcollClass; ncoll++)
 	{
-		numEvent_ncollClass[ncoll] -> Rebin(centBinNum, "nEvent_centBinned", centBin);
+		numEvent_ncollClass_centRebinned[ncoll] = (TH1D*)numEvent_ncollClass[ncoll] -> Rebin(centBinNum, Form("numEvent_vs_cent_ncollClass%d_rebinned", ncoll+1), centBin);
 		for(int cent=0; cent<centBinNum; cent++)
 		{
 			dirPhoton_pTeta_scaled[ncoll][cent] = (TH2D*)dirPhoton_pTeta[ncoll][cent] -> Clone(Form("pTeta_dirPhoton_ncollClass%d_centClass%d_scaled", ncoll+1, cent+1));
-			dirPhoton_pTeta_scaled[ncoll][cent] -> Scale(1./numEvent_ncollClass[ncoll] -> GetBinContent(cent+1));
+			
+			dirPhoton_pTeta_scaled[ncoll][cent] -> Scale(1./numEvent_ncollClass_centRebinned[ncoll] -> GetBinContent(cent+1));
 			dirPhoton_pTeta_scaled[ncoll][cent] -> Scale(1./dirPhoton_pTeta_scaled[ncoll][cent]->GetYaxis()->GetBinWidth(1));		//scale pT bin width
 			dirPhoton_pTeta_scaled[ncoll][cent] -> Scale(1./dirPhoton_pTeta_scaled[ncoll][cent]->GetXaxis()->GetBinWidth(1));		//scale pT bin width
 		}
@@ -72,6 +74,11 @@ void analysis_NcollTagging_dirPhoton_pTeta_byNcoll_byCent()
 		{
 			dirPhoton_pTeta_scaled[ncoll][cent] -> Write();
 		}
+	}
+
+	for(int ncoll=0; ncoll<6; ncoll++)
+	{
+		numEvent_ncollClass_centRebinned[ncoll] -> Write();
 	}
 	output -> Close();
 }
