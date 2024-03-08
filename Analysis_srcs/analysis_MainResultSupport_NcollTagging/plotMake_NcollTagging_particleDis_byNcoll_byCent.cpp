@@ -1,7 +1,7 @@
 #include "../headerFiles/configurable.h"
 
 #define NcollClass 6
-#define NCOLLPLOT 2
+#define NCOLLPLOT 0
 
 void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 {
@@ -54,7 +54,7 @@ void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 			gPad -> SetTopMargin(0.05);
 			gPad -> SetBottomMargin(0.12);
 
-			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 20);
+			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 25);
 
 			htmp -> GetXaxis() -> SetTitle("#eta");
 			htmp -> GetYaxis() -> SetTitle("p_{T}");
@@ -84,7 +84,7 @@ void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 			gPad -> SetTopMargin(0.05);
 			gPad -> SetBottomMargin(0.12);
 
-			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 20);
+			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 25);
 
 			htmp -> GetXaxis() -> SetTitle("#eta");
 			htmp -> GetYaxis() -> SetTitle("p_{T}");
@@ -114,7 +114,7 @@ void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 			gPad -> SetTopMargin(0.05);
 			gPad -> SetBottomMargin(0.12);
 
-			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 20);
+			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 25);
 
 			htmp -> GetXaxis() -> SetTitle("#eta");
 			htmp -> GetYaxis() -> SetTitle("p_{T}");
