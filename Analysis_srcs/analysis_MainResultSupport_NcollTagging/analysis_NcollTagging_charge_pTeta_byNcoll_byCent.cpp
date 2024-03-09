@@ -33,7 +33,6 @@ void analysis_NcollTagging_charge_pTeta_byNcoll_byCent()
 
 	//Analysis2. Scale Event #
 	//========================
-	
 	TH1D *numEvent_ncollClass[NcollClass];
 
 	for(int ncoll=0; ncoll<NcollClass; ncoll++)
