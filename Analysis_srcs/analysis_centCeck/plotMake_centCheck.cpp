@@ -13,8 +13,6 @@ void plotMake_centCheck()
 	//overflow bin control
  	nevent -> SetBinContent(10, nevent -> GetBinContent(10) + nevent -> GetBinContent(11));
 
-
-
 	//Draw histogram
 	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -22,9 +20,9 @@ void plotMake_centCheck()
 		c1 -> cd();
 
 		gPad -> SetTicks();
-		gPad -> SetLeftMargin(0.15);
-		gPad -> SetRightMargin(0.15);
-		gPad -> SetTopMargin(0.05);
+		gPad -> SetLeftMargin(0.12);
+		gPad -> SetRightMargin(0.12);
+		gPad -> SetTopMargin(0.1);
 		gPad -> SetBottomMargin(0.12);
 
 		TH1F *htmp = (TH1F*)gPad -> DrawFrame(0, 0.1e8, 100, 1.5e8);
@@ -50,7 +48,7 @@ void plotMake_centCheck()
 		leg -> SetTextSize(0.04);
 		leg -> AddEntry("", "PYTHIA8, p+Au 200 GeV, option3", "h");
 		leg -> AddEntry("", "centrality categorization check", "h");
-		leg -> AddEntry("", "Used #sump_{T} of charged particles in -3.9 < #eta < -3.0", "h");
+		leg -> AddEntry("", "Events classified by using #sump^{ch}_{T} in -3.9 < #eta < -3.0", "h");
 
 		leg -> Draw();
 		

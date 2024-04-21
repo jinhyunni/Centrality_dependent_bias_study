@@ -2,8 +2,12 @@
 
 void plotMake_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0()
 {
+	TFile *input_MBevents = new TFile("pAu200GeV_p8303_ver2_option3_BBCsMultiplicity_chargepTsum_MBevents.root");
     TFile *input_ver5 = new TFile("pAu200GeV_p8303_ver5_option3_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0.root", "read");
     TFile *input_ver2 = new TFile("pAu200GeV_p8303_ver2_option3_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0.root", "read");
+
+	TH1D *BBCs_chpTsum_MB = (TH1D*)input_MBevents -> Get("BBCsMultiplicity_chargepTsum_rebinned");
+	BBCs_chpTsum_MB -> Scale(1./10);
 
 	TH1D *BBCs_chpTsum[6];
 	
@@ -24,10 +28,10 @@ void plotMake_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0()
         gPad -> SetRightMargin(0.12);
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
-		
 
         //TH1D *htmp = (TH1D*)gPad -> DrawFrame(1e-5, 0, 15, 0.05);
         //TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 15, 0.05);
+        //TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 1e-8, 10, 1e10);
         TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0, 10, 0.2);
 
         htmp -> GetXaxis() -> SetTitle("#sum p_{T}(GeV/c)");
@@ -37,6 +41,11 @@ void plotMake_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0()
         BBCs_chpTsum[0] -> SetMarkerColor(1);
         BBCs_chpTsum[0] -> SetLineColor(1);
         BBCs_chpTsum[0] -> Draw("p same");
+
+ //*		BBCs_chpTsum_MB -> SetMarkerStyle(21);
+ //*        BBCs_chpTsum_MB -> SetMarkerColor(1);
+ //*        BBCs_chpTsum_MB -> SetLineColor(1);
+ //*        BBCs_chpTsum_MB -> Draw("p same");
 
 		BBCs_chpTsum[1] -> SetMarkerStyle(34);
         BBCs_chpTsum[1] -> SetMarkerColor(kOrange);

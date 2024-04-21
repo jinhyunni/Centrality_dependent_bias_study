@@ -1,3 +1,5 @@
+#include "../headerFiles/configurable.h"
+
 void plotMake_avgNcollCent()
 {
 
@@ -11,8 +13,9 @@ void plotMake_avgNcollCent()
     
     //Rebin to set centrality class
     double binX[] = {0, 10, 20, 40, 60, 80};
-    TProfile *avgNcollver3 = (TProfile*)avgNcoll_ver3 -> Rebin(5, "avgNcollR", binX);
-    TProfile *avgNcollver4 = (TProfile*)avgNcoll_ver4 -> Rebin(5, "avgNcollR", binX);
+    TProfile *avgNcollver3 = (TProfile*)avgNcoll_ver3 -> Rebin(centBinNum, "avgNcollR", centBin);
+    TProfile *avgNcollver4 = (TProfile*)avgNcoll_ver4 -> Rebin(centBinNum, "avgNcollR", centBin);
+	TProfile *avgNcoll_MBevents = (TProfile*)avgNcoll_ver4 -> Rebin(centBin_MergedNum, "avgNcollR_merged", centBin_Merged);
     
 	gStyle -> SetOptStat(0);
 	TCanvas *c1 = new TCanvas("", "", 800, 600);
@@ -29,35 +32,37 @@ void plotMake_avgNcollCent()
 
 		htmp -> GetXaxis() -> SetTitle("centrality(%)");
 		htmp -> GetYaxis() -> SetTitle("#LTN_{coll}#GT");
-    
- //        avgNcollver3 -> SetMarkerStyle(29);
- //        avgNcollver3 -> SetMarkerColor(2);
- //        avgNcollver3 -> SetLineColor(2);
- //        avgNcollver3 -> Draw("p same");
+
+ //*		avgNcoll_MBevents -> SetMarkerStyle(29);
+ //*		avgNcoll_MBevents -> SetMarkerColor(1);
+ //*		avgNcoll_MBevents -> SetLineColor(1);
+ //*		avgNcoll_MBevents -> Draw("p same");
+
+		TLine *avgNcoll_MB = new TLine(0, avgNcoll_MBevents -> GetBinContent(1), 80, avgNcoll_MBevents -> GetBinContent(1));
+
+		avgNcoll_MB -> SetLineStyle(7);
+		avgNcoll_MB -> Draw();
     
         avgNcollver4 -> SetMarkerStyle(25);
         avgNcollver4 -> SetMarkerColor(2);
         avgNcollver4 -> SetLineColor(2);
         avgNcollver4 -> Draw("p same");
 
-		TLegend *leg1 = new TLegend(0.45, 0.83, 0.75, 0.93);
+		TLegend *leg1 = new TLegend(0.45, 0.78, 0.75, 0.9);
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
 		leg1 -> SetTextSize(0.04);
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
 		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
+		leg1 -> AddEntry(avgNcoll_MB, "#LTN_{coll}#GT of total events", "p");
 	    leg1 -> Draw();
         
-        TLegend *leg2 = new TLegend(0.45, 0.63, 0.7, 0.83);
-        leg2 -> SetFillStyle(0);
-        leg2 -> SetBorderSize(0);
-        leg2 -> SetTextSize(0.03);
-        leg2 -> AddEntry("", "#LT N_{coll} #GT_{0~10%} = 9.02056 #pm 7.45 #times 10^{-5}(stat)", "h");
-        leg2 -> AddEntry("", "#LT N_{coll} #GT_{10~20%} = 7.69286 #pm 7.26 #times 10^{-5}(stat)", "h");
-        leg2 -> AddEntry("", "#LT N_{coll} #GT_{20~40%} = 6.52323 #pm 5.29 #times 10^{-5} (stat)", "h");
-        leg2 -> AddEntry("", "#LT N_{coll} #GT_{40~60%} = 5.04424 #pm 5.34 #times 10^{-5}(stat)", "h");
-        leg2 -> AddEntry("", "#LT N_{coll} #GT_{60~80%} = 3.45525 #pm 4.88 #times 10^{-5}(stat)", "h");
-        leg2 -> Draw();
+ //*        TLegend *leg2 = new TLegend(0.45, 0.63, 0.7, 0.83);
+ //*        leg2 -> SetFillStyle(0);
+ //*        leg2 -> SetBorderSize(0);
+ //*        leg2 -> SetTextSize(0.03);
+ //*		leg2 -> AddEntry("", "#LTN_{coll}#GT of total events", "h");
+ //*        leg2 -> Draw();
 
 	}
 

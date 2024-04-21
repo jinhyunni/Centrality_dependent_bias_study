@@ -1,10 +1,10 @@
 #include "../headerFiles/configurable.h"
 
-void analysis_correlations_BBCsMultiplicity_chargepTsum_corrWithMidDirPhoton(TString version)
+void analysis_correlations_BBCsMultiplicity_Nch_corrWithMidDirPhoton(TString version="ver2")
 {
 	//Input
 	//=====
-	TFile *input = new TFile(Form("../pre_processed/pAu200GeV_p8303_%s_option3_correlations_withDirPhoton_BBCsMultiplicity_chargepTsum.root", version.Data()), "read");
+	TFile *input = new TFile(Form("../pre_processed/pAu200GeV_p8303_%s_option3_correlations_withDirPhoton_BBCsMultiplicity_Nch.root", version.Data()), "read");
 	TH2D *BBCspTsum_vs_maxDirPhotonpT = (TH2D*)input -> Get("BBCsMultiplicity_charge_corrMidDirPhotonpT");
 
 	//Anlaysis 1. Get BBCs pTsum distribution by mid-pion0 pTsum and scale
@@ -27,9 +27,9 @@ void analysis_correlations_BBCsMultiplicity_chargepTsum_corrWithMidDirPhoton(TSt
 		cout << "Cut Finish Bin: " << binNum_cutFinish << endl;
 		cout << "***************" << endl;
 
-		BBCspTsum_midDirPhotonpTsum[dirpT] = (TH1D*)BBCspTsum_vs_maxDirPhotonpT -> ProjectionX(Form("BBCspTsum_midDirPhotonpTClass%d", dirpT+1), binNum_cutStart, binNum_cutFinish);
+		BBCspTsum_midDirPhotonpTsum[dirpT] = (TH1D*)BBCspTsum_vs_maxDirPhotonpT -> ProjectionX(Form("BBCsNch_midDirPhotonpTClass%d", dirpT+1), binNum_cutStart, binNum_cutFinish);
 		BBCspTsum_midDirPhotonpTsum[dirpT] -> Scale(1./BBCspTsum_midDirPhotonpTsum[dirpT] -> Integral());
-		BBCspTsum_midDirPhotonpTsum_rebinned[dirpT] = (TH1D*)BBCspTsum_midDirPhotonpTsum[dirpT] -> Rebin(pTsumBinNum, Form("BBCspTsum_midDirPhotonpTClass%d_rebinned", dirpT+1), pTsumBin);
+		BBCspTsum_midDirPhotonpTsum_rebinned[dirpT] = (TH1D*)BBCspTsum_midDirPhotonpTsum[dirpT] -> Rebin(pTsumBinNum, Form("BBCsNch_midDirPhotonpTClass%d_rebinned", dirpT+1), pTsumBin);
 
 		//Add to Hlist
 		Hlist_raw -> Add(BBCspTsum_midDirPhotonpTsum[dirpT]);
@@ -38,7 +38,7 @@ void analysis_correlations_BBCsMultiplicity_chargepTsum_corrWithMidDirPhoton(TSt
 
 	//Analysis done.
 	//==============
-	TFile *output = new TFile(Form("pAu200GeV_p8303_%s_option3_correlations_BBCsMultiplicity_chargepTsum_corrWithMidDirPhoton.root", version.Data()), "recreate");
+	TFile *output = new TFile(Form("pAu200GeV_p8303_%s_option3_correlations_BBCsMultiplicity_Nch_corrWithMidDirPhoton.root", version.Data()), "recreate");
 	output -> cd();
 	Hlist_raw -> Write();
 	Hlist_rebinned -> Write();

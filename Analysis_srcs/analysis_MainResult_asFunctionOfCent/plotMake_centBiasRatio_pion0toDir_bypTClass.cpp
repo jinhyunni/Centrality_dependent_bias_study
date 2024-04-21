@@ -23,11 +23,11 @@ void plotMake_centBiasRatio_pion0toDir_bypTClass()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.8, 80, 1.3);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(0, 0.7, 80, 1.5);
 
         htmp -> GetXaxis() -> SetTitle("centrality{%}");
         htmp -> GetYaxis() -> SetTitle("Centrality Bias on #pi^{0} / Centrality Bias on #gamma^{dir}");
-                   
+                  
         ratio_scaled[0] -> SetMarkerStyle(34);
         ratio_scaled[0]-> SetMarkerColor(kViolet);
         ratio_scaled[0] -> SetLineColor(kViolet);

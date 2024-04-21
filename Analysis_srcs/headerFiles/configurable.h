@@ -5,6 +5,7 @@
 
 //double pTBin[]={2.0, 4.0, 7.0, 10.0, 15.0, 20.0};	const int pTBinNum=5;
 double pTBin[]={0.0, 2.0, 4.0, 7.0, 10.0, 15.0, 20.0};	const int pTBinNum=6;
+double pTBinBroader[]={0.0, 2.0, 7.0,  20.0};	const int pTBinBroaderNum=3;
 //double pTBin[]={2.0, 4.0, 7.0, 10.0, 20.0};	const int pTBinNum=4;
 //double pTBin[]={0, 10.0, 20.0};	const int pTBinNum=3;
 //double pTBin[]={0, 0.5, 1.0, 1.5, 2.0, 3.0, 5.0, 7.0, 9.0, 11.0, 15.0, 20.0}; const int pTBinNum = 11;

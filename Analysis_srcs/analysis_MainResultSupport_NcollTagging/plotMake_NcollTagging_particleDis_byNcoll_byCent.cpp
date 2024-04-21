@@ -53,13 +53,14 @@ void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 			gPad -> SetRightMargin(0.12);
 			gPad -> SetTopMargin(0.05);
 			gPad -> SetBottomMargin(0.12);
+			gPad -> SetLogz();
 
-			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 25);
+			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 30);
 
 			htmp -> GetXaxis() -> SetTitle("#eta");
 			htmp -> GetYaxis() -> SetTitle("p_{T}");
 			
-			charge_pTeta[NCOLLPLOT][cent] -> Draw("colz");
+			charge_pTeta[NCOLLPLOT][cent] -> Draw("p same colz");
 
 			TLegend *leg1 = new TLegend(0.15, 0.7, 0.51, 0.9);
 			leg1 -> SetFillStyle(0);
@@ -83,13 +84,14 @@ void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 			gPad -> SetRightMargin(0.12);
 			gPad -> SetTopMargin(0.05);
 			gPad -> SetBottomMargin(0.12);
+			gPad -> SetLogz();
 
-			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 25);
+			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 30);
 
 			htmp -> GetXaxis() -> SetTitle("#eta");
 			htmp -> GetYaxis() -> SetTitle("p_{T}");
 			
-			pion0_pTeta[NCOLLPLOT][cent] -> Draw("colz");
+			pion0_pTeta[NCOLLPLOT][cent] -> Draw("p same colz");
 
 			TLegend *leg1 = new TLegend(0.15, 0.7, 0.51, 0.9);
 			leg1 -> SetFillStyle(0);
@@ -113,13 +115,14 @@ void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 			gPad -> SetRightMargin(0.12);
 			gPad -> SetTopMargin(0.05);
 			gPad -> SetBottomMargin(0.12);
+			gPad -> SetLogz();
 
-			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 25);
+			TH1D *htmp = (TH1D*)gPad -> DrawFrame(-5, 0, 5, 30);
 
 			htmp -> GetXaxis() -> SetTitle("#eta");
 			htmp -> GetYaxis() -> SetTitle("p_{T}");
 			
-			dirPhoton_pTeta[NCOLLPLOT][cent] -> Draw("colz");
+			dirPhoton_pTeta[NCOLLPLOT][cent] -> Draw("p same colz");
 
 			TLegend *leg1 = new TLegend(0.15, 0.7, 0.51, 0.9);
 			leg1 -> SetFillStyle(0);

@@ -1,6 +1,6 @@
 #include "../headerFiles/configurable.h"
 
-void analysis_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0(TString version)
+void analysis_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0_broaderCut(TString version)
 {
 	//Input
 	//=====
@@ -12,14 +12,14 @@ void analysis_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0(TString
 	TObjArray *Hlist_raw = new TObjArray(0);
 	TObjArray *Hlist_rebinned = new TObjArray(0);
 	
-	TH1D *BBCspTsum_midPion0pTsum[pTBinNum];
-	TH1D *BBCspTsum_midPion0pTsum_rebinned[pTBinNum];
+	TH1D *BBCspTsum_midPion0pTsum[pTBinBroaderNum];
+	TH1D *BBCspTsum_midPion0pTsum_rebinned[pTBinBroaderNum];
 
-	for(int pi0pT=0; pi0pT<pTBinNum; pi0pT++)
+	for(int pi0pT=0; pi0pT<pTBinBroaderNum; pi0pT++)
 	{
  		double binwidth = BBCspTsum_vs_maxPion0pT -> GetYaxis() -> GetBinWidth(1);
-		int binNum_cutStart = BBCspTsum_vs_maxPion0pT -> GetYaxis() -> FindBin(pTBin[pi0pT]);
-		int binNum_cutFinish = BBCspTsum_vs_maxPion0pT -> GetYaxis() -> FindBin(pTBin[pi0pT+1] - binwidth);
+		int binNum_cutStart = BBCspTsum_vs_maxPion0pT -> GetYaxis() -> FindBin(pTBinBroader[pi0pT]);
+		int binNum_cutFinish = BBCspTsum_vs_maxPion0pT -> GetYaxis() -> FindBin(pTBinBroader[pi0pT+1] - binwidth);
 //*			int binNum_cutStart = (int)(pTBin[pi0pT]*1./binwidth)+1;
  //*		int binNum_cutFinish = (int)(pTBin[pi0pT+1]*1./binwidth);
 
@@ -28,17 +28,19 @@ void analysis_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0(TString
 		cout << "***************" << endl;
 
 		BBCspTsum_midPion0pTsum[pi0pT] = (TH1D*)BBCspTsum_vs_maxPion0pT -> ProjectionX(Form("BBCspTsum_midPion0pTClass%d", pi0pT+1), binNum_cutStart, binNum_cutFinish);
-		BBCspTsum_midPion0pTsum[pi0pT] -> Scale(1./BBCspTsum_midPion0pTsum[pi0pT] -> Integral());
 		BBCspTsum_midPion0pTsum_rebinned[pi0pT]=(TH1D*)BBCspTsum_midPion0pTsum[pi0pT] -> Rebin(pTsumBinNum, Form("BBCspTsum_midPion0pTClass%d_rebinned", pi0pT+1), pTsumBin);
+		BBCspTsum_midPion0pTsum_rebinned[pi0pT] -> Scale(1./BBCspTsum_midPion0pTsum_rebinned[pi0pT] -> Integral(), "width");
 
 		//Add to hlist
 		Hlist_raw -> Add(BBCspTsum_midPion0pTsum[pi0pT]);
 		Hlist_rebinned -> Add(BBCspTsum_midPion0pTsum_rebinned[pi0pT]);
 	}
 
+
+
 	//Analysis done.
 	//==============
-	TFile *output = new TFile(Form("pAu200GeV_p8303_%s_option3_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0.root", version.Data()), "recreate");
+	TFile *output = new TFile(Form("pAu200GeV_p8303_%s_option3_correlations_BBCsMultiplicity_chargepTsum_corrWithMidPion0_broaderCut.root", version.Data()), "recreate");
 	output -> cd();
 	Hlist_raw -> Write();
 	Hlist_rebinned -> Write();

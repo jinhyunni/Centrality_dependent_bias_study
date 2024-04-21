@@ -46,7 +46,8 @@ void analysis_dirPhoton_dNdpT_MBevents()
     //ouput
     //-----
     TFile *output = new TFile("pAu200GeV_p8303_onlyDirPhoton_option3_dirPhoton_dNdpT_MBevents.root", "recreate");
-    
+
+    numDirpT -> Write();
 	numDirpT_perEvent -> Write();
 	dndpt_dir_mb -> Write();
 	YavgNcollpT_dir -> Write();

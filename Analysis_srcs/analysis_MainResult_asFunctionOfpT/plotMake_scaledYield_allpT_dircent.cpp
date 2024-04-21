@@ -1,4 +1,4 @@
-void plotMake_scaledYield_dircent()
+void plotMake_scaledYield_allpT_dircent()
 {
     TFile *input1 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
     TFile *input2 = new TFile("pAu200GeV_p8303ver3_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
