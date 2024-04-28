@@ -48,12 +48,13 @@ void plotMake_avgNcollCent()
         avgNcollver4 -> SetLineColor(2);
         avgNcollver4 -> Draw("p same");
 
-		TLegend *leg1 = new TLegend(0.45, 0.78, 0.75, 0.9);
+		TLegend *leg1 = new TLegend(0.5, 0.7, 0.8, 0.9);
 		leg1 -> SetFillStyle(0);
 		leg1 -> SetBorderSize(0);
-		leg1 -> SetTextSize(0.04);
+		leg1 -> SetTextSize(0.05);
 		leg1 -> AddEntry("","PYTHIA8, option3", "h");
 		leg1 -> AddEntry("","p+Au, 200 GeV", "h");
+		leg1 -> AddEntry("","Calculated with True N_{coll}", "h");
 		leg1 -> AddEntry(avgNcoll_MB, "#LTN_{coll}#GT of total events", "p");
 	    leg1 -> Draw();
         

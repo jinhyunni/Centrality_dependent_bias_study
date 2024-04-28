@@ -1,7 +1,7 @@
 #include "../headerFiles/configurable.h"
 
 #define NcollClass 6
-#define NCOLLPLOT 1
+#define NCOLLPLOT 0
 
 void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 {

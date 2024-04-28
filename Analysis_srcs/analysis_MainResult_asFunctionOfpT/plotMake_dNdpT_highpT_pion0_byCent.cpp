@@ -27,7 +27,8 @@ void plotMake_dNdpT_highpT_pion0_byCent()
         TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.000000005, 20, 1e-1);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
-        htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}}");
+        htmp -> GetYaxis() -> SetTitle("dN^{#pi^{0}}/dp_{T}");
+        //htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#pi^{0}}}{dp_{T}}");
 
         dNdpT_pion0_MB -> SetMarkerStyle(34);
         dNdpT_pion0_MB -> SetMarkerColor(1);
@@ -60,19 +61,19 @@ void plotMake_dNdpT_highpT_pion0_byCent()
         dNdpT_pion0_cent5 -> Draw("p same");
 
 
-        TLegend *leg1 = new TLegend(0.31, 0.6, 0.71, 0.9);
+        TLegend *leg1 = new TLegend(0.35, 0.5, 0.5, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.05);
-        leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
+        leg1 -> AddEntry("", "PYTHIA8, p+Au, 200 GeV with option3", "h");
         leg1 -> AddEntry("", "#pi^{0} in |#eta|<1", "h");
         
-        leg1 -> AddEntry(dNdpT_pion0_MB, "all inelastic(MB)", "p");
-        leg1 -> AddEntry(dNdpT_pion0_cent1, "cent: 0~10%", "p");
-        leg1 -> AddEntry(dNdpT_pion0_cent2, "cent: 10~20%", "p");
-        leg1 -> AddEntry(dNdpT_pion0_cent3, "cent: 20~40%", "p");
-        leg1 -> AddEntry(dNdpT_pion0_cent4, "cent: 40~60%", "p");
-        leg1 -> AddEntry(dNdpT_pion0_cent5, "cent: 60~80%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_MB, "all inelastic events(MB)", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent1, "centrality: 0~10%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent2, "centrality: 10~20%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent3, "centrality: 20~40%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent4, "centrality: 40~60%", "p");
+        leg1 -> AddEntry(dNdpT_pion0_cent5, "centrality: 60~80%", "p");
 
         leg1 -> Draw();
 

@@ -24,10 +24,11 @@ void plotMake_dNdpT_highpT_dirPhoton_byCent()
 
         gPad -> SetLogy();
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.0000000001, 20, 0.0001);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(2, 0.0000000001, 20, 0.001);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
-        htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}}");
+        htmp -> GetYaxis() -> SetTitle("dN^{#gamma^{dir}}/dp_{T}");
+        //htmp -> GetYaxis() -> SetTitle("#frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}}");
 
         dNdpT_dir_MB -> SetMarkerStyle(34);
         dNdpT_dir_MB -> SetMarkerColor(1);
@@ -60,11 +61,11 @@ void plotMake_dNdpT_highpT_dirPhoton_byCent()
         dNdpT_dir_cent5 -> Draw("p same");
 
 
-        TLegend *leg1 = new TLegend(0.31, 0.6, 0.71, 0.9);
+        TLegend *leg1 = new TLegend(0.35, 0.5, 0.6, 0.9);
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.05);
-        leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
+        leg1 -> AddEntry("", "PYTHIA8, p+Au, 200 GeV with option3", "h");
         leg1 -> AddEntry("", "#gamma^{dir} in |#eta|<1", "h");
 
         leg1 -> AddEntry(dNdpT_dir_MB, "all inelastic events(MB)", "p");

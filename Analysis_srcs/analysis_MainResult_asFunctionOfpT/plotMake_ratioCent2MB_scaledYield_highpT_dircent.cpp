@@ -25,9 +25,9 @@ void plotMake_ratioCent2MB_scaledYield_highpT_dircent()
         TH1D *htmp = (TH1D*)gPad -> DrawFrame(2.0, 0, 20, 2.5);
 
         htmp -> GetXaxis() -> SetTitle("p_{T}(GeV/c)");
+		htmp -> GetYaxis() -> SetTitleOffset(1.29140625);
         htmp -> GetYaxis() -> SetTitle("(#frac{1}{#LT N_{coll} #GT} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}})_{cent} / (#frac{1}{#LT N_{coll} #GT} #frac{1}{N_{event}} #frac{dN^{#gamma^{dir}}}{dp_{T}})_{MB} ");
 
-            
         ratio_scaled[0] -> SetMarkerStyle(34);
         ratio_scaled[0]-> SetMarkerColor(kGreen+1);
         ratio_scaled[0] -> SetLineColor(kGreen+1);
@@ -58,7 +58,7 @@ void plotMake_ratioCent2MB_scaledYield_highpT_dircent()
         leg1 -> SetFillStyle(0);
         leg1 -> SetBorderSize(0);
         leg1 -> SetTextSize(0.05);
-        leg1 -> AddEntry("", "PYTHIA8, pAu200GeV with option3", "h");
+        leg1 -> AddEntry("", "PYTHIA8, p+Au 200 GeV with option3", "h");
         leg1 -> AddEntry("", "#gamma^{dir} in |#eta|<1", "h");
 
         leg1 -> AddEntry(ratio_scaled[0], "centrality: 0~10%", "p");
