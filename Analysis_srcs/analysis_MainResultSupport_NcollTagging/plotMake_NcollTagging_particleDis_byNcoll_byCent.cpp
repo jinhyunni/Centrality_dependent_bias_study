@@ -1,7 +1,7 @@
 #include "../headerFiles/configurable.h"
 
-#define NcollClass 6
-#define NCOLLPLOT 0
+#define NcollClass 6 	//Fixed total # of class, when we divide events by Ncoll of interval 5
+#define NCOLLPLOT 0		//Selected Ncoll class of event
 
 void plotMake_NcollTagging_particleDis_byNcoll_byCent()
 {

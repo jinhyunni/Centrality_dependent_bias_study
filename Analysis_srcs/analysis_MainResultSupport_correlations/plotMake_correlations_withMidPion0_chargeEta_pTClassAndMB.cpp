@@ -30,30 +30,30 @@ void plotMake_correlations_withMidPion0_chargeEta_pTClassAndMB()
         htmp -> GetXaxis() -> SetTitle("#eta");
         htmp -> GetYaxis() -> SetTitle("dN^{ch}/d#eta");
 
-        dNdeta_1 -> SetMarkerStyle(25);
-        dNdeta_1 -> SetMarkerColor(kOrange+10);
-        dNdeta_1 -> SetLineColor(kOrange+10);
-        dNdeta_1 -> Draw("p same");
+ //*        dNdeta_1 -> SetMarkerStyle(25);
+ //*        dNdeta_1 -> SetMarkerColor(kOrange+10);
+ //*        dNdeta_1 -> SetLineColor(kOrange+10);
+ //*        dNdeta_1 -> Draw("p same");
 
 		dNdeta_2 -> SetMarkerStyle(34);
         dNdeta_2 -> SetMarkerColor(kOrange);
         dNdeta_2 -> SetLineColor(kOrange);
         dNdeta_2 -> Draw("p same");
 
-        dNdeta_3 -> SetMarkerStyle(34);
-        dNdeta_3 -> SetMarkerColor(kRed);
-        dNdeta_3 -> SetLineColor(kRed);
-        dNdeta_3 -> Draw("p same");
+ //*        dNdeta_3 -> SetMarkerStyle(34);
+ //*        dNdeta_3 -> SetMarkerColor(kRed);
+ //*        dNdeta_3 -> SetLineColor(kRed);
+ //*        dNdeta_3 -> Draw("p same");
 
         dNdeta_4 -> SetMarkerStyle(28);
         dNdeta_4 -> SetMarkerColor(kPink);
         dNdeta_4 -> SetLineColor(kPink);
         dNdeta_4 -> Draw("p same");
     
-        dNdeta_5 -> SetMarkerStyle(47);
-        dNdeta_5 -> SetMarkerColor(kMagenta);
-        dNdeta_5 -> SetLineColor(kMagenta);
-        dNdeta_5 -> Draw("p same");
+ //*        dNdeta_5 -> SetMarkerStyle(47);
+ //*        dNdeta_5 -> SetMarkerColor(kMagenta);
+ //*        dNdeta_5 -> SetLineColor(kMagenta);
+ //*        dNdeta_5 -> Draw("p same");
 
 		dNdeta_6 -> SetMarkerStyle(25);
         dNdeta_6 -> SetMarkerColor(kViolet);
@@ -88,13 +88,13 @@ void plotMake_correlations_withMidPion0_chargeEta_pTClassAndMB()
         leg1 -> SetTextSize(0.04);
         leg1 -> AddEntry("", "PYTHIA8, p+Au 200GeV with option3", "h");
         
-        leg1 -> AddEntry(dNdeta_1, "Events with p_{T} #LT 2 GeV #pi^{0} at |#eta|<1", "p");
-		leg1 -> AddEntry(dNdeta_2, "Events with 2 GeV #leq p_{T} #LT 4 GeV #pi^{0} at |#eta|<1", "p");
-        leg1 -> AddEntry(dNdeta_3, "Events with 4 GeV #leq p_{T} #LT 7 GeV #pi^{0} at |#eta|<1", "p");
-        leg1 -> AddEntry(dNdeta_4, "Events with 7 GeV #leq p_{T} #LT 10 GeV #pi^{0} at |#eta|<1", "p");
-        leg1 -> AddEntry(dNdeta_5, "Events with 10 GeV #leq p_{T} #LT 15 GeV #pi^{0} at |#eta|<1", "p");
-        leg1 -> AddEntry(dNdeta_6, "Events with 15 GeV #leq p_{T} #LT 20 GeV #pi^{0} at |#eta|<1", "p");
         leg1 -> AddEntry(dNdeta_MB, "MB events", "p");
+        //leg1 -> AddEntry(dNdeta_1, "Events with p_{T} #LT 2 GeV #pi^{0} at |#eta|<1", "p");
+		leg1 -> AddEntry(dNdeta_2, "Events with 2 GeV #leq p_{T} #LT 4 GeV #pi^{0} at |#eta|<1", "p");
+        //leg1 -> AddEntry(dNdeta_3, "Events with 4 GeV #leq p_{T} #LT 7 GeV #pi^{0} at |#eta|<1", "p");
+        leg1 -> AddEntry(dNdeta_4, "Events with 7 GeV #leq p_{T} #LT 10 GeV #pi^{0} at |#eta|<1", "p");
+        //leg1 -> AddEntry(dNdeta_5, "Events with 10 GeV #leq p_{T} #LT 15 GeV #pi^{0} at |#eta|<1", "p");
+        leg1 -> AddEntry(dNdeta_6, "Events with 15 GeV #leq p_{T} #LT 20 GeV #pi^{0} at |#eta|<1", "p");
  //*		leg1 -> AddEntry(dNdeta_2, "Events with 2 GeV #leq p_{T} #LT 4 GeV #pi^{0} at |#eta|<1", "p");
  //*        leg1 -> AddEntry(dNdeta_4, "Events with 7 GeV #leq p_{T} #LT 10 GeV #pi^{0} at |#eta|<1", "p");
  //*        leg1 -> AddEntry(dNdeta_6, "Events with 15 GeV #leq p_{T} #LT 20 GeV #pi^{0} at |#eta|<1", "p");

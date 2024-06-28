@@ -1,7 +1,11 @@
 void plotMake_scaledYield_highpT_dircent()
 {
-    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
-    TFile *input2 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
+ //*    TFile *input1 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_byCentrality.root", "read");
+ //*    TFile *input2 = new TFile("pAu200GeV_p8303ver4_option3_yieldOfgammaApion0_bypT_MBevents.root", "read");
+
+	TFile *input1 = new TFile("pAu200GeV_p8303ver5_option3_dirPhoton_dNdpT_allEvents.root", "read");
+    TFile *input2 = new TFile("pAu200GeV_p8303ver5_option3_dirPhoton_dNdpT_MBevents.root", "read");
+
 
     TH1D *scaled_cent[5];
     for(int i=0; i<5; i++)
@@ -19,8 +23,8 @@ void plotMake_scaledYield_highpT_dircent()
         c1 -> cd();
 
         gPad -> SetTicks();
-        gPad -> SetLeftMargin(0.12);
-        gPad -> SetRightMargin(0.12);
+        gPad -> SetLeftMargin(0.15);
+        gPad -> SetRightMargin(0.15);
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 

@@ -31,9 +31,10 @@ void plotMake_NcollByCent()
         gPad -> SetTopMargin(0.05);
         gPad -> SetBottomMargin(0.12);
 
-		gPad -> SetLogy();
+		//gPad -> SetLogy();
 
-        TH1D *htmp = (TH1D*)gPad -> DrawFrame(1, 0.00000000001, 50, 100);
+        //TH1D *htmp = (TH1D*)gPad -> DrawFrame(1, 0.00000000001, 50, 100);
+        TH1D *htmp = (TH1D*)gPad -> DrawFrame(1, 0, 25, 0.25);
 
         htmp -> GetXaxis() -> SetTitle("N_{coll}");
         htmp -> GetYaxis() -> SetTitle("dN/dN_{coll}");
